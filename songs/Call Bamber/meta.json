@@ -4,12 +4,13 @@
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"bpm": 150,
+	"album": 2,
 	"difficulties": [
-		"NORMAL"
+		"normal"
 	],
 	"needsVoices": false,
 	"parsedColor": -6724045,
-	"displayName": "Call Bamber",
+	"displayName": "Call (Bamber Mix)",
 	"icon": "elisocray",
 	"name": "Call Bamber",
 	"color": "#996633",

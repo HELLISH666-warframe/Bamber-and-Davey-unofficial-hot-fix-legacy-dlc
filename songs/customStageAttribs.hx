@@ -74,4 +74,8 @@ if(stage != null && stage.stageXML != null){
 		//trace(e.rating);
 		e.ratingPrefix = "game/score/" + (stage.stageXML.get("scorePath")!= null ? stage.stageXML.get("scorePath") : "default/");
 	}
+	function onPlayerHit(e){
+		//e.note.splash =(Assets.exists(Paths.image(stage.stageXML.get("noteSkin") != null ? stage.stageXML.get("noteSkin") : "default"))? PlayState.instance.SONG.meta.countdownsound : "default") + "/" + countingDown[e.swagCounter];
+		e.note.splash = (Assets.exists(Paths.image("game/splashes/"+stage.stageXML.get("noteSkin"))) ? stage.stageXML.get("noteSkin") : "default");
+	}
 }

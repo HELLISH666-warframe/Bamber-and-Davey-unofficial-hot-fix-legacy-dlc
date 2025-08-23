@@ -1,0 +1,13 @@
+<!DOCTYPE codename-engine-dialogue-character>
+<character x="400" y="-10">
+	<anim name="confused" anim="BF CONFUSED LOOP" fps="24" />
+	<anim name="confused-static" anim="BF CONFUSED" fps="24"/>
+	<anim name="shocked" anim="BF SHOCK LOOP" fps="24" />
+	<anim name="shocked-static" anim="BF SHOCK" fps="24"/>
+	<anim name="pissed" anim="BF PISSED LOOP" fps="24" />
+	<anim name="pissed-static" anim="BF PISSED" fps="24"/>
+	<anim name="excited" anim="BF EXCITED LOOP" fps="24" />
+	<anim name="excited-static" anim="BF EXCITED" fps="24"/>
+	<anim name="talk" anim="BF0" fps="24" />
+	<anim name="talk-static" anim="BF LOOP" fps="24"/>
+</character>

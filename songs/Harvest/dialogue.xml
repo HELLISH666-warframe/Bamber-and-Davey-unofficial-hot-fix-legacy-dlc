@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-dialogue>
-<dialogue box="default">
+<dialogue box="bamber">
 	<!-- All characters -->
 	<char name="bamber" char="bamber" position="left"/>
 	<char name="isaac" char="isaac" position="right"/>

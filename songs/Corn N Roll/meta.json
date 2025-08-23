@@ -1,6 +1,7 @@
 {
 	"displayName": "Corn N' Roll",
 	"bpm": 160,
+	"album": 2,
 	"icon": "bfdi-bnd",
 	"color": "#2FFE80",
 	"coopAllowed": true,

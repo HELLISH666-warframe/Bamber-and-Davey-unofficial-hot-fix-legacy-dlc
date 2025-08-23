@@ -1,35 +1,45 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 {
-	"displayName": null,
-	"bpm": 180,
-	"icon": "Bamber",
-	"color": "#00CC00",
-	"coopAllowed": true,
-	"opponentModeAllowed": true,
-	"album": 2.5
-=======
-=======
->>>>>>> Stashed changes
-{
-	"opponentModeAllowed": true,
-	"icon": "Bamber",
+	"opponentModeAllowed": false,
+	"icon": "bamber",
 	"difficulties": [
-		"EASY",
-		"HARD",
-		"NORMAL",
+		"Easy",
+		"Normal",
+		"Hard",
 		"VIP"
 	],
-	"color": "#00CC00",
-	"coopAllowed": true,
 	"name": "Yield",
+	"coopAllowed": false,
+	"color": -7179779,
 	"stepsPerBeat": 4,
 	"displayName": "Yield",
 	"beatsPerMeasure": 4,
+	"metas": {
+		"VIP": {
+			"opponentModeAllowed": false,
+			"difficulties": [
+				"Easy",
+				"Normal",
+				"Hard",
+				"VIP"
+			],
+			"icon": "bamber",
+			"color": -7179779,
+			"name": "Yield",
+			"coopAllowed": false,
+			"stepsPerBeat": 4,
+			"displayName": "Yield",
+			"needsVoices": true,
+			"beatsPerMeasure": 4,
+			"metas": {},
+			"vocalsSuffix": "",
+			"instSuffix": "",
+			"bpm": 100,
+			"album": 2.5
+		}
+	},
 	"needsVoices": true,
-	"bpm": 180
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+	"bpm": 150,
+	"album": 2,
+	"instSuffix": "",
+	"vocalsSuffix": ""
 }

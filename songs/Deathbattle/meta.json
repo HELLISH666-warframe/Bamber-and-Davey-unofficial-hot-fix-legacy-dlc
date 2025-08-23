@@ -1,6 +1,7 @@
 {
 	"displayName": null,
 	"bpm": 250,
+	"album": 2,
 	"icon": "grug",
 	"color": "#DF1207",
 	"coopAllowed": true,

@@ -1,0 +1,20 @@
+<!DOCTYPE codename-engine-dialogue>
+<dialogue box="default">
+	<!-- All characters -->
+	<char name="OLDbamber" char="OLDbamber" position="left"/>
+	<char name="OLDbf" char="OLDbf" position="right"/>
+
+	<!-- Lines -->
+	<line char="OLDbamber" speed="0.02" changeDefAnim="flabbergasted" bubble="angry">
+		oh wtf what the fuck are you doing back in my farm get out
+	</line>
+	<line char="OLDbf" speed="0.05" changeDefAnim="excited" bubble="normal">
+		i wanna rap battle again :)
+	</line>
+	<line char="OLDbamber" speed="0.02" changeDefAnim="talk">
+		oh my god please fuck off after this song
+	</line>
+	<line char="OLDbf" speed="0.02" changeDefAnim="talk">
+		ok
+	</line>
+</dialogue>

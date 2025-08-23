@@ -1,8 +1,10 @@
 import funkin.backend.chart.Chart;
+import funkin.menus.StoryMenuState.StoryWeeklist;
 import flixel.text.FlxTextBorderStyle;
 import funkin.savedata.FunkinSave;
 import funkin.backend.FunkinText;
 import flixel.group.FlxTypedSpriteGroup;
+import funkin.backend.MusicBeatSubstate;
 import openfl.Assets;
 import Sys;
 
@@ -26,9 +28,9 @@ var songst = [
 	["Yield", "Cornaholic", "Harvest"],
 	["Synthwheel", "Yard", "Coop"],
 	["Ron Be Like", "Bob Be Like", "Fortnite Duos"],
-	["Blusterous Day", "Swindled", "Trade", "Multiversus"],
-	["Generations","Memeing","Judgement Farm","Judgement Farm 2","Yield - OST"],
-	["Call (Bamber Mix)","Deathbattle","H2O"],
+	["Blusterous Day", "Swindled", "Trade", "Multiversus", "Slammed"],
+	["Generations","Memeing","Judgement Farm","Judgement Farm 2","Yeld"],
+	["Call Bamber","Deathbattle","H2O"],
 	["Corn N Roll","Screencast"],
 	["Spookeez", "South", "Pico", "2Hot"],
 	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix"]
@@ -37,7 +39,8 @@ var songst = [
 var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
 var vinylNotVinylAssFucker = new FlxCamera();
 var textCam = new FlxCamera();
-var curSelected:Int = 0;
+static var curSelected:Int = 0;
+var storymode:Bool = false;
 var songser = [];
 var songL:FlxTypedGroup<FlxText> = [];
 var songLBgs:FlxTypedGroup = new FlxTypedGroup();
@@ -52,13 +55,14 @@ subCurSelectedLimit = songser.length - 1;
 function create() {
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/albums/"))) Paths.image("menus/freeplay/albums/" + i);
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/silhouettes/"))) Paths.image("menus/freeplay/silhouettes/" + i);
-	add(new FunkinSprite().loadGraphic(Paths.image("menus/menuBG"))).screenCenter();
+	add(new FunkinSprite().loadGraphic(Paths.image("menus/menuDesat"))).screenCenter();
 	album = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"));
 	add(album);
 	album.screenCenter();
 	album.x -= 412;
 	album.y -= 128;
 	album.scale.set(0.175, 0.175);
+	album.setGraphicSize(350,350);
 	
 	playall = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/silhouettes/playall"));
 	playall.scale.set(0.33, 0.33);
@@ -81,7 +85,8 @@ function create() {
         vinylGroup.add(sprite);
     }
     add(vinylGroup);
-	FlxG.sound.music.stop();
+	if(FlxG.sound.music!=null) FlxG.sound.music.fadeOut(2,0);
+	//Why_:(
 	
 	vinylNotVinylAssFucker = new FlxCamera();
 	vinylNotVinylAssFucker.bgColor = 0;
@@ -109,7 +114,7 @@ function create() {
     }
 	
 	change(0);
-	add(songLBgs);
+	insert(7,songLBgs);
 	
 	scorText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "right", FlxTextBorderStyle.SHADOW, 0xFF000000);
 	scorText.text = "score: 2763";
@@ -132,9 +137,18 @@ function update(elapsed) {
 		
 	if (controls.ACCEPT)
 	{
-		PlayState.loadSong(songser[subCurSelected].name, "hard");
-		FlxG.switchState(new PlayState());
+		openSubState(new MusicBeatSubstate(true,"Freeplay_substate"));
+		persistentUpdate = !persistentDraw;
+		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
+		FlxG.save.data.Bamber_song_diff = songser[subCurSelected].difficulties;
 	}
+	if (FlxG.mouse.overlaps(playall) && FlxG.mouse.pressed && !storymode && curSelected<3) {
+		storymode=true;
+		weeks = StoryWeeklist.get(true, false).weeks;
+		PlayState.loadWeek(weeks[curSelected], "normal");
+		FlxG.switchState(new PlayState());
+        trace("Story_shall_be_playable.\nWAIT_HOW_ARE_YOU_MEANT_TO_PICK_THE_DIFFICULTY!?!?!");
+    }
 	
     for (i in vinylGroup.members) {
         i.x = lerp(i.x, -460 * (curSelected - i.ID), 0.2);
@@ -146,6 +160,7 @@ function update(elapsed) {
 	for (i in 0...songL.length)
 	{
 		songL[i].x = 640+ i * 128;
+		//songL[i].x = 640;
 		songL[i].y = 160 + i * 128;
 	}
 	
@@ -164,7 +179,7 @@ function changements(a) {
 		songL[subCurSelected].alpha = 1;
 	}
 	
-	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "normal").score;
+	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "erect").score;
 	var ver = songser[subCurSelected].album;
 	if (ver == null) ver = 2;
 	if (data[curSelected][0] == "Legacy") ver = 1;
@@ -247,7 +262,8 @@ function change(a) {
 			var bg = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/silhouettes/"+kys));			
 			songLBgs.add(bg);
 
-			var text = new Alphabet(0, 0, 0, true);
+			var text = new Alphabet(0, 0);
+			text.alignment='right';
 			text.text = songser[i].displayName;
 			text.color = FlxColor.WHITE;
 			songL.push(text);

@@ -1,4 +1,5 @@
 {
+	"color": "#00CC00",
 	"opponentModeAllowed": true,
 	"icon": "Bamber",
 	"difficulties": [
@@ -7,17 +8,12 @@
 		"HARD",
 		"VIP"
 	],
-	"color": -16724992,
 	"coopAllowed": true,
-	"name": "Cornaholic",
 	"stepsPerBeat": 4,
 	"displayName": "Cornaholic",
 	"countdownsound": "bamber",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"metas": {},
 	"album": 2.5,
-	"bpm": 130,
-	"instSuffix": "",
-	"vocalsSuffix": ""
+	"bpm": 130
 }

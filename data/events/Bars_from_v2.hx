@@ -25,6 +25,13 @@ var customBarSize:Array<Dynamic> = [
 ];
 public var camOther:HudCamera;
 
+function create() {
+	FlxG.cameras.remove(camHUD, false);
+    FlxG.cameras.add(camOther = new HudCamera(), false);
+    camOther.bgColor = 0x00000000;
+    FlxG.cameras.add(camHUD, false);
+}
+
 function postCreate() {
 	for (i in 0...customBarSize.length){
 		if (customBarSize[i][0] == curSong){
@@ -32,10 +39,6 @@ function postCreate() {
 			trace("Chris_pratt.");
 		}
 	}
-	FlxG.cameras.remove(camHUD, false);
-    FlxG.cameras.add(camOther = new HudCamera(), false);
-    camOther.bgColor = 0x00000000;
-    FlxG.cameras.add(camHUD, false);
 
 	bar1.cameras=[camOther];bar2.cameras=[camOther];insert(0,bar1);insert(0,bar2);bar2.y=720-(barSize*10);bar1.y=-560+(barSize*10);
 }

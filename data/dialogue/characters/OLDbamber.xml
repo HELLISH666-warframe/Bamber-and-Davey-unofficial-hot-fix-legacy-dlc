@@ -1,0 +1,13 @@
+<!DOCTYPE codename-engine-dialogue-character>
+<character x="40" y="20">
+	<anim name="annoyed" anim="BAMBER ANNOYED LOOP" fps="24" />
+	<anim name="annoyed-static" anim="BAMBER ANNOYED" fps="24"/>
+	<anim name="confused" anim="BAMBER CONFUSED LOOP" fps="24" />
+	<anim name="confused-static" anim="BAMBER CONFUSED0" fps="24"/>
+	<anim name="flabbergasted" anim="BAMBER FLABBERGASTED LOOP" fps="24" />
+	<anim name="flabbergasted-static" anim="BAMBER FLABBERGASTED" fps="24"/>
+	<anim name="laugh" anim="BAMBER LAUGH LOOP" fps="24" />
+	<anim name="laugh-static" anim="BAMBER LAUGH0" fps="24"/>
+	<anim name="talk" anim="BAMBER LOOP" fps="24" />
+	<anim name="talk-static" anim="BAMBER" fps="24"/>
+</character>

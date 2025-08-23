@@ -1,6 +1,7 @@
 {
 	"displayName": null,
 	"bpm": 150,
+	"album": 2,
 	"icon": "Water",
 	"color": "#A5CEE3",
 	"coopAllowed": true,

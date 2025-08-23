@@ -9,7 +9,7 @@ function beatHit(curBeat:Int) {
 			FlxTween.cancelTweensOf(a);
 			FlxTween.tween(a, {angle: 0}, 0.5, {ease: FlxEase.circOut});
         }
-        if(PlayState.difficulty.toLowerCase() == "hard")
+        if(PlayState.difficulty.toLowerCase() == "hard" && FlxG.save.data.options.modcharts==true)
             for(b in strumLines)
                 for(c in b){
                     c.angle = curBeat % 2 == 0 ? (c.strumID % 2 == 0 ? 5 : -5) : (c.strumID % 2 == 0 ? -5 : 5);

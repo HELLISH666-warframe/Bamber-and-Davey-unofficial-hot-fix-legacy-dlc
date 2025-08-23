@@ -1,0 +1,15 @@
+{
+	"opponentModeAllowed": false,
+	"icon": "bamber",
+	"name": "Yield",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Yield",
+	"beatsPerMeasure": 4,
+	"metas": {},
+	"needsVoices": true,
+	"bpm": 100,
+	"album": 2.5,
+	"instSuffix": "",
+	"vocalsSuffix": ""
+}

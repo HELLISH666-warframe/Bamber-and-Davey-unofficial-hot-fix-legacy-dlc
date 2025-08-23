@@ -21,7 +21,9 @@ import funkin.menus.ModSwitchMenu;
 import funkin.menus.ui.ClassicAlphabet;
 import AnimatedFunkinSprite;
 
-public static var initialized = false; //post-intro sequence check
+//Making_it_true_so_theres_no_memerouytyz_;eaks!
+public static var initialized = true; //post-intro sequence check
+//public static var initialized = false; //post-intro sequence check
 public static var isInMenu = false; //if the player is on the main menu or the title screen
 
 var skippableTweens = []; //Tweens that will be stored here will be skipped when you restart the state, or if you go into it from somewhere else
