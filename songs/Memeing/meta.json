@@ -6,5 +6,6 @@
 	"color": "#038703",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"custom_credits": "true"
+	"custom_credits": "true",
+	"composer": "Test"
 }

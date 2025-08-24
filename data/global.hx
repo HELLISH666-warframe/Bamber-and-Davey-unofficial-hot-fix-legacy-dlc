@@ -97,6 +97,8 @@ function new() {
         "Romania Outskirts": false
     };
 
+    FlxG.save.data.gameStats.playtime ??= 0;
+
     FlxG.save.flush();
 }
 

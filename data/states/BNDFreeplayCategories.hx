@@ -21,19 +21,21 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["Collabs", "Collab Songs", 0xA5CEE3],
 	["Crossovers", "Crossover Songs", 0xFE3455],
 	["Remixes", "Remixes", 0xFF338A9C],
-	["Legacy", "Legacy/Old Content", 0x16AD01]
+	["Legacy", "Legacy/Old Content", 0x16AD01],
+	["Guh", "REMOVE_LATER", 0x16AD01]
 ];
 
 var songst = [	
 	["Yield", "Cornaholic", "Harvest"],
 	["Synthwheel", "Yard", "Coop"],
 	["Ron Be Like", "Bob Be Like", "Fortnite Duos"],
-	["Blusterous Day", "Swindled", "Trade", "Multiversus", "Slammed"],
+	["Blusterous Day", "Slammed","Origins", "Swindled", "Trade", "Multiversus"],
 	["Generations","Memeing","Judgement Farm","Judgement Farm 2","Yeld"],
 	["Call Bamber","Deathbattle","H2O"],
 	["Corn N Roll","Screencast"],
 	["Spookeez", "South", "Pico", "2Hot"],
-	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix"]
+	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix"],
+	["Astray", "Facsimile", "Placeholder", "Test Footage"]
 ];
 
 var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
@@ -149,6 +151,13 @@ function update(elapsed) {
 		FlxG.switchState(new PlayState());
         trace("Story_shall_be_playable.\nWAIT_HOW_ARE_YOU_MEANT_TO_PICK_THE_DIFFICULTY!?!?!");
     }
+
+	if (FlxG.keys.justPressed.SEVEN) {
+		persistentUpdate = false;
+		persistentDraw = true;
+		import funkin.editors.EditorPicker;
+		openSubState(new EditorPicker());
+	}
 	
     for (i in vinylGroup.members) {
         i.x = lerp(i.x, -460 * (curSelected - i.ID), 0.2);

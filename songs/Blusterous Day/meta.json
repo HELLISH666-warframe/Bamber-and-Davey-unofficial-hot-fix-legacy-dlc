@@ -6,5 +6,6 @@
 	"color": "#F2B65A",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"countdownsound": "amung"
+	"countdownsound": "amung",
+	"composer": "Seezee"
 }

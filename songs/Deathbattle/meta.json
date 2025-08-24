@@ -8,5 +8,6 @@
 	"opponentModeAllowed": true,
 	"custom_credits": true,
 	"credits_update": true,
-	"countdownsound": "manny"
+	"countdownsound": "manny",
+	"composer": "Glitch.smh"
 }

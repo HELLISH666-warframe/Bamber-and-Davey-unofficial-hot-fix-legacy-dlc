@@ -225,9 +225,9 @@ function toggle() {
 	checkboxes.members[curOption].animation.play(curOption==1 ? modchart_Toggle : cutscene_Toggle);
 }
 function changeScroll(s) {
+	scroll_Speed+= s;
 	trace(scroll_Speed);
 	if (scroll_Speed < 0) scroll_Speed = 0.1;
-	scroll_Speed+= s;
 }
 function playsong() {
 	FlxG.save.data.options.freeplayDialogue=cutscene_Toggle;
