@@ -18,3 +18,11 @@ function beatHit(curBeat:Int) {
                 }
     }
 }
+
+function postCreate() {
+    trace("\nStorymode :"+PlayState.isStoryMode+
+    "\nChartingmode :"+PlayState.chartingMode+
+    "\nDifficulty :"+PlayState.difficulty+
+    "\nWeek-name :"+PlayState.storyWeek.name+
+    "\nWeek-songs :"+PlayState.storyPlaylist);
+}

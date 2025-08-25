@@ -42,7 +42,6 @@ var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
 var vinylNotVinylAssFucker = new FlxCamera();
 var textCam = new FlxCamera();
 static var curSelected:Int = 0;
-var storymode:Bool = false;
 var songser = [];
 var songL:FlxTypedGroup<FlxText> = [];
 var songLBgs:FlxTypedGroup = new FlxTypedGroup();
@@ -144,12 +143,17 @@ function update(elapsed) {
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
 		FlxG.save.data.Bamber_song_diff = songser[subCurSelected].difficulties;
 	}
-	if (FlxG.mouse.overlaps(playall) && FlxG.mouse.pressed && !storymode && curSelected<3) {
-		storymode=true;
+	if (FlxG.mouse.overlaps(playall) && FlxG.mouse.pressed && curSelected<3) {
 		weeks = StoryWeeklist.get(true, false).weeks;
-		PlayState.loadWeek(weeks[curSelected], "normal");
-		FlxG.switchState(new PlayState());
-        trace("Story_shall_be_playable.\nWAIT_HOW_ARE_YOU_MEANT_TO_PICK_THE_DIFFICULTY!?!?!");
+		persistentUpdate = !persistentDraw;
+		//PlayState.loadWeek(weeks[curSelected], "hard");
+		//FlxG.switchState(new PlayState());
+
+		FlxG.save.data.Bamber_FREEPLAY_WEEK = weeks[curSelected];
+		FlxG.save.data.Bamber_FREEPLAY_WEEK_DIFF = weeks[curSelected].difficulties;
+		openSubState(new MusicBeatSubstate(true,"Storymode_substate"));
+		//PlayState.loadWeek(weeks[curSelected], "normal");
+		//FlxG.switchState(new PlayState());
     }
 
 	if (FlxG.keys.justPressed.SEVEN) {
