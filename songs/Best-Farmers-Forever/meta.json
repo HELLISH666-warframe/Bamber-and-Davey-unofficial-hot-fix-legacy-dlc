@@ -1,0 +1,15 @@
+{
+	"color": "#9271FD",
+	"opponentModeAllowed": false,
+	"difficulties": [
+		"NORMAL"
+	],
+	"icon": "bamber",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Best-Farmers-Forever",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"album": 1,
+	"bpm": 180
+}

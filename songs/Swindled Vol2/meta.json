@@ -1,0 +1,15 @@
+{
+	"color": "#8E0108",
+	"opponentModeAllowed": false,
+	"icon": "bamber-bout-2-howl-da-nword",
+	"difficulties": [
+		"ABSOLUTELY FUCKING FUCKED"
+	],
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Swindled v1",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"album": 2,
+	"bpm": 210
+}

@@ -1,0 +1,1 @@
+function postCreate() adobevoid.setGraphicSize(1080,720);//Funny_1_by_1_asset.

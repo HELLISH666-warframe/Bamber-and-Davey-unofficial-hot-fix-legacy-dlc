@@ -19,6 +19,8 @@ function beatHit(curBeat:Int) {
     }
 }
 
+/*
+
 function postCreate() {
     trace("\nStorymode :"+PlayState.isStoryMode+
     "\nChartingmode :"+PlayState.chartingMode+
@@ -26,3 +28,4 @@ function postCreate() {
     "\nWeek-name :"+PlayState.storyWeek.name+
     "\nWeek-songs :"+PlayState.storyPlaylist);
 }
+*/

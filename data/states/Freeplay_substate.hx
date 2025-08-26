@@ -29,13 +29,13 @@ var bulletOption:FlxSprite;
 var progressGroup = new FlxTypedSpriteGroup();
 var bulletoptionREAL:FlxSprite = new FlxSprite(-170,-20);
 var options:Array<String> = ['Cutscenes','Mod charts','Scroll Speed','Mode'];
-static var cutscene_Toggle:Bool = FlxG.save.data.options.freeplayDialogue;
-static var modchart_Toggle:Bool = FlxG.save.data.options.modcharts;
+public static var cutscene_Toggle:Bool = FlxG.save.data.options.freeplayDialogue;
+public static var modchart_Toggle:Bool = FlxG.save.data.options.modcharts;
 public static var scroll_Speed:Float = 1;
 var checkbox_text:Checkbox;
 var checkbox_real:Checkbox;
 var checkboxes = new FlxTypedSpriteGroup();
-var toggles = [cutscene_Toggle,modchart_Toggle];
+static var toggles = [cutscene_Toggle,modchart_Toggle];
 function create() {
 	new FlxTimer().start(0.2, function(tmr:FlxTimer) click_through = true);
 	prevchar = curPlayingInst;
@@ -125,7 +125,7 @@ function create() {
 
         checkbox_real.animation.addByPrefix('false', "Checkbox_false", 24, false);
 		checkbox_real.animation.addByPrefix('true', "Checkbox0", 24,false);
-        checkbox_real.animation.play('true');
+		checkbox_real.animation.play(toggles[i]);
 
 		checkbox_real.ID = i;
         checkboxes.add(checkbox_real);
@@ -136,9 +136,6 @@ function create() {
 		checkbox_real.camera=coolCam;
     }
 	add(checkboxes).y= -280;
-
-	for(i in checkboxes.length...0)
-	checkboxes.members[i].animation.play(i==1 ? modchart_Toggle : cutscene_Toggle);
 
 	for (i in 0...options.length) {
 		var item = new Alphabet(120, (i * 80), 540, 0,true);
@@ -160,6 +157,7 @@ function create() {
 	if(curPlayingInst!=prevSong)
 	FlxG.sound.playMusic(curPlayingInst, 0);
 	FlxG.sound.music.fadeIn(9,0,1);
+	trace(curSong.color);
 }
 function update(elapsed:Float) {
 	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==3) changeDiff(controls.RIGHT_P ? 1 : -1);
@@ -222,7 +220,8 @@ function toggle() {
 		case 1:modchart_Toggle=!modchart_Toggle;
 		trace("Mod-charts are : "+modchart_Toggle);
 	}
-	checkboxes.members[curOption].animation.play(curOption==1 ? modchart_Toggle : cutscene_Toggle);
+	toggles = [cutscene_Toggle,modchart_Toggle];
+	checkboxes.members[curOption].animation.play(toggles[curOption]);
 }
 function changeScroll(s) {
 	scroll_Speed+= s;
@@ -232,6 +231,7 @@ function changeScroll(s) {
 function playsong() {
 	FlxG.save.data.options.freeplayDialogue=cutscene_Toggle;
 	FlxG.save.data.options.modcharts=modchart_Toggle;
+	//if (FlxG.save.data.options.scrollSpeed) scrollSpeed = FlxG.save.data.options.scrollSpeed_Speed;
 	PlayState.loadSong(curSong.name, curSong.difficulties[curDifficulty].toLowerCase());
 	FlxG.switchState(new PlayState());
 }

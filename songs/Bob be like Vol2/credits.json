@@ -1,0 +1,10 @@
+{
+	"Art": ["Seezee"],
+	"Music": ["Kasu"],
+	"Chart": {
+		"easy": ["Luminous"],
+		"normal": ["Glitch.smh"],
+		"hard": ["Luminous"]
+	},
+	"Code": ["Frakits", "Verwex"]
+}

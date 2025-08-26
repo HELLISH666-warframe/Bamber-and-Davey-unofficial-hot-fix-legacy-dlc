@@ -22,7 +22,8 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["Crossovers", "Crossover Songs", 0xFE3455],
 	["Remixes", "Remixes", 0xFF338A9C],
 	["Legacy", "Legacy/Old Content", 0x16AD01],
-	["Guh", "REMOVE_LATER", 0x16AD01]
+	["Guh", "REMOVE_LATER", 0x16AD01],
+	["Vol 2", "Vol 2 Content", 0x16AD01]
 ];
 
 var songst = [	
@@ -34,8 +35,9 @@ var songst = [
 	["Call Bamber","Deathbattle","H2O"],
 	["Corn N Roll","Screencast"],
 	["Spookeez", "South", "Pico", "2Hot"],
-	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix"],
-	["Astray", "Facsimile", "Placeholder", "Test Footage"]
+	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever"],
+	["Astray", "Facsimile", "Placeholder", "Test Footage"],
+	["Harvest Vol2","Bob be like Vol2","Swindled Vol2","Trade Vol2","Judgement Farm Vol2","Judgement Farm 2 Vol2","Placeholder Vol2"]
 ];
 
 var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
@@ -145,15 +147,8 @@ function update(elapsed) {
 	}
 	if (FlxG.mouse.overlaps(playall) && FlxG.mouse.pressed && curSelected<3) {
 		weeks = StoryWeeklist.get(true, false).weeks;
-		persistentUpdate = !persistentDraw;
-		//PlayState.loadWeek(weeks[curSelected], "hard");
-		//FlxG.switchState(new PlayState());
-
-		FlxG.save.data.Bamber_FREEPLAY_WEEK = weeks[curSelected];
-		FlxG.save.data.Bamber_FREEPLAY_WEEK_DIFF = weeks[curSelected].difficulties;
-		openSubState(new MusicBeatSubstate(true,"Storymode_substate"));
-		//PlayState.loadWeek(weeks[curSelected], "normal");
-		//FlxG.switchState(new PlayState());
+		PlayState.loadWeek(weeks[curSelected], "hard");
+		FlxG.switchState(new PlayState());
     }
 
 	if (FlxG.keys.justPressed.SEVEN) {
@@ -192,7 +187,7 @@ function changements(a) {
 		songL[subCurSelected].alpha = 1;
 	}
 	
-	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "erect").score;
+	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "normal").score;
 	var ver = songser[subCurSelected].album;
 	if (ver == null) ver = 2;
 	if (data[curSelected][0] == "Legacy") ver = 1;

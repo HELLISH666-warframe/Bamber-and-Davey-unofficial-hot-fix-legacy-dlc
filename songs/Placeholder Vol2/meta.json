@@ -1,0 +1,15 @@
+{
+	"color": "#242323",
+	"opponentModeAllowed": false,
+	"icon": "PLACEHOLDER",
+	"difficulties": [
+		"placeholder"
+	],
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Placeholder v1",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"album": 2,
+	"bpm": 200
+}

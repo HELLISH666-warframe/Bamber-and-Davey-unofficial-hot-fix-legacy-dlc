@@ -24,9 +24,13 @@ static var hasseen = false;
 function destroy()
 	hasseen = false;
 
+function postGameStart() {
+        WindowUtils.set_prefix('Bamber & Davey Vol. 2.5 | ');
+}
+
 function new() {
     WindowUtils.set_prefix('Bamber & Davey Vol. 2.5 | ');
-    FlxG.save.bind('BamberAndDavey', 'TeamReimagination'); //I found out that mod options use regular saves instead of a save in the Options class for example
+    //FlxG.save.bind('BamberAndDavey', 'TeamReimagination'); //I found out that mod options use regular saves instead of a save in the Options class for example
 
     if (FlxG.save.data.options == null) FlxG.save.data.options = {};
 
@@ -43,7 +47,7 @@ function new() {
 
     //Sound options
     //Master Volume - FlxG.volume
-    FlxG.save.data.options.musicVolume ??= 100; 
+    FlxG.save.data.options.musicVolume ??= 70; 
     FlxG.save.data.options.sfxVolume ??= 100;
     FlxG.save.data.options.voiceVolume ??= 100;
     FlxG.save.data.options.missSounds ??= true;

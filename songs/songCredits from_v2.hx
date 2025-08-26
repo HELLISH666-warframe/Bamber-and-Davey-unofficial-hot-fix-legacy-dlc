@@ -12,7 +12,7 @@ public var custom_creditss:String = PlayState.instance.SONG.meta.custom_credits;
 public var credit_icon_thing:String = PlayState.instance.SONG.meta.credit_icon_thing;
 public var songcredupdate:Bool= PlayState.instance.SONG.meta.credits_update;
 public var curSong:String = PlayState.instance.SONG.meta.name;
-if (Assets.exists(Paths.file("songs/"+curSong.toLowerCase()+'/credits.json'))) {
+if ((Assets.exists(Paths.file("songs/"+curSong.toLowerCase()+'/credits.json'))&&FlxG.save.data.options.songCredits)) {
     var creditJson = Json.parse(Assets.getText(Paths.file("songs/"+curSong+'/credits.json'))); //Json for credits
 
     var isOnLeftSide = StringTools.contains(curSong, "Call Bamber");

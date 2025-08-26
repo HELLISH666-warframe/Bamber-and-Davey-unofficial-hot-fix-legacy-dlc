@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="iconbamber.png">
+	<!-- Created with Adobe Animate version 22.0.0.93 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Bamber_Down0000" x="0" y="0" width="212" height="212" frameX="0" frameY="-6" frameWidth="214" frameHeight="218"/>
+	<SubTexture name="Bamber_Down0001" x="0" y="0" width="212" height="212" frameX="0" frameY="-6" frameWidth="214" frameHeight="218"/>
+	<SubTexture name="Bamber_Down0002" x="212" y="0" width="211" height="211" frameX="-3" frameY="0" frameWidth="214" frameHeight="218"/>
+	<SubTexture name="Bamber_Idle0000" x="423" y="0" width="195" height="195" frameX="-8" frameY="-8" frameWidth="204" frameHeight="205"/>
+	<SubTexture name="Bamber_Idle0001" x="423" y="0" width="195" height="195" frameX="-8" frameY="-8" frameWidth="204" frameHeight="205"/>
+	<SubTexture name="Bamber_Idle0002" x="618" y="0" width="204" height="205"/>
+	<SubTexture name="Bamber_Idle0003" x="618" y="0" width="204" height="205"/>
+	<SubTexture name="Bamber_Idle0004" x="822" y="0" width="200" height="200" frameX="-4" frameY="0" frameWidth="204" frameHeight="205"/>
+	<SubTexture name="Bamber_Idle0005" x="822" y="0" width="200" height="200" frameX="-4" frameY="0" frameWidth="204" frameHeight="205"/>
+	<SubTexture name="Bamber_Idle0006" x="1022" y="0" width="179" height="180" frameX="-21" frameY="-3" frameWidth="204" frameHeight="205"/>
+	<SubTexture name="Bamber_Idle0007" x="1022" y="0" width="179" height="180" frameX="-21" frameY="-3" frameWidth="204" frameHeight="205"/>
+	<SubTexture name="Bamber_Idle0008" x="1201" y="0" width="183" height="184" frameX="-18" frameY="-2" frameWidth="204" frameHeight="205"/>
+	<SubTexture name="Bamber_Left0000" x="1384" y="0" width="196" height="195" frameX="0" frameY="-1" frameWidth="199" frameHeight="196"/>
+	<SubTexture name="Bamber_Left0001" x="1384" y="0" width="196" height="195" frameX="0" frameY="-1" frameWidth="199" frameHeight="196"/>
+	<SubTexture name="Bamber_Left0002" x="1580" y="0" width="193" height="193" frameX="-6" frameY="0" frameWidth="199" frameHeight="196"/>
+	<SubTexture name="Bamber_Left0003" x="1580" y="0" width="193" height="193" frameX="-6" frameY="0" frameWidth="199" frameHeight="196"/>
+	<SubTexture name="Bamber_Left0004" x="1580" y="0" width="193" height="193" frameX="-6" frameY="0" frameWidth="199" frameHeight="196"/>
+	<SubTexture name="Bamber_Left0005" x="1580" y="0" width="193" height="193" frameX="-6" frameY="0" frameWidth="199" frameHeight="196"/>
+	<SubTexture name="Bamber_Right0000" x="1773" y="0" width="208" height="208" frameX="0" frameY="-1" frameWidth="208" frameHeight="209"/>
+	<SubTexture name="Bamber_Right0001" x="1773" y="0" width="208" height="208" frameX="0" frameY="-1" frameWidth="208" frameHeight="209"/>
+	<SubTexture name="Bamber_Right0002" x="0" y="212" width="203" height="204" frameX="0" frameY="0" frameWidth="208" frameHeight="209"/>
+	<SubTexture name="Bamber_Up0000" x="203" y="212" width="165" height="166"/>
+	<SubTexture name="Bamber_Up0001" x="203" y="212" width="165" height="166"/>
+	<SubTexture name="Bamber_Up0002" x="368" y="212" width="156" height="156" frameX="-4" frameY="-10" frameWidth="165" frameHeight="166"/>
+	<SubTexture name="Miss_Bamber_Down0000" x="524" y="212" width="196" height="196" frameX="-4" frameY="-4" frameWidth="204" frameHeight="204"/>
+	<SubTexture name="Miss_Bamber_Down0001" x="524" y="212" width="196" height="196" frameX="-4" frameY="-4" frameWidth="204" frameHeight="204"/>
+	<SubTexture name="Miss_Bamber_Down0002" x="720" y="212" width="204" height="204"/>
+	<SubTexture name="Miss_Bamber_Left0000" x="924" y="212" width="208" height="208"/>
+	<SubTexture name="Miss_Bamber_Left0001" x="924" y="212" width="208" height="208"/>
+	<SubTexture name="Miss_Bamber_Left0002" x="1132" y="212" width="203" height="204" frameX="-3" frameY="-2" frameWidth="208" frameHeight="208"/>
+	<SubTexture name="Miss_Bamber_Right0000" x="1335" y="212" width="201" height="201"/>
+	<SubTexture name="Miss_Bamber_Right0001" x="1335" y="212" width="201" height="201"/>
+	<SubTexture name="Miss_Bamber_Right0002" x="1536" y="212" width="189" height="189" frameX="-6" frameY="-6" frameWidth="201" frameHeight="201"/>
+	<SubTexture name="Miss_Bamber_Up0000" x="1725" y="212" width="202" height="202"/>
+	<SubTexture name="Miss_Bamber_Up0001" x="1725" y="212" width="202" height="202"/>
+	<SubTexture name="Miss_Bamber_Up0002" x="0" y="420" width="196" height="196" frameX="-3" frameY="-3" frameWidth="202" frameHeight="202"/>
+</TextureAtlas>

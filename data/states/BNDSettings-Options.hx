@@ -9,7 +9,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Fullscreen", "Toggles the game filling your screen", [], 'fullscreen'],
         ["Borderless", "Toggles the game window border", [], 'borderless'],
         ["Brightness", "How bright the game is", [], 'brightness'],
-        ["Gamma", "", [], 'gamma']
+        ["Gamma", "The gamma of the game", [], 'gamma']
     ],
     [ // SOUND
         ["Music Volume", "How loud the music is", [], 'musicVolume'],

@@ -1,0 +1,6 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="1.3" name="stage" folder="stages/adobevoid/" noteSkin="funkin">
+	<sprite name="adobevoid" x="600" y="300" sprite="adobevoid" scale="1" scroll="0"/>
+	<dad x="160" y="350" />
+	<boyfriend x="805" y="381"/>
+</stage>

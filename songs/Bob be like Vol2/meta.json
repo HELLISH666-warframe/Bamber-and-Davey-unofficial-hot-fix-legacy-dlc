@@ -1,0 +1,17 @@
+{
+	"opponentModeAllowed": false,
+	"icon": "newboris",
+	"difficulties": [
+		"easy",
+		"normal",
+		"hard"
+	],
+	"color": "#FFFFFF",
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Bob be like v1",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"bpm": 160,
+	"album": 2
+}

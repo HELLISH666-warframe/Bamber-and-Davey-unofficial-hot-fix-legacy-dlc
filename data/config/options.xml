@@ -1,0 +1,92 @@
+<!DOCTYPE codename-mod-options>
+<menu name="Placholder Options" desc="Temp">
+    <menu name="Video Options" desc="Video Options">
+	<number id="options.framerate" name="framerate" min="30" max="240" change="1"/>
+	<checkbox id="options.antialiasing" name="antialiasing" desc="Enable/Disable antialiasing." />
+	<checkbox id="options.pixelperfect" name="pixelperfect" desc="Enable/Disable pixelperfect." />
+	<choice id="options.resolution" name="Choice Example">
+        <value name="HD" value="1280X720"/>
+        <value name="Full HD" value="1920X1080"/>
+        <value name="Quad_HD" value="2560X1440"/>
+    </choice>
+	<checkbox id="options.fullscreen" name="fullscreen" desc="Enable/Disable fullscreen." />
+	<checkbox id="options.borderless" name="borderless" desc="Enable/Disable borderless." />
+	<number id="options.brightness" name="brightness" min="10" max="100" change="1"/>
+	<number id="options.gamma" name="gamma" min="10" max="100" change="1"/>
+    </menu>
+	<menu name="Sound options" desc="Master Volume - FlxG.volume">
+	<number id="options.musicVolume" name="musicVolume" min="0" max="100" change="1"/>
+	<number id="options.sfxVolume" name="sfxVolume" min="0" max="100" change="1"/>
+	<number id="options.voiceVolume" name="voiceVolume" min="0" max="100" change="1"/>
+	<checkbox id="options.missSounds" name="missSounds" desc="Enable/Disable missSounds." />
+	<checkbox id="options.copyrightBypass" name="copyrightBypass" desc="Enable/Disable copyrightBypass." />
+	<checkbox id="options.subtitles" name="subtitles" desc="Enable/Disable subtitles." />
+    </menu>
+	<menu name="Appearance Options" desc="Appearance Options">
+	<checkbox id="options.lowMemory" name="lowMemory" desc="Enable/Disable lowMemory." />
+	<checkbox id="options.vramSprites" name="vramSprites" desc="Enable/Disable vramSprites." />
+	<checkbox id="options.flashingLights" name="flashingLights" desc="Enable/Disable flashingLights." />
+	<choice id="options.shaders" name="Shader presets">
+        <value name="All" value="all"/>
+        <value name="Some" value="some"/>
+        <value name="None" value="None"/>
+    </choice>
+	<checkbox id="options.botplayUI" name="botplayUI" desc="Enable/Disable botplayUI." />
+	<number id="options.bgBlur" name="bgBlur" min="0" max="100" change="1"/>
+	<number id="options.bgDim" name="bgDim" min="0" max="100" change="1"/>
+	<checkbox id="options.rapidCam" name="rapidCam" desc="Enable/Disable rapidCam." />
+	<checkbox id="options.breakTime" name="breakTime" desc="Enable/Disable breakTime." />
+	<checkbox id="options.timeBar" name="timeBar" desc="Enable/Disable timeBar." />
+	<!--???-->
+	<number id="options.comboPosPercent" name="comboPosPercent" min="0" max="100" change="1"/>
+	<checkbox id="options.cinematicBars" name="cinematicBars" desc="Enable/Disable cinematicBars." />
+	<checkbox id="options.healthIcons" name="healthIcons" desc="Enable/Disable healthIcons." />
+	<checkbox id="options.songCredits" name="songCredits" desc="Enable/Disable songCredits." />
+	<checkbox id="options.stampKeybinds" name="stampKeybinds" desc="Enable/Disable stampKeybinds." />
+    </menu>
+	<menu name="Notes Options" desc="Pick a notskin to override the one set by the stage.">
+	<choice id="options.noteskin" name="noteskin">
+        <value name="Arrows" value="funkin"/>
+        <value name="Default" value="default"/>
+        <value name="3D" value="3dcheater"/>
+		<value name="awesome!!!" value="awesome"/>
+		<value name="bfdi" value="bfdi"/>
+		<value name="deathbattle" value="deathbattle"/>
+		<value name="facsimile" value="facsimile"/>
+		<value name="night" value="night"/>
+		<value name="test footage" value="test footage"/>
+		<value name="undertale" value="undertale"/>
+    </choice>
+	<number id="options.noteScale" name="noteScale" min="1" max="10" change="1"/>
+	<choice id="options.noteColors" name="noteColors" desc="Placholder." >
+        <value name="Arrows" value="0xFFC24B99,0xFF00FFFF,0xFF12FA05,0xFFF9393F"/>
+    </choice>
+    </menu>
+	<menu name="Gameplay Options" desc="Gameplay Options.">
+	<checkbox id="options.coloredBar" name="coloredBar" desc="Enable/Disable coloredBar." />
+	<choice id="options.modcharts" name="modcharts">
+        <value name="Always" value="Always"/>
+        <value name="Sometimes" value="Sometimes"/>
+        <value name="Never" value="Never"/>
+    </choice>
+	<menu name="dialogue Options" desc="dialogue Options.">
+	<!--Story Mode, Playlists, Freeplay-->
+	<checkbox id="options.dialogue_storymode" name="dialogue_storymode" desc="Enable/Disable coloredBar." />
+	<checkbox id="options.dialogue_playlists" name="dialogue_playlists" desc="Enable/Disable coloredBar." />
+	<checkbox id="options.dialogue_freeplay" name="dialogue_freeplay" desc="Enable/Disable coloredBar." />
+	</menu>
+	<checkbox id="options.scrollSpeed" name="scrollSpeed" desc="Enable/Disable preset scrollSpeed." />
+	<number id="options.scrollSpeed_Speed" name="scrollSpeed_Speed" min="0.1" max="10" change="0.1"/>
+	<checkbox id="options.pauseCountdown" name="pauseCountdown" desc="Enable/Disable pauseCountdown." />
+	<choice id="options.skipGameOver" name="skipGameOver">
+        <value name="off" value="off"/>
+        <value name="Sometimes" value="Sometimes"/>
+        <value name="Never" value="Never"/>
+    </choice>
+	<checkbox id="options.skipSongIntro" name="skipSongIntro" desc="Enable/Disable skipSongIntro." />
+	<checkbox id="options.scrollMode" name="scrollMode" desc="Enable/Disable scrollMode." />
+	<checkbox id="options.middlescroll" name="middlescroll" desc="Enable/Disable middlescroll." />
+	<checkbox id="options.storyDialogue" name="storyDialogue" desc="Enable/Disable storyDialogue." />
+	<checkbox id="options.freeplayDialogue" name="freeplayDialogue" desc="Enable/Disable freeplayDialogue." />
+    </menu>
+</menu>
