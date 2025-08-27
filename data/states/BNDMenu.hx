@@ -541,7 +541,7 @@ function update(elapsed) {
     if(FlxG.keys.justPressed.J)
         FlxG.switchState(new ModState("BNDSettings"));
     if(FlxG.keys.justPressed.T){
-        fuck();
+        //fuck();
         openSubState(new MusicBeatSubstate(true,"Placeholder_substate"));
         persistentUpdate = !persistentDraw;
 
