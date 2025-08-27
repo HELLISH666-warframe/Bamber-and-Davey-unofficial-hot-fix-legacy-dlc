@@ -378,6 +378,7 @@ function setupTitleStuff() {
 }
 
 function setupMenuStuff() {
+    if(buttonGroup!=null)buttonGroup.destroy();
     topMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[0]);
     bottomMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]);
     topMenuGroup.cameras = bottomMenuGroup.cameras = [menuCamera];
@@ -392,6 +393,92 @@ function setupMenuStuff() {
     bottomBar.angle = 17; bottomBar.updateHitbox();
     bottomBar.x -= 130; bottomBar.y = FlxG.height - 50;
     bottomMenuGroup.add(bottomBar);
+
+    buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
+    buttonGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonGroup.cameras = [menuCamera]; add(buttonGroup);
+
+    buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
+
+    for (i in 0...menuOptions.length) {
+        var buttonSpr = new AnimatedFunkinSprite();
+        buttonSpr.loadSprite(Paths.image('menus/mainMenu/buttons'));
+
+        buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+menuOptions[i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
+        buttonSpr.animateAtlas.anim.play("Button", true, true);
+
+		buttonSpr.ID = i;
+        buttonSpr.antialiasing = true;
+
+        buttonSpr.scale.x = buttonSpr.scale.y = (i == 0 ? 1 : 0.6); 
+        buttonGroup.add(buttonSpr);
+
+        buttonSpr.width = buttonSpr.height = 161 * buttonSpr.scale.x;
+        buttonSpr.x = (i == 0 ? 20 : (buttonGroup.members[i - 1].x + buttonGroup.members[i - 1].width) + 10);
+        buttonSpr.y = bottomBar.y + 20 - buttonSpr.height;
+
+        //TITLE TEXT
+        var coolText:ClassicAlphabet = new ClassicAlphabet(0, 0, menuOptions[i].toUpperCase(), true, false);
+        coolText.scale.set(0.65, 0.65);
+
+        for (t in 0...coolText.members.length) {
+            coolText.members[t].updateHitbox();
+            if (t > 0) coolText.members[t].x = coolText.members[t-1].x + coolText.members[t-1].width + 2 + (coolText.members[t-1].visible ? 0 : 25);
+        }
+
+        coolText.x -= coolText.width;
+        buttonTextGroup.add(coolText);
+        coolText.alpha = 0;
+    }
+
+    bottomMenuGroup.add(buttonTextGroup);
+}
+
+
+function setupSubMenuStuff() {
+    for(i in buttonTextGroup.members) i.destroy();
+    buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
+    remove(buttonGroup);
+    buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
+
+    for (i in 0...submenuOptions.length) {
+        var buttonSpr = new AnimatedFunkinSprite();
+        buttonSpr.loadSprite(Paths.image('menus/mainMenu/buttons'));
+
+        buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+submenuOptions[menuSelection][i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
+        buttonSpr.animateAtlas.anim.play("Button", true, true);
+
+		buttonSpr.ID = i;
+        buttonSpr.antialiasing = true;
+
+        buttonSpr.scale.x = buttonSpr.scale.y = (i == 0 ? 1 : 0.6); 
+        buttonSubgroup.add(buttonSpr);
+
+        buttonSpr.width = buttonSpr.height = 161 * buttonSpr.scale.x;
+        buttonSpr.x = (i == 0 ? 20 : (buttonSubgroup.members[i - 1].x + buttonSubgroup.members[i - 1].width) + 10);
+        buttonSpr.y = 670+ 20 - buttonSpr.height;
+
+        var coolText:ClassicAlphabet = new ClassicAlphabet(0, 0, submenuOptions[menuSelection][i].toUpperCase(), true, false);
+        coolText.scale.set(0.65, 0.65);
+
+        for (t in 0...coolText.members.length) {
+            coolText.members[t].updateHitbox();
+            if (t > 0) coolText.members[t].x = coolText.members[t-1].x + coolText.members[t-1].width + 2 + (coolText.members[t-1].visible ? 0 : 25);
+        }
+
+        coolText.x -= coolText.width;
+        buttonTextGroup.add(coolText);
+        coolText.alpha = 0;
+    }
+    bottomMenuGroup.add(buttonTextGroup);
+}
+
+function setupMenuRegen() {
+    if(buttonGroup!=null)buttonGroup.destroy();
+    if(buttonSubgroup!=null)buttonSubgroup.destroy();
+    if(buttonTextGroup!=null)buttonTextGroup.destroy();
+    bottomMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]);
+    bottomMenuGroup.cameras = [menuCamera];
+    add(bottomMenuGroup);
 
     buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
     buttonGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonGroup.cameras = [menuCamera]; add(buttonGroup);
@@ -526,9 +613,9 @@ var yLevel = 0;
 var oldYLevel = 0;
 
 function fuck() {
+    setupSubMenuStuff();
     //barLerping = 1;
-    menuGroupDrags = [-250, 250];
-    logoLerping = [FlxG.width/3.4, 20, 0.95];
+    //menuGroupDrags = [-250, 250];
 }
 
 function update(elapsed) {
@@ -541,8 +628,8 @@ function update(elapsed) {
     if(FlxG.keys.justPressed.J)
         FlxG.switchState(new ModState("BNDSettings"));
     if(FlxG.keys.justPressed.T){
-        //fuck();
-        openSubState(new MusicBeatSubstate(true,"Placeholder_substate"));
+        fuck();
+        openSubState(new MusicBeatSubstate(true,"placeholder/Placeholder_substate"));
         persistentUpdate = !persistentDraw;
 
     }
@@ -717,14 +804,10 @@ function update(elapsed) {
         (initialized == false) ? skipIntro() : progressForwards(); //the switchstate is a placeholder thing
     }
     if ((controls.BACK || FlxG.mouse.justPressedRight) && isInMenu&&submenuNum==1) progressBackwards();
-
-    #if MOD_SUPPORT
-		if (controls.SWITCHMOD) { //OUT OF NECESSITY, WILL REFURBISH LATER
-			openSubState(new ModSwitchMenu());
-			persistentUpdate = false;
-			persistentDraw = false;
-		}
-	#end
+	if (controls.SWITCHMOD) { //OUT OF NECESSITY, WILL REFURBISH LATER
+		openSubState(new ModSwitchMenu());
+		persistentDraw = persistentUpdate = false;
+	}
 
     if (isInMenu&&submenuNum==1) {
         if ((controls.LEFT_P || controls.RIGHT_P)) {
@@ -733,12 +816,12 @@ function update(elapsed) {
         }
     }
     else if(isInMenu&&submenuNum==2) {
-        trace(submenuNum);
         if ((controls.LEFT_P || controls.RIGHT_P)) {
             FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
             changeSelectionSUBMENU(controls.LEFT_P ? -1 : 1);
         }
         if(controls.ACCEPT){acceptSUBMENU();
+            changeSelectionSUBMENU(0);
         substatebool=true;
         }
         if(controls.BACK){
@@ -746,6 +829,7 @@ function update(elapsed) {
                 menuOptions = ['Play', 'Gallery', 'Achievements', 'Options', 'Credits'];
                 buttonTextGroup.members[i].text=menuOptions[i].toUpperCase();
                 substatebool=false;
+                setupMenuRegen();
                 submenuNum=1;
            }
         }
@@ -753,12 +837,19 @@ function update(elapsed) {
 }
 
 function changeSelectionSUBMENU(change = 0) {
-    menuSubmenuSelection+=change;
-    if (menuSubmenuSelection < 0) menuSubmenuSelection = 1;
-	if (menuSubmenuSelection >= 2) menuSubmenuSelection = 0;
-    trace(menuSubmenuSelection);
-    for(i in 0...2)
-        buttonTextGroup.members[i].text=submenuOptions[menuSelection][menuSubmenuSelection];
+    var oldSubMenuSelection = menuSubmenuSelection;
+    menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions[menuSelection].length - 1);
+     for (i in buttonSubgroup.members) {
+        if (menuSubmenuSelection == i.ID) 
+		{
+			i.offset.y = 0;
+			FlxTween.globalManager.completeTweensOf(i);
+			FlxTween.tween(i, {"offset.y": 20}, 0.2, {ease: FlxEase.quadOut, onComplete: function() {FlxTween.tween(i, {"offset.y": 0}, 0.2, {ease: FlxEase.quadIn});}});
+		}
+        i.animateAtlas.anim.play("Button", true, menuSubmenuSelection == i.ID ? false : true, menuSubmenuSelection == i.ID ? i.animateAtlas.anim.curFrame - i.animateAtlas.anim.length : i.animateAtlas.anim.curFrame + i.animateAtlas.anim.length );
+    }
+    buttonTextGroup.members[oldSubMenuSelection].alpha = 0;
+    buttonTextGroup.members[menuSubmenuSelection].alpha = 1;
 }
 
 function acceptSUBMENU(){
@@ -767,7 +858,7 @@ function acceptSUBMENU(){
 		case 0: //Note , don't forget to code the sub options.
         import funkin.menus.StoryMenuState;
         FlxG.switchState(new StoryMenuState());
-		case 1: FlxG.switchState(new ModState("BNDFreeplayCategories"));
+		case 1: FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
     }
 }
 
@@ -855,6 +946,7 @@ function progressForwards() {
 		});
     }else if(isInMenu&&menuSelection<=1&&submenuNum==1){trace("Ok");
         menuOptions=submenuOptions[menuSelection];
+        setupSubMenuStuff();
         submenuNum=2;
     }
 }

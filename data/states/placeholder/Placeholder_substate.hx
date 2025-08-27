@@ -105,7 +105,7 @@ function toggle() {
 		case 0:
 		FlxG.switchState(new StoryMenuState());
 		case 1:
-		FlxG.switchState(new ModState("BNDFreeplayCategories"));
+		FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
 	}
 }
 function destroy() {

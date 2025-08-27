@@ -140,7 +140,7 @@ function update(elapsed) {
 		
 	if (controls.ACCEPT)
 	{
-		openSubState(new MusicBeatSubstate(true,"Freeplay_substate"));
+		openSubState(new MusicBeatSubstate(true,"substates/Freeplay_substate"));
 		persistentUpdate = !persistentDraw;
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
 		FlxG.save.data.Bamber_song_diff = songser[subCurSelected].difficulties;
