@@ -42,7 +42,7 @@ var goigne = false;
 var hoveringOverButton = false;
 
 var menuOptions = ['Play', 'Gallery', 'Achievements', 'Options', 'Credits'];
-var submenuOptions = [['Story Mode', 'Freeplay'], ['Gallery', 'DLC']];
+var submenuOptions = ['Story Mode', 'Freeplay'];
 
 public static var menuSelection = 0;
 public static var menuSubmenuSelection = 0;
@@ -433,18 +433,17 @@ function setupMenuStuff() {
     bottomMenuGroup.add(buttonTextGroup);
 }
 
-
 function setupSubMenuStuff() {
     for(i in buttonTextGroup.members) i.destroy();
     buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
-    remove(buttonGroup);
+    for(i in buttonGroup.members)i.alpha=0;
     buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
 
     for (i in 0...submenuOptions.length) {
         var buttonSpr = new AnimatedFunkinSprite();
         buttonSpr.loadSprite(Paths.image('menus/mainMenu/buttons'));
 
-        buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+submenuOptions[menuSelection][i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
+        buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+submenuOptions[i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
         buttonSpr.animateAtlas.anim.play("Button", true, true);
 
 		buttonSpr.ID = i;
@@ -457,7 +456,7 @@ function setupSubMenuStuff() {
         buttonSpr.x = (i == 0 ? 20 : (buttonSubgroup.members[i - 1].x + buttonSubgroup.members[i - 1].width) + 10);
         buttonSpr.y = 670+ 20 - buttonSpr.height;
 
-        var coolText:ClassicAlphabet = new ClassicAlphabet(0, 0, submenuOptions[menuSelection][i].toUpperCase(), true, false);
+        var coolText:ClassicAlphabet = new ClassicAlphabet(0, 0, submenuOptions[i].toUpperCase(), true, false);
         coolText.scale.set(0.65, 0.65);
 
         for (t in 0...coolText.members.length) {
@@ -473,35 +472,15 @@ function setupSubMenuStuff() {
 }
 
 function setupMenuRegen() {
-    if(buttonGroup!=null)buttonGroup.destroy();
+    for(i in buttonGroup.members)i.alpha=1;
     if(buttonSubgroup!=null)buttonSubgroup.destroy();
     if(buttonTextGroup!=null)buttonTextGroup.destroy();
-    bottomMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]);
-    bottomMenuGroup.cameras = [menuCamera];
-    add(bottomMenuGroup);
 
     buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
-    buttonGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonGroup.cameras = [menuCamera]; add(buttonGroup);
 
     buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
 
     for (i in 0...menuOptions.length) {
-        var buttonSpr = new AnimatedFunkinSprite();
-        buttonSpr.loadSprite(Paths.image('menus/mainMenu/buttons'));
-
-        buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+menuOptions[i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
-        buttonSpr.animateAtlas.anim.play("Button", true, true);
-
-		buttonSpr.ID = i;
-        buttonSpr.antialiasing = true;
-
-        buttonSpr.scale.x = buttonSpr.scale.y = (i == 0 ? 1 : 0.6); 
-        buttonGroup.add(buttonSpr);
-
-        buttonSpr.width = buttonSpr.height = 161 * buttonSpr.scale.x;
-        buttonSpr.x = (i == 0 ? 20 : (buttonGroup.members[i - 1].x + buttonGroup.members[i - 1].width) + 10);
-        buttonSpr.y = bottomBar.y + 20 - buttonSpr.height;
-
         //TITLE TEXT
         var coolText:ClassicAlphabet = new ClassicAlphabet(0, 0, menuOptions[i].toUpperCase(), true, false);
         coolText.scale.set(0.65, 0.65);
@@ -611,12 +590,6 @@ var cloudTimer = 0;
 
 var yLevel = 0;
 var oldYLevel = 0;
-
-function fuck() {
-    setupSubMenuStuff();
-    //barLerping = 1;
-    //menuGroupDrags = [-250, 250];
-}
 
 function update(elapsed) {
     if (FlxG.keys.justPressed.SEVEN) {
@@ -838,7 +811,7 @@ function update(elapsed) {
 
 function changeSelectionSUBMENU(change = 0) {
     var oldSubMenuSelection = menuSubmenuSelection;
-    menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions[menuSelection].length - 1);
+    menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions.length - 1);
      for (i in buttonSubgroup.members) {
         if (menuSubmenuSelection == i.ID) 
 		{
@@ -853,13 +826,8 @@ function changeSelectionSUBMENU(change = 0) {
 }
 
 function acceptSUBMENU(){
-    if (!substatebool) return;
-    switch (menuSubmenuSelection) {
-		case 0: //Note , don't forget to code the sub options.
-        import funkin.menus.StoryMenuState;
-        FlxG.switchState(new StoryMenuState());
-		case 1: FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
-    }
+    if(substatebool)return
+    progressForwards();
 }
 
 function changeSelection(change = 0) {
@@ -867,8 +835,6 @@ function changeSelection(change = 0) {
     menuSelection = FlxMath.wrap(menuSelection+change, 0, menuOptions.length - 1);
 	trace("selecting");
     for (i in buttonGroup.members) {
-		
-		
         if (menuSelection == i.ID) 
 		{
 			//i.triggerBounceAnimation(0.4);
@@ -909,7 +875,7 @@ function progressForwards() {
         //barLerping = 0;
         menuGroupDrags = [0, 0];
         logoLerping = [870, null, 0.6];
-    } else if (isInMenu && submenuNum==1 &&menuSelection>1){
+    } else if (isInMenu && submenuNum==1 &&menuSelection!=0){
 		if (goigne) return;
 		CoolUtil.playMenuSFX(1);
 		goigne = true;
@@ -945,9 +911,37 @@ function progressForwards() {
 			}
 		});
     }else if(isInMenu&&menuSelection<=1&&submenuNum==1){trace("Ok");
-        menuOptions=submenuOptions[menuSelection];
+        menuOptions=submenuOptions;
         setupSubMenuStuff();
         submenuNum=2;
+    }else if (isInMenu && submenuNum==2){
+		if (goigne) return;
+		CoolUtil.playMenuSFX(1);
+		goigne = true;
+        FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
+        FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
+
+        FlxTween.tween(foreground.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
+        FlxTween.tween(foreground, {y: foreground.y + 610}, 1, {ease: FlxEase.quartIn});
+		
+        FlxTween.tween(background.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
+        FlxTween.tween(background, {y: background.y + 1000}, 1, {ease: FlxEase.quartIn});
+		
+        FlxTween.tween(clouds.scale, {x: clouds.scale.x*2, y: clouds.scale.y*2}, 1, {ease: FlxEase.quartIn, onComplete: function(tween) {
+            clouds.updateHitbox();
+            clouds.screenCenter(); clouds.y = clouds.y + 210;
+        }});
+		
+		new FlxTimer().start(0.5, ()->{menuCamera.fade(0xFF000000, 0.5, false);});
+
+		new FlxTimer().start(1, ()->{
+		switch (menuSubmenuSelection) {
+		case 0: //Note , don't forget to code the sub options.
+        import funkin.menus.StoryMenuState;
+        FlxG.switchState(new StoryMenuState());
+		case 1: FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
+   			}
+		});
     }
 }
 
