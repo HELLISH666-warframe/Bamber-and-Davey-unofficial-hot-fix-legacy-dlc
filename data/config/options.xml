@@ -78,11 +78,13 @@
 	<checkbox id="options.scrollSpeed" name="scrollSpeed" desc="Enable/Disable preset scrollSpeed." />
 	<number id="options.scrollSpeed_Speed" name="scrollSpeed_Speed" min="0.1" max="10" change="0.1"/>
 	<checkbox id="options.pauseCountdown" name="pauseCountdown" desc="Enable/Disable pauseCountdown." />
-	<choice id="options.skipGameOver" name="skipGameOver">
+	<checkbox id="options.skipGameOver" name="skipGameOver" desc="Enable/Disable gameover." />
+	<!--<choice id="options.skipGameOver" name="skipGameOver">
         <value name="off" value="off"/>
         <value name="Sometimes" value="Sometimes"/>
         <value name="Never" value="Never"/>
     </choice>
+	-->
 	<checkbox id="options.skipSongIntro" name="skipSongIntro" desc="Enable/Disable skipSongIntro." />
 	<checkbox id="options.scrollMode" name="scrollMode" desc="Enable/Disable scrollMode." />
 	<checkbox id="options.middlescroll" name="middlescroll" desc="Enable/Disable middlescroll." />

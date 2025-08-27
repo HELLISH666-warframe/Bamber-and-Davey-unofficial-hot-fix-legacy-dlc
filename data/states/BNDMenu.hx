@@ -20,10 +20,10 @@ import flixel.addons.display.FlxBackdrop;
 import funkin.menus.ModSwitchMenu;
 import funkin.menus.ui.ClassicAlphabet;
 import AnimatedFunkinSprite;
+import funkin.backend.MusicBeatSubstate;
 
-//Making_it_true_so_theres_no_memerouytyz_;eaks!
-public static var initialized = true; //post-intro sequence check
-//public static var initialized = false; //post-intro sequence check
+public static var initialized = false; //post-intro sequence check
+//"barLerping" caused the memory leak , ok?
 public static var isInMenu = false; //if the player is on the main menu or the title screen
 
 var skippableTweens = []; //Tweens that will be stored here will be skipped when you restart the state, or if you go into it from somewhere else
@@ -46,7 +46,8 @@ var submenuOptions = [['Story Mode', 'Freeplay'], ['Gallery', 'DLC']];
 
 public static var menuSelection = 0;
 public static var menuSubmenuSelection = 0;
-public static var submenuNum = -1; //there are two submenus in vol.3, for play and for extras
+public var submenuNum:Int = 1; //there are two submenus in vol.3, for play and for extras
+public var substatebool:Bool = false;
 
 //SFX
 var windAmbience, vinylSound;
@@ -524,6 +525,12 @@ var cloudTimer = 0;
 var yLevel = 0;
 var oldYLevel = 0;
 
+function fuck() {
+    //barLerping = 1;
+    menuGroupDrags = [-250, 250];
+    logoLerping = [FlxG.width/3.4, 20, 0.95];
+}
+
 function update(elapsed) {
     if (FlxG.keys.justPressed.SEVEN) {
 		persistentUpdate = false;
@@ -533,7 +540,12 @@ function update(elapsed) {
 	}
     if(FlxG.keys.justPressed.J)
         FlxG.switchState(new ModState("BNDSettings"));
+    if(FlxG.keys.justPressed.T){
+        fuck();
+        openSubState(new MusicBeatSubstate(true,"Placeholder_substate"));
+        persistentUpdate = !persistentDraw;
 
+    }
     if (FlxG.keys.justPressed.F9) { //DEV, REMOVE ONCE DONE!
         initialized = false;
         FlxG.sound.music.stop();
@@ -704,7 +716,7 @@ function update(elapsed) {
     if (conditionProcess) {
         (initialized == false) ? skipIntro() : progressForwards(); //the switchstate is a placeholder thing
     }
-    if ((controls.BACK || FlxG.mouse.justPressedRight) && isInMenu) progressBackwards();
+    if ((controls.BACK || FlxG.mouse.justPressedRight) && isInMenu&&submenuNum==1) progressBackwards();
 
     #if MOD_SUPPORT
 		if (controls.SWITCHMOD) { //OUT OF NECESSITY, WILL REFURBISH LATER
@@ -714,11 +726,48 @@ function update(elapsed) {
 		}
 	#end
 
-    if (isInMenu) {
+    if (isInMenu&&submenuNum==1) {
         if ((controls.LEFT_P || controls.RIGHT_P)) {
             FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
             changeSelection(controls.LEFT_P ? -1 : 1);
         }
+    }
+    else if(isInMenu&&submenuNum==2) {
+        trace(submenuNum);
+        if ((controls.LEFT_P || controls.RIGHT_P)) {
+            FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
+            changeSelectionSUBMENU(controls.LEFT_P ? -1 : 1);
+        }
+        if(controls.ACCEPT){acceptSUBMENU();
+        substatebool=true;
+        }
+        if(controls.BACK){
+            for (i in 0...menuOptions.length) {
+                menuOptions = ['Play', 'Gallery', 'Achievements', 'Options', 'Credits'];
+                buttonTextGroup.members[i].text=menuOptions[i].toUpperCase();
+                substatebool=false;
+                submenuNum=1;
+           }
+        }
+    }
+}
+
+function changeSelectionSUBMENU(change = 0) {
+    menuSubmenuSelection+=change;
+    if (menuSubmenuSelection < 0) menuSubmenuSelection = 1;
+	if (menuSubmenuSelection >= 2) menuSubmenuSelection = 0;
+    trace(menuSubmenuSelection);
+    for(i in 0...2)
+        buttonTextGroup.members[i].text=submenuOptions[menuSelection][menuSubmenuSelection];
+}
+
+function acceptSUBMENU(){
+    if (!substatebool) return;
+    switch (menuSubmenuSelection) {
+		case 0: //Note , don't forget to code the sub options.
+        import funkin.menus.StoryMenuState;
+        FlxG.switchState(new StoryMenuState());
+		case 1: FlxG.switchState(new ModState("BNDFreeplayCategories"));
     }
 }
 
@@ -766,10 +815,10 @@ function progressForwards() {
         FlxTween.completeTweensOf(teamText);
         skippableTweens.push(FlxTween.tween(teamText, {y: FlxG.height}, 1, {ease: FlxEase.quartOut}));
 
-        barLerping = 0;
+        //barLerping = 0;
         menuGroupDrags = [0, 0];
         logoLerping = [870, null, 0.6];
-    } else {
+    } else if (isInMenu && submenuNum==1 &&menuSelection>1){
 		if (goigne) return;
 		CoolUtil.playMenuSFX(1);
 		goigne = true;
@@ -792,9 +841,10 @@ function progressForwards() {
 		new FlxTimer().start(1, ()->{
 			switch (menuSelection)
 			{
-				case 0: FlxG.switchState(new ModState("BNDFreeplayCategories"));
-				case 1: FlxG.switchState(new ModState("GalleryState"));
-				case 2: FlxG.switchState(new ModState("AchievementsState"));
+				case 0: //Note , don't forget to code the sub options.
+                    FlxG.switchState(new ModState("BNDFreeplayCategories"));
+				case 1: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("GalleryState"));
+				case 2: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("AchievementsState"));
 				case 3: 
 					import funkin.options.OptionsMenu;
 					FlxG.switchState(new OptionsMenu());
@@ -803,6 +853,9 @@ function progressForwards() {
 					FlxG.switchState(new CreditsMain());
 			}
 		});
+    }else if(isInMenu&&menuSelection<=1&&submenuNum==1){trace("Ok");
+        menuOptions=submenuOptions[menuSelection];
+        submenuNum=2;
     }
 }
 
@@ -814,7 +867,7 @@ function progressBackwards() {
     FlxTween.completeTweensOf(teamText);
     skippableTweens.push(FlxTween.tween(teamText, {y: FlxG.height - 5 - teamText.height}, 1, {ease: FlxEase.quartOut}));
 
-    barLerping = 1;
+    //barLerping = 1;
     menuGroupDrags = [-250, 250];
     logoLerping = [FlxG.width/3.4, 20, 0.95];
 }
@@ -959,7 +1012,6 @@ function beatHit(curBeat) {
             charDance();
         }
     }
-    trace(this.members);
 }
 
 //CHARACTER ANIMATION PLAY HANDLER
@@ -993,7 +1045,7 @@ function skipIntro() {
         if (FlxG.save.data.options.shaders == 'all') blurFilter.blurX = blurFilter.blurY = 0.0001;
 
         logoLerping = [FlxG.width/3.4, 20, 0.95];
-        barLerping = 1;
+        //barLerping = 1;
     }
 
     add(teamText); 

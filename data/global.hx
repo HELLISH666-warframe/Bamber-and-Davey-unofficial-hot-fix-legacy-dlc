@@ -25,7 +25,7 @@ function destroy()
 	hasseen = false;
 
 function postGameStart() {
-        WindowUtils.set_prefix('Bamber & Davey Vol. 2.5 | ');
+    WindowUtils.set_prefix('Bamber & Davey Vol. 2.5 | ');
 }
 
 function new() {
@@ -86,7 +86,9 @@ function new() {
     FlxG.save.data.options.scrollSpeed ??= false;
     FlxG.save.data.options.scrollSpeed_Speed ??= 3;
     FlxG.save.data.options.pauseCountdown ??= true;
-    FlxG.save.data.options.skipGameOver ??='off';
+    FlxG.save.data.options.skipGameOver ??=true;
+    //Why is it a choice option????
+    //FlxG.save.data.options.skipGameOver ??='off';
     FlxG.save.data.options.skipSongIntro ??= false;
     FlxG.save.data.options.scrollMode ??= false;
     FlxG.save.data.options.middlescroll ??= false;
