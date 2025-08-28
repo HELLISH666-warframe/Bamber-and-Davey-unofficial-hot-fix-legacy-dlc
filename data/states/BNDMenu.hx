@@ -601,7 +601,6 @@ function update(elapsed) {
     if(FlxG.keys.justPressed.J)
         FlxG.switchState(new ModState("BNDSettings"));
     if(FlxG.keys.justPressed.T){
-        fuck();
         openSubState(new MusicBeatSubstate(true,"placeholder/Placeholder_substate"));
         persistentUpdate = !persistentDraw;
 
@@ -779,7 +778,7 @@ function update(elapsed) {
     if ((controls.BACK || FlxG.mouse.justPressedRight) && isInMenu&&submenuNum==1) progressBackwards();
 	if (controls.SWITCHMOD) { //OUT OF NECESSITY, WILL REFURBISH LATER
 		openSubState(new ModSwitchMenu());
-		persistentDraw = persistentUpdate = false;
+		persistentUpdate = false;
 	}
 
     if (isInMenu&&submenuNum==1) {
@@ -830,6 +829,7 @@ function acceptSUBMENU(){
     progressForwards();
 }
 
+//Todo: MERGE THIS WITH THE SUBMENU ONE.
 function changeSelection(change = 0) {
     var oldMenuSelection = menuSelection;
     menuSelection = FlxMath.wrap(menuSelection+change, 0, menuOptions.length - 1);

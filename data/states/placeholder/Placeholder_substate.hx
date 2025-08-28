@@ -17,7 +17,7 @@ var curOption:Int = 0;
 var bulletOption:FlxSprite;
 var progressGroup = new FlxTypedSpriteGroup();
 var bulletoptionREAL:FlxSprite = new FlxSprite(-170,-20);
-var options:Array<String> = ['Story Mode','Freeplay','Gallery','DLC'];
+var options:Array<String> = ['Story Mode','Freeplay','Gallery','Achievements'];
 function create() {
 	new FlxTimer().start(0.2, function(tmr:FlxTimer) click_through = true);
     FlxG.cameras.add(coolCam, false).bgColor = 0x00000000;
@@ -106,6 +106,10 @@ function toggle() {
 		FlxG.switchState(new StoryMenuState());
 		case 1:
 		FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
+		case 2:
+		trace("No_graphics_were_made_for_the_ui.");
+		case 3:
+		FlxG.switchState(new ModState("medal_shit/MedalsState"));
 	}
 }
 function destroy() {

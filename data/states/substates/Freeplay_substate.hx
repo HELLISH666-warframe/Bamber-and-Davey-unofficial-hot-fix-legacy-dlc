@@ -156,7 +156,7 @@ function create() {
 	add(bulletoptionREAL).animation.play('idle');
 	if(curPlayingInst!=prevSong)
 	FlxG.sound.playMusic(curPlayingInst, 0);
-	FlxG.sound.music.fadeIn(9,0,1);
+	if(FlxG.sound.music!=null) FlxG.sound.music.fadeIn(9,0,1);
 	trace(curSong.color);
 }
 function update(elapsed:Float) {

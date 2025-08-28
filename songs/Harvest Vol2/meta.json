@@ -1,7 +1,17 @@
 {
-	"displayName": "Harvest v2",
-	"bpm": 180.0,
-	"icon": "bamber",
 	"color": "#00CC00",
-	"album": 2
+	"opponentModeAllowed": false,
+	"icon": "bamber",
+	"difficulties": [
+		"easy",
+		"normal",
+		"hard"
+	],
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Harvest v2",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"album": 2,
+	"bpm": 180
 }

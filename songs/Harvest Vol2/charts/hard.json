@@ -13,7 +13,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 0
 		},
 		{
@@ -29,7 +29,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 2666.66666666667
 		},
 		{
@@ -45,7 +45,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 5333.33333333333
 		},
 		{
@@ -61,7 +61,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 8000
 		},
 		{
@@ -77,7 +77,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 10666.6666666667
 		},
 		{
@@ -93,7 +93,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 13333.3333333333
 		},
 		{
@@ -109,7 +109,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 16000
 		},
 		{
@@ -125,7 +125,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 18666.6666666667
 		},
 		{
@@ -135,7 +135,7 @@
 				""
 			],
 			"time": 20333.3333333333,
-			"name": "Bars"
+			"name": "Bars_from_v2"
 		},
 		{
 			"params": [
@@ -143,7 +143,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 21333.3333333333
 		},
 		{
@@ -152,7 +152,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 24000
 		},
 		{
@@ -161,7 +161,7 @@
 				"3",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 26666.6666666667
 		},
 		{
@@ -170,7 +170,7 @@
 				"1",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 29333.3333333333
 		},
 		{
@@ -179,7 +179,7 @@
 				"0",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 30666.6666666667
 		},
 		{
@@ -196,7 +196,7 @@
 				"2",
 				""
 			],
-			"name": "Bars",
+			"name": "Bars_from_v2",
 			"time": 31916.6666666667
 		},
 		{
@@ -989,9 +989,11 @@
 			"time": 133333.333333333
 		}
 	],
-	"scrollSpeed": 3,
+	"codenameChart": true,
 	"strumLines": [
 		{
+			"keyCount": 4,
+			"position": "dad",
 			"notes": [
 				{
 					"id": 0,
@@ -1505,7 +1507,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 166.666666666657,
+					"sLen": 166.66666666665,
 					"time": 29666.6666666667,
 					"type": 0
 				},
@@ -3484,14 +3486,15 @@
 					"type": 0
 				}
 			],
-			"position": "dad",
+			"visible": true,
 			"type": 0,
 			"characters": [
 				"bamber"
-			],
-			"visible": true
+			]
 		},
 		{
+			"keyCount": 4,
+			"position": "boyfriend",
 			"notes": [
 				{
 					"id": 0,
@@ -5924,26 +5927,27 @@
 					"type": 0
 				}
 			],
-			"position": "boyfriend",
+			"visible": true,
 			"type": 1,
 			"characters": [
 				"bf"
-			],
-			"visible": true
+			]
 		},
 		{
-			"notes": [],
+			"keyCount": 4,
 			"position": "girlfriend",
+			"notes": [],
+			"visible": false,
 			"type": 2,
 			"characters": [
 				"gf"
-			],
-			"visible": false
+			]
 		}
 	],
-	"codenameChart": true,
+	"scrollSpeed": 3,
+	"chartVersion": "1.6.0",
 	"stage": "farm",
 	"noteTypes": [
-		"Bamber ALT note"
+		"special/phone"
 	]
 }

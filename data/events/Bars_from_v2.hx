@@ -14,7 +14,7 @@ var customBarSize:Array<Dynamic> = [
 	['Placeholder', -36],
 	['Deathbattle', 10],
 	['Screencast', 7],
-	['Harvest', 36],
+	['Harvest Vol2', 36],
 	['Yield V1', 9],
 	['Cornaholic V1', 9],
 	['Harvest V1', 9],

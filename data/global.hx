@@ -15,7 +15,7 @@ var stateQuotes:Map<String, String> = [
 
 var idleCursorGraphic;
 var clickCursorGraphic;
-var cursorName = 'default';
+public static var cursorName = 'default';
 public var clickableObjects = [];
 var isHovering = false;
 var switched = false;
@@ -113,19 +113,11 @@ function postStateSwitch() {
         WindowUtils.set_winTitle(stateQuotes[ModState.lastName]);
         DiscordUtil.changePresence(stateQuotes[ModState.lastName], null);
     }
-}
-
-function postStateSwitch() {
+    if(Type.getClassName(Type.getClass(FlxG.state)) != 'funkin.game.PlayState')
+        cursorName="default";
     idleCursorGraphic = Assets.getBitmapData(Paths.image('cursors/'+cursorName));
     clickCursorGraphic = Assets.getBitmapData(Paths.image('cursors/'+cursorName+'_waiting'));
     FlxG.mouse.load(idleCursorGraphic,1,1,1);
-}
-
-function onHealthIconAnimChange(e) {
-    if (e.healthIcon.animation.exists("normal")) {
-        e.cancel();
-        e.healthIcon.animation.play(e.amount == 0 ? "normal" : "losing", true);  
-    }
 }
 
 function postUpdate(elapsed) {

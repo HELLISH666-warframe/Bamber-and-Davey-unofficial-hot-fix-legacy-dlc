@@ -1,3 +1,4 @@
+if(FlxG.save.data.options.modcharts==true){
 var time:Float = 0;
 var allStrums = [];
 var allStrumsX = [];
@@ -73,4 +74,5 @@ function heychant() {
 			strum.scale.y += 0.2;
 		}
 	}
+}
 }
