@@ -46,9 +46,10 @@ var songLength = FlxG.sound.music.length;
 function update(elapsed:Float) {
     var timeRemaining = Std.int((Conductor.songPosition) / 1000);
     var dsfee = Std.int((inst.length) / 1000);
-        var seconds = CoolUtil.addZeros(Std.string(timeRemaining % 60), 2);
-        var minutes = Std.int(timeRemaining / 60);
-        timerNow.text = minutes + ":" + seconds + " / "+Std.int(dsfee / 60)+":"+ CoolUtil.addZeros(Std.string(dsfee % 60), 2);
+        timerNow.text = Std.int(timeRemaining / 60) + ":"
+         + CoolUtil.addZeros(Std.string(timeRemaining % 60), 2)+" / "
+         +Std.int(dsfee / 60)+":"
+         + CoolUtil.addZeros(Std.string(dsfee % 60), 2);
 
     trace(CoolUtil.timeToStr(Conductor.songPosition)+"/ "+CoolUtil.timeToStr(songLength));
 }
