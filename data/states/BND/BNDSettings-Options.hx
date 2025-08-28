@@ -23,7 +23,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Low Memory Mode", "", [], 'lowMemory'],
         ["VRAM Only Sprites", "", [], 'vramSprites'],
         ["Flashing Lights", "Toggles flashes on the screen", [], 'flashingLights'],
-        ["Shaders", "What shaders should be shown", ["All", "Some", "None"], 'shaders'],
+        ["Shaders", "What shaders should be shown", ["all", "Some", "None"], 'shaders'],
         ["Botplay UI", "", [], 'botplayUI'],
         ["Background Blur", "", [], 'bgBlur'],
         ["Background Dim", "", [], 'bgDim'],
@@ -37,8 +37,8 @@ public var optionsFile:Array<Dynamic> = [ // god help me
     ],
     [ // NOTE OPTIONS
         ["Noteskin", "What the notes appear as", ["Default", "Arrows"], 'noteskin'],
-        ["Note Scale", "How big the notes appear in-game (Default is \"1\")", [], 'noteScale'], //#
-        ["Note Colors", "What color notes appear as", [], 'noteColors']
+        ["Note Scale", "How big the notes appear in-game (Default is \"1\")", [1,2,3,4], 'noteScale'], //#
+        ["Note Colors", "What color notes appear as", ["Placeholder","placeholder but not captialised."], 'noteColors']
     ],
     [ // Controls
         ["Placeholder", "Placeholder", [], 'placeholder']
@@ -47,8 +47,8 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Coloured Healthbar", "", [], 'coloredBar'],
         ["Modcharts", "Toggles the notes moving around during a song", ['Always', 'Sometimes', 'Never'], 'modcharts'],
         ["Custom Scroll Speed", "Toggles using your custom scroll speed", [], 'scrollSpeed'],
-        ["Scroll Speed Speed", "How fast the scroll speed should be for a song", [], 'scrollSpeed_Speed'], // 1 - 10?
-        ["Pause Countdown", "Toggles the countdown after unpausing", [], 'pausedCountdown'],
+        ["Scroll Speed Speed", "How fast the scroll speed should be for a song", [1,10], 'scrollSpeed_Speed'], // 1 - 10?
+        ["Pause Countdown", "Toggles the countdown after unpausing", [], 'pauseCountdown'],
         ["Skip Game Over", "", [], 'skipGameOver'],
         ["Skip Song Intro", "", [], 'skipSongIntro'],
         ["Scroll Mode", "Where the notes appear on your screen", ["Top", "Bottom"], 'scrollMode'],

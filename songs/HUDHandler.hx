@@ -1,3 +1,10 @@
+function create() {
+    switch(PlayState.instance.SONG.meta.name){
+        case"Judgement Farm"|"Judgement Farm 2"|"Judgement Farm 2 Vol2"|"Judgement Farm Vol2":
+    importScript("data/scripts/huds/undertale");
+    }
+}
+
 function postCreate() {
     for (i in strumLines.members) {
         var color = i.characters[0].iconColor;

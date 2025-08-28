@@ -598,8 +598,6 @@ function update(elapsed) {
 		import funkin.editors.EditorPicker;
 		openSubState(new EditorPicker());
 	}
-    if(FlxG.keys.justPressed.J)
-        FlxG.switchState(new ModState("BNDSettings"));
     if(FlxG.keys.justPressed.T){
         openSubState(new MusicBeatSubstate(true,"placeholder/Placeholder_substate"));
         persistentUpdate = !persistentDraw;
@@ -903,8 +901,7 @@ function progressForwards() {
 				case 1: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("GalleryState"));
 				case 2: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("AchievementsState"));
 				case 3: 
-					import funkin.options.OptionsMenu;
-					FlxG.switchState(new OptionsMenu());
+                    FlxG.switchState(new ModState("BND/BNDSettings"));
 				case 4:
 					import funkin.menus.credits.CreditsMain;
 					FlxG.switchState(new CreditsMain());

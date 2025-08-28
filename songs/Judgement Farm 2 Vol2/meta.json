@@ -1,8 +1,16 @@
 {
-	"displayName": "Judgement Farm 2 V1",
-	"bpm": 140.0,
-	"icon": "bamber-sans-undertale",
 	"color": "#59DEF7",
-	"custom_credits":true,
-	"album": 2
+	"opponentModeAllowed": false,
+	"icon": "bamber-sans-undertale",
+	"difficulties": [
+		"normal"
+	],
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"custom_credits": true,
+	"displayName": "Judgement Farm 2 V1",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"album": 2,
+	"bpm": 140
 }

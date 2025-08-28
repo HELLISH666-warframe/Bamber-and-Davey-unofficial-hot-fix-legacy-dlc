@@ -55,7 +55,7 @@ function callBack() {
 }
 
 function go()
-	FlxG.switchState(FlxG.save.data.notFirstLaunch != true ? new ModState("FirstTimeState") : new ModState('BNDMenu'));
+	FlxG.switchState(FlxG.save.data.notFirstLaunch != true ? new ModState("FirstTimeState") : new ModState('BND/BNDMenu'));
 
 function update(elapsed) {
     FlxG.mouse.visible = false;

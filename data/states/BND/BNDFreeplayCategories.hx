@@ -136,7 +136,7 @@ function update(elapsed) {
 	if (controls.DOWN_P) changements(1);
 	
 	if (controls.BACK)
-		FlxG.switchState(new ModState("BNDMenu"));
+		FlxG.switchState(new ModState("BND/BNDMenu"));
 		
 	if (controls.ACCEPT)
 	{

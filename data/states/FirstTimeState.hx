@@ -270,7 +270,7 @@ function transitionPage() {
             FlxTween.tween(gradient, {alpha: 0}, 1, {ease: FlxEase.quartInOut});
             FlxTween.tween(marqueeText, {alpha: 0}, 1, {ease: FlxEase.quartInOut, onComplete: function(tween) {
                 skipTransIn = skipTransOut = true;
-                FlxG.switchState(new ModState('BNDMenu'));
+                FlxG.switchState(new ModState('BND/BNDMenu'));
             }});
         }, 1);
     }

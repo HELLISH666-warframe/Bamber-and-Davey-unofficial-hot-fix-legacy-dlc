@@ -10,7 +10,9 @@ import funkin.backend.utils.DiscordUtil;
 var stateQuotes:Map<String, String> = [
     "SplashScreen" => "Team Reimagination Splash Screen",
     "FirstTimeState" => "First Time Setup",
-    "BNDMenu" => "In The Menus"
+    "BND/BNDMenu" => "In The Menus",
+    "BND/BNDSettings" => "Options Menu",
+    "BND/BNDFreeplayCategories" => "Freeplay"
 ];
 
 var idleCursorGraphic;
@@ -24,13 +26,8 @@ static var hasseen = false;
 function destroy()
 	hasseen = false;
 
-function postGameStart() {
-    WindowUtils.set_prefix('Bamber & Davey Vol. 2.5 | ');
-}
-
 function new() {
-    WindowUtils.set_prefix('Bamber & Davey Vol. 2.5 | ');
-    //FlxG.save.bind('BamberAndDavey', 'TeamReimagination'); //I found out that mod options use regular saves instead of a save in the Options class for example
+    FlxG.save.bind('BamberAndDavey', 'TeamReimagination'); //I found out that mod options use regular saves instead of a save in the Options class for example
 
     if (FlxG.save.data.options == null) FlxG.save.data.options = {};
 
@@ -47,9 +44,9 @@ function new() {
 
     //Sound options
     //Master Volume - FlxG.volume
-    FlxG.save.data.options.musicVolume ??= 70; 
-    FlxG.save.data.options.sfxVolume ??= 100;
-    FlxG.save.data.options.voiceVolume ??= 100;
+    FlxG.save.data.options.musicVolume = 70; 
+    FlxG.save.data.options.sfxVolume = 100;
+    FlxG.save.data.options.voiceVolume = 100;
     FlxG.save.data.options.missSounds ??= true;
     FlxG.save.data.options.copyrightBypass ??= false;
     FlxG.save.data.options.subtitles ??= true;
@@ -91,7 +88,7 @@ function new() {
     //FlxG.save.data.options.skipGameOver ??='off';
     FlxG.save.data.options.skipSongIntro ??= false;
     FlxG.save.data.options.scrollMode ??= false;
-    FlxG.save.data.options.middlescroll ??= false;
+    FlxG.save.data.options.middleScroll ??= false;
     FlxG.save.data.options.storyDialogue ??= false;
     FlxG.save.data.options.freeplayDialogue ??= false;
 
@@ -109,6 +106,7 @@ function new() {
 }
 
 function postStateSwitch() {
+    WindowUtils.set_prefix('Bamber & Davey Vol. 2.5 | ');
     if (stateQuotes[ModState.lastName] != null && Type.getClassName(Type.getClass(FlxG.state)) == 'funkin.backend.scripting.ModState') {
         WindowUtils.set_winTitle(stateQuotes[ModState.lastName]);
         DiscordUtil.changePresence(stateQuotes[ModState.lastName], null);
@@ -162,16 +160,6 @@ function update(elapsed) {
 
     if (FlxG.keys.justPressed.ANY) {FlxG.mouse.visible = false;} //i wish there was a Controls version so that the gamepad is supported
     if (FlxG.mouse.justMoved || FlxG.mouse.justPressed || FlxG.mouse.justPressedMiddle ||FlxG.mouse.justPressedRight) {FlxG.mouse.visible = true;}
-    for (i in FlxG.state.members)
-        if (Std.isOfType(i, HealthIcon))
-            if (Assets.exists(Path.withoutExtension(Paths.image("icons/"+i.curCharacter)) + ".xml") && i.frames.frames[0].name != "losing0000") {
-                i.frames = Paths.getFrames("icons/"+i.curCharacter);
-                i.animation.addByPrefix("losing", "losing", 24, true);
-                i.animation.addByPrefix("normal", "normal", 24, true); 
-                trace("ffUck...");
-                i.animation.play("normal", true);
-                i.curAnimState = -1;
-            }
 }
 
 public static function getVolume(initValue = 1, type = 'sfx') {

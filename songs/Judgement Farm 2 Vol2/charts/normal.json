@@ -2,16 +2,19 @@
 	"events": [
 		{
 			"params": [
-				1
+				0,
+				true,
+				4,
+				"CLASSIC",
+				"In"
 			],
 			"name": "Camera Movement",
 			"time": 0
 		}
 	],
-	"scrollSpeed": 3,
 	"strumLines": [
 		{
-			"visible": true,
+			"keyCount": 4,
 			"notes": [
 				{
 					"id": 3,
@@ -1792,12 +1795,15 @@
 			],
 			"position": "dad",
 			"type": 0,
+			"visible": true,
 			"characters": [
 				"bamber-sans-undertale"
 			]
 		},
 		{
-			"visible": true,
+			"keyCount": 4,
+			"strumScale": 1,
+			"position": "boyfriend",
 			"notes": [
 				{
 					"id": 3,
@@ -4572,14 +4578,23 @@
 					"type": 0
 				}
 			],
-			"position": "boyfriend",
-			"type": 1,
 			"characters": [
-				"bamber-playable-undertale"
-			]
+				"bamber-sovl"
+			],
+			"type": 1,
+			"visible": true,
+			"strumSpacing": 1,
+			"strumPos": [
+				0,
+				50
+			],
+			"strumLinePos": 0.75,
+			"vocalsSuffix": ""
 		}
 	],
 	"codenameChart": true,
+	"scrollSpeed": 3,
+	"chartVersion": "1.6.0",
 	"stage": "undertalestage",
 	"noteTypes": []
 }

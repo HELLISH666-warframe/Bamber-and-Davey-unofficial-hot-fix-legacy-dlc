@@ -2,14 +2,13 @@ import funkin.editors.ui.UISliceSprite;
 import funkin.options.Options;
 import hxvlc.flixel.FlxVideoSprite;
 import flixel.group.FlxTypedSpriteGroup;
-import funkin.backend.utils.WindowUtils;
 import flixel.FlxCamera;
 import StringTools;
 
 var optionsCam = new FlxCamera();
 
 // OPTIONS file, in a different script to be cleaner ig
-importScript("data/states/BNDSettings-Options");
+importScript("data/states/BND/BNDSettings-Options");
 // bg stuff, not used later
 var box = new UISliceSprite(0, 0, FlxG.width/2 * 1.6, FlxG.height/3 * 2.25, 'menus/options/optionsBox');
 // stuff you can't interact with
@@ -29,11 +28,11 @@ var curMenu:Int = 0;
 var curSelect:Int = 0;
 var curParam:Int = 0;
 
-var dumbArray=[[1,2,4,5],[3,4,5],[0,1,2,4,5,6,7,8,9,10,11,12,13],[1,1,2],[],[0,2,3,4,5,6,8,9,10],[]];
+var dumbArray=[[null,0,1,null,2,3],[null,null,null,0,1,2],[0,1,2,null,3,4,5,6,7,8,9,10,11,12],[],[],[0,null,1,null,2,3,4,null,5,6,7],[]];
+var i_want_to_jump_off_a_bridge=[[0,2,6,7],[0,1,2],[3],[0,1,2],[],[1,3,7],[]];
 
 function create() {
     // Initialisation
-    WindowUtils.set_winTitle("Options Menu");
     CoolUtil.playMenuSong();
     box.incorporeal = true;
     box.screenCenter();
@@ -80,16 +79,17 @@ function update(){
     if (controls.UP_P||controls.DOWN_P){
 		changeCurSelected(controls.UP_P ? -1 : 1);
         trace(dumbArray[curMenu]);
-        NUMBER=dumbArray[curMenu][0+(controls.UP_P ? 1 : -1)];
+        NUMBER=dumbArray[curMenu][curSelect];
         trace(NUMBER);
 	}
     if (controls.ACCEPT) {
         accept();
     }
     if (controls.BACK)
-		FlxG.switchState(new ModState("BNDMenu"));
+		FlxG.switchState(new ModState("BND/BNDMenu"));
+    if (controls.RIGHT_P||controls.LEFT_P)  changeSelected(controls.RIGHT_P ? 1 : -1);
 
-    optionsCam.scroll.y = CoolUtil.fpsLerp(optionsCam.scroll.y, curParam * 60, 0.2);
+    optionsCam.scroll.y = CoolUtil.fpsLerp(optionsCam.scroll.y, curSelect * 60, 0.2);
 }
 
 function accept(){
@@ -110,32 +110,44 @@ function changeOption(a:Int){
 		FlxTween.tween(z, {y: buttons.members.indexOf(z) == curMenu ? 7.5 : 25}, 0.25);
 	}
 	regenMenu();
+    changeCurSelected(0);
 }
 
 //function changeSelected(a:Int){}
-/*
+static var i_crave_death:Int=0;
+
 function changeSelected(a:Int){
-    curParam += a;
+    trace(optionsFile[curMenu][curSelect][2][curParam]);
+    curParam+=a;
+    if (curParam < 0) curParam = optionsFile[curMenu][curSelect][2].length;
+	if (curParam >= optionsFile[curMenu][curSelect][2].length) curParam = 0;
+    if(curMenu==1)
+    if((fuck!=true||fuck!=false)){
+    Reflect.setProperty(FlxG.save.data.options, curbool, Reflect.getProperty(FlxG.save.data.options, curbool)+a);
+    }
+    if(curMenu==0)
+    if((fuck!=true||fuck!=false)){
+    Reflect.setProperty(FlxG.save.data.options, curbool, Reflect.getProperty(FlxG.save.data.options, curbool)-Reflect.getProperty(FlxG.save.data.options, curbool)+optionsFile[curMenu][curSelect][2][curParam]);
+    }
+    trace(Reflect.getProperty(FlxG.save.data.options, curbool));
+    daParams.members[curSelect].text="<"+optionsFile[curMenu][curSelect][2][curParam]+">";
 }
-*/
 
 var fuck:Array<String> = [];
 static var curbool;
 function changeCurSelected(a:Int){
-	curParam += a;
-	if (curParam < 0) curParam = daOptions.length-1;
-	if (curParam >= daOptions.length) curParam = 0;
-    explainText.text!="" ? explainText.text=optionsFile[curMenu][curParam][1] : explainText.text="Placeholder Message";
-    explainText.text!="" ? explainText.text=optionsFile[curMenu][curParam][1] : explainText.text="Placeholder Message";
-    for(num => a in optionsFile[curMenu][curParam]){
+	curSelect += a;
+	if (curSelect < 0) curSelect = daOptions.length-1;
+	if (curSelect >= daOptions.length) curSelect = 0;
+    explainText.text!="" ? explainText.text=optionsFile[curMenu][curSelect][1] : explainText.text="Placeholder Message";
+    explainText.text!="" ? explainText.text=optionsFile[curMenu][curSelect][1] : explainText.text="Placeholder Message";
+    for(num => a in optionsFile[curMenu][curSelect]){
         fuck=(Reflect.field(FlxG.save.data.options, a));
         curbool=a;
-        //trace(curbool);
         trace(FlxG.save.data.options);
         trace("\noption shit :"+a+
         "\nSave shit :"+fuck+
-        "\nCurselected :"+curParam);
-        //FlxG.save.data.options[curParam]=false;
+        "\nCurselected :"+curSelect);
     }
 }
 
@@ -144,7 +156,7 @@ for(c in 0...101)
     numArray.push(c);
 
 function regenMenu(){
-    curParam=0;
+    curSelect=0;
     savetheshit();
     for(z in [daParams, daOptions, daCheckboxes]) z.clear();
     for(num => a in optionsFile[curMenu]){
