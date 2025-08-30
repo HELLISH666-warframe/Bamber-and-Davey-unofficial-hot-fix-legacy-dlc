@@ -12,7 +12,7 @@ var stateQuotes:Map<String, String> = [
     "FirstTimeState" => "First Time Setup",
     "BND/BNDMenu" => "In The Menus",
     "BND/BNDSettings" => "Options Menu",
-    "BND/BNDFreeplayCategories" => "Freeplay"
+    "BND/BNDFreeplayCategories" => "Freeplay Menu"
 ];
 
 var idleCursorGraphic;

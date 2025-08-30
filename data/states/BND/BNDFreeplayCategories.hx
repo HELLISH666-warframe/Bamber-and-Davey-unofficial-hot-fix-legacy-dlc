@@ -1,5 +1,6 @@
 import funkin.backend.chart.Chart;
 import funkin.menus.StoryMenuState.StoryWeeklist;
+import funkin.backend.utils.WindowUtils;
 import flixel.text.FlxTextBorderStyle;
 import funkin.savedata.FunkinSave;
 import funkin.backend.FunkinText;
@@ -193,6 +194,7 @@ function changements(a) {
 	if (data[curSelected][0] == "Legacy") ver = 1;
 	
 	album.loadGraphic(Paths.image("menus/freeplay/albums/vol"+ver));
+	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName);
 }
 
 function change(a) {
@@ -296,4 +298,7 @@ function change(a) {
 	subCurSelectedLimit = songst[curSelected].length - 1;
 	play.text = data[curSelected][1];
 	changements(0);
+}
+function destroy() {
+	WindowUtils.set_suffix("");
 }
