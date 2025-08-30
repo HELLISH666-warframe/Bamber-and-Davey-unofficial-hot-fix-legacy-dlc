@@ -52,5 +52,5 @@ function update(elapsed:Float) {
          +Std.int(dsfee/60)+":"
          + CoolUtil.addZeros(Std.string(dsfee % 60),2);
 
-    trace(CoolUtil.timeToStr(Conductor.songPosition)+"/ "+CoolUtil.timeToStr(songLength));
+
 }

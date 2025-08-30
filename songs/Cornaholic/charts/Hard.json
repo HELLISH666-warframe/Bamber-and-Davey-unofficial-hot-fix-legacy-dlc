@@ -2,6 +2,686 @@
 	"events": [
 		{
 			"params": [
+				"0.030",
+				""
+			],
+			"time": 132923.076923077,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 133269.230769231,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 133615.384615385,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 134076.923076923,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 134307.692307692,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 134769.230769231,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 135115.384615385,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 135461.538461538,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 135923.076923077,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 136153.846153846,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 136615.384615385,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 136961.538461538,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 137307.692307692,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 137769.230769231,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 138000,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 138461.538461538,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 138807.692307692,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 139153.846153846,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 139615.384615385,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 139846.153846154,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 140307.692307692,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 140653.846153846,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 141000,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 141461.538461538,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 141692.307692308,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 142153.846153846,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 142500,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 142846.153846154,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 143307.692307692,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 143538.461538461,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 144000,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 144346.153846154,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 144692.307692308,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 145153.846153846,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 145384.615384615,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 145846.153846154,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 146192.307692308,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 146538.461538461,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 147000,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 147230.769230769,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 147692.307692308,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 148038.461538461,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 148384.615384615,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 148846.153846154,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 149076.923076923,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 149538.461538461,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 149884.615384615,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 150230.769230769,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 150692.307692308,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 150923.076923077,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 151384.615384615,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 151730.769230769,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 152076.923076923,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 152538.461538461,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 152769.230769231,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 153230.769230769,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 153576.923076923,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 153923.076923077,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 154384.615384615,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 154615.384615384,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 155076.923076923,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 155423.076923077,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 155769.230769231,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 156230.769230769,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 156461.538461538,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 156923.076923077,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 157269.230769231,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 157615.384615384,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 158076.923076923,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 158307.692307692,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 158769.230769231,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 159115.384615384,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 159461.538461538,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 159923.076923077,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 160153.846153846,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 160615.384615384,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 160961.538461538,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 161307.692307692,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 161769.230769231,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 162000,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 162461.538461538,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 162807.692307692,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 163153.846153846,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 163615.384615385,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
+				"0.030",
+				""
+			],
+			"time": 163846.153846154,
+			"name": "add_cam_zoom"
+		},
+		{
+			"params": [
 				1
 			],
 			"time": 7384.61538461538,
@@ -22,7 +702,7 @@
 				"0.1",
 				""
 			],
-			"time": 14307.692307692,
+			"time": 14307.6923076923,
 			"name": "Bars_from_v2"
 		},
 		{
@@ -260,11 +940,6 @@
 			"name": "Camera Movement"
 		},
 		{
-			"params": [],
-			"time": 132923.076923077,
-			"name": "add_cam_zoom"
-		},
-		{
 			"params": [
 				"0.030",
 				""
@@ -279,7 +954,7 @@
 				""
 			],
 			"time": 132923.076923077,
-			"name": "Bars"
+			"name": "Bars_from_v2"
 		},
 		{
 			"params": [
@@ -288,15 +963,6 @@
 			],
 			"time": 132923.076923077,
 			"name": "add_cam_zoom"
-		},
-		{
-			"params": [
-				"10",
-				"1",
-				""
-			],
-			"time": 147692.307692308,
-			"name": "Bars_from_v2"
 		},
 		{
 			"params": [
@@ -326,6 +992,15 @@
 			],
 			"time": 144000,
 			"name": "Camera Movement"
+		},
+		{
+			"params": [
+				"10",
+				"1",
+				""
+			],
+			"time": 147692.307692308,
+			"name": "Bars_from_v2"
 		},
 		{
 			"params": [
@@ -3514,7 +4189,7 @@
 				},
 				{
 					"id": 3,
-					"sLen": 230.769230769292,
+					"sLen": 230.769230769307,
 					"time": 126461.538461538,
 					"type": 0
 				},
@@ -6489,20 +7164,20 @@
 					"type": 0
 				}
 			],
-			"visible": true,
+			"position": "dad",
+			"strumScale": 1,
 			"strumSpacing": 1,
+			"visible": true,
+			"type": 0,
+			"characters": [
+				"bamber"
+			],
 			"strumPos": [
 				0,
 				50
 			],
-			"position": "dad",
-			"strumScale": 1,
 			"vocalsSuffix": "-normal",
-			"strumLinePos": 0.25,
-			"type": 0,
-			"characters": [
-				"bamber"
-			]
+			"strumLinePos": 0.25
 		},
 		{
 			"keyCount": 4,
@@ -9545,7 +10220,7 @@
 				},
 				{
 					"id": 1,
-					"sLen": 461.538461538497,
+					"sLen": 461.538461538512,
 					"time": 125538.461538462,
 					"type": 0
 				},
@@ -9611,7 +10286,7 @@
 				},
 				{
 					"id": 0,
-					"sLen": 230.769230769249,
+					"sLen": 230.769230769205,
 					"time": 130615.384615385,
 					"type": 0
 				},

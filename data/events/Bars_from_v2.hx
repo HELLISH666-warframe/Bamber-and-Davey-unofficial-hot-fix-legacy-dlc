@@ -43,7 +43,7 @@ function postCreate() {
 	bar1.cameras=[camOther];bar2.cameras=[camOther];insert(0,bar1);insert(0,bar2);bar2.y=720-(barSize*10);bar1.y=-560+(barSize*10);
 }
 function onEvent(_) {
-	if (_.event.name == 'Bars_from_v2') {
+	if (_.event.name == 'Bars_from_v2'||_.event.name == 'Bars') {
 		var val1 = _.event.params[0];
 		var val2 = _.event.params[1];
 		var value3 = _.event.params[2];
