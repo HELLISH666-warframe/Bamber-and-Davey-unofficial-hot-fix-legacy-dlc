@@ -20,10 +20,8 @@ import flixel.addons.display.FlxBackdrop;
 import funkin.menus.ModSwitchMenu;
 import funkin.menus.ui.ClassicAlphabet;
 import AnimatedFunkinSprite;
-import funkin.backend.MusicBeatSubstate;
 
 public static var initialized = false; //post-intro sequence check
-//"barLerping" caused the memory leak , ok?
 public static var isInMenu = false; //if the player is on the main menu or the title screen
 
 var skippableTweens = []; //Tweens that will be stored here will be skipped when you restart the state, or if you go into it from somewhere else
@@ -47,7 +45,7 @@ var submenuOptions = ['Story Mode', 'Freeplay'];
 public static var menuSelection = 0;
 public static var menuSubmenuSelection = 0;
 public var submenuNum:Int = 1; //there are two submenus in vol.3, for play and for extras
-public var substatebool:Bool = false;
+public var subMenuBool:Bool = false;
 
 //SFX
 var windAmbience, vinylSound;
@@ -337,7 +335,7 @@ function setupTitleStuff() {
     teamText.updateHitbox(); teamText.borderSize = 2;
 
     startBar = new FlxBackdrop(Paths.image('menus/titleScreen/StartBar'), FlxAxes.X); startBar.velocity.x = -40; startBar.y = 620; startBar.antialiasing = true; add(startBar); startBar.alpha = 0.6; startBar.scale.y = barLerping;
-    startBar.width = Math.pow(2,24); //it's rather extreme but I had to manipulate the hitbox since it doesn't repeat for every tile in FlxBackdrop.
+    startBar.width = Math.pow(2,11); //it's rather extreme but I had to manipulate the hitbox since it doesn't repeat for every tile in FlxBackdrop.
 
     startText = new ClassicAlphabet(0, 0, "PRESS "+CoolUtil.keyToString(Reflect.field(Options, 'P1_ACCEPT')[0])+" OR CLICK HERE", true, false); startText.antialiasing = true; add(startText); startText.scale.x = startText.scale.y = 0.7;
 
@@ -598,11 +596,6 @@ function update(elapsed) {
 		import funkin.editors.EditorPicker;
 		openSubState(new EditorPicker());
 	}
-    if(FlxG.keys.justPressed.T){
-        openSubState(new MusicBeatSubstate(true,"placeholder/Placeholder_substate"));
-        persistentUpdate = !persistentDraw;
-
-    }
     if (FlxG.keys.justPressed.F9) { //DEV, REMOVE ONCE DONE!
         initialized = false;
         FlxG.sound.music.stop();
@@ -791,17 +784,17 @@ function update(elapsed) {
             changeSelectionSUBMENU(controls.LEFT_P ? -1 : 1);
         }
         if(controls.ACCEPT){acceptSUBMENU();
-            changeSelectionSUBMENU(0);
-        substatebool=true;
+        subMenuBool=true;
         }
         if(controls.BACK){
             for (i in 0...menuOptions.length) {
                 menuOptions = ['Play', 'Gallery', 'Achievements', 'Options', 'Credits'];
                 buttonTextGroup.members[i].text=menuOptions[i].toUpperCase();
-                substatebool=false;
-                setupMenuRegen();
+                subMenuBool=false;
                 submenuNum=1;
            }
+           setupMenuRegen();
+           changeSelection(0);
         }
     }
 }
@@ -810,21 +803,16 @@ function changeSelectionSUBMENU(change = 0) {
     var oldSubMenuSelection = menuSubmenuSelection;
     menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions.length - 1);
      for (i in buttonSubgroup.members) {
-        if (menuSubmenuSelection == i.ID) 
-		{
-			i.offset.y = 0;
-			FlxTween.globalManager.completeTweensOf(i);
-			FlxTween.tween(i, {"offset.y": 20}, 0.2, {ease: FlxEase.quadOut, onComplete: function() {FlxTween.tween(i, {"offset.y": 0}, 0.2, {ease: FlxEase.quadIn});}});
-		}
         i.animateAtlas.anim.play("Button", true, menuSubmenuSelection == i.ID ? false : true, menuSubmenuSelection == i.ID ? i.animateAtlas.anim.curFrame - i.animateAtlas.anim.length : i.animateAtlas.anim.curFrame + i.animateAtlas.anim.length );
     }
+    trace("Wow");
     buttonTextGroup.members[oldSubMenuSelection].alpha = 0;
     buttonTextGroup.members[menuSubmenuSelection].alpha = 1;
 }
 
 function acceptSUBMENU(){
-    if(substatebool)return
-    progressForwards();
+    if(subMenuBool)return
+    progressForwardsSubmenu();
 }
 
 //Todo: MERGE THIS WITH THE SUBMENU ONE.
@@ -861,6 +849,39 @@ function processClickables() {
 	else pushToClickables(background);
 }
 
+function progressForwardsSubmenu() {
+    if (isInMenu && submenuNum==2){
+        trace("Working");
+		if (goigne) return;
+		CoolUtil.playMenuSFX(1);
+		goigne = true;
+        FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
+        FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
+
+        FlxTween.tween(foreground.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
+        FlxTween.tween(foreground, {y: foreground.y + 610}, 1, {ease: FlxEase.quartIn});
+		
+        FlxTween.tween(background.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
+        FlxTween.tween(background, {y: background.y + 1000}, 1, {ease: FlxEase.quartIn});
+		
+        FlxTween.tween(clouds.scale, {x: clouds.scale.x*2, y: clouds.scale.y*2}, 1, {ease: FlxEase.quartIn, onComplete: function(tween) {
+            clouds.updateHitbox();
+            clouds.screenCenter(); clouds.y = clouds.y + 210;
+        }});
+		
+		new FlxTimer().start(0.5, ()->{menuCamera.fade(0xFF000000, 0.5, false);});
+
+		new FlxTimer().start(1, ()->{
+		switch (menuSubmenuSelection) {
+		case 0: //Note , don't forget to code the sub options.
+        import funkin.menus.StoryMenuState;
+        FlxG.switchState(new StoryMenuState());
+		case 1: FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
+   			}
+		});
+    }
+}
+
 function progressForwards() {
     if (!isInMenu) {
         isInMenu = true;
@@ -870,7 +891,7 @@ function progressForwards() {
         FlxTween.completeTweensOf(teamText);
         skippableTweens.push(FlxTween.tween(teamText, {y: FlxG.height}, 1, {ease: FlxEase.quartOut}));
 
-        //barLerping = 0;
+        barLerping = 0;
         menuGroupDrags = [0, 0];
         logoLerping = [870, null, 0.6];
     } else if (isInMenu && submenuNum==1 &&menuSelection!=0){
@@ -911,34 +932,7 @@ function progressForwards() {
         menuOptions=submenuOptions;
         setupSubMenuStuff();
         submenuNum=2;
-    }else if (isInMenu && submenuNum==2){
-		if (goigne) return;
-		CoolUtil.playMenuSFX(1);
-		goigne = true;
-        FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
-        FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
-
-        FlxTween.tween(foreground.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
-        FlxTween.tween(foreground, {y: foreground.y + 610}, 1, {ease: FlxEase.quartIn});
-		
-        FlxTween.tween(background.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
-        FlxTween.tween(background, {y: background.y + 1000}, 1, {ease: FlxEase.quartIn});
-		
-        FlxTween.tween(clouds.scale, {x: clouds.scale.x*2, y: clouds.scale.y*2}, 1, {ease: FlxEase.quartIn, onComplete: function(tween) {
-            clouds.updateHitbox();
-            clouds.screenCenter(); clouds.y = clouds.y + 210;
-        }});
-		
-		new FlxTimer().start(0.5, ()->{menuCamera.fade(0xFF000000, 0.5, false);});
-
-		new FlxTimer().start(1, ()->{
-		switch (menuSubmenuSelection) {
-		case 0: //Note , don't forget to code the sub options.
-        import funkin.menus.StoryMenuState;
-        FlxG.switchState(new StoryMenuState());
-		case 1: FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
-   			}
-		});
+        changeSelectionSUBMENU(0);
     }
 }
 
@@ -950,7 +944,7 @@ function progressBackwards() {
     FlxTween.completeTweensOf(teamText);
     skippableTweens.push(FlxTween.tween(teamText, {y: FlxG.height - 5 - teamText.height}, 1, {ease: FlxEase.quartOut}));
 
-    //barLerping = 1;
+    barLerping = 1;
     menuGroupDrags = [-250, 250];
     logoLerping = [FlxG.width/3.4, 20, 0.95];
 }
@@ -1128,7 +1122,7 @@ function skipIntro() {
         if (FlxG.save.data.options.shaders == 'all') blurFilter.blurX = blurFilter.blurY = 0.0001;
 
         logoLerping = [FlxG.width/3.4, 20, 0.95];
-        //barLerping = 1;
+        barLerping = 1;
     }
 
     add(teamText); 

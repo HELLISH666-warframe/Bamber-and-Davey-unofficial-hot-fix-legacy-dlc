@@ -1,7 +1,6 @@
 //VERY_wip.
 import flixel.text.FlxTextBorderStyle;
 import flixel.group.FlxTypedSpriteGroup;
-import funkin.options.type.Checkbox;
 import funkin.options.Options;
 
 var click_through:Bool = false;
@@ -14,7 +13,6 @@ var text = new Alphabet(285.25, 70, 0, true);
 var composer = new Alphabet(FlxG.width/2.8, 130, 0, true);
 var play_Text = new Alphabet(1000, 650, 0, true);
 var hitbox:FlxSprite;
-//So people don't click the text and have it MISS.
 
 var portrait = new FlxSprite(530,0);
 static var curDifficulty:Int = 0;
@@ -31,9 +29,9 @@ var bulletoptionREAL:FlxSprite = new FlxSprite(-170,-20);
 var options:Array<String> = ['Cutscenes','Mod charts','Scroll Speed','Mode'];
 public static var cutscene_Toggle:Bool = FlxG.save.data.options.freeplayDialogue;
 public static var modchart_Toggle:Bool = FlxG.save.data.options.modcharts;
+//Idea , have the option greyed out if mod-charts are set to always same with scroll-speed.
 public static var scroll_Speed:Float = 1;
-var checkbox_text:Checkbox;
-var checkbox_real:Checkbox;
+var checkbox_real:FlxSprite;
 var checkboxes = new FlxTypedSpriteGroup();
 static var toggles = [cutscene_Toggle,modchart_Toggle];
 function create() {
@@ -59,9 +57,8 @@ function create() {
 	add(portrait).angle=-3;
 	portrait.setGraphicSize(300,300);
 	text.text = curSong.displayName;
-	text.camera = coolCam;
 	text.alignment="center";
-	add(text);
+	add(text).camera = coolCam;
 	text.screenCenter(FlxAxes.X);
 	composer.text =  "By placeholder";
 	composer.camera = coolCam;
@@ -157,7 +154,6 @@ function create() {
 	if(curPlayingInst!=prevSong)
 	FlxG.sound.playMusic(curPlayingInst, 0);
 	if(FlxG.sound.music!=null) FlxG.sound.music.fadeIn(9,0,1);
-	trace(curSong.color);
 }
 function update(elapsed:Float) {
 	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==3) changeDiff(controls.RIGHT_P ? 1 : -1);

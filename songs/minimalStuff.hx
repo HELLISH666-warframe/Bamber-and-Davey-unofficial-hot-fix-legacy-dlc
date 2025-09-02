@@ -51,6 +51,4 @@ function update(elapsed:Float) {
          + CoolUtil.addZeros(Std.string(timeRemaining%60),2)+" / "
          +Std.int(dsfee/60)+":"
          + CoolUtil.addZeros(Std.string(dsfee % 60),2);
-
-
 }

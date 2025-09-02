@@ -11,13 +11,6 @@
 		},
 		{
 			"params": [
-				1
-			],
-			"time": 5333.33333333333,
-			"name": "Camera Movement"
-		},
-		{
-			"params": [
 				"9",
 				"9",
 				"linear"
@@ -25,7 +18,7 @@
 			"time": 10677.0833333333,
 			"name": "Bars_from_v2"
 		},
-        {
+		 {
 			"params": [
 				"8.5",
 				"0.5",
@@ -34,7 +27,7 @@
 			"time": 20005.2083333333,
 			"name": "Bars_from_v2"
 		},
-        {
+		{
 			"params": [
 				"1",
 				"0.5",
@@ -43,7 +36,7 @@
 			"time": 20338.5416666667,
 			"name": "Bars_from_v2"
 		},
-        {
+		{
 			"params": [
 				"13.5",
 				"0.5",
@@ -69,6 +62,40 @@
 			],
 			"time": 21333.3333333333,
 			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"18",
+				"0.5",
+				""
+			],
+			"time": 64000,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"25",
+				"0.3",
+				""
+			],
+			"time": 84000,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"10",
+				"1",
+				""
+			],
+			"time": 85333.3333333333,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				1
+			],
+			"time": 5333.33333333333,
+			"name": "Camera Movement"
 		},
 		{
 			"params": [
@@ -171,15 +198,6 @@
 			],
 			"time": 64000,
 			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				"18",
-				"0.5",
-				""
-			],
-			"time": 64000,
-			"name": "Bars_from_v2"
 		},
 		{
 			"params": [
@@ -331,15 +349,6 @@
 		},
 		{
 			"params": [
-				"25",
-				"0.3",
-				""
-			],
-			"time": 84000,
-			"name": "Bars_from_v2"
-		},
-		{
-			"params": [
 				0,
 				true,
 				4,
@@ -348,15 +357,6 @@
 			],
 			"time": 85333.3333333333,
 			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				"10",
-				"1",
-				""
-			],
-			"time": 85333.3333333333,
-			"name": "Bars_from_v2"
 		},
 		{
 			"params": [
