@@ -192,6 +192,7 @@ function create() {
     beatHit(0);
 
     if ((initialized) || (hasseen)) skipIntro();
+    test_thing=buttonGroup;
 }
 
 function setupPreTitleStuff() {
@@ -429,6 +430,7 @@ function setupMenuStuff() {
     }
 
     bottomMenuGroup.add(buttonTextGroup);
+    test_thing=bottomMenuGroup;
 }
 
 function setupSubMenuStuff() {
@@ -467,14 +469,14 @@ function setupSubMenuStuff() {
         coolText.alpha = 0;
     }
     bottomMenuGroup.add(buttonTextGroup);
+
+    test_thing=buttonSubgroup;
 }
 
-function setupMenuRegen() {
+function menuRegen() {
     for(i in buttonGroup.members)i.alpha=1;
     if(buttonSubgroup!=null)buttonSubgroup.destroy();
     if(buttonTextGroup!=null)buttonTextGroup.destroy();
-
-    buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
 
     buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
 
@@ -494,6 +496,8 @@ function setupMenuRegen() {
     }
 
     bottomMenuGroup.add(buttonTextGroup);
+
+    test_thing=buttonGroup;
 }
 
 function getIntroTextShit() {
@@ -793,7 +797,7 @@ function update(elapsed) {
                 subMenuBool=false;
                 submenuNum=1;
            }
-           setupMenuRegen();
+           menuRegen();
            changeSelection(0);
         }
     }
@@ -803,16 +807,20 @@ function changeSelectionSUBMENU(change = 0) {
     var oldSubMenuSelection = menuSubmenuSelection;
     menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions.length - 1);
      for (i in buttonSubgroup.members) {
+        if (menuSubmenuSelection == i.ID) {
+			i.offset.y = 0;
+			FlxTween.globalManager.completeTweensOf(i);
+			FlxTween.tween(i, {"offset.y": 20}, 0.2, {ease: FlxEase.quadOut, onComplete: function() {FlxTween.tween(i, {"offset.y": 0}, 0.2, {ease: FlxEase.quadIn});}});
+		}
         i.animateAtlas.anim.play("Button", true, menuSubmenuSelection == i.ID ? false : true, menuSubmenuSelection == i.ID ? i.animateAtlas.anim.curFrame - i.animateAtlas.anim.length : i.animateAtlas.anim.curFrame + i.animateAtlas.anim.length );
     }
-    trace("Wow");
     buttonTextGroup.members[oldSubMenuSelection].alpha = 0;
     buttonTextGroup.members[menuSubmenuSelection].alpha = 1;
 }
 
 function acceptSUBMENU(){
     if(subMenuBool)return
-    progressForwardsSubmenu();
+    progressForwards();
 }
 
 //Todo: MERGE THIS WITH THE SUBMENU ONE.
@@ -847,39 +855,6 @@ function processClickables() {
 
 	if (!easterEggs[0]) { pushToClickables(characterGroup); pushToClickables(foreground); pushToClickables(clouds); }
 	else pushToClickables(background);
-}
-
-function progressForwardsSubmenu() {
-    if (isInMenu && submenuNum==2){
-        trace("Working");
-		if (goigne) return;
-		CoolUtil.playMenuSFX(1);
-		goigne = true;
-        FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
-        FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
-
-        FlxTween.tween(foreground.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
-        FlxTween.tween(foreground, {y: foreground.y + 610}, 1, {ease: FlxEase.quartIn});
-		
-        FlxTween.tween(background.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
-        FlxTween.tween(background, {y: background.y + 1000}, 1, {ease: FlxEase.quartIn});
-		
-        FlxTween.tween(clouds.scale, {x: clouds.scale.x*2, y: clouds.scale.y*2}, 1, {ease: FlxEase.quartIn, onComplete: function(tween) {
-            clouds.updateHitbox();
-            clouds.screenCenter(); clouds.y = clouds.y + 210;
-        }});
-		
-		new FlxTimer().start(0.5, ()->{menuCamera.fade(0xFF000000, 0.5, false);});
-
-		new FlxTimer().start(1, ()->{
-		switch (menuSubmenuSelection) {
-		case 0: //Note , don't forget to code the sub options.
-        import funkin.menus.StoryMenuState;
-        FlxG.switchState(new StoryMenuState());
-		case 1: FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
-   			}
-		});
-    }
 }
 
 function progressForwards() {
@@ -928,7 +903,35 @@ function progressForwards() {
 					FlxG.switchState(new CreditsMain());
 			}
 		});
-    }else if(isInMenu&&menuSelection<=1&&submenuNum==1){trace("Ok");
+    }else if (isInMenu && submenuNum==2){
+		if (goigne) return;
+		CoolUtil.playMenuSFX(1);
+		goigne = true;
+        FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
+        FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
+
+        FlxTween.tween(foreground.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
+        FlxTween.tween(foreground, {y: foreground.y + 610}, 1, {ease: FlxEase.quartIn});
+		
+        FlxTween.tween(background.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
+        FlxTween.tween(background, {y: background.y + 1000}, 1, {ease: FlxEase.quartIn});
+		
+        FlxTween.tween(clouds.scale, {x: clouds.scale.x*2, y: clouds.scale.y*2}, 1, {ease: FlxEase.quartIn, onComplete: function(tween) {
+            clouds.updateHitbox();
+            clouds.screenCenter(); clouds.y = clouds.y + 210;
+        }});
+		
+		new FlxTimer().start(0.5, ()->{menuCamera.fade(0xFF000000, 0.5, false);});
+
+		new FlxTimer().start(1, ()->{
+		switch (menuSubmenuSelection) {
+		case 0: //Note , don't forget to code the sub options.
+        import funkin.menus.StoryMenuState;
+        FlxG.switchState(new StoryMenuState());
+		case 1: FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
+   			}
+		});
+    }else if(isInMenu&&menuSelection<=1&&submenuNum==1){
         menuOptions=submenuOptions;
         setupSubMenuStuff();
         submenuNum=2;
@@ -952,6 +955,8 @@ function progressBackwards() {
 var highestIndex = -1;
 var occupiedObject;
 var stoppedCloudTimer = 0;
+
+var test_thing=buttonGroup;
 
 function postUpdate(elapsed) {
     if (initialized) {
@@ -977,18 +982,22 @@ function postUpdate(elapsed) {
             if (!easterEggs[0]) vinylSound.pitch = 0;
         }
 
-        buttonGroup.forEach(function (button) {
+        test_thing.forEach(function (button) {
 			//button.scale.x = button.scale.y = CoolUtil.fpsLerp(button.scale.y, (menuSelection == button.ID ? 1 : 0.6), 0.33); button.animateAtlas.updateHitbox();
 
             button.width = button.height = 161 * button.scale.x;
 
-            button.x = CoolUtil.fpsLerp(button.x, (button.ID == 0 ? 20 : (buttonGroup.members[button.ID - 1].x + buttonGroup.members[button.ID - 1].width) + 10), 0.33);
+            button.x = CoolUtil.fpsLerp(button.x, (button.ID == 0 ? 20 : (test_thing.members[button.ID - 1].x + test_thing.members[button.ID - 1].width) + 10), 0.33);
             button.y = bottomBar.y + 20 - button.height;
 
             if (isInMenu && FlxG.mouse.visible && FlxG.mouse.overlaps(button) && occupiedObject == null) {
 				hoveringOverButton = true;
 				trace("hovering");
-                if (menuSelection != button.ID) {
+                if (menuSubmenuSelection != button.ID && submenuNum==2) {
+                    FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
+                    changeSelectionSUBMENU(button.ID - menuSubmenuSelection);
+                }
+                if (menuSelection != button.ID && submenuNum!=2) {
                     FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
                     changeSelection(button.ID - menuSelection);
                 }
@@ -1186,7 +1195,7 @@ function skipIntro() {
         processClickables();
     } else initialized = true;
 
-    changeSelection();
+    changeSelection(0);
 
     if (!easterEggs[0]) {
         charDance();

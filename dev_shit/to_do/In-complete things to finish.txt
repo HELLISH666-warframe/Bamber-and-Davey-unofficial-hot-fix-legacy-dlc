@@ -1,0 +1,15 @@
+MENUS;
+Freeplay-substate;
+- Scroll speed.
+- Freeplay-port from Vol 2 instead?
+-  Composer text.
+- Make EVERYTHING more accurate to the consept.
+- Placeholder sprite for diffuculties or just use text?
+
+Freeplay;
+- NEAR EVERYTHING.
+- Tag system.
+- Siloettetess under the song text.
+- Song text being right instead.
+- Stats button???/ stats SCREEN.
+- Song icons.

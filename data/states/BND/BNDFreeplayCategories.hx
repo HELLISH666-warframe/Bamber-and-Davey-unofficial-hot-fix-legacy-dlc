@@ -56,6 +56,9 @@ var scorText = new FlxText(24, 0);
 subCurSelected = 0;
 subCurSelectedLimit = songser.length - 1;
 
+
+var iconArray:Array<HealthIcon> = [];
+
 function create() {
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/albums/"))) Paths.image("menus/freeplay/albums/" + i);
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/silhouettes/"))) Paths.image("menus/freeplay/silhouettes/" + i);
@@ -126,6 +129,7 @@ function create() {
 	add(scorText);
 	
 	changements(0);
+	textCam.zoom=0.9;
 }
 
 function update(elapsed) {
@@ -164,20 +168,19 @@ function update(elapsed) {
     }
 	
 	arrows[0].angle = Math.sin(timer * 3) * 5;
-	arrows[1].angle = Math.sin(timer * 3) * -5;
-	
+
 	for (i in 0...songL.length)
 	{
-		songL[i].x = 640+ i * 128;
-		//songL[i].x = 640;
-		songL[i].y = 160 + i * 128;
+	iconArray[i].x=songL[i].x-130;
+	iconArray[i].y=songL[i].y-60;
 	}
-	
-	textCam.scroll.y = CoolUtil.fpsLerp(textCam.scroll.y, subCurSelected * 128, 0.2);
-	textCam.scroll.x = CoolUtil.fpsLerp(textCam.scroll.x, subCurSelected * 128, 0.2); 
-}
 
+	textCam.scroll.y = CoolUtil.fpsLerp(textCam.scroll.y, subCurSelected * 230, 0.2);
+	//textCam.scroll.x = CoolUtil.fpsLerp(textCam.scroll.x, subCurSelected * 50 ,0.2); 
+}
+var fuck;
 function changements(a) {
+	fuck=subCurSelected;
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, subCurSelectedLimit);
 	if (changements != 0)
 		CoolUtil.playMenuSFX(0);
@@ -186,6 +189,12 @@ function changements(a) {
 	{
 		songL[i].alpha = 0.5;
 		songL[subCurSelected].alpha = 1;
+		songL[i].x = 970;
+		songL[i].y = 220 + i * 320;
+		FlxTween.tween(songL[subCurSelected], {x: 750}, 0.6, {ease: FlxEase.quartOut});
+		FlxTween.tween(songL[fuck], {x: 970}, 0.6, {ease: FlxEase.quartOut});
+		FlxTween.tween(songLBgs.members[fuck], {x: 970}, 0.6, {ease: FlxEase.quartOut});
+		FlxTween.tween(songLBgs.members[subCurSelected], {x: songL[subCurSelected].x-300}, 0.6, {ease: FlxEase.quartOut});
 	}
 	
 	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "normal").score;
@@ -268,30 +277,44 @@ function change(a) {
 			songLBgs.members[i].updateHitbox();
 			songLBgs.members[i].origin.set(songLBgs.members[i].width/2, songLBgs.members[i].height);	
 			songLBgs.members[i].scrollFactor.set(0, 1);
+			songLBgs.members[i].y=songL[i].y;
+			for (i in 0...iconArray.length) remove(iconArray[i]);
+			var icon = new HealthIcon(songser[i].icon);
+			icon.cameras = [textCam];
+			icon.scrollFactor.set(1, 1);
+			iconArray.push(icon);
+			add(icon);
 		} else {
 			var bg = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/silhouettes/"+kys));			
 			songLBgs.add(bg);
 
 			var text = new Alphabet(0, 0);
-			text.alignment='right';
+			text.alignment="right";
 			text.text = songser[i].displayName;
 			text.color = FlxColor.WHITE;
+			text.scale.set(0.9,0.9);
 			songL.push(text);
 			add(text);
 			text.screenCenter(0x01);
 			text.y = offset + 30;
 			text.cameras = [textCam];
 
-			bg.scale.set(0.33, 0.33);
+			bg.scale.set(0.7, 0.7);
 			bg.updateHitbox();
 			bg.origin.set(bg.width/2, bg.height);
-			bg.x = FlxG.width - 48;
-			bg.y = 70 + offset;		
+			bg.x = FlxG.width - 430;
+			bg.y = -70 + songL[i].y;		
 			bg.scrollFactor.set(0, 1);
 			bg.cameras = [textCam];
+
+			var icon = new HealthIcon(songser[i].icon);
+			icon.cameras = [textCam];
+			icon.scrollFactor.set(1, 1);
+			iconArray.push(icon);
+			add(icon);
 		}
 
-		offset += songL[i].height;
+		songLBgs.members[i].y=songL[i].y-200;
 	}
 	
 	subCurSelected = 0;
