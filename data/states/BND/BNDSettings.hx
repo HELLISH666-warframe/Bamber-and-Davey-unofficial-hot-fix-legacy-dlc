@@ -181,7 +181,7 @@ function regenMenu(){
             var checkbox = new FlxSprite(0, 90 * num);
             checkbox.frames = Paths.getSparrowAtlas("menus/options/checkbox");
             checkbox.animation.addByPrefix("true", "Checkbox", 24, false);
-            checkbox.animation.addByPrefix("false", "Checkbox_false", 24, false);
+            checkbox.animation.addByIndices("false", "Checkbox0", [9,8,7,6,5,4,3,2,1,0], '',24, false);
 
             daCheckboxes.add(checkbox);
             daCheckboxes.members[daCheckboxes.length - 1].animation.play("true", true, !Reflect.field(FlxG.save.data.options, a[3]), !Reflect.field(FlxG.save.data.options, a[3]) ? 24 : 0);

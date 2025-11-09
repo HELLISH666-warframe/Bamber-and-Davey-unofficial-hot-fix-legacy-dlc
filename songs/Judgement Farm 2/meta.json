@@ -7,5 +7,6 @@
 	"opponentModeAllowed": true,
 	"album": 2.5,
 	"custom_credits":true,
-	"countdownsound": "undertale"
+	"countdownsound": "undertale",
+	"composer":"Glitch.smh"
 }

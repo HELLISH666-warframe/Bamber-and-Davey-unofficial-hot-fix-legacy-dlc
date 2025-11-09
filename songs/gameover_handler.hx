@@ -7,7 +7,7 @@ if(!FlxG.save.data.options.skipGameOver){
 function onGameOver(e) {
     switch(boyfriend.curCharacter){
         case"bf":
-        switch(PlayState.instance.SONG.meta.name){
+        switch(PlayState.SONG.meta.name){
             case"Memeing":
             GameOverSubstate.script = 'data/scripts/gameovers/cheater';
             FlxG.camera.zoom = 0.8;

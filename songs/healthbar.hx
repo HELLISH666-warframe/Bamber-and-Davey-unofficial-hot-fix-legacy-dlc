@@ -28,7 +28,7 @@ var barTypes = [
     'Multiversus' => ['multiversus',20],
 ];
 
-var curBarType = (barTypes[PlayState.instance.SONG.meta.name] != null ? barTypes[PlayState.instance.SONG.meta.name] : (barTypes[SONG.stage] != null ? barTypes[SONG.stage] : barTypes['default']));
+var curBarType = (barTypes[PlayState.SONG.meta.name] != null ? barTypes[PlayState.SONG.meta.name] : (barTypes[SONG.stage] != null ? barTypes[SONG.stage] : barTypes['default']));
 
 var barType_directory = curBarType[0] != null ? curBarType[0] : SONG.stage;
 var barType_Y = curBarType[1];
@@ -47,8 +47,8 @@ function create() {
 function postUpdate(elapsed:Float) {
     healthBarBG1.clipRect = new FlxRect((2-health)/2*healthBarBG1.width,0,health/2*healthBarBG1.width,healthBarBG1.height);
     healthBarBG2.clipRect = new FlxRect(0,0,(2-health)/2*healthBarBG2.width,healthBarBG2.height);
-    PlayState.instance.comboGroup.cameras = [camHUD];
-    add(PlayState.instance.comboGroup);
+    if(comboGroup.cameras !=null)comboGroup.cameras = [camHUD];
+    add(PlayState.comboGroup);
     comboGroup.setPosition(900,500);
     comboGroup.scale.set(0.5,0.5);
 }

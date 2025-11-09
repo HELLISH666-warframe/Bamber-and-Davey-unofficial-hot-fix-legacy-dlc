@@ -27,28 +27,14 @@ var songArray = [ //sorry guys i fucked up the song order oops...
 ];
 function postCreate() {
     for (song in songArray.keys()) {
-        if (song.contains(PlayState.instance.SONG.meta.name.toLowerCase())) { //checks which cursor to apply
+        if (song.contains(PlayState.SONG.meta.name.toLowerCase())) { //checks which cursor to apply
             cursorName=songArray[song];
             break; //break out of the loop
         }
     }
 
-    if (['facsimile', 'yield ', 'cornaholic v1', 'harvest v1', 'yield seezee remix', 'cornaholic erect remix v1', 'harvest chill remix', 'h2o'].contains(PlayState.instance.SONG.meta.name.toLowerCase())) FlxG.mouse.unload();
-    if (['placeholder', 'test footage'].contains(PlayState.instance.SONG.meta.name.toLowerCase())) FlxG.mouse.useSystemCursor = true;
-    timerNow = new FlxText(580, 30, 0, "0:00");
-	timerNow.setFormat(Paths.font("vcr.ttf"), Std.int(24), FlxColor.WHITE, 'center', FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-	timerNow.cameras = [camHUD];
-	timerNow.antialiasing = true;
-    add(timerNow);
+    if (['facsimile', 'yield ', 'cornaholic v1', 'harvest v1', 'yield seezee remix', 'cornaholic erect remix v1', 'harvest chill remix', 'h2o'].contains(PlayState.SONG.meta.name.toLowerCase())) FlxG.mouse.unload();
+    if (['placeholder', 'test footage'].contains(PlayState.SONG.meta.name.toLowerCase())) FlxG.mouse.useSystemCursor = true;
 }
 
 var songLength = FlxG.sound.music.length;
-function update(elapsed:Float) {
-    //Killing_myself_in_[inst.length].
-    var timeRemaining = Std.int((Conductor.songPosition)/1000);
-    var dsfee = Std.int((inst.length)/1000);
-        timerNow.text = Std.int(timeRemaining/60)+":"
-         + CoolUtil.addZeros(Std.string(timeRemaining%60),2)+" / "
-         +Std.int(dsfee/60)+":"
-         + CoolUtil.addZeros(Std.string(dsfee % 60),2);
-}

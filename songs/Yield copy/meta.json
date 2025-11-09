@@ -1,14 +1,22 @@
 {
+	"composer": "Glitch.smh",
+	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"icon": "bamber",
 	"difficulties": [
+		"Easy",
+		"Normal",
+		"Hard",
 		"VIP"
 	],
-	"color": "#9271FD",
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
 	"displayName": "Yield",
-	"needsVoices": true,
+	"variants": [
+		"VIP"
+	],
 	"beatsPerMeasure": 4,
-	"bpm": 180
+	"needsVoices": true,
+	"album": 2,
+	"bpm": 150
 }

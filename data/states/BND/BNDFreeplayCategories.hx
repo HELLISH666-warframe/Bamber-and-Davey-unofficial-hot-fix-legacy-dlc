@@ -278,7 +278,7 @@ function change(a) {
 			songLBgs.members[i].origin.set(songLBgs.members[i].width/2, songLBgs.members[i].height);	
 			songLBgs.members[i].scrollFactor.set(0, 1);
 			songLBgs.members[i].y=songL[i].y;
-			for (i in 0...iconArray.length) remove(iconArray[i]);
+			//for (i in 0...iconArray.length) remove(iconArray[i]);
 			var icon = new HealthIcon(songser[i].icon);
 			icon.cameras = [textCam];
 			icon.scrollFactor.set(1, 1);

@@ -5,5 +5,6 @@
 	"icon": "Water",
 	"color": "#A5CEE3",
 	"coopAllowed": true,
-	"opponentModeAllowed": true
+	"opponentModeAllowed": true,
+	"composer":"Glitch.smh"
 }

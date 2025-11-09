@@ -1,5 +1,5 @@
 function create() {
-    switch(PlayState.instance.SONG.meta.name){
+    switch(PlayState.SONG.meta.name){
         case"Judgement Farm"|"Judgement Farm 2"|"Judgement Farm 2 Vol2"|"Judgement Farm Vol2":
     importScript("data/scripts/huds/undertale");
     }

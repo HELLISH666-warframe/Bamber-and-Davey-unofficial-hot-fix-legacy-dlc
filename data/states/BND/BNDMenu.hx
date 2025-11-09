@@ -53,7 +53,7 @@ var windAmbience, vinylSound;
 public static var logoLerping = [FlxG.width/3.4, FlxG.height/4, 1]; //This will adjust the position of the logo
 public static var barLerping = 0; //Bar Scale
 
-var skybox = new FlxGradient().createGradientFlxSprite(1, 66, [0xFF272BC2, 0xFF007DE7, 0xFF74E9FF, 0xFFDBF9FF]); skybox.scale.set(FlxG.width,FlxG.height/64); skybox.screenCenter(); //Skybox
+var skybox = FlxGradient.createGradientFlxSprite(1, 66, [0xFF272BC2, 0xFF007DE7, 0xFF74E9FF, 0xFFDBF9FF]); skybox.scale.set(FlxG.width,FlxG.height/64); skybox.screenCenter(); //Skybox
 
 //TEXT GROUPS
 var curWacky = [];
@@ -336,7 +336,7 @@ function setupTitleStuff() {
     teamText.updateHitbox(); teamText.borderSize = 2;
 
     startBar = new FlxBackdrop(Paths.image('menus/titleScreen/StartBar'), FlxAxes.X); startBar.velocity.x = -40; startBar.y = 620; startBar.antialiasing = true; add(startBar); startBar.alpha = 0.6; startBar.scale.y = barLerping;
-    startBar.width = Math.pow(2,11); //it's rather extreme but I had to manipulate the hitbox since it doesn't repeat for every tile in FlxBackdrop.
+    startBar.width = 2800; //it's rather extreme but I had to manipulate the hitbox since it doesn't repeat for every tile in FlxBackdrop.
 
     startText = new ClassicAlphabet(0, 0, "PRESS "+CoolUtil.keyToString(Reflect.field(Options, 'P1_ACCEPT')[0])+" OR CLICK HERE", true, false); startText.antialiasing = true; add(startText); startText.scale.x = startText.scale.y = 0.7;
 
@@ -437,7 +437,7 @@ function setupSubMenuStuff() {
     for(i in buttonTextGroup.members) i.destroy();
     buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
     for(i in buttonGroup.members)i.alpha=0;
-    buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
+    buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); insert(4,buttonTextGroup).camera = menuCamera;
 
     for (i in 0...submenuOptions.length) {
         var buttonSpr = new AnimatedFunkinSprite();
@@ -469,7 +469,6 @@ function setupSubMenuStuff() {
         coolText.alpha = 0;
     }
     bottomMenuGroup.add(buttonTextGroup);
-
     test_thing=buttonSubgroup;
 }
 
@@ -477,8 +476,7 @@ function menuRegen() {
     for(i in buttonGroup.members)i.alpha=1;
     if(buttonSubgroup!=null)buttonSubgroup.destroy();
     if(buttonTextGroup!=null)buttonTextGroup.destroy();
-
-    buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
+    buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); insert(4,buttonTextGroup).camera = menuCamera;
 
     for (i in 0...menuOptions.length) {
         //TITLE TEXT

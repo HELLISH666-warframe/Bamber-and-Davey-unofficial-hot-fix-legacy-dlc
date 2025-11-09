@@ -6,5 +6,6 @@
 	"color": "#FED73E",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"countdownsound": "amung"
+	"countdownsound": "amung",
+	"composer":"Kasu"
 }

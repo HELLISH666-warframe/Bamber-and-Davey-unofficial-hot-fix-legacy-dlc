@@ -40,7 +40,7 @@ if(stage != null && stage.stageXML != null){
 				countdownSprite.animation.play(Std.string(e.swagCounter), true);}
 			else
 			e.spritePath = "game/countdown/" + (Assets.exists(Paths.image("game/countdown/" + SONG.stage + "/" + countingDown[e.swagCounter])) ? SONG.stage : "default") + "/" + countingDown[e.swagCounter];
-			e.soundPath ="countdowns/" + (Assets.exists(Paths.sound("countdowns/"+PlayState.instance.SONG.meta.countdownsound  + "/" +countingDown[e.swagCounter]))? PlayState.instance.SONG.meta.countdownsound : "funkin") + "/" + countingDown[e.swagCounter];
+			e.soundPath ="countdowns/" + (Assets.exists(Paths.sound("countdowns/"+PlayState.SONG.meta.countdownsound  + "/" +countingDown[e.swagCounter]))? PlayState.SONG.meta.countdownsound : "funkin") + "/" + countingDown[e.swagCounter];
 			
 		}
 	}

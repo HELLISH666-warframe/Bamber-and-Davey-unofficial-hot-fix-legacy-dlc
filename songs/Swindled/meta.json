@@ -15,5 +15,6 @@
 	"needsVoices": false,
 	"bpm": 220,
 	"album": 2.5,
-	"countdownsound": "swindler"
+	"countdownsound": "swindler",
+	"composer":"Glitch.smh"
 }

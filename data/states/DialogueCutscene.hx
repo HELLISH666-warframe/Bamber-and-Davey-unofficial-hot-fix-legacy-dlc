@@ -5,7 +5,7 @@ var songColors = [
 ];
 var songDialogueColor;
 for (song in songColors.keys()) {
-	if (song.contains(PlayState.instance.SONG.meta.name)) {
+	if (song.contains(PlayState.SONG.meta.name)) {
 		songDialogueColor = songColors[song];
 	}
 }

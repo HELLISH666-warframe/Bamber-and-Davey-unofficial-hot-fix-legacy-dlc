@@ -10,5 +10,7 @@
 	"displayName": "Yield",
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
-	"bpm": 180
+	"bpm": 180,
+	"instSuffix": "-VIP",
+	"vocalsSuffix": "-VIP"
 }

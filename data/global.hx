@@ -78,7 +78,7 @@ function new() {
 
     //Gameplay Options
     FlxG.save.data.options.coloredBar ??= true;
-    FlxG.save.data.options.modcharts ??= 'always';
+    FlxG.save.data.options.modcharts ??= 'Always';
     FlxG.save.data.options.dialogue ??= [true, true, false]; //Story Mode, Playlists, Freeplay
     FlxG.save.data.options.scrollSpeed ??= false;
     FlxG.save.data.options.scrollSpeed_Speed ??= 3;

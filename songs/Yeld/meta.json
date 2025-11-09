@@ -9,5 +9,6 @@
 	"color": "#76E137",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"custom_credits":true
+	"custom_credits":true,
+	"composer":"Glitch.smh"
 }

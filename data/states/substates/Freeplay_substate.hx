@@ -3,39 +3,41 @@ import flixel.text.FlxTextBorderStyle;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.options.Options;
 
+import lime.ui.Window;
+
 var click_through:Bool = false;
-var canPlay:Bool = true;
 var coolCam = new FlxCamera();
 
 var curSong=FlxG.save.data.Bamber_SONGSONG;
 
 var text = new Alphabet(285.25, 70, 0, true);
-var composer = new Alphabet(FlxG.width/2.8, 130, 0, true);
+var composer = new Alphabet(0, 130, 0, true);
 var play_Text = new Alphabet(1000, 650, 0, true);
-var hitbox:FlxSprite;
+var scroll_speed = new Alphabet(540, 480, 0, true);
 
+var hitbox:FlxSprite;
 var portrait = new FlxSprite(530,0);
+
+var composer_icon = new FlxSprite(530,0);
+
 static var curDifficulty:Int = 0;
 var difficultySprites:Map<String, FlxSprite> = [];
 var arrows:Array<FunkinSprite> = [];
 var curOption:Int = 0;
+public static var scroll_Speed:Float = 1;
 
 static var curPlayingInst = Paths.inst(curSong.name, curSong.difficulties[curDifficulty]);
 static var prevSong:String = "";
 
-var bulletOption:FlxSprite;
 var progressGroup = new FlxTypedSpriteGroup();
 var bulletoptionREAL:FlxSprite = new FlxSprite(-170,-20);
 var options:Array<String> = ['Cutscenes','Mod charts','Scroll Speed','Mode'];
-public static var cutscene_Toggle:Bool = FlxG.save.data.options.freeplayDialogue;
-public static var modchart_Toggle:Bool = FlxG.save.data.options.modcharts;
-//Idea , have the option greyed out if mod-charts are set to always same with scroll-speed.
-public static var scroll_Speed:Float = 1;
+//Idea , have the option greyed out if mod-charts are set to always, same with scroll-speed.
 var checkbox_real:FlxSprite;
 var checkboxes = new FlxTypedSpriteGroup();
-static var toggles = [cutscene_Toggle,modchart_Toggle];
+static var toggles = [FlxG.save.data.options.freeplayDialogue,FlxG.save.data.options.modcharts];
 function create() {
-	new FlxTimer().start(0.2, function(tmr:FlxTimer) click_through = true);
+	new FlxTimer().start(0.2, ()->{click_through = true;});
 	prevchar = curPlayingInst;
     FlxG.cameras.add(coolCam, false).bgColor = 0x00000000;
 
@@ -60,10 +62,28 @@ function create() {
 	text.alignment="center";
 	add(text).camera = coolCam;
 	text.screenCenter(FlxAxes.X);
-	composer.text =  "By placeholder";
+	trace(text.width+"\n"+text.x);
+	trace(window.borderless);
+	window.opacity=1;
+	
+	composer.text = "By "+ curSong.composer;
 	composer.camera = coolCam;
 	composer.scale.set(0.5,0.5);
-	add(composer).x = text.width+140;
+	composer.screenCenter(FlxAxes.X);
+	add(composer).x +=text.width-text.width/1.5;
+
+	composer_icon.camera = coolCam;
+	if (!Assets.exists(Paths.image('credits/devs/' +curSong.composer)))
+		composer_icon.loadGraphic(Paths.image('credits/missing'));
+	else
+		composer_icon.loadGraphic(Paths.image('credits/devs/'+curSong.composer));
+	add(composer_icon);
+	composer_icon.x=composer.x+composer.width;
+
+	scroll_speed.text ="<"+ scroll_Speed+">";
+	scroll_speed.alignment="right";
+	scroll_speed.scale.set(0.9,0.9);
+	add(scroll_speed).camera = coolCam;
 
 	for (e in curSong.difficulties) {
 		var le = e.toLowerCase();
@@ -105,7 +125,6 @@ function create() {
             bulletOption.animation.addByPrefix('dot', "dot", 24);
             bulletOption.animation.play('dot');
         }
-		bulletOption.ID = i;
 		bulletOption.scale.set(0.3,0.3);
         progressGroup.add(bulletOption);
 
@@ -120,11 +139,9 @@ function create() {
         checkbox_real = new FlxSprite(namX, manY);
         checkbox_real.frames = Paths.getFrames('menus/options/checkbox');
 
-        checkbox_real.animation.addByPrefix('false', "Checkbox_false", 24, false);
+		checkbox_real.animation.addByIndices("false", "Checkbox0", [9,8,7,6,5,4,3,2,1,0], '',24, false);
 		checkbox_real.animation.addByPrefix('true', "Checkbox0", 24,false);
 		checkbox_real.animation.play(toggles[i]);
-
-		checkbox_real.ID = i;
         checkboxes.add(checkbox_real);
 
         manY += checkbox_real.height * (i % 2 == 0 ? 1.3 : 3);
@@ -135,19 +152,18 @@ function create() {
 	add(checkboxes).y= -280;
 
 	for (i in 0...options.length) {
-		var item = new Alphabet(120, (i * 80), 540, 0,true);
-		item.text=options[i];
+		var item = new Alphabet(120, (i * 80), options[i], 0,true);
 		item.scale.set(0.9,0.9);
 		item.y = ((i * progressGroup.members[4].y*0.95) * item.scale.y)+210;
 		item.updateHitbox();
-		item.ID = i;
 		item.camera=coolCam;
 		add(item).width = item.width*item.scale.y;
 	}
 
+	if(!FlxG.save.data.options.scrollSpeed)scroll_speed.alpha=0.3;
+
 	bulletoptionREAL.frames = Paths.getFrames('menus/freeplay/bulletOption');
 	bulletoptionREAL.animation.addByPrefix('idle', "appear", 10, false);
-
 	bulletoptionREAL.camera=coolCam;
 	bulletoptionREAL.scale.set(0.3,0.3);
 	add(bulletoptionREAL).animation.play('idle');
@@ -159,14 +175,13 @@ function update(elapsed:Float) {
 	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==3) changeDiff(controls.RIGHT_P ? 1 : -1);
 	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==2) changeScroll(controls.RIGHT_P ? 0.1 : -0.1);
 	if (controls.BACK){
-		FlxG.save.data.options.modcharts=modchart_Toggle;
 		Options.save();
 		FlxG.sound.music.fadeOut(9,0,1);
 		close();
 	}
 	if(click_through){
 	    if (controls.ACCEPT) toggle();
-		if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed&&canPlay){
+		if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed){
 			trace("WOAH!");
 			playsong();
 			click_through=false;
@@ -211,22 +226,22 @@ function changeOption(p) {
 }
 function toggle() {
 	switch(curOption){
-		case 0:cutscene_Toggle=!cutscene_Toggle;
-		trace("Cutscenes are : "+cutscene_Toggle);
-		case 1:modchart_Toggle=!modchart_Toggle;
-		trace("Mod-charts are : "+modchart_Toggle);
+		case 0:FlxG.save.data.options.freeplayDialogue=!FlxG.save.data.options.freeplayDialogue;
+		case 1:FlxG.save.data.options.modcharts=!FlxG.save.data.options.modcharts;
 	}
-	toggles = [cutscene_Toggle,modchart_Toggle];
+	toggles = [FlxG.save.data.options.freeplayDialogue,FlxG.save.data.options.modcharts];
+	trace("\nCutscenes are : "+toggles[0]+"\nMod-charts are :"+toggles[1]);
 	checkboxes.members[curOption].animation.play(toggles[curOption]);
 }
 function changeScroll(s) {
+	if(FlxG.save.data.options.scrollSpeed)
 	scroll_Speed+= s;
 	trace(scroll_Speed);
 	if (scroll_Speed < 0) scroll_Speed = 0.1;
+	scroll_speed.text ="<"+ scroll_Speed+">";
 }
 function playsong() {
-	FlxG.save.data.options.freeplayDialogue=cutscene_Toggle;
-	FlxG.save.data.options.modcharts=modchart_Toggle;
+	FlxG.save.data.options.scrollSpeed_Speed=scroll_Speed;
 	//if (FlxG.save.data.options.scrollSpeed) scrollSpeed = FlxG.save.data.options.scrollSpeed_Speed;
 	PlayState.loadSong(curSong.name, curSong.difficulties[curDifficulty].toLowerCase());
 	FlxG.switchState(new PlayState());

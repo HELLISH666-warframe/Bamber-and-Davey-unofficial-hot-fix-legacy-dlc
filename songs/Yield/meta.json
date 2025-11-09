@@ -1,4 +1,6 @@
 {
+	"composer": "Glitch.smh",
+	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"icon": "bamber",
 	"difficulties": [
@@ -7,39 +9,11 @@
 		"Hard",
 		"VIP"
 	],
-	"name": "Yield",
 	"coopAllowed": false,
-	"color": -7179779,
 	"stepsPerBeat": 4,
 	"displayName": "Yield",
 	"beatsPerMeasure": 4,
-	"metas": {
-		"VIP": {
-			"opponentModeAllowed": false,
-			"difficulties": [
-				"Easy",
-				"Normal",
-				"Hard",
-				"VIP"
-			],
-			"icon": "bamber",
-			"color": -7179779,
-			"name": "Yield",
-			"coopAllowed": false,
-			"stepsPerBeat": 4,
-			"displayName": "Yield",
-			"needsVoices": true,
-			"beatsPerMeasure": 4,
-			"metas": {},
-			"vocalsSuffix": "",
-			"instSuffix": "",
-			"bpm": 100,
-			"album": 2.5
-		}
-	},
 	"needsVoices": true,
-	"bpm": 150,
 	"album": 2,
-	"instSuffix": "",
-	"vocalsSuffix": ""
+	"bpm": 150
 }

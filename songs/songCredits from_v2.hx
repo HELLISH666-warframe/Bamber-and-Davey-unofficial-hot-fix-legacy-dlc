@@ -8,10 +8,10 @@ var curDecBeat:Float = 0;
 var curDecStep:Float = 0;
 var whereToLook;
 
-public var custom_creditss:String = PlayState.instance.SONG.meta.custom_credits;
-public var credit_icon_thing:String = PlayState.instance.SONG.meta.credit_icon_thing;
-public var songcredupdate:Bool= PlayState.instance.SONG.meta.credits_update;
-public var curSong:String = PlayState.instance.SONG.meta.name;
+public var custom_creditss:String = PlayState.SONG.meta.custom_credits;
+public var credit_icon_thing:String = PlayState.SONG.meta.credit_icon_thing;
+public var songcredupdate:Bool= PlayState.SONG.meta.credits_update;
+public var curSong:String = PlayState.SONG.meta.name;
 if ((Assets.exists(Paths.file("songs/"+curSong.toLowerCase()+'/credits.json'))&&FlxG.save.data.options.songCredits)) {
     var creditJson = Json.parse(Assets.getText(Paths.file("songs/"+curSong+'/credits.json'))); //Json for credits
 
