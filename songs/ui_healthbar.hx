@@ -1,4 +1,5 @@
 //This is placeholder til i code something myself.
+/*
 import flixel.math.FlxRect;
 import flixel.ui.FlxBar;
 
@@ -48,7 +49,6 @@ function postUpdate(elapsed:Float) {
     healthBarBG1.clipRect = new FlxRect((2-health)/2*healthBarBG1.width,0,health/2*healthBarBG1.width,healthBarBG1.height);
     healthBarBG2.clipRect = new FlxRect(0,0,(2-health)/2*healthBarBG2.width,healthBarBG2.height);
     if(comboGroup.cameras !=null)comboGroup.cameras = [camHUD];
-    add(PlayState.comboGroup);
     comboGroup.setPosition(900,500);
     comboGroup.scale.set(0.5,0.5);
 }
@@ -82,3 +82,7 @@ function postCreate() {
      for(i in [healthBarBG1,healthBarBG2]) i.camera = camHUD;
 }
 }
+
+function onPlayerHit(e) {
+   e.displayCombo=true;
+}*/

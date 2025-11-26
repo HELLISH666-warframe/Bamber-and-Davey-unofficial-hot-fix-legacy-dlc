@@ -15,8 +15,8 @@ function postCreate() {
 	healthBar.screenCenter(FlxAxes.X);
 	healthBar.createFilledBar(0xFFFF0000, 0xFFfffd03);
 	add(healthBar);
-	if(PlayState.instance.SONG.stage=="judgement hall"){
-	var thing = new FlxSprite(-2000, PlayState.downscroll ? -10 : 600).makeGraphic(1, 1, 0xFF000000);
+	if(PlayState.SONG.stage=="judgement hall"){
+	var thing = new FlxSprite(-2000, downscroll ? -10 : 600).makeGraphic(1, 1, 0xFF000000);
     thing.scale.set(5000,130); thing.updateHitbox();
 	insert(0, thing).camera=camHUD;
 	}

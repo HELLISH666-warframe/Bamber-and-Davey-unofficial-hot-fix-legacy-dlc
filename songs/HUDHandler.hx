@@ -14,7 +14,7 @@ function postCreate() {
         colorShader.b = ((color) & 0xFF);
 
         for (j in i.members) j.shader = colorShader;
-        for (j in i.notes) j.shader = colorShader;
+        for (j in i.notes) j.shader = colorShader;//Gonna_add_custom_note_shit_later.Ok?
     }
 }
 /*

@@ -5,7 +5,7 @@ var bar2:FlxSprite = new FlxSprite(-600, 720 - (barSize * 10)).makeGraphic(1, 1,
 bar1.scale.x = bar2.scale.x = 1600 * 2;
 bar1.scale.y = bar2.scale.y = 560;
 
-var curSong:String = PlayState.instance.SONG.meta.name;
+var curSong:String = PlayState.SONG.meta.name;
 bar1.updateHitbox(); bar2.updateHitbox(); 
 var customBarSize:Array<Dynamic> = [
 	['Synthwheel', 5],
