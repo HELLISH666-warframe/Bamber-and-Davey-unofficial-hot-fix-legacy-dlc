@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="20" y="230" sprite="Trade-Davey" scale="1.4" flipX="true" camx="-230" camy="-10" isPlayer="true" icon="Trade-Davey" color="#4087CE" gameOverChar="trade davey" isGF="false">
+<character x="20" y="230" sprite="Trade-Davey" scale="1.4" flipX="true" camx="-230" camy="-10" isPlayer="true" icon="Trade-Davey" color="#4087CE" gameOverChar="trade davey" noteskin="trade" isGF="false">
 	<anim name="danceRight" anim="Idle" indices="14..30"/>
 	<anim name="danceLeft" anim="Idle" indices="1..13"/>
 	<anim name="singDOWN" anim="Down" x="8" y="-65"/>

@@ -17,6 +17,18 @@ function postCreate() {
         for (j in i.notes) j.shader = colorShader;//Gonna_add_custom_note_shit_later.Ok?
     }
 }
+
+function onNoteCreation(e) {
+    Assets.exists(Paths.image('game/notes/' + strumLines.members[e.strumLineID].characters[0].xml.get("noteskin"))) ? port=strumLines.members[e.strumLineID].characters[0].xml.get("noteskin") : port="default";
+	e.noteSprite = "game/notes/" +port;
+}
+function onStrumCreation(e) {
+	Assets.exists(Paths.image('game/notes/' + strumLines.members[e.player].characters[0].xml.get("noteskin"))) ? port=strumLines.members[e.player].characters[0].xml.get("noteskin") : port="default";
+	e.sprite = "game/notes/" +port;
+}
+function onPlayerHit(e){
+	e.note.splash = (Assets.exists(Paths.image("game/splashes/"+boyfriend.xml.get("noteskin"))) ? boyfriend.xml.get("noteskin") : "default");
+	}
 /*
 function onSplashShown(e) {
     e.value1.shader = e.value2.shader;

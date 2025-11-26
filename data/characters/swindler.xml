@@ -1,9 +1,9 @@
 <!DOCTYPE codename-engine-character>
-<character x="400" icon="swindler" y="825" isGF="false" camy="-100" isPlayer="false" sprite="swindler" color="#ff0000">
-	<anim x="0" loop="false" y="0" fps="24" anim="Swindled Bamber/Swindled-Idle" name="idle"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Swindled Bamber/Swindled-Down-Sing" name="singDOWN"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Swindled Bamber/Swindled-Right-Sing" name="singRIGHT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Swindled Bamber/Swindled-Left-Sing" name="singLEFT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Swindled Bamber/Swindled-Up-Sing" name="singUP"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Swindled Bamber/Phone" name="ziiuvanPaun?"/>
+<character x="400" y="825" camy="-100" color="#FF0000" noteskin="BND" isGF="false">
+	<anim name="idle" anim="Swindled Bamber/Swindled-Idle"/>
+	<anim name="singDOWN" anim="Swindled Bamber/Swindled-Down-Sing"/>
+	<anim name="singRIGHT" anim="Swindled Bamber/Swindled-Right-Sing"/>
+	<anim name="singLEFT" anim="Swindled Bamber/Swindled-Left-Sing"/>
+	<anim name="singUP" anim="Swindled Bamber/Swindled-Up-Sing"/>
+	<anim name="ziiuvanPaun?" anim="Swindled Bamber/Phone"/>
 </character>

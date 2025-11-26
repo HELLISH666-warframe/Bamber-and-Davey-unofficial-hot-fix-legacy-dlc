@@ -1,8 +1,8 @@
 <!DOCTYPE codename-engine-character>
-<character x="0" icon="grug" camx="320" y="-140" isGF="false" camy="170" color="#D38B4D" isPlayer="false" gameOverChar="grug" sprite="grug">
-	<anim x="0" loop="false" y="0" fps="24" anim="idle" name="idle"/>
-	<anim x="-141" loop="false" y="-310" fps="24" anim="down" name="singDOWN"/>
-	<anim x="-44" loop="false" y="-226" fps="24" anim="left" name="singLEFT"/>
-	<anim x="-165" loop="false" y="6" fps="24" anim="up" name="singUP"/>
-	<anim x="-172" loop="false" y="-249" fps="24" anim="right" name="singRIGHT"/>
+<character y="-140" camx="320" camy="170" color="#D38B4D" gameOverChar="grug" noteskin="deathbattle" isGF="false">
+	<anim name="idle" anim="idle"/>
+	<anim name="singDOWN" anim="down" x="-141" y="-310"/>
+	<anim name="singLEFT" anim="left" x="-44" y="-226"/>
+	<anim name="singUP" anim="up" x="-165" y="6"/>
+	<anim name="singRIGHT" anim="right" x="-172" y="-249"/>
 </character>

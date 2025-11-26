@@ -54,16 +54,6 @@ if(stage != null && stage.stageXML != null){
 				FlxTween.tween(countdownSprite, {alpha: 0}, 1, {
 				ease: FlxEase.cubeInOut});}
 	}
-				
-	// NOTESKINS
-	/*
-		The name of the noteskin .PNG and .XML in `images/game/notes/`.
-	*/
-	function onStrumCreation(e)
-		e.sprite = "game/notes/" + (stage.stageXML.get("noteSkin") != null ? stage.stageXML.get("noteSkin") : "default");
-
-	function onNoteCreation(e)
-		if(!StringTools.startsWith(e.noteType, "special/") && stage.stageXML.get("noteSkin") != null) e.noteSprite = "game/notes/" + stage.stageXML.get("noteSkin");
 	
 	// SCORE
 	/*
@@ -73,9 +63,5 @@ if(stage != null && stage.stageXML != null){
 	function onNoteHit(e){
 		//trace(e.rating);
 		e.ratingPrefix = "game/score/" + (stage.stageXML.get("scorePath")!= null ? stage.stageXML.get("scorePath") : "default/");
-	}
-	function onPlayerHit(e){
-		//e.note.splash =(Assets.exists(Paths.image(stage.stageXML.get("noteSkin") != null ? stage.stageXML.get("noteSkin") : "default"))? PlayState.instance.SONG.meta.countdownsound : "default") + "/" + countingDown[e.swagCounter];
-		e.note.splash = (Assets.exists(Paths.image("game/splashes/"+stage.stageXML.get("noteSkin"))) ? stage.stageXML.get("noteSkin") : "default");
 	}
 }

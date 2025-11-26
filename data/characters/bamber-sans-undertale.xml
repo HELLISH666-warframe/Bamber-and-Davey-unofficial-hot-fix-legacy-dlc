@@ -1,9 +1,9 @@
 <!DOCTYPE codename-engine-character>
-<character sprite="bamber sans undertale" camx="-100" camy="60" icon="bamber-sans" color="#09CFFB" gameOverChar="bamber-sans-undertale-dead" isGF="false">
-	<anim name="danceLeft" anim="Bamber Sans Animations/SansIdle" x="0" y="0" fps="24" loop="false" indices="1..15"/>
-	<anim name="danceRight" anim="Bamber Sans Animations/SansIdle" x="0" y="0" fps="24" loop="false" indices="15..30"/>
-	<anim name="singLEFT" anim="Bamber Sans Animations/SansLeft" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singDOWN" anim="Bamber Sans Animations/SansDown" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singUP" anim="Bamber Sans Animations/SansUp" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singRIGHT" anim="Bamber Sans Animations/SansRight" x="0" y="0" fps="24" loop="false"/>
+<character sprite="bamber sans undertale" camx="-100" camy="60" icon="bamber-sans" color="#08CFFB" gameOverChar="bamber-sans-undertale-dead" noteskin="undertale" isGF="false">
+	<anim name="danceLeft" anim="Bamber Sans Animations/SansIdle" indices="1..15"/>
+	<anim name="danceRight" anim="Bamber Sans Animations/SansIdle" indices="15..30"/>
+	<anim name="singLEFT" anim="Bamber Sans Animations/SansLeft"/>
+	<anim name="singDOWN" anim="Bamber Sans Animations/SansDown"/>
+	<anim name="singUP" anim="Bamber Sans Animations/SansUp"/>
+	<anim name="singRIGHT" anim="Bamber Sans Animations/SansRight"/>
 </character>

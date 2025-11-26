@@ -1,12 +1,12 @@
 <!DOCTYPE codename-engine-character>
-<character sprite="nikku" scale="0.8" camx="100" camy="170" icon="nikku" color="#CC0053" gameOverChar="nikku" isGF="false">
-	<anim name="idle" anim="NikkuIDLE" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singDOWN" anim="NikkuDOWN" x="-52" y="-148" fps="24" loop="false"/>
-	<anim name="singLEFT" anim="NikkuLEFT" x="84" y="-23" fps="24" loop="false"/>
-	<anim name="singUP" anim="NikkuUP" x="-63" y="42" fps="24" loop="false"/>
-	<anim name="singRIGHT" anim="NikkuRIGHT" x="-107" y="-40" fps="24" loop="false"/>
-	<anim name="singDOWNmiss" anim="NikkuMissDOWN" x="-50" y="-125" fps="24" loop="false"/>
-	<anim name="singLEFTmiss" anim="NikkuMissLEFT" x="79" y="-26" fps="24" loop="false"/>
-	<anim name="singUPmiss" anim="NikkuMissUP" x="-30" y="37" fps="24" loop="false"/>
-	<anim name="singRIGHTmiss" anim="NikkuMissRIGHT" x="-103" y="-42" fps="24" loop="false"/>
+<character scale="0.8" camx="100" camy="170" color="#CC0053" gameOverChar="nikku" noteskin="funkin" isGF="false">
+	<anim name="idle" anim="NikkuIDLE"/>
+	<anim name="singDOWN" anim="NikkuDOWN" x="-52" y="-148"/>
+	<anim name="singLEFT" anim="NikkuLEFT" x="84" y="-23"/>
+	<anim name="singUP" anim="NikkuUP" x="-63" y="42"/>
+	<anim name="singRIGHT" anim="NikkuRIGHT" x="-107" y="-40"/>
+	<anim name="singDOWNmiss" anim="NikkuMissDOWN" x="-50" y="-125"/>
+	<anim name="singLEFTmiss" anim="NikkuMissLEFT" x="79" y="-26"/>
+	<anim name="singUPmiss" anim="NikkuMissUP" x="-30" y="37"/>
+	<anim name="singRIGHTmiss" anim="NikkuMissRIGHT" x="-103" y="-42"/>
 </character>

@@ -1,13 +1,13 @@
 <!DOCTYPE codename-engine-character>
-<character x="0" icon="cnr-dad" camx="-10" camy="-200" y="0" isGF="false" color="#24A26A" isPlayer="false" sprite="bfdi bamber" gameOverChar="bfdi-bamber" >
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Idle" name="idle"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Left" name="singLEFT" indices="0,1,2"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Up" name="singUP" indices="0,1,2"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Down" name="singDOWN" indices="0,1,2"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Right" name="singRIGHT" indices="0,1,2"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Left" name="singLEFT-end" indices="3,4,5,6,7,8"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Up" name="singUP-end" indices="3,4,5,6,7,8"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Down" name="singDOWN-end" indices="3,4,5,6,7,8"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Right" name="singRIGHT-end" indices="3,4,5,6,7,8"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Characters/Bamber/Corny-Gasp" name="gasp"/>
+<character sprite="bfdi bamber" camx="-10" camy="-200" icon="cnr-dad" color="#24A26A" gameOverChar="bfdi-bamber" noteskin="bfdi" isGF="false">
+	<anim name="idle" anim="Characters/Bamber/Corny-Idle"/>
+	<anim name="singLEFT" anim="Characters/Bamber/Corny-Left" indices="0..2"/>
+	<anim name="singUP" anim="Characters/Bamber/Corny-Up" indices="0..2"/>
+	<anim name="singDOWN" anim="Characters/Bamber/Corny-Down" indices="0..2"/>
+	<anim name="singRIGHT" anim="Characters/Bamber/Corny-Right" indices="0..2"/>
+	<anim name="singLEFT-end" anim="Characters/Bamber/Corny-Left" indices="3..8"/>
+	<anim name="singUP-end" anim="Characters/Bamber/Corny-Up" indices="3..8"/>
+	<anim name="singDOWN-end" anim="Characters/Bamber/Corny-Down" indices="3..8"/>
+	<anim name="singRIGHT-end" anim="Characters/Bamber/Corny-Right" indices="3..8"/>
+	<anim name="gasp" anim="Characters/Bamber/Corny-Gasp"/>
 </character>

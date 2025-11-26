@@ -1,12 +1,12 @@
 <!DOCTYPE codename-engine-character>
-<character sprite="gen bf" scale="0.8" color="#00CCFF" flipX="true" camx="-300" camy="-200" isPlayer="true" icon="gen-bf" gameOverChar="gen-bf-dead" isGF="false">
-	<anim name="idle" anim="Anims/Phase 1/Idle" x="0" y="0" fps="30" loop="false"/>
-	<anim name="singDOWN" anim="Anims/Phase 1/Down" x="0" y="0" fps="30" loop="false"/>
-	<anim name="singDOWNmiss" anim="Anims/Phase 1/Miss Down" x="0" y="0" fps="30" loop="false"/>
-	<anim name="singRIGHTmiss" anim="Anims/Phase 1/Miss Right" x="0" y="0" fps="30" loop="false"/>
-	<anim name="singLEFTmiss" anim="Anims/Phase 1/Miss Left" x="0" y="0" fps="30" loop="false"/>
-	<anim name="singLEFT" anim="Anims/Phase 1/Left" x="0" y="0" fps="30" loop="false"/>
-	<anim name="singUP" anim="Anims/Phase 1/Up" x="0" y="0" fps="30" loop="false"/>
-	<anim name="singRIGHT" anim="Anims/Phase 1/Right" x="0" y="0" fps="30" loop="false"/>
-	<anim name="singUPmiss" anim="Anims/Phase 1/Miss Up" x="0" y="0" fps="30" loop="false"/>
+<character sprite="gen bf" scale="0.8" flipX="true" camx="-300" camy="-200" isPlayer="true" color="#00CBFF" gameOverChar="gen-bf-dead" noteskin="awesome" isGF="false">
+	<anim name="idle" anim="Anims/Phase 1/Idle" fps="30"/>
+	<anim name="singDOWN" anim="Anims/Phase 1/Down" fps="30"/>
+	<anim name="singDOWNmiss" anim="Anims/Phase 1/Miss Down" fps="30"/>
+	<anim name="singRIGHTmiss" anim="Anims/Phase 1/Miss Right" fps="30"/>
+	<anim name="singLEFTmiss" anim="Anims/Phase 1/Miss Left" fps="30"/>
+	<anim name="singLEFT" anim="Anims/Phase 1/Left" fps="30"/>
+	<anim name="singUP" anim="Anims/Phase 1/Up" fps="30"/>
+	<anim name="singRIGHT" anim="Anims/Phase 1/Right" fps="30"/>
+	<anim name="singUPmiss" anim="Anims/Phase 1/Miss Up" fps="30"/>
 </character>
