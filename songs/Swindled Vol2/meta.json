@@ -5,19 +5,29 @@
 	"difficulties": [
 		"ABSOLUTELY FUCKING FUCKED"
 	],
+	"credits": {
+		"Chart": {
+			"absolutely fucking fucked": [
+				"Stormy",
+				"Glitch.smh"
+			]
+		},
+		"Code": [
+			"Frakits",
+			"Verwex"
+		],
+		"Music": [
+			"Glitch.smh"
+		],
+		"Art": [
+			"Verwex"
+		]
+	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
 	"displayName": "Swindled v1",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"album": 2,
 	"bpm": 210,
-	"credits": {
-		"Art": ["Verwex"],
-		"Music": ["Glitch.smh"],
-		"Chart": {
-		"absolutely fucking fucked": ["Stormy", "Glitch.smh"]
-		},
-		"Code": ["Frakits", "Verwex"]
-	}
+	"album": 2
 }

@@ -230,7 +230,7 @@ function tweenVars(vars) {
             var variable = varArray[i - 4];
             var newValue = Std.parseFloat(varArray[i - 3]);
             var allowBoom = varArray[i - 2];
-            var usedEase = getEase(varArray[i - 1]);
+            var usedEase = CoolUtil.flxeaseFromString(varArray[i - 1]);
             var stepAmount = Std.parseFloat(varArray[i]);
 
             if (allowBoom == 'true') bigboom();
