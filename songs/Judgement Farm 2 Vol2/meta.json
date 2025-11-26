@@ -7,10 +7,17 @@
 	],
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
-	"custom_credits": true,
 	"displayName": "Judgement Farm 2 V1",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
 	"album": 2,
-	"bpm": 140
+	"bpm": 140,
+	"credits": {
+		"Art": ["Glitch.smh", "Verwex", "Toby Fox"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"normal": ["Glitch.smh"]
+		},
+		"Code": ["Glitch.smh", "Seezee"]
+	}
 }

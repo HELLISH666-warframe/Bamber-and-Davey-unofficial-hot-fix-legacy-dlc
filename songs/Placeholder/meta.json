@@ -1,11 +1,34 @@
 {
-	"displayName": null,
-	"bpm": 200,
-	"icon": null,
 	"color": "#242323",
-	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"album": 2.5,
+	"difficulties": [
+		"Placeholder"
+	],
+	"icon": "face",
+	"credits": {
+		"Chart": {
+			"placeholder": [
+				"Glitch.smh"
+			]
+		},
+		"Code": [
+			"Glitch.smh",
+			"Frakits",
+			"Verwex"
+		],
+		"Music": [
+			"Glitch.Smh"
+		],
+		"Art": [
+			"Glitch.Smh"
+		]
+	},
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Placeholder",
 	"countdownsound": "joke_model_obj",
-	"custom_credits": true
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"bpm": 200,
+	"album": 2.5
 }

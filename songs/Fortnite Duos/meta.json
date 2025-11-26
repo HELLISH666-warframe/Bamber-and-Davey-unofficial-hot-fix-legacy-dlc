@@ -18,5 +18,15 @@
 	"customValues": {},
 	"album": 2.5,
 	"countdownsound": "amung",
-	"composer":"Glitch.smh"
+	"composer":"Glitch.smh",
+	"credits": {
+		"Art": ["Seezee"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"easy": ["Luminous"],
+		"normal": ["Glitch.smh"],
+		"hard": ["Luminous"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

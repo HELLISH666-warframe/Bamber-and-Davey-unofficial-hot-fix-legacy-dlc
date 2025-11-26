@@ -18,5 +18,15 @@
 	"customValues": {},
 	"album": 2.5,
 	"countdownsound": "amung",
-	"composer":"Kasu"
+	"composer":"Kasu",
+	"credits": {
+		"Art": ["Seezee"],
+		"Music": ["Kasu"],
+		"Chart": {
+		"easy": ["Luminous"],
+		"normal": ["Glitch.smh"],
+		"hard": ["Luminous"]
+		},
+		"Code": ["Frakits", "Verwex", "Glitch.smh"]
+	}
 }

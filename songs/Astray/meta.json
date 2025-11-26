@@ -17,5 +17,14 @@
 	"countdownsound": "joke_model_obj",
 	"instSuffix": "",
 	"vocalsSuffix": "",
-	"bpm": 160
+	"bpm": 160,
+	"credits": {
+		"3D Model": ["Glitch.Smh"],
+		"Music": ["Glitch.Smh"],
+		"Chart": {
+		"normal": ["Glitch.smh"],
+		"vip": ["???"]
+		},
+		"Code": ["Glitch.smh", "Frakits", "Verwex"]
+	}
 }

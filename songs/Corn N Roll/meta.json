@@ -8,5 +8,13 @@
 	"opponentModeAllowed": true,
 	"custom_credits": true,
 	"countdownsound": "four",
-	"composer": "Glitch.smh & Walto"
+	"composer": "Glitch.smh & Walto",
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh", "Walto"],
+		"Chart": {
+		"bfdi": ["Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

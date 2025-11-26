@@ -14,5 +14,13 @@
 	"beatsPerMeasure": 4,
 	"bpm": 180,
 	"album": 2.5,
-	"composer":"Glitch.smh"
+	"composer":"Glitch.smh",
+	"credits": {
+		"Art": ["Cosmic", "Glitch.smh", "Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"normal": ["Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

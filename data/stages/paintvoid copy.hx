@@ -1,6 +1,5 @@
 import funkin.backend.utils.ShaderResizeFix;
 import funkin.backend.system.framerate.Framerate;
-import flixel.text.FlxTextBorderStyle;
 
 var progressList = ['Astray', 'Facsimile', 'Placeholder', 'test footage'];
 var progressindex = progressList.indexOf(PlayState.SONG.meta.name);
@@ -8,38 +7,28 @@ var progressindex = progressList.indexOf(PlayState.SONG.meta.name);
 var allowLeave:Bool = true;
 var time:Float = 0;
 
-var rippleShader = new CustomShader('ripple');
+var chromaticaAbber:Float = 0.001;
+var tempBeat:Int = 0;
 
-var scoreTextSize = 18;
+var shader = new CustomShader("old tv");
+var bloom = new CustomShader("bloom");
+
 if (progressindex >= 0) {
 	//engineSettings.timerSongName = engineSettings.minimizedMode = true;
 	//engineSettings.scoreJoinString = '   ';
+	//engineSettings.scoreTextSize = 18;
 }
 if (progressindex >= 1) {
 	/*engineSettings.watermark = */FlxG.save.data.options.timeBar = Options.SOLO_RESET = false;
-	FlxG.save.data.options.coloredBar = false;
+	FlxG.save.data.options.coloredBar = falsh;
 	//engineSettings.accuracyMode = 1;
 }
 if (progressindex >= 2) {
 	accuracyTxt.visable = false;
 	Options.ghostTapping = true;
-	scoreTextSize = 14;
+	//engineSettings.scoreTextSize = 14;
 	//popupArrows = false;
 }
-
-var shader = new CustomShader('grain');
-var bloom = new CustomShader('bloom');
-var scanline = new CustomShader('scanLines');
-var vignette = new CustomShader('vignette');
-var cooler = new CustomShader('sketchShader');
-
-var elapsedShader:Float = 0;
-var grainStrength:Float = 16;
-var actualGrainStrength:Float = 16;
-var chromaticaAbber:Float = 0.001;
-var tempBeat:Int = 0;
-var oppositeHealth:Float = 1;
-var hdr:Float = 1.5;
 
 function create(){
     FlxG.resizeWindow(FlxG.stage.window.height/3*4,FlxG.stage.window.height);
@@ -50,22 +39,10 @@ function create(){
 	ShaderResizeFix.fixSpritesShadersSizes();
     FlxG.stage.window.x += (FlxG.stage.window.width - FlxG.stage.window.height/3*4) / 2;
 
-	if (!Options.lowMemoryMode) {
-		camHUD.addShader(cooler);
-		camHUD.addShader(bloom);
-		camHUD.addShader(shader);
-		camHUD.addShader(scanline);
-
-		// camGame shader initialization
-		FlxG.camera.addShader(cooler);
-		FlxG.camera.addShader(bloom);
-		FlxG.camera.addShader(vignette);
-
-		// variable initialization
-		bloom.hDRthingy = 1.5;
-		shader.strength = 35;
-		vignette.size = 1.2;
-	}
+    FlxG.game.addShader(shader);
+    for(a in [camGame, camHUD])
+        a.addShader(bloom);
+    bloom.data.hDRthingy.value = [1.5];
 }
 
 function postCreate(){
@@ -77,84 +54,6 @@ function postCreate(){
     strumLines.members[1].characters[0].visible = FlxG.autoPause = false;
 	for(i in [scoreTxt,missesTxt,accuracyTxt])
 	i.font=Paths.font('vcr_osd.ttf');
-
-	if (progressindex >= 1) {
-		if (progressindex < 3) {
-			fakeScoreText = new FlxText(healthBar.x + (healthBar.width * 0.28), 0, healthBar.width * (1 - 0.28), "A", 20);
-			fakeScoreText.setFormat(Paths.font("vcr_osd.ttf"), Std.int(scoreTextSize), 0xFFFFFFFF, 'right', (progressindex < 2 ? FlxTextBorderStyle.OUTLINE : FlxTextBorderStyle.NONE), 0xFF000000);
-			fakeScoreText.antialiasing = false;
-			fakeScoreText.scale.set(1,1);
-			fakeScoreText.camera = camHUD;
-			fakeScoreText.screenCenter();
-			fakeScoreText.y = healthBarBG.y + 30;
-			add(fakeScoreText);
-			fakeScoreText.alpha = 0;
-			FlxTween.tween(fakeScoreText, {alpha: 1}, 0.75, {ease: FlxEase.quartInOut});
-			fakeScoreText.text = 'Score: ' + songScore + (progressindex < 2 ? '   Misses: ' + misses + '   ' + 'Accuracy: 0': '');
-	} else {
-		for (i in members) if (i.name != null) i.destroy();
-		healthBarBG.y = healthBar.y = -1000000;
-
-		comboTxt.setFormat(Paths.font("vcr_osd.ttf"), 64, 0xFFFFFFFF, 'center', FlxTextBorderStyle.NONE, 0xFF000000);
-		comboTxt.camera = camHUD;
-		comboTxt.screenCenter();
-		comboTxt.x += 200;
-		add(comboTxt);
-
-		boyfriend.visible = false;
-	}
-
-	/*if (progressindex >= 2) {
-		for (i in unspawnNotes) {
-			if (i.isSustainNote) i.alpha = 1;
-		}
-	}*/
-
-	scoreTxt.visible = false;
-	}
-}
-
-function update(elapsed){
-	camGame.angle = 0;
-	if (progressindex == 3) {
-		health = 1.59;
-		misses = songScore = 0;
-
-		//scoreWarning.y = -1000000;
-	}
-
-	oppositeHealth = (2.2 - health);
-
-	// chromatic abberation
-	chromaticaAbber = FlxMath.lerp(chromaticaAbber, 0.1, 0.02);
-	bloom.data.chromatic.value = [chromaticaAbber];
-	if (PlayState.curBeat != tempBeat) {
-		chromaticaAbber = 1;
-		tempBeat = PlayState.curBeat;
-	}
-	hdr = 1.5 - (PlayState.misses / 20);
-	bloom.data.hDRthingy.value = [hdr];
-	if (hdr <= 0) gameOver();
-
-	//grain
-	elapsedShader += Std.parseFloat(elapsed);
-	shader.data.iTime.value = [elapsedShader];
-	grainStrength = oppositeHealth * 47;
-	actualGrainStrength = FlxMath.lerp(actualGrainStrength, grainStrength, 0.01);
-	shader.data.strength.value = [actualGrainStrength];
-
-	//scanline
-	scanline.data.opacity.value = [oppositeHealth/6];
-}
-
-if (progressindex < 3 && progressindex > 0) {
-	function onMiss(e) {
-		fakeScoreText.text = 'Score: ' + songScore + (progressindex < 2 ? '   Misses: ' + misses + '   '  + 'Accuracy: ' + (Math.floor(accuracy * 10000) / 100) : '');
-	}
-
-	function onPlayerHit(note) {
-		fakeScoreText.text = 'Score: ' + songScore + (progressindex < 2 ? '   Misses: ' + misses + '   '  + 'Accuracy: '+(Math.floor(accuracy * 10000) / 100): '');
-	}
 }
 
 function destroy() {
@@ -174,6 +73,18 @@ function destroy() {
         FlxG.game.removeShader(a);
 }
 
+function update(elapsed){
+    shader.iTime = time += elapsed;
+	chromaticaAbber = FlxMath.lerp(chromaticaAbber, 0.1, 0.02);
+	bloom.data.chromatic.value = [chromaticaAbber];
+	if (PlayState.curBeat != tempBeat)
+		{
+			chromaticaAbber = 1;
+			tempBeat = PlayState.curBeat;
+		}
+	hdr = 1.5 - (misses / 40);
+	bloom.data.hDRthingy.value = [hdr];
+}
 
 function postUpdate(elapsed){
 	iconP2.scale.x = iconP2.scale.y = 1;

@@ -1,13 +1,27 @@
 {
-	"displayName": null,
+	"composer": "Glitch.smh",
+	"color": "#DF1207",
+	"opponentModeAllowed": true,
+	"difficulties": [
+		"deathbattle",
+		"deathbattle 2"
+	],
+	"icon": "grug",
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Deathbattle",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"countdownsound": "manny",
 	"bpm": 250,
 	"album": 2,
-	"icon": "grug",
-	"color": "#DF1207",
-	"coopAllowed": true,
-	"opponentModeAllowed": true,
-	"custom_credits": true,
-	"credits_update": true,
-	"countdownsound": "manny",
-	"composer": "Glitch.smh"
+	"credits": {
+		"Art": ["Sibottle", "Verwex"],
+		"OG Music": ["Sibottle"],
+		"Remix": ["Glitch.smh"],
+		"Chart": {
+		"deathbattle": ["Glitch.smh", "Stormy"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

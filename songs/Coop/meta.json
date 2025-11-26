@@ -17,5 +17,15 @@
 	"bpm": 180,
 	"album": 2.5,
 	"countdownsound": "davey",
-	"composer":"Glitch.smh"
+	"composer":"Glitch.smh",
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"easy": ["Glitch.smh"],
+		"normal": ["Glitch.smh"],
+		"hard": ["Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

@@ -16,5 +16,13 @@
 	"bpm": 220,
 	"album": 2.5,
 	"countdownsound": "swindler",
-	"composer":"Glitch.smh"
+	"composer":"Glitch.smh",
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"absolutely fucking fucked": ["Stormy", "Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

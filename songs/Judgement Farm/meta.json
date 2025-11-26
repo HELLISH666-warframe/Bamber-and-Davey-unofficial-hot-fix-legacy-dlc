@@ -15,7 +15,14 @@
 	"needsVoices": false,
 	"bpm": 125,
 	"album": 2.5,
-	"custom_credits":true,
 	"countdownsound": "undertale",
-	"composer":"Glitch.smh"
+	"composer":"Glitch.smh",
+	"credits": {
+		"Art": ["Verwex", "Glitch.smh"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"normal": ["Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

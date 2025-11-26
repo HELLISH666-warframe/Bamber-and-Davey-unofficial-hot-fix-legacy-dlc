@@ -11,5 +11,13 @@
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
 	"album": 2,
-	"bpm": 210
+	"bpm": 210,
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"absolutely fucking fucked": ["Stormy", "Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

@@ -3,5 +3,13 @@
 	"bpm": 150.0,
 	"icon": "trade-davey",
 	"color": "#EFE91F",
-	"album": 2
+	"album": 2,
+	"credits": {
+		"Art": ["Cosmic", "Glitch.smh", "Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"normal": ["Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex", "Seezee"]
+	}
 }

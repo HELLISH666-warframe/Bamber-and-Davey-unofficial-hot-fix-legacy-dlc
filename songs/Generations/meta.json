@@ -8,7 +8,6 @@
 	"coopAllowed": true,
 	"name": "Generations",
 	"stepsPerBeat": 4,
-	"custom_credits": "true",
 	"displayName": "Generations",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
@@ -17,6 +16,13 @@
 	"album": 2,
 	"instSuffix": "",
 	"vocalsSuffix": "",
-	"composer":"PK Cool Guy"
-	
+	"composer":"PK Cool Guy",
+	"credits": {
+		"drawingz": ["Glitch.smh", "Verwex"],
+		"myoosick": ["PK Cool Guy"],
+		"note stuff": {
+		"normal": ["Stormy"]
+		},
+		"funny hacking": ["Frakits", "Verwex"]
+	}
 }

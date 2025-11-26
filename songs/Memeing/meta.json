@@ -6,6 +6,14 @@
 	"color": "#038703",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"custom_credits": "true",
-	"composer": "Itchgø"
+	"composer": "Itchgø",
+	"credits": {
+		"My (Art)": ["Vs Dave and Bambi Team", "Verwex"],
+		"Asshole (Music)": ["Itchgø"],
+		"Burns (Chart)": {
+		"normal": ["Stormy"],
+		"vip": ["???"]
+		},
+		"Bruh (Code)": ["Frakits", "Verwex"]
+	}
 }

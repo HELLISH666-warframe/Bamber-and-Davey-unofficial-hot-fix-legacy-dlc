@@ -9,7 +9,9 @@ function postCreate(){
         FlxTween.tween(leftWarning, {alpha: 0}, 1.5, {startDelay: 3.5});
     }});
    healthBar.flipX= iconP1.flipX = iconP2.flipX = true;
-   healthBarBG2.flipX = healthBarBG1.flipX = true;
+}
+function overrideBars(healthMask, timeMask, colors) {
+	healthBarBG.flipX = healthMask.flipX = true;
 }
 
 function postUpdate(elapsed){	

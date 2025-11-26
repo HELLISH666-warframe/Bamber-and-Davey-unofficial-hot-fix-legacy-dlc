@@ -13,5 +13,15 @@
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
 	"album": 2,
-	"bpm": 180
+	"bpm": 180,
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"easy": ["Glitch.smh"],
+		"normal": ["Glitch.smh"],
+		"hard": ["Luminous"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

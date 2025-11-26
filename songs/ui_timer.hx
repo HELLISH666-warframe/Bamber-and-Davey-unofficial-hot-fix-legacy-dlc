@@ -64,7 +64,7 @@ function create() {
 	}
 }
 
-function onSongStart() {
+function onStartCountdown() {
     if (timerBar != null){
 		timerBar.setParent(Conductor, "songPosition");
 		timerBar.setRange(0, Math.max(inst.length, 1000));

@@ -4,5 +4,14 @@
 	"icon": "Davey",
 	"color": "#FE3455",
 	"coopAllowed": true,
-	"opponentModeAllowed": true
+	"opponentModeAllowed": true,
+	"credits": {
+		"Art": ["Verwex"],
+		"Instrumental": ["Epic Games"],
+		"Vocals": ["Glitch.smh"],
+		"Chart": {
+		"fortnite": ["Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

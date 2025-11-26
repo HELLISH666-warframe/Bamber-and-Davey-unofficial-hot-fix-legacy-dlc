@@ -6,7 +6,14 @@
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
 	"album": 2.5,
-	"custom_credits":true,
 	"countdownsound": "undertale",
-	"composer":"Glitch.smh"
+	"composer":"Glitch.smh",
+	"credits": {
+		"Art": ["Glitch.smh", "Verwex", "Toby Fox"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"normal": ["Glitch.smh"]
+		},
+		"Code": ["Glitch.smh"]
+	}
 }

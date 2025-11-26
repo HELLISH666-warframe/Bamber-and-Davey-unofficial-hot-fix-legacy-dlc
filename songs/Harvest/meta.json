@@ -18,5 +18,15 @@
 	"bpm": 115,
 	"album": 2.5,
 	"countdownsound": "bamber",
-	"composer":"Glitch.smh"
+	"composer":"Glitch.smh",
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"easy": ["Glitch.smh"],
+		"normal": ["Glitch.smh"],
+		"hard": ["Luminous"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

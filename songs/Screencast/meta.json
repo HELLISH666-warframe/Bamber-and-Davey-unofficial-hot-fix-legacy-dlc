@@ -8,7 +8,6 @@
 	"coopAllowed": true,
 	"name": "Screencast",
 	"stepsPerBeat": 4,
-	"custom_credits": true,
 	"displayName": "Screencast",
 	"countdownsound": "hotline",
 	"beatsPerMeasure": 4,
@@ -18,5 +17,13 @@
 	"album": 2,
 	"instSuffix": "",
 	"vocalsSuffix": "",
-	"composer":"Glitch.smh"
+	"composer":"Glitch.smh",
+	"credits": {
+		"Art": ["Hotline 024 Team", "Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+		"normal": ["Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	}
 }

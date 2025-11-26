@@ -48,7 +48,7 @@ function postPostCreate() {
 	healthBarBG.screenCenter(FlxAxes.X);
     timerBG.screenCenter(FlxAxes.X);
 	
-	if (barType_flipY) healthBarBG.flipY = timerBG.flipY = PlayState.downscroll;
+	if (barType_flipY) healthBarBG.flipY = timerBG.flipY = downscroll;
 
 	if (barType_isMask)  { 
         healthBar.visible = timerBar.visible = false;
@@ -85,7 +85,7 @@ function postPostCreate() {
                 colorShader2.b = ((barColors[1]) & 0xFF);
         }
 
-        insert(members.indexOf(iconP1)+1,maskHealthBar);
+        insert(members.indexOf(iconP1),maskHealthBar);
         insert(members.indexOf(timerBG)+1,maskTimeBar);
     } else {
 
@@ -116,9 +116,6 @@ function postPostCreate() {
 
 function onStartCountdown() {
     if (FlxG.save.data.options.timeBar) strumLine.y += barType_StrumY[0];
-}
-
-function onSongStart() {
     for(i in [healthBarBG,maskTimeBar,maskHealthBar,iconP1,iconP2,scoreTxt,accuracyTxt,missesTxt])
 	FlxTween.tween(i, {alpha: 1}, 0.75, {ease: FlxEase.quartInOut});
 

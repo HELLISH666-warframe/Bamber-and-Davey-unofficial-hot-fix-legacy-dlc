@@ -7,5 +7,13 @@
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
 	"countdownsound": "amung",
-	"composer": "Seezee"
+	"composer": "Seezee",
+	"credits": {
+		"Art": ["Seezee"],
+		"Music": ["Seezee"],
+		"Chart": {
+		"normal": ["Glitch.smh", "Seezee"]
+		},
+		"Code": ["Frakits", "Verwex", "Seezee"]
+	}
 }
