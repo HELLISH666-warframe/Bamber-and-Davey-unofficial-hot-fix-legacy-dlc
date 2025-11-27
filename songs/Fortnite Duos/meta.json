@@ -1,32 +1,43 @@
 {
-	"beatsPerMeasure": 4,
+	"composer": "Glitch.smh",
+	"customValues": {},
+	"color": "#FEE46C",
 	"opponentModeAllowed": true,
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
-	"bpm": 170,
 	"difficulties": [
 		"EASY",
 		"NORMAL",
 		"HARD"
 	],
-	"needsVoices": false,
-	"parsedColor": -72596,
-	"displayName": "Fortnite Duos",
 	"icon": "ronnieandboris",
-	"name": "Fortnite Duos",
-	"color": "#FEE46C",
-	"customValues": {},
-	"album": 2.5,
-	"countdownsound": "amung",
-	"composer":"Glitch.smh",
 	"credits": {
-		"Art": ["Seezee"],
-		"Music": ["Glitch.smh"],
 		"Chart": {
-		"easy": ["Luminous"],
-		"normal": ["Glitch.smh"],
-		"hard": ["Luminous"]
+			"easy": [
+				"Luminous"
+			],
+			"normal": [
+				"Glitch.smh"
+			],
+			"hard": [
+				"Luminous"
+			]
 		},
-		"Code": ["Frakits", "Verwex"]
-	}
+		"Art": [
+			"Seezee"
+		],
+		"Music": [
+			"Glitch.smh"
+		],
+		"Code": [
+			"Frakits",
+			"Verwex"
+		]
+	},
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"displayName": "Fortnite Duos",
+	"needsVoices": false,
+	"beatsPerMeasure": 4,
+	"countdownsound": "amung",
+	"bpm": 170,
+	"album": 2.5
 }

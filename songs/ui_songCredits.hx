@@ -142,14 +142,14 @@ if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
     var creditDelay = [
         ['Astray', 'Swindled', 'Multiversus', 'Fortnite Duos', 'Blusterous Day', 'Judgement Farm'] => 32,
         ['call-bamber'] => 16,
-        ['Harvest'] => 64,
+        ['Harvest'] => 7,
         ['Bob be like'] => 8,
         ['Screencast'] => -4
     ];
     var delaySize = 0;
     
     for (song in creditDelay.keys()) {
-        if (song.contains(PlayState.SONG.song)) {
+        if (StringTools.contains(song, SONG.meta.displayName)) {
             delaySize = creditDelay[song];
             break; //break out of the loop
         }

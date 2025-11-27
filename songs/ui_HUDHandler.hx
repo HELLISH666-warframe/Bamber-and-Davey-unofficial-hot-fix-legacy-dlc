@@ -19,11 +19,12 @@ function postCreate() {
 }
 
 function onNoteCreation(e) {
+    if(StringTools.startsWith(e.noteType, "special/"))return;
     Assets.exists(Paths.image('game/notes/' + strumLines.members[e.strumLineID].characters[0].xml.get("noteskin"))) ? port=strumLines.members[e.strumLineID].characters[0].xml.get("noteskin") : port="default";
 	e.noteSprite = "game/notes/" +port;
 }
 function onStrumCreation(e) {
-	Assets.exists(Paths.image('game/notes/' + strumLines.members[e.player].characters[0].xml.get("noteskin"))) ? port=strumLines.members[e.player].characters[0].xml.get("noteskin") : port="default";
+    Assets.exists(Paths.image('game/notes/' + strumLines.members[e.player].characters[0].xml.get("noteskin"))) ? port=strumLines.members[e.player].characters[0].xml.get("noteskin") : port="default";
 	e.sprite = "game/notes/" +port;
 }
 function onPlayerHit(e){

@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character y="-200" camx="200" camy="25" color="#FFEA00" isGF="false" noteskin="BND">
+<character y="-200" camy="275" icon="ronnie" color="#FFEA00" isGF="false" noteskin="BND">
 	<anim name="idle" anim="idle"/>
 	<anim name="singRIGHT" anim="right" x="-78" y="33"/>
 	<anim name="singDOWN" anim="down" x="48" y="-127"/>

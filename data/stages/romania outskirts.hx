@@ -3,9 +3,9 @@ var colorizer = new CustomShader('colorizer');
 camZooming = true;
 
 function postCreate() {// second opponent offset
-	if(strumLines.members[1].characters[0].curCharacter.toLowerCase() == "boris"){
-		strumLines.members[1].characters[0].x -= 200;
-		strumLines.members[1].characters[0].y += 100;
+	if(strumLines.members[3].characters[0].curCharacter.toLowerCase() == "boris"){
+		strumLines.members[3].characters[0].x -= 200;
+		strumLines.members[3].characters[0].y += 100;
 	}
 	colorizer.data.colors.value = [0.064,0.127,0.292]; //https://airtightinteractive.com/util/hex-to-glsl/
 	FlxG.camera.addShader(colorizer);
