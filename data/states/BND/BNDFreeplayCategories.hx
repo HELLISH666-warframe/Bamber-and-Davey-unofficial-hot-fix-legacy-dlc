@@ -3,6 +3,7 @@ import funkin.menus.StoryMenuState.StoryWeeklist;
 import funkin.backend.utils.WindowUtils;
 import flixel.text.FlxTextBorderStyle;
 import funkin.savedata.FunkinSave;
+import funkin.menus.ui.ClassicAlphabet;
 import funkin.backend.FunkinText;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.backend.MusicBeatSubstate;
@@ -12,6 +13,8 @@ import Sys;
 var arrows:Array<FunkinSprite> = [];
 var moveTimer:FlxTimer = new FlxTimer();
 var appear = true;
+
+var curScroll:Float = 0.0;
 
 var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["BambersFarm", "Week Bamber", 0xB6FF00],
@@ -134,17 +137,13 @@ function create() {
 
 function update(elapsed) {
 	timer += elapsed;
-    if (controls.LEFT_P) change(-1);
-    if (controls.RIGHT_P) change(1);
+    if (controls.LEFT_P||controls.RIGHT_P) change(controls.LEFT_P ? -1 : 1);
 	
-	if (controls.UP_P) changements(-1);
-	if (controls.DOWN_P) changements(1);
+	if (controls.UP_P||controls.DOWN_P) changements(controls.UP_P ? -1 : 1);
 	
-	if (controls.BACK)
-		FlxG.switchState(new ModState("BND/BNDMenu"));
+	if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
 		
-	if (controls.ACCEPT)
-	{
+	if (controls.ACCEPT) {
 		openSubState(new MusicBeatSubstate(true,"substates/Freeplay_substate"));
 		persistentUpdate = !persistentDraw;
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
@@ -168,15 +167,11 @@ function update(elapsed) {
     }
 	
 	arrows[0].angle = Math.sin(timer * 3) * 5;
-
-	for (i in 0...songL.length)
-	{
-	iconArray[i].x=songL[i].x-130;
-	iconArray[i].y=songL[i].y-60;
+	for (i in songL){
+		i.targetY = i.ID - subCurSelected;
+		var scaledY = FlxMath.remapToRange(i.targetY, 0, 1, 0, 1.3);
+		i.y = CoolUtil.fpsLerp(i.y, (scaledY * 120) + (FlxG.height * 0.48), 0.16);
 	}
-
-	textCam.scroll.y = CoolUtil.fpsLerp(textCam.scroll.y, subCurSelected * 230, 0.2);
-	//textCam.scroll.x = CoolUtil.fpsLerp(textCam.scroll.x, subCurSelected * 50 ,0.2); 
 }
 var fuck;
 function changements(a) {
@@ -187,15 +182,21 @@ function changements(a) {
 	
 	for (i in 0...songL.length)
 	{
+		FlxTween.globalManager.completeTweensOf(songL[i]);
+		if(songLBgs[i]!=null) FlxTween.globalManager.completeTweensOf(songLBgs[i]);
 		songL[i].alpha = 0.5;
 		songL[subCurSelected].alpha = 1;
 		songL[i].x = 970;
-		songL[i].y = 220 + i * 320;
 		FlxTween.tween(songL[subCurSelected], {x: 750}, 0.6, {ease: FlxEase.quartOut});
 		FlxTween.tween(songL[fuck], {x: 970}, 0.6, {ease: FlxEase.quartOut});
 		FlxTween.tween(songLBgs.members[fuck], {x: 970}, 0.6, {ease: FlxEase.quartOut});
 		FlxTween.tween(songLBgs.members[subCurSelected], {x: songL[subCurSelected].x-300}, 0.6, {ease: FlxEase.quartOut});
 	}
+	for (i in songL){
+		i.targetY = i.ID - subCurSelected;
+		i.targetY == 0 ? i.alpha = 1 : i.alpha = 0.6;
+	}
+	//for (i in 0...songL.length) {songL[i].x +=(songL[i].width-0)*1;}
 	
 	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "normal").score;
 	var ver = songser[subCurSelected].album;
@@ -207,6 +208,8 @@ function changements(a) {
 }
 
 function change(a) {
+	if(iconArray.length > 0) for(icon in iconArray) icon.destroy();
+			iconArray = [];
     curSelected = FlxMath.wrap(curSelected + a, 0, vinylGroup.length - 1);
 	moveTimer.cancel();
 	
@@ -278,8 +281,8 @@ function change(a) {
 			songLBgs.members[i].origin.set(songLBgs.members[i].width/2, songLBgs.members[i].height);	
 			songLBgs.members[i].scrollFactor.set(0, 1);
 			songLBgs.members[i].y=songL[i].y;
-			//for (i in 0...iconArray.length) remove(iconArray[i]);
 			var icon = new HealthIcon(songser[i].icon);
+			icon.sprTracker = songL[i];
 			icon.cameras = [textCam];
 			icon.scrollFactor.set(1, 1);
 			iconArray.push(icon);
@@ -288,15 +291,15 @@ function change(a) {
 			var bg = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/silhouettes/"+kys));			
 			songLBgs.add(bg);
 
-			var text = new Alphabet(0, 0);
-			text.alignment="right";
-			text.text = songser[i].displayName;
+			var text = new Alphabet(0,(120 * i) + 30,null,true);
+			//text.isMenuItem=true;
+
+			text.text=songser[i].displayName;
 			text.color = FlxColor.WHITE;
 			text.scale.set(0.9,0.9);
+			text.targetY = text.ID = i;
 			songL.push(text);
 			add(text);
-			text.screenCenter(0x01);
-			text.y = offset + 30;
 			text.cameras = [textCam];
 
 			bg.scale.set(0.7, 0.7);
@@ -310,6 +313,7 @@ function change(a) {
 			var icon = new HealthIcon(songser[i].icon);
 			icon.cameras = [textCam];
 			icon.scrollFactor.set(1, 1);
+			icon.sprTracker = text;
 			iconArray.push(icon);
 			add(icon);
 		}

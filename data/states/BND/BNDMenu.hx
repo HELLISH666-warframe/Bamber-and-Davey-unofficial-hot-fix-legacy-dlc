@@ -607,6 +607,9 @@ function update(elapsed) {
         menuGroupDrags = [-250, 250];
         FlxG.resetState();
     }
+    if (FlxG.keys.justPressed.J) { //DEV, REMOVE ONCE DONE!
+        FlxG.switchState(new ModState("BND/BNDSettings-old"));
+    }
 
     if (!initialized) {
         earth.scale.x = earth.scale.y += 0.04 * elapsed;

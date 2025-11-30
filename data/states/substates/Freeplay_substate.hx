@@ -3,8 +3,6 @@ import flixel.text.FlxTextBorderStyle;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.options.Options;
 
-import lime.ui.Window;
-
 var click_through:Bool = false;
 var coolCam = new FlxCamera();
 
@@ -63,8 +61,6 @@ function create() {
 	add(text).camera = coolCam;
 	text.screenCenter(FlxAxes.X);
 	trace(text.width+"\n"+text.x);
-	trace(window.borderless);
-	window.opacity=1;
 	
 	composer.text = "By "+ curSong.composer;
 	composer.camera = coolCam;
@@ -245,6 +241,7 @@ function playsong() {
 	//if (FlxG.save.data.options.scrollSpeed) scrollSpeed = FlxG.save.data.options.scrollSpeed_Speed;
 	PlayState.loadSong(curSong.name, curSong.difficulties[curDifficulty].toLowerCase());
 	FlxG.switchState(new PlayState());
+	curPlayingInst="fuck";
 }
 function destroy() {
 	//Destroy_the_other_stuff_later.

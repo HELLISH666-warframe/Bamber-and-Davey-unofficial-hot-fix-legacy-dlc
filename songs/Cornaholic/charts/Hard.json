@@ -689,24 +689,6 @@
 		},
 		{
 			"params": [
-				"20",
-				"1",
-				""
-			],
-			"time": 12923.0769230769,
-			"name": "Bars_from_v2"
-		},
-		{
-			"params": [
-				"5",
-				"0.1",
-				""
-			],
-			"time": 14307.6923076923,
-			"name": "Bars_from_v2"
-		},
-		{
-			"params": [
 				0,
 				true,
 				4,
@@ -716,15 +698,13 @@
 			"time": 14769.2307692308,
 			"name": "Camera Movement"
 		},
-		{
-			"params": [
-				"10",
-				"0.3",
-				""
-			],
-			"time": 14769.2307692308,
-			"name": "Bars_from_v2"
-		},
+		{"params": ["20","1",""],"time": 12923.0769230769,"name": "Bars_from_v2"},
+		{"params": ["20","1",""],"time": 132923.076923077,"name": "Bars_from_v2"},
+		{"params": ["20","1",""],"time": 132923.076923077,"name": "Bars_from_v2"},
+		{"params": ["5","0.1",""],"time": 14307.6923076923,"name": "Bars_from_v2"},
+		{"params": ["10","0.3",""],"time": 14769.2307692308,"name": "Bars_from_v2"},
+		{"params": ["10","1",""],"time": 147692.307692308,"name": "Bars_from_v2"},
+		{"params": ["10","1",""],"time": 147692.307692308,"name": "Bars_from_v2"},
 		{
 			"params": [
 				1
@@ -949,15 +929,6 @@
 		},
 		{
 			"params": [
-				"20",
-				"1",
-				""
-			],
-			"time": 132923.076923077,
-			"name": "Bars_from_v2"
-		},
-		{
-			"params": [
 				"0.030",
 				""
 			],
@@ -992,15 +963,6 @@
 			],
 			"time": 144000,
 			"name": "Camera Movement"
-		},
-		{
-			"params": [
-				"10",
-				"1",
-				""
-			],
-			"time": 147692.307692308,
-			"name": "Bars_from_v2"
 		},
 		{
 			"params": [

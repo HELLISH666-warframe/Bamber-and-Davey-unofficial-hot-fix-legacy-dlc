@@ -7,7 +7,7 @@ var pixelSize:Float = 22;
 var startPostiosnesfgre = [-104,8,120,232];
 
 function postCreate(){
-	//FlxG.camera.addShader(pixel);
+	FlxG.camera.addShader(pixel);
 
     FlxTween.num(pixelSize, 0.1, 15, {ease: FlxEase.quartInOut}, function(v) {pixelSize = v;});
     for(num => a in [iconP1, iconP2]) a.setIcon(["bf-fortniteduos", "ronnieandboris"][num]);

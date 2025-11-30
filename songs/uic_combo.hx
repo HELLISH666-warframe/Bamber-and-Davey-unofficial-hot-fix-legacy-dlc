@@ -134,7 +134,7 @@ function onShowCombo(combo:Int, coolText:String) {
     strumsY /= strumCount;
     strumScale /= strumCount;
 
-    thing.x = Math.max(Math.min(strumsX, FlxG.width - 80), 20);
+    thing.x = Math.max(Math.min(strumsX, FlxG.width - 350), 20);
     thing.y = Math.max(Math.min(strumsY - FlxG.height/2* -1, FlxG.height - 80), 20);
 
     if (combo > 0) {
@@ -281,8 +281,8 @@ function onShowCombo(combo:Int, coolText:String) {
             broken.scale.set(comboScaleMult[2] * strumScale, comboScaleMult[2] * strumScale);
             broken.updateHitbox();
 
-            broken.x = comboGroup.x - broken.width/2;
-            broken.y = comboGroup.y + miss.height/2 + 5;
+            broken.x = thing.x - broken.width/2;
+            broken.y = thing.y + miss.height/2 + 5;
 
             broken.antialiasing = FlxG.save.data.options.antialiasing;
             broken.cameras = [camHUD];
