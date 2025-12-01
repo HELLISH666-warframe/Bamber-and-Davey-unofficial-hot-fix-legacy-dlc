@@ -85,8 +85,7 @@ function update(){
     if (controls.ACCEPT) {
         accept();
     }
-    if (controls.BACK)
-		FlxG.switchState(new ModState("BND/BNDMenu"));
+    if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
     if (controls.RIGHT_P||controls.LEFT_P)  changeSelected(controls.RIGHT_P ? 1 : -1);
 
     optionsCam.scroll.y = CoolUtil.fpsLerp(optionsCam.scroll.y, curSelect * 60, 0.2);

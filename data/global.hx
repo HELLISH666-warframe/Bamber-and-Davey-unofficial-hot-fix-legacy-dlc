@@ -44,7 +44,6 @@ function new() {
 
     //Sound options
     //Master Volume - FlxG.volume
-    FlxG.save.data.options.musicVolume = 50; 
     FlxG.save.data.options.sfxVolume = 100;
     FlxG.save.data.options.voiceVolume = 100;
     FlxG.save.data.options.missSounds ??= true;

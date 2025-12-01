@@ -898,7 +898,7 @@ function progressForwards() {
 				case 1: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("GalleryState"));
 				case 2: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("AchievementsState"));
 				case 3: 
-                    FlxG.switchState(new ModState("BND/BNDSettings"));
+                    FlxG.switchState(new ModState("BND/BNDSettings-old"));
 				case 4:
 					import funkin.menus.credits.CreditsMain;
 					FlxG.switchState(new CreditsMain());
