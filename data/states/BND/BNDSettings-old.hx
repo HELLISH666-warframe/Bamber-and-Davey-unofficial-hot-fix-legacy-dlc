@@ -80,7 +80,11 @@ function update(){
 }
 
 function acceptThingieAndNotDie(){
-        Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3], !Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]));
+    Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3], !Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]));
+    for(i in 0...daCheckboxes.length)
+        if(daCheckboxes.members[i].ID==Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]))
+        Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3])?
+        daCheckboxes.members[i].animation.play('ya',true): daCheckboxes.members[i].animation.play('nah',true);
 }
 
 function changeOption(a:Int){
@@ -156,6 +160,8 @@ function regenMenu(){
             var checkbox = new FlxSprite(0, 90 * num);
             checkbox.frames = Paths.getSparrowAtlas("menus/options/checkbox");
             checkbox.animation.addByPrefix("ya", "Checkbox", 24, false);
+            checkbox.animation.addByIndices("nah", "Checkbox", [9,8,7,6,5,4,3,2,1,0], '',24, false);
+            checkbox.ID=Reflect.field(FlxG.save.data.options, a[3]);
 
             daCheckboxes.add(checkbox);
             daCheckboxes.members[daCheckboxes.length - 1].animation.play("ya", true, !Reflect.field(FlxG.save.data.options, a[3]), !Reflect.field(FlxG.save.data.options, a[3]) ? 24 : 0);

@@ -8,13 +8,13 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Resolution", "How many pixels the game renders at", ["1280x720"], 'resolution'],
         ["Fullscreen", "Toggles the game filling your screen", [], 'fullscreen'],
         ["Borderless", "Toggles the game window border", [], 'borderless'],
-        ["Brightness", "How bright the game is", ['num'], 'brightness'],
-        ["Gamma", "The gamma of the game", ['num'], 'gamma']
+        ["Brightness", "How bright the game is", [], 'brightness'],
+        ["Gamma", "The gamma of the game", [], 'gamma']
     ],
     [ // SOUND
-        ["Music Volume", "How loud the music is", ['num'], 'musicVolume'],
-        ["SFX Volume", "How loud sound effects are", ['num'], 'sfxVolume'],
-        ["Voice Volume","How loud the character voices are while playing a song", ['num'], 'voiceVolume'], 
+        ["Music Volume", "How loud the music is", [], 'musicVolume'],
+        ["SFX Volume", "How loud sound effects are", [], 'sfxVolume'],
+        ["Voice Volume","How loud the character voices are while playing a song", [], 'voiceVolume'], 
         ["Miss Sounds", "Toggles playing a sound effect on miss", [], 'missSounds'],
         ["Copyrighted Bypass", "Toggles replacing copyrighted audio with MIDI covers", [], 'copyrightBypass'],
         ["Subtitles", "Toggles words appearing on screen when spoken lyrics are heard", [], 'subtitles'], // can someone refine this description please
