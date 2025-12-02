@@ -77,12 +77,19 @@ function update(){
     if ((controls.LEFT_P||controls.RIGHT_P)&&optionsFile[curMenu][curSelect][2].length!=0) changeSelected(controls.LEFT_P?-1:1);
     if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
     if (controls.ACCEPT) acceptThingieAndNotDie();
+
+
+    if (FlxG.keys.justPressed.J) { //DEV, REMOVE ONCE DONE!
+        FlxG.save.data.options=null;
+        resetTheModSave();
+        FlxG.resetState();
+    }
 }
 
 function acceptThingieAndNotDie(){
     Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3], !Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]));
     for(i in 0...daCheckboxes.length)
-        if(daCheckboxes.members[i].ID==Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]))
+        if(daCheckboxes.members[i].ID==optionsFile[curMenu][curSelect][3])
         Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3])?
         daCheckboxes.members[i].animation.play('ya',true): daCheckboxes.members[i].animation.play('nah',true);
 }
@@ -119,7 +126,7 @@ function changeSelected(a:Int){
 
 function changeCurSelected(a:Int){
     curSelect = FlxMath.wrap(curSelect + a, 0, optionsFile[curMenu].length-1);
-    if(optionsFile[curMenu][curSelect][2]=='num'){curParam=numArray;
+    if(optionsFile[curMenu][curSelect][2]==numArray){curParam=numArray;
         type='100';
         trace("NUM");
     }
@@ -131,6 +138,8 @@ function changeCurSelected(a:Int){
     daOptions.members[i].alpha=0.6;
     daOptions.members[curSelect].alpha=1;
     }
+    explainText.text=optionsFile[curMenu][curSelect][1];
+    explainText.screenCenter(FlxAxes.X);
 }
 
 var numArray:Array<Int> = [];
@@ -161,7 +170,8 @@ function regenMenu(){
             checkbox.frames = Paths.getSparrowAtlas("menus/options/checkbox");
             checkbox.animation.addByPrefix("ya", "Checkbox", 24, false);
             checkbox.animation.addByIndices("nah", "Checkbox", [9,8,7,6,5,4,3,2,1,0], '',24, false);
-            checkbox.ID=Reflect.field(FlxG.save.data.options, a[3]);
+            checkbox.ID=a[1*num];
+            trace(checkbox.ID);
 
             daCheckboxes.add(checkbox);
             daCheckboxes.members[daCheckboxes.length - 1].animation.play("ya", true, !Reflect.field(FlxG.save.data.options, a[3]), !Reflect.field(FlxG.save.data.options, a[3]) ? 24 : 0);

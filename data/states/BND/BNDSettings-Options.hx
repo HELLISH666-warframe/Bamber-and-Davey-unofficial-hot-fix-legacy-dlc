@@ -2,7 +2,7 @@
 public var optionsFile:Array<Dynamic> = [ // god help me
     [ // VIDEO
         // [name, desc, ["params", "leave blank if checkbox"], save name],
-        ["Framerate", "", [30, 60, 90, 120, 150, 180, 210, 240], 'framerate'],
+        ["Framerate", "The framerate that the game will run at.", [30, 60, 90, 120, 150, 180, 210, 240], 'framerate'],
         ["Anti-aliasing", "Toggles smoothing jagged edges on curves and diagonal lines", [], 'antialiasing'],
         ["Pixel Perfect", "", [], 'pixelperfect'],
         ["Resolution", "How many pixels the game renders at", ["1280x720"], 'resolution'],
@@ -20,8 +20,8 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Subtitles", "Toggles words appearing on screen when spoken lyrics are heard", [], 'subtitles'], // can someone refine this description please
     ],
     [ // VISUAL
-        ["Low Memory Mode", "", [], 'lowMemory'],
-        ["VRAM Only Sprites", "", [], 'vramSprites'],
+        ["Low Memory Mode", "Won't load things that could take up a lot of memory.", [], 'lowMemory'],
+        ["VRAM Only Sprites", "VRAM-Only Sprites.", [], 'vramSprites'],
         ["Flashing Lights", "Toggles flashes on the screen", [], 'flashingLights'],
         ["Shaders", "What shaders should be shown", ["all", "Some", "None"], 'shaders'],
         ["Botplay UI", "", [], 'botplayUI'],
@@ -44,12 +44,12 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Placeholder", "Placeholder", [], 'placeholder']
     ],
     [ // GAMEPLAY
-        ["Coloured Healthbar", "", [], 'coloredBar'],
+        ["Coloured Healthbar", "Toggles if  green and red or the char colors will be used.", [], 'coloredBar'],
         ["Modcharts", "Toggles the notes moving around during a song", ['Always', 'Sometimes', 'Never'], 'modcharts'],
         ["Custom Scroll Speed", "Toggles using your custom scroll speed", [], 'scrollSpeed'],
         ["Scroll Speed Speed", "How fast the scroll speed should be for a song", [1,10], 'scrollSpeed_Speed'], // 1 - 10?
         ["Pause Countdown", "Toggles the countdown after unpausing", [], 'pauseCountdown'],
-        ["Skip Game Over", "", [], 'skipGameOver'],
+        ["Skip Game Over", "Toggles if gameover will be skipped on death.", [], 'skipGameOver'],
         ["Skip Song Intro", "", [], 'skipSongIntro'],
         ["Scroll Mode", "Where the notes appear on your screen", ["Top", "Bottom"], 'scrollMode'],
         ["Middle Scroll", "Toggles your strum being centered", [], 'middleScroll'],

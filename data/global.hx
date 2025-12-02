@@ -29,79 +29,7 @@ function destroy()
 function new() {
     FlxG.save.bind('BamberAndDavey', 'TeamReimagination'); //I found out that mod options use regular saves instead of a save in the Options class for example
 
-    if (FlxG.save.data.options == null) FlxG.save.data.options = {};
-
-    //MOD SPECIFIC OPTIONS, DEFAULT ONES SHOULD BE INCLUDED TOO
-    //Video Options
-    FlxG.save.data.options.framerate ??= 120; // is 120 a good default idk
-    FlxG.save.data.options.antialiasing ??= true;
-    FlxG.save.data.options.pixelperfect ??= true;
-    FlxG.save.data.options.resolution ??= [1280, 720];
-    FlxG.save.data.options.fullscreen ??= false; 
-    FlxG.save.data.options.borderless ??= false;
-    FlxG.save.data.options.brightness ??= 50;
-    FlxG.save.data.options.gamma ??= 50;
-
-    //Sound options
-    //Master Volume - FlxG.volume
-    FlxG.save.data.options.sfxVolume = 100;
-    FlxG.save.data.options.voiceVolume = 100;
-    FlxG.save.data.options.missSounds ??= true;
-    FlxG.save.data.options.copyrightBypass ??= false;
-    FlxG.save.data.options.subtitles ??= true;
-
-    //Appearance Options
-    FlxG.save.data.options.lowMemory ??= true;
-    FlxG.save.data.options.vramSprites ??= true;
-    FlxG.save.data.options.flashingLights ??= true;
-    FlxG.save.data.options.shaders ??= 'all';
-    FlxG.save.data.options.botplayUI ??= true;
-    FlxG.save.data.options.bgBlur ??= 0;
-    FlxG.save.data.options.bgDim ??= 0;
-    FlxG.save.data.options.rapidCam ??= true;
-    FlxG.save.data.options.breakTime ??= true;
-    FlxG.save.data.options.timeBar ??= true;
-    FlxG.save.data.options.comboPosPercent ??= 0;
-    FlxG.save.data.options.cinematicBars ??= true;
-    FlxG.save.data.options.healthIcons ??= true;
-    FlxG.save.data.options.songCredits ??= true;
-    FlxG.save.data.options.stampKeybinds ??= false;
-
-    //Notes Options
-    FlxG.save.data.options.noteskin ??= 'arrows';
-    FlxG.save.data.options.noteScale ??= 1;
-    FlxG.save.data.options.noteColors ??= [0xFFC24B99, 0xFF00FFFF, 0xFF12FA05, 0xFFF9393F];
-
-    //Control Options
-    //will have to be reserved elsewhere
-
-    //Gameplay Options
-    FlxG.save.data.options.coloredBar ??= true;
-    FlxG.save.data.options.modcharts ??= 'Always';
-    FlxG.save.data.options.dialogue ??= [true, true, false]; //Story Mode, Playlists, Freeplay
-    FlxG.save.data.options.scrollSpeed ??= false;
-    FlxG.save.data.options.scrollSpeed_Speed ??= 3;
-    FlxG.save.data.options.pauseCountdown ??= true;
-    FlxG.save.data.options.skipGameOver ??=true;
-    //Why is it a choice option????
-    //FlxG.save.data.options.skipGameOver ??='off';
-    FlxG.save.data.options.skipSongIntro ??= false;
-    FlxG.save.data.options.scrollMode ??= false;
-    FlxG.save.data.options.middleScroll ??= false;
-    FlxG.save.data.options.storyDialogue ??= false;
-    FlxG.save.data.options.freeplayDialogue ??= false;
-
-    //Game Statistics
-    FlxG.save.data.gameStats ??= {};
-    FlxG.save.data.gameStats.discoveries ??= {
-        "Bamber's Farm": false,
-        "Davey's Yard": false,
-        "Romania Outskirts": false
-    };
-
-    FlxG.save.data.gameStats.playtime ??= 0;
-
-    FlxG.save.flush();
+    resetTheModSave();
 }
 
 function postStateSwitch() {
@@ -151,9 +79,6 @@ function preStateSwitch() { //Switch to where it was meant to be
 }
 
 function update(elapsed) {
-    if (FlxG.keys.justPressed.F5) //DEV: Restarting states
-        FlxG.resetState();
-
     if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.R) //DEV: Restarting game
         FlxG.resetGame();
 
@@ -186,4 +111,81 @@ public static function getClickables() {
 
 public static function playBamberMenuSound(type) {
     return FlxG.sound.play(Paths.sound('menuSounds/'+type), getVolume(1, 'sfx'));
+}
+
+public static function resetTheModSave() {
+    if (FlxG.save.data.options == null) FlxG.save.data.options = {};
+
+    //MOD SPECIFIC OPTIONS, DEFAULT ONES SHOULD BE INCLUDED TOO
+    //Video Options
+    FlxG.save.data.options.framerate ??= 120; // is 120 a good default idk
+    FlxG.save.data.options.antialiasing ??= true;
+    FlxG.save.data.options.pixelperfect ??= true;
+    FlxG.save.data.options.resolution ??= [1280, 720];
+    FlxG.save.data.options.fullscreen ??= false; 
+    FlxG.save.data.options.borderless ??= false;
+    FlxG.save.data.options.brightness ??= 50;
+    FlxG.save.data.options.gamma ??= 50;
+
+    //Sound options
+    //Master Volume - FlxG.volume
+    FlxG.save.data.options.musicVolume ??= 20; 
+    FlxG.save.data.options.sfxVolume = 100;
+    FlxG.save.data.options.voiceVolume = 100;
+    FlxG.save.data.options.missSounds ??= true;
+    FlxG.save.data.options.copyrightBypass ??= false;
+    FlxG.save.data.options.subtitles ??= true;
+
+    //Appearance Options
+    FlxG.save.data.options.lowMemory ??= true;
+    FlxG.save.data.options.vramSprites ??= true;
+    FlxG.save.data.options.flashingLights ??= true;
+    FlxG.save.data.options.shaders ??= 'all';
+    FlxG.save.data.options.botplayUI ??= true;
+    FlxG.save.data.options.bgBlur ??= 0;
+    FlxG.save.data.options.bgDim ??= 0;
+    FlxG.save.data.options.rapidCam ??= true;
+    FlxG.save.data.options.breakTime ??= true;
+    FlxG.save.data.options.timeBar ??= true;
+    FlxG.save.data.options.comboPosPercent ??= 0;
+    FlxG.save.data.options.cinematicBars ??= true;
+    FlxG.save.data.options.healthIcons ??= true;
+    FlxG.save.data.options.songCredits ??= true;
+    FlxG.save.data.options.stampKeybinds ??= false;
+
+    //Notes Options
+    FlxG.save.data.options.noteskin ??= 'Arrows';
+    FlxG.save.data.options.noteScale ??= 1;
+    FlxG.save.data.options.noteColors ??= [0xFFC24B99, 0xFF00FFFF, 0xFF12FA05, 0xFFF9393F];
+
+    //Control Options
+    //will have to be reserved elsewhere
+
+    //Gameplay Options
+    FlxG.save.data.options.coloredBar ??= true;
+    FlxG.save.data.options.modcharts ??= 'Always';
+    FlxG.save.data.options.dialogue ??= [true, true, false]; //Story Mode, Playlists, Freeplay
+    FlxG.save.data.options.scrollSpeed ??= false;
+    FlxG.save.data.options.scrollSpeed_Speed ??= 3;
+    FlxG.save.data.options.pauseCountdown ??= true;
+    FlxG.save.data.options.skipGameOver ??=false;
+    //Why is it a choice option????
+    //FlxG.save.data.options.skipGameOver ??='off';
+    FlxG.save.data.options.skipSongIntro ??= false;
+    FlxG.save.data.options.scrollMode ??= 'Top';
+    FlxG.save.data.options.middleScroll ??= false;
+    FlxG.save.data.options.storyDialogue ??= true;
+    FlxG.save.data.options.freeplayDialogue ??= true;
+
+    //Game Statistics
+    FlxG.save.data.gameStats ??= {};
+    FlxG.save.data.gameStats.discoveries ??= {
+        "Bamber's Farm": false,
+        "Davey's Yard": false,
+        "Romania Outskirts": false
+    };
+
+    FlxG.save.data.gameStats.playtime ??= 0;
+
+    FlxG.save.flush();
 }
