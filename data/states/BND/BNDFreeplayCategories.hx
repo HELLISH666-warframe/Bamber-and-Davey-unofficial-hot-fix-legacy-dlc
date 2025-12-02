@@ -7,8 +7,6 @@ import funkin.menus.ui.ClassicAlphabet;
 import funkin.backend.FunkinText;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.backend.MusicBeatSubstate;
-import openfl.Assets;
-import Sys;
 
 var arrows:Array<FunkinSprite> = [];
 var moveTimer:FlxTimer = new FlxTimer();
@@ -170,32 +168,19 @@ function update(elapsed) {
 	for (i in songL){
 		i.targetY = i.ID - subCurSelected;
 		var scaledY = FlxMath.remapToRange(i.targetY, 0, 1, 0, 1.3);
-		i.y = CoolUtil.fpsLerp(i.y, (scaledY * 120) + (FlxG.height * 0.48), 0.16);
+		i.y = CoolUtil.fpsLerp(i.y, (scaledY * 200) + (FlxG.height * 0.30), 0.16);
+	}
+	for (i in 0...songL.length) {
+		if(songLBgs.members[i]!=null&&songL[i]!=null)
+		songLBgs.members[i].y=songL[i].y-200;
 	}
 }
-var fuck;
 function changements(a) {
-	fuck=subCurSelected;
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, subCurSelectedLimit);
-	if (changements != 0)
-		CoolUtil.playMenuSFX(0);
+	if (changements != 0) CoolUtil.playMenuSFX(0);
 	
-	for (i in 0...songL.length)
-	{
-		FlxTween.globalManager.completeTweensOf(songL[i]);
-		if(songLBgs[i]!=null) FlxTween.globalManager.completeTweensOf(songLBgs[i]);
-		songL[i].alpha = 0.5;
-		songL[subCurSelected].alpha = 1;
-		songL[i].x = 970;
-		FlxTween.tween(songL[subCurSelected], {x: 750}, 0.6, {ease: FlxEase.quartOut});
-		FlxTween.tween(songL[fuck], {x: 970}, 0.6, {ease: FlxEase.quartOut});
-		FlxTween.tween(songLBgs.members[fuck], {x: 970}, 0.6, {ease: FlxEase.quartOut});
-		FlxTween.tween(songLBgs.members[subCurSelected], {x: songL[subCurSelected].x-300}, 0.6, {ease: FlxEase.quartOut});
-	}
-	for (i in songL){
-		i.targetY = i.ID - subCurSelected;
-		i.targetY == 0 ? i.alpha = 1 : i.alpha = 0.6;
-	}
+	for (i in 0...songL.length) songL[i].alpha = 0.5;
+	songL[subCurSelected].alpha = 1;
 	//for (i in 0...songL.length) {songL[i].x +=(songL[i].width-0)*1;}
 	
 	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "normal").score;
@@ -265,17 +250,17 @@ function change(a) {
 		});	
 	}
 	
-	var offset = 128;
-	for (i in 0...songst[curSelected].length)
-	{
+	for (i in 0...songst[curSelected].length) {
 		var kys = data[curSelected][0];
 		if (!Assets.exists(Paths.image("menus/freeplay/silhouettes/"+kys)))
 			kys = "placeholder";
-		//if (Assets.exists(Paths.image("menus/freeplay/silhouettes/"+songser[i].displayName.toLowerCase())))
-		//	kys = songser[i].displayName.toLowerCase();
+		if (Assets.exists(Paths.image("menus/freeplay/silhouettes/"+songser[i].displayName.toLowerCase())))
+			kys = songser[i].displayName.toLowerCase();
 
 		if (songL[i] != null) {
 			songL[i].text = songser[i].displayName;
+			songL[i].x=0;
+			songL[i].x=1200+(songL[i].x-songL[i].width);
 			songLBgs.members[i].loadGraphic(Paths.image("menus/freeplay/silhouettes/"+kys));
 			songLBgs.members[i].updateHitbox();
 			songLBgs.members[i].origin.set(songLBgs.members[i].width/2, songLBgs.members[i].height);	
@@ -283,7 +268,8 @@ function change(a) {
 			songLBgs.members[i].y=songL[i].y;
 			var icon = new HealthIcon(songser[i].icon);
 			icon.sprTracker = songL[i];
-			icon.cameras = [textCam];
+			icon.sprTrackerAlignment='left';
+			//icon.cameras = [textCam];
 			icon.scrollFactor.set(1, 1);
 			iconArray.push(icon);
 			add(icon);
@@ -293,14 +279,14 @@ function change(a) {
 
 			var text = new Alphabet(0,(120 * i) + 30,null,true);
 			//text.isMenuItem=true;
-
+			text.cameras = [textCam];
 			text.text=songser[i].displayName;
 			text.color = FlxColor.WHITE;
 			text.scale.set(0.9,0.9);
 			text.targetY = text.ID = i;
+			text.x=(text.x-text.width)+1200;
 			songL.push(text);
 			add(text);
-			text.cameras = [textCam];
 
 			bg.scale.set(0.7, 0.7);
 			bg.updateHitbox();
@@ -308,12 +294,14 @@ function change(a) {
 			bg.x = FlxG.width - 430;
 			bg.y = -70 + songL[i].y;		
 			bg.scrollFactor.set(0, 1);
-			bg.cameras = [textCam];
+			//bg.cameras = [textCam];
 
 			var icon = new HealthIcon(songser[i].icon);
 			icon.cameras = [textCam];
 			icon.scrollFactor.set(1, 1);
 			icon.sprTracker = text;
+			icon.sprTrackerAlignment='left';
+			//icon.sprTrackerOffset.set(-20,-60);
 			iconArray.push(icon);
 			add(icon);
 		}

@@ -1,5 +1,4 @@
 //VERY_wip.
-import flixel.text.FlxTextBorderStyle;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.options.Options;
 
@@ -33,6 +32,7 @@ var options:Array<String> = ['Cutscenes','Mod charts','Scroll Speed','Mode'];
 //Idea , have the option greyed out if mod-charts are set to always, same with scroll-speed.
 var checkbox_real:FlxSprite;
 var checkboxes = new FlxTypedSpriteGroup();
+var optionText = new FlxTypedGroup();
 static var toggles = [FlxG.save.data.options.freeplayDialogue,FlxG.save.data.options.modcharts];
 function create() {
 	new FlxTimer().start(0.2, ()->{click_through = true;});
@@ -147,16 +147,18 @@ function create() {
     }
 	add(checkboxes).y= -280;
 
+	add(optionText);
 	for (i in 0...options.length) {
 		var item = new Alphabet(120, (i * 80), options[i], 0,true);
 		item.scale.set(0.9,0.9);
 		item.y = ((i * progressGroup.members[4].y*0.95) * item.scale.y)+210;
 		item.updateHitbox();
 		item.camera=coolCam;
-		add(item).width = item.width*item.scale.y;
+		optionText.add(item).width = item.width*item.scale.y;
 	}
 
-	if(!FlxG.save.data.options.scrollSpeed)scroll_speed.alpha=0.3;
+	if(!FlxG.save.data.options.scrollSpeed)optionText.members[2].alpha=scroll_speed.alpha=0.3;
+	if(FlxG.save.data.options.modcharts=='Always')optionText.members[1].alpha=0.3;
 
 	bulletoptionREAL.frames = Paths.getFrames('menus/freeplay/bulletOption');
 	bulletoptionREAL.animation.addByPrefix('idle', "appear", 10, false);
@@ -168,6 +170,7 @@ function create() {
 	if(FlxG.sound.music!=null) FlxG.sound.music.fadeIn(9,0,1);
 }
 function update(elapsed:Float) {
+	if(!click_through)return;
 	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==3) changeDiff(controls.RIGHT_P ? 1 : -1);
 	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==2) changeScroll(controls.RIGHT_P ? 0.1 : -0.1);
 	if (controls.BACK){
@@ -175,32 +178,24 @@ function update(elapsed:Float) {
 		FlxG.sound.music.fadeOut(9,0,1);
 		close();
 	}
-	if(click_through){
-	    if (controls.ACCEPT) toggle();
-		if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed){
-			trace("WOAH!");
-			playsong();
-			click_through=false;
-		}
-		if (controls.UP_P||controls.DOWN_P){
-		changeOption(controls.UP_P ? -1 : 1);
-		}
+	if (controls.ACCEPT) toggle();
+	if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed){
+		trace("WOAH!");
+		playsong();
+		click_through=false;
 	}
+	if (controls.UP_P||controls.DOWN_P) changeOption(controls.UP_P ? -1 : 1);
 }
 var __oldDiffName = null;
 function changeDiff(e) {
 	arrows[FlxMath.bound(e, 0, 1)].animation.play("hit");
-	curDifficulty += e;
-	if (curDifficulty < 0) curDifficulty = FlxG.save.data.Bamber_song_diff.length-1;
-	if (curDifficulty >= FlxG.save.data.Bamber_song_diff.length) curDifficulty = 0;
+	curDifficulty = FlxMath.wrap(curDifficulty + e, 0,  FlxG.save.data.Bamber_SONGSONG.difficulties.length - 1);
 	if (__oldDiffName != (__oldDiffName = FlxG.save.data.Bamber_song_diff[curDifficulty].toLowerCase())) {
 		for(e in difficultySprites) e.alpha = 0.001;
 
 		var diffSprite = difficultySprites[__oldDiffName];
 
-		if (diffSprite != null) {
-			diffSprite.alpha = !diffSprite.alpha;
-		}
+		if (diffSprite != null)  diffSprite.alpha = !diffSprite.alpha;
 	}
 	curPlayingInst = Paths.inst(curSong.name, curSong.difficulties[curDifficulty]);
 	if(curPlayingInst!=prevSong){
@@ -209,9 +204,7 @@ function changeDiff(e) {
 	}
 }
 function changeOption(p) {
-	curOption += p;
-	if (curOption < 0) curOption = 3;
-	if (curOption >= 4) curOption = 0;
+	curOption = FlxMath.wrap(curOption + p, 0,  3);
 	trace("Options: "+options[curOption]);
 	if(click_through && curOption!=0){
 	FlxTween.tween(bulletoptionREAL, {y: bulletoptionREAL.height/10 + progressGroup.members[(curOption/4) * 11].y}, 0.4,{ease: FlxEase.quartInOut});

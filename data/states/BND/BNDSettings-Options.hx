@@ -24,16 +24,16 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["VRAM Only Sprites", "VRAM-Only Sprites.", [], 'vramSprites'],
         ["Flashing Lights", "Toggles flashes on the screen", [], 'flashingLights'],
         ["Shaders", "What shaders should be shown", ["all", "Some", "None"], 'shaders'],
-        ["Botplay UI", "", [], 'botplayUI'],
-        ["Background Blur", "", [], 'bgBlur'],
-        ["Background Dim", "", [], 'bgDim'],
+        ["Botplay UI", "Rather or not the botplay text will be visible.", [], 'botplayUI'],
+        ["Background Blur", "Applys Osu! like blur to stage objects.", [], 'bgBlur'],
+        ["Background Dim", "Applys Osu! like dim to stage objects.", [], 'bgDim'],
         ["Rapid Camera", "", [], 'rapidCam'],
         ["Timebar", "Toggles the bar that shows how long of the song is left until the end", [], 'timeBar'],
         ["Combo Pos Percent", "",[], 'comboPosPercent'],
         ["Cinematic Bars", "Toggles the bars seen at the top and bottom of the screen during a song", [], 'cinematicBars'],
         ["Health Icons", "Toggles health bar icons", [], 'healthIcons'],
         ["Song Credits", "Toggles the credits popup at the beginning of a song", [], 'songCredits'],
-        ["Stamp Keybinds", "", [], 'stampKeybinds']
+        ["Stamp Keybinds", "Shows keybinds under the your strum.(???)", [], 'stampKeybinds']
     ],
     [ // NOTE OPTIONS
         ["Noteskin", "What the notes appear as", ["Default", "Arrows"], 'noteskin'],
