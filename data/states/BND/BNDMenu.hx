@@ -1034,7 +1034,8 @@ function draw(event) {
 function beatHit(curBeat) {
     if (!initialized) {
         switch curBeat {
-            case 0:
+            //case 0 :
+            case 1://This fixes it???
                 addText("TEAM REIMAGINATION");
                 recolorText(0,[0,99],0xffE394B0);
             case 2:
