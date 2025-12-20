@@ -1,11 +1,9 @@
 import funkin.backend.utils.WindowUtils;
 import funkin.backend.utils.DiscordUtil;
-import funkin.backend.scripting.ModState;
 import Type;
-import openfl.display.BitmapData;
-import openfl.utils.Assets;
 import haxe.io.Path;
-import funkin.backend.utils.DiscordUtil;
+import funkin.backend.system.framerate.Framerate;
+import openfl.text.TextFormat;
 
 var stateQuotes:Map<String, String> = [
     "SplashScreen" => "Team Reimagination Splash Screen",
@@ -23,8 +21,13 @@ var isHovering = false;
 var switched = false;
 static var hasseen = false;
 
-function destroy()
+function destroy(){
 	hasseen = false;
+    FlxG.mouse.useSystemCursor = true;
+    FlxG.mouse.visible = false;
+    Framerate.fpsCounter.fpsNum.defaultTextFormat = new TextFormat(Framerate.fontName, 18, -1);
+    Framerate.fpsCounter.fpsLabel.defaultTextFormat = Framerate.memoryCounter.memoryText.defaultTextFormat = Framerate.memoryCounter.memoryPeakText.defaultTextFormat = Framerate.codenameBuildField.defaultTextFormat = Framerate.textFormat;
+}
 
 function new() {
     FlxG.save.bind('BamberAndDavey', 'TeamReimagination'); //I found out that mod options use regular saves instead of a save in the Options class for example
@@ -143,8 +146,7 @@ function postUpdate(elapsed) {
 
 function preStateCreate() {
     clickableObjects = [];
-    isHovering = false;
-    switched = false;
+    isHovering = switched = false;
 }
 
 function preStateSwitch() { //Switch to where it was meant to be

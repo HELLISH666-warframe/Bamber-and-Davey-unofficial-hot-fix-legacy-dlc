@@ -30,8 +30,3 @@ function onStrumCreation(e) {
 function onPlayerHit(e){
 	e.note.splash = (Assets.exists(Paths.image("game/splashes/"+boyfriend.xml.get("noteskin"))) ? boyfriend.xml.get("noteskin") : "default");
 	}
-/*
-function onSplashShown(e) {
-    e.value1.shader = e.value2.shader;
-}
-*/

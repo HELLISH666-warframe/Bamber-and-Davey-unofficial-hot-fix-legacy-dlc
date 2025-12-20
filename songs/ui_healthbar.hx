@@ -100,13 +100,3 @@ function update(elapsed:Float) {
 		//scripts.executeFunc("onTimerUpdate", [elapsed]);
 	}
 }
-
-/*function update(elapsed:Float) {
-    var songCalc:Float = (songLength - Conductor.songPosition);
-    if(FlxG.save.data.TimeBar == "elapsed") songCalc = Conductor.songPosition;
-	if(songCalc < 0) songCalc = 0;
-    timeTxt.text = FlxStringUtil.formatTime(songCalc/1000, false);
-
-	maskTimeBar.clipRect = new FlxRect(0, 0, maskTimeBar.frameWidth / (songLength != null ? songLength : 1) * Conductor.songPosition, maskTimeBar.frameHeight);
-	timerBG.clipRect = new FlxRect(timerBG.frameWidth / (songLength != null ? songLength : 1) * Conductor.songPosition, 0, maskTimeBar.frameWidth, maskTimeBar.frameHeight);
-}*/

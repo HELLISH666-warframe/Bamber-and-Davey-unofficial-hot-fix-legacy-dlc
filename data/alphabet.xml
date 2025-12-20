@@ -75,33 +75,33 @@
 		<letter char="Y"        anim="Y Capital" />
 		<letter char="Z"        anim="Z Capital" />
 
-		<!-- Lowercase Letters !-->
-		<letter char="a"        anim="A Lowercase" />
-		<letter char="b"        anim="B Lowercase" />
-		<letter char="c"        anim="C Lowercase" />
-		<letter char="d"        anim="D Lowercase" />
-		<letter char="e"        anim="E Lowercase" />
-		<letter char="f"        anim="F Lowercase" />
-		<letter char="g"        anim="G Lowercase" />
-		<letter char="h"        anim="H Lowercase" />
-		<letter char="i"        anim="I Lowercase" />
-		<letter char="j"        anim="J Lowercase" />
-		<letter char="k"        anim="K Lowercase" />
-		<letter char="l"        anim="L Lowercase" />
-		<letter char="m"        anim="M Lowercase" />
-		<letter char="n"        anim="N Lowercase" />
-		<letter char="o"        anim="O Lowercase" />
-		<letter char="p"        anim="P Lowercase" />
-		<letter char="q"        anim="Q Lowercase" />
-		<letter char="r"        anim="R Lowercase" />
-		<letter char="s"        anim="S Lowercase" />
-		<letter char="t"        anim="T Lowercase" />
-		<letter char="u"        anim="U Lowercase" />
-		<letter char="v"        anim="V Lowercase" />
-		<letter char="w"        anim="W Lowercase" />
-		<letter char="x"        anim="X Lowercase" />
-		<letter char="y"        anim="Y Lowercase" />
-		<letter char="z"        anim="Z Lowercase" />
+		<!-- lowercase Letters !-->
+		<letter char="a"        anim="A lowercase" />
+		<letter char="b"        anim="B lowercase" />
+		<letter char="c"        anim="C lowercase" />
+		<letter char="d"        anim="D lowercase" />
+		<letter char="e"        anim="E lowercase" />
+		<letter char="f"        anim="F lowercase" />
+		<letter char="g"        anim="G lowercase" />
+		<letter char="h"        anim="H lowercase" />
+		<letter char="i"        anim="I lowercase" />
+		<letter char="j"        anim="J lowercase" />
+		<letter char="k"        anim="K lowercase" />
+		<letter char="l"        anim="L lowercase" />
+		<letter char="m"        anim="M lowercase" />
+		<letter char="n"        anim="N lowercase" />
+		<letter char="o"        anim="O lowercase" />
+		<letter char="p"        anim="P lowercase" />
+		<letter char="q"        anim="Q lowercase" />
+		<letter char="r"        anim="r lowercase" />
+		<letter char="s"        anim="S lowercase" />
+		<letter char="t"        anim="T lowercase" />
+		<letter char="u"        anim="U lowercase" />
+		<letter char="v"        anim="V lowercase" />
+		<letter char="w"        anim="W lowercase" />
+		<letter char="x"        anim="X lowercase" />
+		<letter char="y"        anim="Y lowercase" />
+		<letter char="z"        anim="Z lowercase" />
 	</bold>
 	<normal spritesheet="menus/alphabet">
 		<!-- Symbols !-->
@@ -178,32 +178,32 @@
 		<letter char="Y"        anim="Y Capital" />
 		<letter char="Z"        anim="Z Capital" />
 
-		<!-- Lowercase Letters !-->
-		<letter char="a"        anim="A Lowercase" />
-		<letter char="b"        anim="B Lowercase" />
-		<letter char="c"        anim="C Lowercase" />
-		<letter char="d"        anim="D Lowercase" />
-		<letter char="e"        anim="E Lowercase" />
-		<letter char="f"        anim="F Lowercase" />
-		<letter char="g"        anim="G Lowercase" />
-		<letter char="h"        anim="H Lowercase" />
-		<letter char="i"        anim="I Lowercase" />
-		<letter char="j"        anim="J Lowercase" />
-		<letter char="k"        anim="K Lowercase" />
-		<letter char="l"        anim="L Lowercase" />
-		<letter char="m"        anim="M Lowercase" />
-		<letter char="n"        anim="N Lowercase" />
-		<letter char="o"        anim="O Lowercase" />
-		<letter char="p"        anim="P Lowercase" />
-		<letter char="q"        anim="Q Lowercase" />
-		<letter char="r"        anim="R Lowercase" />
-		<letter char="s"        anim="S Lowercase" />
-		<letter char="t"        anim="T Lowercase" />
-		<letter char="u"        anim="U Lowercase" />
-		<letter char="v"        anim="V Lowercase" />
-		<letter char="w"        anim="W Lowercase" />
-		<letter char="x"        anim="X Lowercase" />
-		<letter char="y"        anim="Y Lowercase" />
-		<letter char="z"        anim="Z Lowercase" />
+		<!-- lowercase Letters !-->
+		<letter char="a"        anim="A lowercase" />
+		<letter char="b"        anim="B lowercase" />
+		<letter char="c"        anim="C lowercase" />
+		<letter char="d"        anim="D lowercase" />
+		<letter char="e"        anim="E lowercase" />
+		<letter char="f"        anim="F lowercase" />
+		<letter char="g"        anim="G lowercase" />
+		<letter char="h"        anim="H lowercase" />
+		<letter char="i"        anim="I lowercase" />
+		<letter char="j"        anim="J lowercase" />
+		<letter char="k"        anim="K lowercase" />
+		<letter char="l"        anim="L lowercase" />
+		<letter char="m"        anim="M lowercase" />
+		<letter char="n"        anim="N lowercase" />
+		<letter char="o"        anim="O lowercase" />
+		<letter char="p"        anim="P lowercase" />
+		<letter char="q"        anim="Q lowercase" />
+		<letter char="r"        anim="R lowercase" />
+		<letter char="s"        anim="S lowercase" />
+		<letter char="t"        anim="T lowercase" />
+		<letter char="u"        anim="U lowercase" />
+		<letter char="v"        anim="V lowercase" />
+		<letter char="w"        anim="W lowercase" />
+		<letter char="x"        anim="X lowercase" />
+		<letter char="y"        anim="Y lowercase" />
+		<letter char="z"        anim="Z lowercase" />
 	</normal>
 </letters>

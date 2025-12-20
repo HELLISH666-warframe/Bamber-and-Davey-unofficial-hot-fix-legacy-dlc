@@ -8338,7 +8338,7 @@
 			"visible": true,
 			"type": 1,
 			"characters": [
-				"bf"
+				"Isaac"
 			],
 			"strumPos": [
 				0,
@@ -8353,7 +8353,7 @@
 			"position": "girlfriend",
 			"type": 2,
 			"characters": [
-				"gf"
+				"BnD-gf"
 			],
 			"visible": false
 		}

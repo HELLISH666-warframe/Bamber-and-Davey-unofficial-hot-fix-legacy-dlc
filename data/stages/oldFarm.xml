@@ -5,7 +5,7 @@
 	<sprite name="wheatfields_front" x="-522" y="290" sprite="Wheat_Fields_Fore" scroll="0.8" />
 	<sprite name="farm" x="-5" y="123" sprite="Farm" scroll="0.85" />
 	<sprite name="foreground" x="-1005" y="3.33" sprite="Foreground" scale="1.1" updateHitbox="true" />
-	<girlfriend />
+	<girlfriend x="600" y="500"/>
 	<dad x="300" y="230"/>
-	<boyfriend />
+	<boyfriend x="910" y="200"/>
 </stage>
