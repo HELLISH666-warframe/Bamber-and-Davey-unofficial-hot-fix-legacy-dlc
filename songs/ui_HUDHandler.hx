@@ -4,7 +4,7 @@ function create() {
     importScript("data/scripts/huds/undertale");
     }
 }
-//Not shit dirctlly from https://gamebanana.com/mods/585254.
+//Note shit dirctlly from https://gamebanana.com/mods/585254.
 public var noteShaders = [];
 var defaultNoteColors = [FlxColor.fromString('#C24B99'), FlxColor.fromString('#00FFFF'), FlxColor.fromString('#12FA05'), FlxColor.fromString('#F9393F')];
 function postCreate() {
