@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="300" y="825" camx="40" camy="-275" color="#0066CC" gameOverChar="davey-dead" noteskin="BND" isGF="false">
+<character x="300" y="825" camx="40" camy="-275" color="#0066CC" gameOverChar="davey-dead" noteskin="BND" isGF="false" noteColors="#00A1FF,#00A1FF,#00A1FF,#00A1FF">
 	<anim name="danceRight" anim="Davey/Non-Shred/Davey_Idle" indices="0..13"/>
 	<anim name="danceLeft" anim="Davey/Non-Shred/Davey_Idle" indices="14..27"/>
 	<anim name="singLEFT" anim="Davey/Non-Shred/Davey_Left"/>

@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character sprite="bfdi davey" camx="40" icon="cnr-dad" color="#D89500" gameOverChar="bfdi-davey" noteskin="bfdi" isGF="false">
+<character sprite="bfdi davey" camx="40" icon="cnr-dad" color="#D89500" gameOverChar="bfdi-davey" noteskin="bfdi" isGF="false" noteColors="#00A1FF,#00A1FF,#00A1FF,#00A1FF">
 	<anim name="danceRight" anim="Characters/Davey/Davey-Idle" indices="0..14"/>
 	<anim name="danceLeft" anim="Characters/Davey/Davey-Idle" indices="15..29"/>
 	<anim name="singLEFT" anim="Characters/Davey/Davey-Left" indices="0..2"/>

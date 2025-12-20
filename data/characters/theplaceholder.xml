@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character sprite="placeholder" color="#000000" gameOverChar="placeholder_new" noteskin="facsimile" isGF="false">
+<character sprite="placeholder" color="#000000" gameOverChar="placeholder_new" noteskin="facsimile" isGF="false" noteColors="#404040,#404040,#404040,#404040">
 	<anim name="idle" anim="Idle"/>
 	<anim name="idleLOOP" anim="Loop" loop="true"/>
 	<anim name="singRIGHT" anim="Right" x="-83" y="-28"/>

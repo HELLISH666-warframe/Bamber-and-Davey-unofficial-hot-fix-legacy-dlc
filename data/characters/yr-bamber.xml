@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character flipX="true" camx="70" camy="40" isPlayer="true" icon="yr" color="#1EEBC9" gameOverChar="yr-bamber" noteskin="deathbattle" isGF="false">
+<character flipX="true" camx="70" camy="40" isPlayer="true" icon="yr" color="#1EEBC9" gameOverChar="yr-bamber" noteskin="deathbattle" isGF="false" noteColors="#00AF08,#00AF08,#00AF08,#00AF08">
 	<anim name="idle" anim="BIdle"/>
 	<anim name="singDOWN" anim="BDown" x="-193" y="-94"/>
 	<anim name="singLEFT" anim="BLeft" x="107" y="-61"/>

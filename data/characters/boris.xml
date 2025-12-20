@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character camx="-70" camy="330" icon="boris" color="#4C00AA" isGF="false" noteskin="BND">
+<character camx="-70" camy="330" icon="boris" color="#4C00AA" isGF="false" noteskin="BND" noteColors="#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF">
 	<anim name="idle" anim="boris_idle instance "/>
 	<anim name="singRIGHT" anim="boris_rright instance " x="-122" y="-22"/>
 	<anim name="singDOWN" anim="boris_ddown instance " x="-24" y="-68"/>

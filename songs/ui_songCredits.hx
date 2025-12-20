@@ -3,7 +3,7 @@ import flixel.text.FlxTextBorderStyle;
 import Reflect;
 
 if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
-    var isOnLeftSide = StringTools.contains(curSong, "Call Bamber");
+    var isOnLeftSide = StringTools.contains(curSong, "call bamber");//WHY_DOES_CURSONG_MAKE_IT_LOWERCASE???
     var curSongLowerCase:String = PlayState.SONG.meta.name.toLowerCase();
 
     var songBG;
@@ -70,7 +70,7 @@ if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
             fieldText.y += FlxG.height;
 
             var whereToLook = Reflect.field(SONG.meta.credits, i);
-            if (['Chart', "Burns (Chart)", "note stuff"].contains(i)) whereToLook = Reflect.field(Reflect.field(SONG.meta.credits, i), PlayState.SONG.meta.difficulties.toLowerCase());
+            if (['Chart', "Burns (Chart)", "note stuff"].contains(i)) whereToLook = Reflect.field(Reflect.field(SONG.meta.credits, i), PlayState.difficulty.toLowerCase());
 
             for (a in whereToLook) {
                 var nameText = new FlxText(0, 0, 0, a, 24);

@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character sprite="bfdi bamber" camx="-10" camy="-200" icon="cnr-dad" color="#24A26A" gameOverChar="bfdi-bamber" noteskin="bfdi" isGF="false">
+<character sprite="bfdi bamber" camx="-10" camy="-200" icon="cnr-dad" color="#24A26A" gameOverChar="bfdi-bamber" noteskin="bfdi" isGF="false" noteColors="#00AF09,#00AF0B,#00AF0B,#00AF0B">
 	<anim name="idle" anim="Characters/Bamber/Corny-Idle"/>
 	<anim name="singLEFT" anim="Characters/Bamber/Corny-Left" indices="0..2"/>
 	<anim name="singUP" anim="Characters/Bamber/Corny-Up" indices="0..2"/>

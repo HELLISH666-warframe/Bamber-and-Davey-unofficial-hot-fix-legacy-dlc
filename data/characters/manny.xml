@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character y="-200" camx="20" camy="170" icon="grug" color="#E08241" gameOverChar="manny" noteskin="deathbattle" isGF="false">
+<character y="-200" camx="20" camy="170" icon="grug" color="#E08241" gameOverChar="manny" noteskin="deathbattle" isGF="false" noteColors="#D38B4D,#D38B4D,#D38B4D,#D38B4D">
 	<anim name="idle" anim="idle"/>
 	<anim name="singDOWN" anim="down" x="230" y="-140"/>
 	<anim name="singLEFT" anim="left" x="256" y="7"/>

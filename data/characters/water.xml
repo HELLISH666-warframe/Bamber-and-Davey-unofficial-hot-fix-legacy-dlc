@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character camx="320" camy="170" color="#9AE6EA" gameOverChar="water-dead" noteskin="funkin" isGF="false">
+<character camx="320" camy="170" color="#9AE6EA" gameOverChar="water-dead" noteskin="funkin" isGF="false" noteColors="#8CE4ED,#91EAEE,#8ADDEF,#9ADEEF">
 	<anim name="idle" anim="I"/>
 	<anim name="singDOWN" anim="D" x="-3" y="-2"/>
 	<anim name="singLEFT" anim="L" x="38"/>

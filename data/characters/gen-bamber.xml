@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="-270" y="140" camx="320" camy="170" color="#0CB500" gameOverChar="gen-bamber-dead" noteskin="awesome" isGF="false">
+<character x="-270" y="140" camx="320" camy="170" color="#0CB500" gameOverChar="gen-bamber-dead" noteskin="awesome" isGF="false" noteColors="#00FF1D,#00FF1D,#00FF1D,#00FF1D">
 	<anim name="idle" anim="genbamberoneIdleDance" x="-37" y="-32" fps="30"/>
 	<anim name="singDOWN" anim="genbamberoneDownSing" x="-80" y="-105" fps="30"/>
 	<anim name="singLEFT" anim="genbamberoneLeftSing" x="80" y="-18" fps="30"/>

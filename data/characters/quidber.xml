@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="200" y="750" flipX="true" camx="-50" camy="-180" isPlayer="true" icon="bamber" color="#AEEE51" gameOverChar="quidber" noteskin="funkin" isGF="false">
+<character x="200" y="750" flipX="true" camx="-50" camy="-180" isPlayer="true" icon="bamber" color="#AEEE51" gameOverChar="quidber" noteskin="funkin" isGF="false" noteColors="#71C419,#71C419,#71C419,#71C419">
 	<anim name="idle" anim="Anims/Idle"/>
 	<anim name="singLEFT" anim="Anims/Left"/>
 	<anim name="singLEFTmiss" anim="Anims/MLeft"/>

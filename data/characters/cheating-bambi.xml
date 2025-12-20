@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character x="-4000" scale="13" antialiasing="false" camx="-375" camy="170" color="#0E9816" gameOverChar="cheating-bambi" noteskin="3dcheater" isGF="false">
+<character x="-4000" scale="13" antialiasing="false" camx="-375" camy="170" color="#0E9816" gameOverChar="cheating-bambi" noteskin="3dcheater" isGF="false" noteColors="#00AF08,#00AF08,#00AF08,#00AF08">
 	<anim name="idle" anim="Idle"/>
 	<anim name="singDOWN" anim="Down" x="-10" y="-60"/>
 	<anim name="singLEFT" anim="Left" x="96" y="-38"/>

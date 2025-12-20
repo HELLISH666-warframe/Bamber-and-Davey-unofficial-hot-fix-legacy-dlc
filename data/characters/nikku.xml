@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character scale="0.8" camx="100" camy="170" color="#CC0053" gameOverChar="nikku" noteskin="funkin" isGF="false">
+<character scale="0.8" camx="100" camy="170" color="#CC0053" gameOverChar="nikku" noteskin="funkin" isGF="false" noteColors="#FE2151,#161339,#161339,#FE2151">
 	<anim name="idle" anim="NikkuIDLE"/>
 	<anim name="singDOWN" anim="NikkuDOWN" x="-52" y="-148"/>
 	<anim name="singLEFT" anim="NikkuLEFT" x="84" y="-23"/>

@@ -1,5 +1,5 @@
 <!DOCTYPE codename-engine-character>
-<character sprite="Bambi" camx="41" camy="-145" color="#25BF37" gameOverChar="bambi-dead" noteskin="funkin" isGF="false">
+<character sprite="Bambi" camx="41" camy="-145" color="#25BF37" gameOverChar="bambi-dead" noteskin="funkin" isGF="false" noteColors="#0DB402,#0DB402,#0DB402,#0DB402">
 	<anim name="idle" anim="(EVDIAL) REGULAR BAMBI/Anims/bambi idle"/>
 	<anim name="singUP" anim="(EVDIAL) REGULAR BAMBI/Anims/bambi up"/>
 	<anim name="singLEFT" anim="(EVDIAL) REGULAR BAMBI/Anims/bambi left"/>
