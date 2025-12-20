@@ -1038,45 +1038,26 @@ function beatHit(curBeat) {
             case 1://This fixes it???
                 addText("TEAM REIMAGINATION");
                 recolorText(0,[0,99],0xffE394B0);
-            case 2:
-                addText("and the rest of");
-            case 3:
-                addText("THE BND TEAM");
+            case 2: addText("and the rest of");
+            case 3: addText("THE BND TEAM");
                 recolorText(2,[4,4],0xff91E11A);
                 recolorText(2,[6,6],0xff4E8DE3);
-            case 4:
-                addText("present");
-
-            case 6:
-                spawnParachute(0);
-            case 7:
-                removeText();
-
-            case 8:
-                addText("An interpretation", 30, 4);
-            case 10:
-                addText("of", 30, 4);
-            case 12:
-                addText("VS. DAVE & BAMBI", 30, 4);
+            case 4: addText("present");
+            case 6: spawnParachute(0);
+            case 7: removeText();
+            case 8: addText("An interpretation", 30, 4);
+            case 10: addText("of", 30, 4);
+            case 12: addText("VS. DAVE & BAMBI", 30, 4);
                 recolorText(6,[4,7],0xff4E8DE3);
                 recolorText(6,[11,99],0xff91E11A);
-
-            case 14:
-                spawnParachute(4);
-            case 15:
-                removeText();
-
-            case 24:
-                logo.alpha = 1;
-                logo.playAnim('Appearing', true);
-
+            case 14: spawnParachute(4);
+            case 15: removeText();
+            case 24: logo.alpha = 1;
+            logo.playAnim('Appearing', true);
             case 28:
-                if (FlxG.save.data.options.shaders == 'all') skippableTweens.push(FlxTween.tween(blurFilter, {blurX: 8, blurY: 8}, 1, {ease: FlxEase.quartInOut}));
-            case 29:
-                titleTextGroup.clear();
-                
-            case 32:
-                skipIntro();
+            if (FlxG.save.data.options.shaders == 'all') skippableTweens.push(FlxTween.tween(blurFilter, {blurX: 8, blurY: 8}, 1, {ease: FlxEase.quartInOut}));
+            case 29: titleTextGroup.clear();
+            case 32: skipIntro();
         }
 
         if (curBeat >= 16 && curBeat < 24) {

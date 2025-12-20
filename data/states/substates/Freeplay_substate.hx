@@ -159,14 +159,14 @@ function create() {
 
 	if(!FlxG.save.data.options.scrollSpeed)optionText.members[2].alpha=scroll_speed.alpha=0.3;
 	if(FlxG.save.data.options.modcharts=='Always')optionText.members[1].alpha=0.3;
+	//Add something to make it skip grayed out ones dynamically.
 
 	bulletoptionREAL.frames = Paths.getFrames('menus/freeplay/bulletOption');
 	bulletoptionREAL.animation.addByPrefix('idle', "appear", 10, false);
 	bulletoptionREAL.camera=coolCam;
 	bulletoptionREAL.scale.set(0.3,0.3);
 	add(bulletoptionREAL).animation.play('idle');
-	if(curPlayingInst!=prevSong)
-	FlxG.sound.playMusic(curPlayingInst, 0);
+	if(curPlayingInst!=prevSong) FlxG.sound.playMusic(curPlayingInst, 0);
 	if(FlxG.sound.music!=null) FlxG.sound.music.fadeIn(9,0,1);
 }
 function update(elapsed:Float) {
@@ -224,9 +224,8 @@ function toggle() {
 }
 function changeScroll(s) {
 	if(FlxG.save.data.options.scrollSpeed)
-	scroll_Speed+= s;
+		scroll_Speed = FlxMath.wrap(scroll_Speed + s, 0.1,  10);
 	trace(scroll_Speed);
-	if (scroll_Speed < 0) scroll_Speed = 0.1;
 	scroll_speed.text ="<"+ scroll_Speed+">";
 }
 function playsong() {

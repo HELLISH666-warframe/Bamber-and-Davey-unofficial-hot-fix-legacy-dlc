@@ -70,7 +70,7 @@ if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
             fieldText.y += FlxG.height;
 
             var whereToLook = Reflect.field(SONG.meta.credits, i);
-            if (['Chart', "Burns (Chart)", "note stuff"].contains(i)) whereToLook = Reflect.field(Reflect.field(SONG.meta.credits, i), PlayState.difficulty.toLowerCase());
+            if (['Chart', "Burns (Chart)", "note stuff"].contains(i)) whereToLook = Reflect.field(Reflect.field(SONG.meta.credits, i), PlayState.SONG.meta.difficulties.toLowerCase());
 
             for (a in whereToLook) {
                 var nameText = new FlxText(0, 0, 0, a, 24);
