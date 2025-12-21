@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-character>
+<character x="10" y="290" icon="davey" color="#4087CE" noteColors="#00A1FF,#00A1FF,#00A1FF,#00A1FF">
+	<anim name="idle" anim="Davey_Idle_Left"/>
+	<anim name="singDOWN" anim="Davey_Down" x="-140" y="42"/>
+	<anim name="singRIGHT" anim="Davey_Right" x="-222" y="89"/>
+	<anim name="singLEFT" anim="Davey_Left" x="-94" y="85"/>
+	<anim name="singUP" anim="Davey_Up" x="-148" y="163"/>
+	<anim name="Davey_Idle_Right" anim="Davey_Idle_Right" x="-169" y="76"/>
+</character>

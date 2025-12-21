@@ -1,0 +1,9 @@
+<!DOCTYPE codename-engine-character>
+<character x="-20" y="320" camx="-10" camy="70" color="#339933" noteskin="default" noteColors="#00AF09,#00AF0B,#00AF0B,#00AF0B">
+	<anim name="idle" anim="Bambi_Idle" x="-48" y="-63"/>
+	<anim name="singDOWN" anim="Bambi_Down" x="-123" y="-87"/>
+	<anim name="singRIGHT" anim="Bambi_Right" x="-32" y="-73"/>
+	<anim name="singLEFT" anim="Bambi_Left" x="39" y="-57"/>
+	<anim name="singUP" anim="Bambi_Up" x="-27" y="28"/>
+	<anim name="break" anim="Bambi_Alt" x="-4" y="4"/>
+</character>
