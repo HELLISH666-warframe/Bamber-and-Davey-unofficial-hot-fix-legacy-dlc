@@ -100,9 +100,24 @@ var comboOffsets = [
 ];
 var comboXOffset = comboOffsets[SONG.stage.toLowerCase()] != null ? comboOffsets[SONG.stage.toLowerCase()] : -7;
 
+function postCreate() {
+    Flags.USE_LEGACY_TIMING=false;
+    ratingManager.ratingData=[];
+    for(i in 0...ratingManager.ratingData.length)
+	trace(ratingManager.ratingData[i].name);
+	ratingManager.addRating({name: "Perfect", window: 30, accuracy: 1, score: 350, splash: true});
+	ratingManager.addRating({name: "Great", window: 70, accuracy: 2/3, score: 200, splash: false});
+	ratingManager.addRating({name: "Nice", window: 120, accuracy: 1/3, score: 50, splash: false});
+	ratingManager.addRating({name: "Meh", window: 170, accuracy: 1/6, score: -150, splash: false});
+	for(i in 0...ratingManager.ratingData.length)
+	trace(ratingManager.ratingData[i].name);
+	//for (rating in [for (i in ratingManager.ratingData) i.name]) hits.set(rating, 0); // Ensure all keys exist as to prevent null errors.
+}
 function onPlayerHit(e) {
+    trace(e.rating);
     if(e.note.isSustainNote)return;
    onShowCombo(combo,e.rating);
+   trace(hits[e.rating]);
 }
 function onPlayerMiss(e) {
     var missCount = misses - savedMisses;

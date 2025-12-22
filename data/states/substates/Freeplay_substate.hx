@@ -7,10 +7,11 @@ var coolCam = new FlxCamera();
 
 var curSong=FlxG.save.data.Bamber_SONGSONG;
 
-var text = new Alphabet(285.25, 70, 0, true);
+var songName = new Alphabet(285.25, 70, 0, true);
 var composer = new Alphabet(0, 130, 0, true);
 var play_Text = new Alphabet(1000, 650, 0, true);
-var scroll_speed = new Alphabet(540, 480, 0, true);
+import funkin.menus.ui.ClassicAlphabet;
+var scroll_speed = new Alphabet(540, 470, "<"+ FlxG.save.data.options.scrollSpeed_Speed+">", true);
 
 var hitbox:FlxSprite;
 var portrait = new FlxSprite(530,0);
@@ -21,29 +22,23 @@ static var curDifficulty:Int = 0;
 var difficultySprites:Map<String, FlxSprite> = [];
 var arrows:Array<FunkinSprite> = [];
 var curOption:Int = 0;
-public static var scroll_Speed:Float = 1;
 
 static var curPlayingInst = Paths.inst(curSong.name, curSong.difficulties[curDifficulty]);
 static var prevSong:String = "";
 
 var progressGroup = new FlxTypedSpriteGroup();
-var bulletoptionREAL:FlxSprite = new FlxSprite(-170,-20);
+var bulletoptionREAL:FlxSprite = new FlxSprite(-170,8);
 var options:Array<String> = ['Cutscenes','Mod charts','Scroll Speed','Mode'];
 //Idea , have the option greyed out if mod-charts are set to always, same with scroll-speed.
-var checkbox_real:FlxSprite;
 var checkboxes = new FlxTypedSpriteGroup();
 var optionText = new FlxTypedGroup();
-static var toggles = [FlxG.save.data.options.freeplayDialogue,FlxG.save.data.options.modcharts];
 function create() {
 	new FlxTimer().start(0.2, ()->{click_through = true;});
 	prevchar = curPlayingInst;
     FlxG.cameras.add(coolCam, false).bgColor = 0x00000000;
 
-	var bg = new FlxSprite().makeSolid(FlxG.width + 100, FlxG.height + 100, FlxColor.BLACK);
-	bg.screenCenter();
-	bg.scrollFactor.set();
+	add(bg = new FlxSprite(-50,-50).makeSolid(FlxG.width + 100, FlxG.height + 100, FlxColor.BLACK)).alpha = 0.6;
 	bg.camera = coolCam;
-	add(bg).alpha = 0.6;
 	play_Text.text = "PLAY";
 	play_Text.camera = coolCam;
 	add(play_Text).scale.set(1.5,1.5);
@@ -56,17 +51,16 @@ function create() {
 		portrait.loadGraphic(Paths.image('menus/freeplay/albums/vol'+curSong.album));
 	add(portrait).angle=-3;
 	portrait.setGraphicSize(300,300);
-	text.text = curSong.displayName;
-	text.alignment="center";
-	add(text).camera = coolCam;
-	text.screenCenter(FlxAxes.X);
-	trace(text.width+"\n"+text.x);
+	songName.text = curSong.displayName;
+	songName.alignment="center";
+	add(songName).camera = coolCam;
+	songName.screenCenter(FlxAxes.X);
 	
 	composer.text = "By "+ curSong.composer;
 	composer.camera = coolCam;
 	composer.scale.set(0.5,0.5);
 	composer.screenCenter(FlxAxes.X);
-	add(composer).x +=text.width-text.width/1.5;
+	add(composer).x +=songName.width-songName.width/1.5;
 
 	composer_icon.camera = coolCam;
 	if (!Assets.exists(Paths.image('credits/devs/' +curSong.composer)))
@@ -74,40 +68,38 @@ function create() {
 	else
 		composer_icon.loadGraphic(Paths.image('credits/devs/'+curSong.composer));
 	add(composer_icon);
-	composer_icon.x=composer.x+composer.width;
+	composer_icon.x= songName.x+songName.width+10;//Make_a_custom_class_later_for_handling_multi_icons?
 
-	scroll_speed.text ="<"+ scroll_Speed+">";
 	scroll_speed.alignment="right";
-	scroll_speed.scale.set(0.9,0.9);
 	add(scroll_speed).camera = coolCam;
+	scroll_speed.scale.set(0.8,0.8);
 
 	for (e in curSong.difficulties) {
 		var le = e.toLowerCase();
 		if (difficultySprites[le] == null) {
-			var diffSprite = CoolUtil.loadAnimatedGraphic(new FlxSprite(170,450),Paths.image('menus/freeplay/modes/'+le));
+			var diffSprite = CoolUtil.loadAnimatedGraphic(new FlxSprite(90,458),Paths.image('menus/freeplay/modes/'+le));
 			diffSprite.camera = coolCam;
 			diffSprite.antialiasing = true;
-			diffSprite.scrollFactor.set();
 			add(diffSprite).scale.set(0.3,0.3);
 
 			difficultySprites[le] = diffSprite;
 		}
 	}
 	for (a in 0...2) {
-        arrows.push(new FunkinSprite(0, 525));
+        arrows.push(new FunkinSprite(0, 415));
 		arrows[a].scale.set(0.25, 0.25);
         arrows[a].frames = Paths.getSparrowAtlas("menus/freeplay/selectArrows");
         for(z in ["hit", "idle"])
 			arrows[a].animation.addByPrefix(z, z + ["Left", "Right"][a], 10, false);
         arrows[a].animation.play("idle");
         add(arrows[a]).antialiasing = Options.antialiasing;
-		arrows[a].y -= 128;
-		arrows[a].x = (a + 1) * 170 + a * 120;
+		arrows[a].x = (a + 1) * 100 + a * 180;
 		arrows[a].cameras = [coolCam];
     }
 
 	changeDiff(0);
 	changeOption(0);
+	changeScroll(0);
 
 	var manY = 0;
     for (i in 0...10) {
@@ -128,7 +120,7 @@ function create() {
         bulletOption.antialiasing = true;
 		bulletOption.camera=coolCam;
     }
-	add(progressGroup).y = -20;
+	add(progressGroup).y +=10;
 
 	var namX = 444;
 	for (i in 0...2) {
@@ -137,7 +129,7 @@ function create() {
 
 		checkbox_real.animation.addByIndices("false", "Checkbox0", [9,8,7,6,5,4,3,2,1,0], '',24, false);
 		checkbox_real.animation.addByPrefix('true', "Checkbox0", 24,false);
-		checkbox_real.animation.play(toggles[i]);
+		checkbox_real.animation.play([FlxG.save.data.options.freeplayDialogue,FlxG.save.data.options.modcharts][i]);
         checkboxes.add(checkbox_real);
 
         manY += checkbox_real.height * (i % 2 == 0 ? 1.3 : 3);
@@ -145,13 +137,13 @@ function create() {
         checkbox_real.antialiasing = true;
 		checkbox_real.camera=coolCam;
     }
-	add(checkboxes).y= -280;
+	add(checkboxes).y= -245;
 
 	add(optionText);
 	for (i in 0...options.length) {
 		var item = new Alphabet(120, (i * 80), options[i], 0,true);
 		item.scale.set(0.9,0.9);
-		item.y = ((i * progressGroup.members[4].y*0.95) * item.scale.y)+210;
+		item.y = ((i * progressGroup.members[4].y*0.8) * item.scale.y)+240;
 		item.updateHitbox();
 		item.camera=coolCam;
 		optionText.add(item).width = item.width*item.scale.y;
@@ -180,7 +172,6 @@ function update(elapsed:Float) {
 	}
 	if (controls.ACCEPT) toggle();
 	if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed){
-		trace("WOAH!");
 		playsong();
 		click_through=false;
 	}
@@ -209,27 +200,21 @@ function changeOption(p) {
 	if(click_through && curOption!=0){
 	FlxTween.tween(bulletoptionREAL, {y: bulletoptionREAL.height/10 + progressGroup.members[(curOption/4) * 11].y}, 0.4,{ease: FlxEase.quartInOut});
 	}
-	if(click_through && curOption==0){
-		FlxTween.tween(bulletoptionREAL, {y: -20}, 0.5,{ease: FlxEase.quartInOut});
-	}
+	if(click_through && curOption==0) FlxTween.tween(bulletoptionREAL, {y: 8}, 0.5,{ease: FlxEase.quartInOut});
 }
 function toggle() {
 	switch(curOption){
 		case 0:FlxG.save.data.options.freeplayDialogue=!FlxG.save.data.options.freeplayDialogue;
 		case 1:FlxG.save.data.options.modcharts=!FlxG.save.data.options.modcharts;
 	}
-	toggles = [FlxG.save.data.options.freeplayDialogue,FlxG.save.data.options.modcharts];
-	trace("\nCutscenes are : "+toggles[0]+"\nMod-charts are :"+toggles[1]);
-	checkboxes.members[curOption].animation.play(toggles[curOption]);
+	checkboxes.members[curOption].animation.play([FlxG.save.data.options.freeplayDialogue,FlxG.save.data.options.modcharts][curOption]);
 }
 function changeScroll(s) {
-	if(FlxG.save.data.options.scrollSpeed)
-		scroll_Speed = FlxMath.wrap(scroll_Speed + s, 0.1,  10);
-	trace(scroll_Speed);
-	scroll_speed.text ="<"+ scroll_Speed+">";
+	if (FlxG.save.data.options.scrollSpeed)
+		FlxG.save.data.options.scrollSpeed_Speed=FlxMath.bound(FlxG.save.data.options.scrollSpeed_Speed + s, 1, 10);
+	scroll_speed.text ="<"+FlxG.save.data.options.scrollSpeed_Speed+">";
 }
 function playsong() {
-	FlxG.save.data.options.scrollSpeed_Speed=scroll_Speed;
 	//if (FlxG.save.data.options.scrollSpeed) scrollSpeed = FlxG.save.data.options.scrollSpeed_Speed;
 	PlayState.loadSong(curSong.name, curSong.difficulties[curDifficulty].toLowerCase());
 	FlxG.switchState(new PlayState());

@@ -12,7 +12,7 @@ function dualCall() {
 }
 
 function stageMask(difference) {
-	cray_Side.clipRect = new FlxRect(difference+150, 0, cray_Side.frameWidth + difference * -1, cray_Side.frameHeight);
+	cray_Side.clipRect = new FlxRect(difference+200, 0, cray_Side.frameWidth + difference * -1, cray_Side.frameHeight);
 }
 
 var gameOverSprite = new FlxSprite().loadGraphic(Paths.image('HUD/callstage/disconnect'));

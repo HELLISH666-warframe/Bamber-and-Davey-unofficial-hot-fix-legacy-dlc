@@ -5,5 +5,5 @@
 	<anim name="singRIGHT" anim="Swindled Bamber/Swindled-Right-Sing"/>
 	<anim name="singLEFT" anim="Swindled Bamber/Swindled-Left-Sing"/>
 	<anim name="singUP" anim="Swindled Bamber/Swindled-Up-Sing"/>
-	<anim name="ziiuvanPaun?" anim="Swindled Bamber/Phone"/>
+	<anim name="break" anim="Swindled Bamber/Phone"/>
 </character>

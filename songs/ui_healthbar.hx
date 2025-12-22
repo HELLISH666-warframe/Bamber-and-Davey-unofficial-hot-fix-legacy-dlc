@@ -80,7 +80,7 @@ function onStartCountdown() {
 
 function update(elapsed:Float) {
 	if (timerText != null && timerText.visible) {
-		//scripts.executeFunc("onPreTimerUpdate", [elapsed]);
+		scripts.call("onPreTimerUpdate", [elapsed]);
 		var pos = Math.max(Conductor.songPosition, 0);
 		var timeNow = Math.floor(pos / 60000)+':'+CoolUtil.addZeros(Std.string(Math.floor(pos / 1000) % 60), 2);
 		var length = Math.floor(inst.length / 60000)+':'+CoolUtil.addZeros(Std.string(Math.floor(inst.length / 1000) % 60), 2);
@@ -97,6 +97,6 @@ function update(elapsed:Float) {
 		timerFinal.y = timerBG.y + (timerBG.height / 2) - (timerFinal.height / 2);
 		timerNow.y = timerBG.y + (timerBG.height / 2) - (timerNow.height / 2);
 		timerText.y = timerBG.y + (timerBG.height / 2) - (timerText.height / 2);
-		//scripts.executeFunc("onTimerUpdate", [elapsed]);
+		scripts.call("onTimerUpdate", [elapsed]);
 	}
 }

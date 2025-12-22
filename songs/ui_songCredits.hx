@@ -3,6 +3,7 @@ import flixel.text.FlxTextBorderStyle;
 import Reflect;
 
 if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
+    trace(curSong,'\n',SONG.meta.displayName);
     var isOnLeftSide = StringTools.contains(curSong, "call bamber");//WHY_DOES_CURSONG_MAKE_IT_LOWERCASE???
     var curSongLowerCase:String = PlayState.SONG.meta.name.toLowerCase();
 
@@ -140,7 +141,7 @@ if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
     }
 
     var creditDelay = [
-        ['Astray', 'Swindled', 'Multiversus', 'Fortnite Duos', 'Blusterous Day', 'Judgement Farm'] => 32,
+        ['Astray', 'Swindled', 'Multiversus', 'Fortnite Duos', 'Blusterous Day', 'Megalofarmer','Judgement Farm V1'] => 32,
         ['call-bamber'] => 16,
         ['Harvest'] => 7,
         ['Bob be like'] => 8,

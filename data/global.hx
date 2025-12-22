@@ -21,6 +21,8 @@ var isHovering = false;
 var switched = false;
 static var hasseen = false;
 
+public static var fpsGroupTextOnly=[];
+
 function destroy(){
 	hasseen = false;
     FlxG.mouse.useSystemCursor = true;
@@ -119,8 +121,10 @@ function postStateSwitch() {
     if(Type.getClassName(Type.getClass(FlxG.state)) != 'funkin.game.PlayState')
         cursorName="default";
     idleCursorGraphic = Assets.getBitmapData(Paths.image('cursors/'+cursorName));
+    if(!Type.getClassName(Type.getClass(FlxG.state)) != 'funkin.game.PlayState')
     clickCursorGraphic = Assets.getBitmapData(Paths.image('cursors/'+cursorName+'_waiting'));
     FlxG.mouse.load(idleCursorGraphic,1,1,1);
+    fpsGroupTextOnly=[Framerate.fpsCounter.fpsLabel,Framerate.memoryCounter.memoryText,Framerate.memoryCounter.memoryPeakText,Framerate.codenameBuildField,Framerate.fpsCounter.fpsNum];
 }
 
 function postUpdate(elapsed) {

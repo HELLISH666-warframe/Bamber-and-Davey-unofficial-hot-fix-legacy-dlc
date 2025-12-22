@@ -1,12 +1,5 @@
-import Paths;
-import Sys;
-import sys.net.Host;
-import sys.io.Process;
-import openfl.utils.Assets;
-import Main;
+import funkin.backend.scripting.events.ResizeEvent;
 import openfl.text.TextFormat;
-import haxe.io.Path;
-import flixel.text.FlxTextBorderStyle;
 
 //Cursors For Each Song
 var songArray = [ //sorry guys i fucked up the song order oops...
@@ -25,6 +18,19 @@ var songArray = [ //sorry guys i fucked up the song order oops...
     ["swindled"] => "explode", //his losing icon
     ["call-bamber"] => "call" //call
 ];
+
+var customFonts = [
+    'bfdifield' => "adelon-serial-bold.ttf",
+    'battlegrounds' => "Impact.ttf",
+    'judgement hall' => "Mars_Needs_Cunnilingus.ttf",
+    'undertalestage' => "Mars_Needs_Cunnilingus.ttf",
+    'bot farm' => "goodbyeDespair.ttf",
+    'paintvoid' => "vcr_osd.ttf",
+    'default_stage' => "vcr_osd.ttf",
+    'oldfarm' => "vcr_osd.ttf",
+    'oldfarm_night' => "vcr_osd.ttf"
+];
+
 function postCreate() {
     for (song in songArray.keys()) {
         if (song.contains(PlayState.SONG.meta.name.toLowerCase())) { //checks which cursor to apply
@@ -35,6 +41,23 @@ function postCreate() {
 
     if (['facsimile', 'yield ', 'cornaholic v1', 'harvest v1', 'yield seezee remix', 'cornaholic erect remix v1', 'harvest chill remix', 'h2o'].contains(PlayState.SONG.meta.name.toLowerCase())) FlxG.mouse.unload();
     if (['placeholder', 'test footage'].contains(PlayState.SONG.meta.name.toLowerCase())) FlxG.mouse.useSystemCursor = true;
+    if (customFonts[SONG.stage.toLowerCase()] != null) { //checks if there is a custom font to apply for the stage
+        for (i in members) {
+            if (i != null && Std.isOfType(i, FlxText)) { //checks every state object and if they're texts
+                i.font = Paths.font(customFonts[SONG.stage.toLowerCase()]);
+            }
+        }
+        for(i in 0...fpsGroupTextOnly.length)
+        fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(customFonts[SONG.stage.toLowerCase()])), 12, -1);
+    }
 }
 
 var songLength = FlxG.sound.music.length;
+
+function destroy() {
+    for(i in 0...fpsGroupTextOnly.length)
+        fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font('vcr.ttf')), 12, -1);
+}
+
+function onSplashShown(e) if(StringTools.contains(curSong.toLowerCase(), "judgement"))
+    e.splash.angle=switch (e.splash.strumID) {case 0:90; case 1:0;case 2:180;case 3:-90;};

@@ -11,6 +11,11 @@ public function executeFuncMultiple(funcName:String, ?args:Array<Any>, ?defaultR
     return defaultReturnVal[0];
 }
 
+public var scoreText=[];
+function create() {
+    scoreText = [scoreTxt,accuracyTxt,missesTxt];
+}
+
 function postCreate() {
 	scripts.call('postPostCreate');
 }

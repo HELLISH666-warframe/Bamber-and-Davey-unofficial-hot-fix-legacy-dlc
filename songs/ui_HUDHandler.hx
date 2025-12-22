@@ -1,9 +1,3 @@
-function create() {
-    switch(PlayState.SONG.meta.name){
-        case"Judgement Farm"|"Judgement Farm 2"|"Judgement Farm 2 Vol2"|"Judgement Farm Vol2":
-    importScript("data/scripts/huds/undertale");
-    }
-}
 //Note shit dirctlly from https://gamebanana.com/mods/585254.
 public var noteShaders = [];
 var defaultNoteColors = [FlxColor.fromString('#C24B99'), FlxColor.fromString('#00FFFF'), FlxColor.fromString('#12FA05'), FlxColor.fromString('#F9393F')];
