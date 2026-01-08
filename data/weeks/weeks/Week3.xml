@@ -3,4 +3,6 @@
     <song>Ron Be Like</song>
     <song>Bob Be Like</song>
     <song>Fortnite Duos</song>
+    <difficulty name="normal"/>
+    <difficulty name="hard"/>
 </week>

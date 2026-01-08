@@ -1,27 +1,40 @@
 {
+	"color": "#FFFFFF",
 	"opponentModeAllowed": false,
-	"icon": "newboris",
+	"icon": "boris",
 	"difficulties": [
 		"easy",
 		"normal",
 		"hard"
 	],
-	"color": "#FFFFFF",
+	"credits": {
+		"Chart": {
+			"easy": [
+				"Luminous"
+			],
+			"normal": [
+				"Glitch.smh"
+			],
+			"hard": [
+				"Luminous"
+			]
+		},
+		"Art": [
+			"Seezee"
+		],
+		"Music": [
+			"Kasu"
+		],
+		"Code": [
+			"Frakits",
+			"Verwex"
+		]
+	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
 	"displayName": "Bob be like v1",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
 	"bpm": 160,
-	"album": 2,
-	"credits": {
-		"Art": ["Seezee"],
-		"Music": ["Kasu"],
-		"Chart": {
-		"easy": ["Luminous"],
-		"normal": ["Glitch.smh"],
-		"hard": ["Luminous"]
-		},
-		"Code": ["Frakits", "Verwex"]
-	}
+	"album": 2
 }

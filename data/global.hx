@@ -118,11 +118,11 @@ function postStateSwitch() {
         WindowUtils.set_winTitle(stateQuotes[ModState.lastName]);
         DiscordUtil.changePresence(stateQuotes[ModState.lastName], null);
     }
-    if(Type.getClassName(Type.getClass(FlxG.state)) != 'funkin.game.PlayState')
+    if(Type.getClassName(Type.getClass(FlxG.state)) != 'funkin.game.PlayState'){
         cursorName="default";
+        clickCursorGraphic = Assets.getBitmapData(Paths.image('cursors/'+cursorName+'_waiting'));
+    }
     idleCursorGraphic = Assets.getBitmapData(Paths.image('cursors/'+cursorName));
-    if(!Type.getClassName(Type.getClass(FlxG.state)) != 'funkin.game.PlayState')
-    clickCursorGraphic = Assets.getBitmapData(Paths.image('cursors/'+cursorName+'_waiting'));
     FlxG.mouse.load(idleCursorGraphic,1,1,1);
     fpsGroupTextOnly=[Framerate.fpsCounter.fpsLabel,Framerate.memoryCounter.memoryText,Framerate.memoryCounter.memoryPeakText,Framerate.codenameBuildField,Framerate.fpsCounter.fpsNum];
 }

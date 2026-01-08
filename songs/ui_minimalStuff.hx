@@ -48,7 +48,7 @@ function postCreate() {
             }
         }
         for(i in 0...fpsGroupTextOnly.length)
-        fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(customFonts[SONG.stage.toLowerCase()])), 12, -1);
+        fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(customFonts[SONG.stage.toLowerCase()])));
     }
 }
 
@@ -56,7 +56,7 @@ var songLength = FlxG.sound.music.length;
 
 function destroy() {
     for(i in 0...fpsGroupTextOnly.length)
-        fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font('vcr.ttf')), 12, -1);
+        fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font('vcr.ttf')));
 }
 
 function onSplashShown(e) if(StringTools.contains(curSong.toLowerCase(), "judgement"))

@@ -12,14 +12,14 @@
 				"Glitch.smh"
 			]
 		},
-		"Code": [
-			"Frakits",
+		"Art": [
 			"Verwex"
 		],
 		"Music": [
 			"Glitch.smh"
 		],
-		"Art": [
+		"Code": [
+			"Frakits",
 			"Verwex"
 		]
 	},
@@ -28,6 +28,6 @@
 	"displayName": "Swindled v1",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"bpm": 210,
-	"album": 2
+	"album": 2,
+	"bpm": 210
 }

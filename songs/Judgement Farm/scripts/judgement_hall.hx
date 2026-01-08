@@ -43,8 +43,18 @@ function postCreate() {
 
 		scoreText.antialiasing = false;
 	}
+	ratingManager.ratingData=[];
+	ratingManager.addRating({name: "Perfect", window: 30, accuracy: 1, score: 350, splash: true});
+	ratingManager.addRating({name: "Great", window: 70, accuracy: 2/3, score: 200, splash: false});
+	ratingManager.addRating({name: "Nice", window: 120, accuracy: 1/3, score: 50, splash: false});
+	ratingManager.addRating({name: "Meh", window: 170, accuracy: 1/6, score: -150, splash: false});
 }
 public function postPostCreate() {
+	ratingManager.ratingData=[];
+	ratingManager.addRating({name: "Perfect", window: 30, accuracy: 1, score: 350, splash: true});
+	ratingManager.addRating({name: "Great", window: 70, accuracy: 2/3, score: 200, splash: false});
+	ratingManager.addRating({name: "Nice", window: 120, accuracy: 1/3, score: 50, splash: false});
+	ratingManager.addRating({name: "Meh", window: 170, accuracy: 1/6, score: -150, splash: false});
 }
 
 function onTimerUpdate(elapsed) {

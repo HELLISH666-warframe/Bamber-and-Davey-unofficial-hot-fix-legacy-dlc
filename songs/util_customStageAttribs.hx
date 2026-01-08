@@ -54,14 +54,4 @@ if(stage != null && stage.stageXML != null){
 				FlxTween.tween(countdownSprite, {alpha: 0}, 1, {
 				ease: FlxEase.cubeInOut});}
 	}
-	
-	// SCORE
-	/*
-		Folder path for the score images in `images/game/score/`.
-		Must end with a / in the stage XML attribute.
-	*/
-	function onNoteHit(e){
-		//trace(e.rating);
-		e.ratingPrefix = "game/score/" + (stage.stageXML.get("scorePath")!= null ? stage.stageXML.get("scorePath") : "default/");
-	}
 }

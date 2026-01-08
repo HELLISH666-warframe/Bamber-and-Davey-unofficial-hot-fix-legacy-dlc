@@ -9,7 +9,7 @@ var curSong=FlxG.save.data.Bamber_SONGSONG;
 
 var songName = new Alphabet(285.25, 70, 0, true);
 var composer = new Alphabet(0, 130, 0, true);
-var play_Text = new Alphabet(1000, 650, 0, true);
+var play_Text = new Alphabet(1000, 665, 'PLAY', true);
 import funkin.menus.ui.ClassicAlphabet;
 var scroll_speed = new Alphabet(540, 470, "<"+ FlxG.save.data.options.scrollSpeed_Speed+">", true);
 
@@ -39,10 +39,9 @@ function create() {
 
 	add(bg = new FlxSprite(-50,-50).makeSolid(FlxG.width + 100, FlxG.height + 100, FlxColor.BLACK)).alpha = 0.6;
 	bg.camera = coolCam;
-	play_Text.text = "PLAY";
 	play_Text.camera = coolCam;
 	add(play_Text).scale.set(1.5,1.5);
-	add(hitbox = new FlxSprite(950, 600).makeSolid(330, 100, 0xE0000020)).alpha = 0;
+	add(hitbox = new FlxSprite(950, 615).makeSolid(330, 100, 0xE0000020)).alpha = 0;
 	hitbox.camera = coolCam;
 	portrait.camera = coolCam;
 	if (!Assets.exists(Paths.image('menus/freeplay/albums/vol' +curSong.album)))

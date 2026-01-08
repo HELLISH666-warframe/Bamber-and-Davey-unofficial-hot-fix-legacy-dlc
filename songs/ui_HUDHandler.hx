@@ -16,6 +16,12 @@ function postCreate() {
             //splashHandler.getSplashGroup(e.note.noteType == null ? 'default' : e.note.noteType).members[e.note.noteData + (strum.members.length * s)].shader = e.note.shader;
         }
     }
+
+    for (i=>strum in strumLines.members) {
+        for (note in strum.notes.members) {
+            if (note.noteType == 'strumLine3Sing') changeStrumLineColors(strumLines.members[2]);
+        }
+    }
 }
 
 public function changeStrumLineColors(strumLine, ?char) {
@@ -55,3 +61,7 @@ function onStrumCreation(e) {
 function onPlayerHit(e){
 	e.note.splash = (Assets.exists(Paths.image("game/splashes/"+boyfriend.xml.get("noteskin"))) ? boyfriend.xml.get("noteskin") : "default");
 	}
+
+function extractRgbChannels(color:Int):Array<Int> {
+    return [(color >> 16 & 0xff), (color >> 8) & 0xff, color & 0xff];
+}
