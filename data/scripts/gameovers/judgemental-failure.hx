@@ -8,6 +8,8 @@ var recordPositions = false;
 var STOPYOUFUCKINGPIECEOFSHIT = false;
 var dialogueOptions = ['You cannot give up just yet...', 'come on stop being so swindled', 'kys'];
 var typingtextofashore:FlxTypeText;
+
+var FUCKINGDIE = false;
 function postCreate() {
 	character.alpha = 0;
 	CoolUtil.playMusic(Paths.music("death/ut"), false, 1, true, 594);
@@ -71,7 +73,7 @@ var indexPos = 0;
 function update(elapsed) {
 	if (/*character.getAnimName() == 'firstDeath' && */character.isAnimFinished()) {
 		FlxTween.tween(gameover, {alpha: 1}, 2);
-		new FlxTimer().start(3, function() typingtextofashore.start(0.08));
+		new FlxTimer().start(3, function() {typingtextofashore.start(0.08);FUCKINGDIE=true;});
 	}
 	if (recordPositions) {
 		var positionates = [];
@@ -79,7 +81,7 @@ function update(elapsed) {
 			positionates.push([i.x, i.y]);
 		partsPositions.push(positionates);
 	}
-	if (!STOPYOUFUCKINGPIECEOFSHIT && controls.ACCEPT && character.getAnimName() != "firstDeath" && !recordPositions) {
+	if (!STOPYOUFUCKINGPIECEOFSHIT && controls.ACCEPT /*&& character.getAnimName() != "firstDeath"*/ && !recordPositions&&FUCKINGDIE) {
 		isGoingBackwards = true;
 		STOPYOUFUCKINGPIECEOFSHIT = true;
 
@@ -92,7 +94,7 @@ function update(elapsed) {
 		FlxG.sound.playMusic(Paths.sound("death/ends/ut-end"), 1.0, false);
 		new FlxTimer().start(2.7, function() typingtextofashore.start(0.08));
 		new FlxTimer().start(5, function() {FlxG.switchState(new PlayState());
-			PlayState.loadSong(PlayState.instance.SONG.meta.name,PlayState.difficulty);});
+			PlayState.loadSong(PlayState.SONG.meta.name,PlayState.difficulty);});
 		gameover.alpha = 0.2;
 	}
 	if (isGoingBackwards) {
