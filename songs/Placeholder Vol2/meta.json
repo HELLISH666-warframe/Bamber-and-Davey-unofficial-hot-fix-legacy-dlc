@@ -10,7 +10,6 @@
 	"displayName": "Placeholder v1",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"album": 2,
 	"bpm": 200,
 	"credits": {
 		"Art": ["Glitch.Smh"],
@@ -19,5 +18,10 @@
 		"placeholder": ["Glitch.smh"]
 		},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"PLACEHOLDER",
+		"composer":"Glitch.smh"
 	}
 }

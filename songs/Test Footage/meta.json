@@ -9,5 +9,11 @@
 		"null",
 		"VIP"
 	],
-	"needsVoices": false
+	"needsVoices": false,
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"thetest",
+		"vip": true,
+		"composer":"Glitch.smh"
+	}
 }

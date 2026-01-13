@@ -8,11 +8,11 @@ import funkin.backend.FunkinText;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.backend.MusicBeatSubstate;
 
+var backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'));
+
 var arrows:Array<FunkinSprite> = [];
 var moveTimer:FlxTimer = new FlxTimer();
 var appear = true;
-
-var curScroll:Float = 0.0;
 
 var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["BambersFarm", "Week Bamber", 0xB6FF00],
@@ -63,7 +63,7 @@ var iconArray:Array<HealthIcon> = [];
 function create() {
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/albums/"))) Paths.image("menus/freeplay/albums/" + i);
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/silhouettes/"))) Paths.image("menus/freeplay/silhouettes/" + i);
-	add(new FunkinSprite().loadGraphic(Paths.image("menus/menuDesat"))).screenCenter();
+	add(backGround).screenCenter();
 	album = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"));
 	add(album);
 	album.screenCenter();
@@ -183,13 +183,15 @@ function changements(a) {
 	songL[subCurSelected].alpha = 1;
 	//for (i in 0...songL.length) {songL[i].x +=(songL[i].width-0)*1;}
 	
-	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "normal").score;
-	var ver = songser[subCurSelected].album;
+	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "normal").score+' (normal)';
+	var ver = songser[subCurSelected].freeplayShit.album;
 	if (ver == null) ver = 2;
 	if (data[curSelected][0] == "Legacy") ver = 1;
 	
 	album.loadGraphic(Paths.image("menus/freeplay/albums/vol"+ver));
 	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName);
+
+	backGround.color=data[curSelected][2];
 }
 
 function change(a) {

@@ -28,6 +28,10 @@
 	"displayName": "Swindled v1",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"album": 2,
-	"bpm": 210
+	"bpm": 210,
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"Swindler",
+		"composer":"Glitch.smh"
+	}
 }

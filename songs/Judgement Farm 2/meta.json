@@ -5,9 +5,7 @@
 	"color": "#59DEF7",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"album": 2.5,
 	"countdownsound": "undertale",
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Glitch.smh", "Verwex", "Toby Fox"],
 		"Music": ["Glitch.smh"],
@@ -15,5 +13,11 @@
 		"normal": ["Glitch.smh"]
 		},
 		"Code": ["Glitch.smh"]
+	},
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"bamber-sans-undertale",
+		"updated": true,
+		"composer":"Glitch.smh"
 	}
 }

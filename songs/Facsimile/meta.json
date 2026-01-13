@@ -13,5 +13,10 @@
 		"normal": ["Glitch.smh"]
 		},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"joke_davey_obj",
+		"composer":"Glitch.smh"
 	}
 }

@@ -5,9 +5,7 @@
 	"color": "#0066FF",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"album": 2.5,
 	"countdownsound": "davey",
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
@@ -17,5 +15,11 @@
 		"hard": ["Glitch.smh", "Stormy"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"davey",
+		"updated": true,
+		"composer":"Glitch.smh"
 	}
 }

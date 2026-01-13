@@ -30,5 +30,10 @@
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
 	"bpm": 200,
-	"album": 2.5
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"PLACEHOLDER_new",
+		"updated": true,
+		"composer":"Glitch.smh"
+	}
 }

@@ -13,7 +13,6 @@
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
 	"bpm": 180,
-	"album": 2.5,
 	"countdownsound": "davey",
 	"composer":"Glitch.smh",
 	"credits": {
@@ -25,5 +24,11 @@
 		"hard": ["Glitch.smh"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"davey-coop",
+		"updated": true,
+		"composer":"Glitch.smh"
 	}
 }

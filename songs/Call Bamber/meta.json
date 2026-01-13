@@ -25,5 +25,10 @@
 		"normal": ["Glitch.smh"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"elisocray",
+		"composer":"Glitch.smh"
 	}
 }

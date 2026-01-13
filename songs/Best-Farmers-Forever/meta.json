@@ -10,6 +10,9 @@
 	"displayName": "Best-Farmers-Forever",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"album": 1,
-	"bpm": 180
+	"bpm": 180,
+	"freeplayShit": {
+		"album": 1,
+		"composer":"Glitch.Smh"
+	}
 }

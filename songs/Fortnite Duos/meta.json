@@ -1,5 +1,4 @@
 {
-	"composer": "Glitch.smh",
 	"customValues": {},
 	"color": "#FEE46C",
 	"opponentModeAllowed": true,
@@ -39,5 +38,10 @@
 	"beatsPerMeasure": 4,
 	"countdownsound": "amung",
 	"bpm": 170,
-	"album": 2.5
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"ronnieandboris",
+		"updated": true,
+		"composer":"Glitch.smh"
+	}
 }

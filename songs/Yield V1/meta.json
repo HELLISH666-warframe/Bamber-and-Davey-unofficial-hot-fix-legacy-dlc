@@ -14,5 +14,8 @@
 	"metas": {},
 	"bpm": 180,
 	"instSuffix": "",
-	"vocalsSuffix": ""
+	"vocalsSuffix": "",
+	"freeplayShit": {
+		"album": 1
+	}
 }

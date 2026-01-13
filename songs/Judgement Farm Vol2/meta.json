@@ -3,7 +3,6 @@
 	"bpm": 120.0,
 	"icon": "bamber-sans",
 	"color": "#10F2FE",
-	"album": 2,
 	"credits": {
 		"Art": ["Verwex", "Glitch.smh"],
 		"Music": ["Glitch.smh"],
@@ -11,5 +10,10 @@
 		"normal": ["Glitch.smh"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"bamber-sans",
+		"composer":"Glitch.smh"
 	}
 }

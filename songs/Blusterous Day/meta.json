@@ -1,13 +1,11 @@
 {
 	"displayName": "Blusterous Day",
 	"bpm": 150,
-	"album": 2,
 	"icon": "ronnieandboris",
 	"color": "#F2B65A",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
 	"countdownsound": "amung",
-	"composer": "Seezee",
 	"credits": {
 		"Art": ["Seezee"],
 		"Music": ["Seezee"],
@@ -15,5 +13,10 @@
 		"normal": ["Glitch.smh", "Seezee"]
 		},
 		"Code": ["Frakits", "Verwex", "Seezee"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"ronnieandboris",
+		"composer":"Seezee"
 	}
 }

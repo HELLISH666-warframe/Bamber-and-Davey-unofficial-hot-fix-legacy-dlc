@@ -1,12 +1,10 @@
 {
 	"displayName": null,
 	"bpm": 250,
-	"album": 2,
 	"icon": "Cheating-Bambi",
 	"color": "#038703",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"composer": "Itchgø",
 	"credits": {
 		"My (Art)": ["Vs Dave and Bambi Team", "Verwex"],
 		"Asshole (Music)": ["Itchgø"],
@@ -15,5 +13,11 @@
 		"vip": ["???"]
 		},
 		"Bruh (Code)": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"cheating-bambi",
+		"vip": true,
+		"composer":"Itchgø"
 	}
 }

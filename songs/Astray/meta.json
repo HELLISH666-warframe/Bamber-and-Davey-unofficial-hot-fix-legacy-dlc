@@ -26,5 +26,11 @@
 		"vip": ["???"]
 		},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"joke_model_obj",
+		"vip": true,
+		"composer":"Glitch.smh"
 	}
 }

@@ -40,7 +40,7 @@ function postCreate() {
 		}
 	}
 
-	bar1.cameras=[camOther];bar2.cameras=[camOther];insert(0,bar1);insert(0,bar2);bar2.y=720-(barSize*10);bar1.y=-560+(barSize*10);
+	bar1.cameras=[camHUD];bar2.cameras=[camHUD];insert(0,bar1);insert(0,bar2);bar2.y=720-(barSize*10);bar1.y=-560+(barSize*10);
 }
 function onEvent(_) {
 	if (_.event.name == 'Bars_from_v2'||_.event.name == 'Bars') {

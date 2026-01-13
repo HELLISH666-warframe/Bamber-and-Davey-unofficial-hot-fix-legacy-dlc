@@ -16,9 +16,7 @@
 	"beatsPerMeasure": 4,
 	"needsVoices": false,
 	"bpm": 115,
-	"album": 2.5,
 	"countdownsound": "bamber",
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
@@ -28,5 +26,11 @@
 		"hard": ["Luminous"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"bamber",
+		"new": true,
+		"composer":"Glitch.smh"
 	}
 }

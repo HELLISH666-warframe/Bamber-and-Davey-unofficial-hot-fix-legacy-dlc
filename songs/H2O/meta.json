@@ -1,12 +1,10 @@
 {
 	"displayName": null,
 	"bpm": 150,
-	"album": 2,
 	"icon": "Water",
 	"color": "#A5CEE3",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Verwex", "H2O Showdown Team"],
 		"Remix": ["Glitch.smh"],
@@ -16,5 +14,11 @@
 		"vip": ["???"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"water",
+		"vip": true,
+		"composer":"Glitch.smh"
 	}
 }

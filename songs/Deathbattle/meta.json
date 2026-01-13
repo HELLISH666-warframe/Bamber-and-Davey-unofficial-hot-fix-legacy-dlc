@@ -1,10 +1,8 @@
 {
-	"composer": "Glitch.smh",
 	"color": "#DF1207",
 	"opponentModeAllowed": true,
 	"difficulties": [
-		"deathbattle",
-		"deathbattle 2"
+		"deathbattle"
 	],
 	"icon": "grug",
 	"coopAllowed": true,
@@ -23,5 +21,10 @@
 		"deathbattle": ["Glitch.smh", "Stormy"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"manny",
+		"composer":"Glitch.smh"
 	}
 }

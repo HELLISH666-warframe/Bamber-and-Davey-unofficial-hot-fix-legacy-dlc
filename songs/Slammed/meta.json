@@ -1,5 +1,4 @@
 {
-	"new": true,
 	"color": "#E2FF00",
 	"opponentModeAllowed": true,
 	"difficulties": [
@@ -11,6 +10,10 @@
 	"displayName": "Slammed",
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
-	"album": 2.5,
-	"bpm": 200
+	"bpm": 200,
+	"freeplayShit": {
+		"album": 2.5,
+		"new": true,
+		"composer":"???"
+	}
 }

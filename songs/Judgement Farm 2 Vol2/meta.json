@@ -10,7 +10,6 @@
 	"displayName": "Judgement Farm 2 V1",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"album": 2,
 	"bpm": 140,
 	"credits": {
 		"Art": ["Glitch.smh", "Verwex", "Toby Fox"],
@@ -19,5 +18,10 @@
 		"normal": ["Glitch.smh"]
 		},
 		"Code": ["Glitch.smh", "Seezee"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"bamber-sans-undertale",
+		"composer":"Glitch.smh"
 	}
 }

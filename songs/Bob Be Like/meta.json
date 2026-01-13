@@ -15,9 +15,7 @@
 	"name": "Bob Be Like",
 	"color": "#FFFFFF",
 	"customValues": {},
-	"album": 2.5,
 	"countdownsound": "amung",
-	"composer":"Kasu",
 	"credits": {
 		"Art": ["Seezee"],
 		"Music": ["Kasu"],
@@ -27,5 +25,11 @@
 		"hard": ["Luminous"]
 		},
 		"Code": ["Frakits", "Verwex", "Glitch.smh"]
+	},
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"boris",
+		"updated": true,
+		"composer":"Kasu"
 	}
 }

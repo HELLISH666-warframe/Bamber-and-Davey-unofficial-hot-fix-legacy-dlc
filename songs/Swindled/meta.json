@@ -14,9 +14,7 @@
 	"beatsPerMeasure": 4,
 	"needsVoices": false,
 	"bpm": 220,
-	"album": 2.5,
 	"countdownsound": "swindler",
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
@@ -24,5 +22,11 @@
 		"absolutely fucking fucked": ["Stormy", "Glitch.smh"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"Swindler",
+		"updated": true,
+		"composer":"Glitch.smh"
 	}
 }

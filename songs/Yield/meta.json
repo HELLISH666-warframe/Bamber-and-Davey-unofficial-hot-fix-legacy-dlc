@@ -14,7 +14,6 @@
 	"displayName": "Yield",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"album": 2,
 	"bpm": 150,
 	"credits":{
 		"Art": ["Verwex"],
@@ -26,5 +25,11 @@
 		"vip": ["???"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"bamber",
+		"vip": true,
+		"composer":"Glitch.smh"
 	}
 }

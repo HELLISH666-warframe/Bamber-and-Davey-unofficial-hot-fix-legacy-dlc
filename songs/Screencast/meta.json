@@ -14,10 +14,8 @@
 	"needsVoices": true,
 	"metas": {},
 	"bpm": 128,
-	"album": 2,
 	"instSuffix": "",
 	"vocalsSuffix": "",
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Hotline 024 Team", "Verwex"],
 		"Music": ["Glitch.smh"],
@@ -25,5 +23,10 @@
 		"normal": ["Glitch.smh"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"nikku",
+		"composer":"Glitch.smh"
 	}
 }

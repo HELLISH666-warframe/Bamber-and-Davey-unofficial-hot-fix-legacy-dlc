@@ -13,8 +13,6 @@
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
 	"bpm": 180,
-	"album": 2.5,
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Cosmic", "Glitch.smh", "Verwex"],
 		"Music": ["Glitch.smh"],
@@ -22,5 +20,11 @@
 		"normal": ["Glitch.smh"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"trade-davey",
+		"updated": true,
+		"composer":"Glitch.smh"
 	}
 }

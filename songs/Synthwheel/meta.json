@@ -16,9 +16,7 @@
 	"name": "Synthwheel",
 	"color": "#0064FF",
 	"customValues": {},
-	"album": 2.5,
 	"countdownsound": "davey",
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
@@ -28,5 +26,11 @@
 		"hard": ["Luminous"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2.5,
+		"portrait":"davey",
+		"updated": true,
+		"composer":"Glitch.smh"
 	}
 }

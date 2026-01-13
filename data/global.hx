@@ -115,6 +115,7 @@ function new() {
 function postStateSwitch() {
     WindowUtils.set_prefix('Bamber & Davey Vol. 2.5 | ');
     if (stateQuotes[ModState.lastName] != null && Type.getClassName(Type.getClass(FlxG.state)) == 'funkin.backend.scripting.ModState') {
+        trace("DIE.");
         WindowUtils.set_winTitle(stateQuotes[ModState.lastName]);
         DiscordUtil.changePresence(stateQuotes[ModState.lastName], null);
     }

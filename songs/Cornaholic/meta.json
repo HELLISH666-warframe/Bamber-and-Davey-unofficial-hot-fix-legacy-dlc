@@ -8,24 +8,28 @@
 		"HARD",
 		"VIP"
 	],
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"displayName": "Cornaholic",
-	"countdownsound": "bamber",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"album": 2,
-	"bpm": 130,
-	"composer":"Glitch.smh",
 	"credits": {
-		"Art": ["Verwex"],
-		"Music": ["Glitch.smh"],
 		"Chart": {
 		"easy": ["Glitch.smh"],
 		"normal": ["Glitch.smh"],
 		"hard": ["Glitch.smh", "Stormy"],
 		"vip": ["???"]
 		},
-		"Code": ["Frakits", "Verwex"]
-	}
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Code": ["Frakits","Verwex"]
+	},
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Cornaholic",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"countdownsound": "bamber",
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"bamber",
+		"vip": true,
+		"composer":"Glitch.smh"
+	},
+	"bpm": 130
 }

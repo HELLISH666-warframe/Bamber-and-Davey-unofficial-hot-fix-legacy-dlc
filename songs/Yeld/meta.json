@@ -1,7 +1,6 @@
 {
 	"displayName": "Yield - OST",
 	"bpm": 140,
-	"album": 2,
 	"icon": "Bomber",
 	"difficulties": [
 		"normal"
@@ -9,7 +8,6 @@
 	"color": "#76E137",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Glitch.smh", "Verwex"],
 		"Music": ["Glitch.smh"],
@@ -17,5 +15,10 @@
 		"normal": ["Glitch.smh"]
 		},
 		"Code": ["Glitch.smh"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"bomber",
+		"composer":"Glitch.smh"
 	}
 }

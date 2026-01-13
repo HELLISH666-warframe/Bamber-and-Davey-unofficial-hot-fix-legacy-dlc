@@ -23,5 +23,10 @@
 		"hard": ["Luminous"]
 		},
 		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"bamber",
+		"composer":"Glitch.smh"
 	}
 }

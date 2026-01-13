@@ -14,6 +14,10 @@
 	"beatsPerMeasure": 4,
 	"needsVoices": false,
 	"bpm": 140,
-	"album": 2.5,
-	"new": true
+	"freeplayShit": {
+		"album": 2.5,
+		"new": true,
+		"vip": true,
+		"composer":"Glitch.smh"
+	}
 }

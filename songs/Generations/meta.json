@@ -13,10 +13,8 @@
 	"needsVoices": true,
 	"metas": {},
 	"bpm": 140,
-	"album": 2,
 	"instSuffix": "",
 	"vocalsSuffix": "",
-	"composer":"PK Cool Guy",
 	"credits": {
 		"drawingz": ["Glitch.smh", "Verwex"],
 		"myoosick": ["PK Cool Guy"],
@@ -24,5 +22,10 @@
 		"normal": ["Stormy"]
 		},
 		"funny hacking": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"gen-bamber",
+		"composer":"PK Cool Guy"
 	}
 }

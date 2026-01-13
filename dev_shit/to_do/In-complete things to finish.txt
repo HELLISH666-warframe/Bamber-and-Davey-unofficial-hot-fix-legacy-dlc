@@ -13,3 +13,6 @@ Freeplay;
 - Song text being right instead.
 - Stats button???/ stats SCREEN.
 - Song icons.
+Charts;
+ Bob-be-like-v2;
+  -Easy chart.

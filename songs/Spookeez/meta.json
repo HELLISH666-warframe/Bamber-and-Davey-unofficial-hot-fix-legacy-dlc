@@ -12,6 +12,9 @@
 	"icon": "spooky",
 	"name": "Spookeez",
 	"color": "#FF9424",
-	"new": true,
-	"album": 2.5
+	"freeplayShit": {
+		"album": 2.5,
+		"new": true,
+		"composer":"Glitch.smh"
+	}
 }
