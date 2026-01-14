@@ -27,6 +27,10 @@
 	"freeplayShit": {
 		"album": 2,
 		"portrait":"bamber",
-		"composer":"Glitch.smh"
-	}
+		"composer":"Glitch.smh",
+		"hasModchart":true
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "bamber"}
 }

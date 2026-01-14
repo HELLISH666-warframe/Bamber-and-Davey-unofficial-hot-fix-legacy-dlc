@@ -2,7 +2,7 @@
 	"color": "#DF1207",
 	"opponentModeAllowed": true,
 	"difficulties": [
-		"deathbattle"
+		"normal"
 	],
 	"icon": "grug",
 	"coopAllowed": true,
@@ -18,7 +18,7 @@
 		"OG Music": ["Sibottle"],
 		"Remix": ["Glitch.smh"],
 		"Chart": {
-		"deathbattle": ["Glitch.smh", "Stormy"]
+		"normal": ["Glitch.smh", "Stormy"]
 		},
 		"Code": ["Frakits", "Verwex"]
 	},

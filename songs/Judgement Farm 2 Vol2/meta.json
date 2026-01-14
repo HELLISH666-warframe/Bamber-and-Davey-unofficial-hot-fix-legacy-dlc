@@ -23,5 +23,8 @@
 		"album": 2,
 		"portrait":"bamber-sans-undertale",
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "undertale/",
+	"countdownPath": "undertale/",
+	"countdownsound": "undertale"}
 }

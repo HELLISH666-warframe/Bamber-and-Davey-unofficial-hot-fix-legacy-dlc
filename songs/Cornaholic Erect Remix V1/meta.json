@@ -17,5 +17,8 @@
 	"vocalsSuffix": "",
 	"freeplayShit": {
 		"album": 1
-	}
+	},
+	"customValues": {"comboPath": "",
+	"countdownPath": "funkin/",
+	"countdownsound": "funkin/"}
 }

@@ -1,5 +1,4 @@
 {
-	"composer": "Glitch.smh",
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"icon": "bamber",
@@ -31,5 +30,8 @@
 		"portrait":"bamber",
 		"vip": true,
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "bamber"}
 }

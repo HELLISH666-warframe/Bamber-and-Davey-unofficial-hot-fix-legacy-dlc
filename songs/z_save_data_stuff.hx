@@ -29,3 +29,7 @@ function onGameOver(e) {
 if (FlxG.save.data.options.freeplayDialogue&&!PlayState.seenCutscene){
     playCutscenes=true;
 }
+
+function onSongEnd()
+	if(!FlxG.save.data.gameStats.clearedSongs.contains(curSong))
+		FlxG.save.data.gameStats.clearedSongs.push(curSong);

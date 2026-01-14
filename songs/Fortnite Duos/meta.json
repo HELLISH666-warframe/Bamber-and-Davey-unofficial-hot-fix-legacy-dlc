@@ -1,5 +1,4 @@
 {
-	"customValues": {},
 	"color": "#FEE46C",
 	"opponentModeAllowed": true,
 	"difficulties": [
@@ -10,38 +9,28 @@
 	"icon": "ronnieandboris",
 	"credits": {
 		"Chart": {
-			"easy": [
-				"Luminous"
-			],
-			"normal": [
-				"Glitch.smh"
-			],
-			"hard": [
-				"Luminous"
-			]
+			"easy": ["Luminous"],
+			"normal": ["Glitch.smh"],
+			"hard": ["Luminous"]
 		},
-		"Art": [
-			"Seezee"
-		],
-		"Music": [
-			"Glitch.smh"
-		],
-		"Code": [
-			"Frakits",
-			"Verwex"
-		]
+		"Art": ["Seezee"],
+		"Music": ["Glitch.smh"],
+		"Code": ["Frakits", "Verwex"]
 	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
 	"displayName": "Fortnite Duos",
 	"needsVoices": false,
 	"beatsPerMeasure": 4,
-	"countdownsound": "amung",
 	"bpm": 170,
 	"freeplayShit": {
 		"album": 2.5,
 		"portrait":"ronnieandboris",
 		"updated": true,
-		"composer":"Glitch.smh"
-	}
+		"composer":"Glitch.smh",
+		"hasCutscenes":true
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "romania outskirts/",
+	"countdownsound": "amung"}
 }

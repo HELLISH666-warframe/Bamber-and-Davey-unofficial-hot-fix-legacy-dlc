@@ -1,4 +1,5 @@
 import funkin.backend.scripting.events.ResizeEvent;
+import funkin.backend.utils.WindowUtils;
 import openfl.text.TextFormat;
 
 //Cursors For Each Song
@@ -50,6 +51,7 @@ function postCreate() {
         for(i in 0...fpsGroupTextOnly.length)
         fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(customFonts[SONG.stage.toLowerCase()])));
     }
+    WindowUtils.winTitle='Currently Playing: '+PlayState.SONG.meta.displayName;
 }
 
 var songLength = FlxG.sound.music.length;
@@ -57,6 +59,7 @@ var songLength = FlxG.sound.music.length;
 function destroy() {
     for(i in 0...fpsGroupTextOnly.length)
         fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font('vcr.ttf')));
+    WindowUtils.winTitle='';
 }
 
 function onSplashShown(e) if(StringTools.contains(curSong.toLowerCase(), "judgement"))

@@ -144,7 +144,7 @@ if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
         ['Astray', 'Swindled', 'Multiversus', 'Fortnite Duos', 'Blusterous Day', 'Megalofarmer','Judgement Farm V1'] => 32,
         ['call-bamber'] => 16,
         ['Harvest'] => 7,
-        ['Bob be like'] => 8,
+        ['Bob Be Like'] => 8,
         ['Screencast'] => -4
     ];
     var delaySize = 0;

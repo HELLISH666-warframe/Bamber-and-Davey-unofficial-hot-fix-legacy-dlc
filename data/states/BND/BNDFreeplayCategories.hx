@@ -2,11 +2,12 @@ import funkin.backend.chart.Chart;
 import funkin.menus.StoryMenuState.StoryWeeklist;
 import funkin.backend.utils.WindowUtils;
 import flixel.text.FlxTextBorderStyle;
-import funkin.savedata.FunkinSave;
 import funkin.menus.ui.ClassicAlphabet;
 import funkin.backend.FunkinText;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.backend.MusicBeatSubstate;
+import freeplaySongthingie;
+import freeplaySongthingie2;
 
 var backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'));
 
@@ -25,7 +26,11 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["Remixes", "Remixes", 0xFF338A9C],
 	["Legacy", "Legacy/Old Content", 0x16AD01],
 	["Guh", "REMOVE_LATER", 0x16AD01],
-	["Vol 2", "Vol 2 Content", 0x16AD01]
+	/*["Vol 2", "Vol 2 Content", 0x16AD01],
+	["", "Vol 1 DLC", 0x16AD01],
+	["", "V2 demo DLC", 0x16AD01],
+	["Two dot four", "Two dot four DLC", 0x16AD01],
+	["Custom", "Custom 2 Content", 0xFFFFFF]*/
 ];
 
 var songst = [	
@@ -37,9 +42,8 @@ var songst = [
 	["Call Bamber","Deathbattle","H2O"],
 	["Corn N Roll","Screencast"],
 	["Spookeez", "South", "Pico", "2Hot"],
-	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever"],
-	["Astray", "Facsimile", "Placeholder", "Test Footage"],
-	["Harvest Vol2","Bob be like Vol2","Swindled Vol2","Trade Vol2","Judgement Farm Vol2","Judgement Farm 2 Vol2","Placeholder Vol2"]
+	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever",'Harvest Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],
+	["Astray", "Facsimile", "Placeholder", "Test Footage"]
 ];
 
 var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
@@ -57,20 +61,30 @@ var scorText = new FlxText(24, 0);
 subCurSelected = 0;
 subCurSelectedLimit = songser.length - 1;
 
-
 var iconArray:Array<HealthIcon> = [];
 
+
+
+
+
+//var testtt=new FreeplaySongthingie(0,0,'blusterous day',true,false,false);
+//var testtt=new freeplaySongthingie2('blusterous day',true,true,false);
+
+var siloTest:FlxTypedGroup = [];
+
 function create() {
+	add(backGround).screenCenter();
+	//FlxG.camera.zoom=0.3;
+	
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/albums/"))) Paths.image("menus/freeplay/albums/" + i);
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/silhouettes/"))) Paths.image("menus/freeplay/silhouettes/" + i);
-	add(backGround).screenCenter();
-	album = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"));
-	add(album);
-	album.screenCenter();
-	album.x -= 412;
-	album.y -= 128;
-	album.scale.set(0.175, 0.175);
+	add(album = new FlxSprite(-140,-140).loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"))).angle=-3;
 	album.setGraphicSize(350,350);
+
+	scorText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "right", FlxTextBorderStyle.SHADOW, 0xFF000000);
+	scorText.text = "Stats(Wip)";
+	scorText.shadowOffset.set(2, 2);
+	add(scorText).angle=-3;
 	
 	playall = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/silhouettes/playall"));
 	playall.scale.set(0.33, 0.33);
@@ -104,7 +118,7 @@ function create() {
 	textCam.bgColor = 0;
 	FlxG.cameras.add(textCam, false);
 	
-	album.cameras = playall.cameras = play.cameras = vinylGroup.cameras = [vinylNotVinylAssFucker];
+	play.cameras = vinylGroup.cameras = [vinylNotVinylAssFucker];
 	
     for (a in 0...2) {
         arrows.push(new FunkinSprite(0, 525));
@@ -124,15 +138,9 @@ function create() {
 	change(0);
 	insert(7,songLBgs);
 	
-	scorText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "right", FlxTextBorderStyle.SHADOW, 0xFF000000);
-	scorText.text = "score: 2763";
-	scorText.shadowOffset.set(2, 2);
-	add(scorText);
-	
 	changements(0);
 	textCam.zoom=0.9;
 }
-
 function update(elapsed) {
 	timer += elapsed;
     if (controls.LEFT_P||controls.RIGHT_P) change(controls.LEFT_P ? -1 : 1);
@@ -174,6 +182,11 @@ function update(elapsed) {
 		if(songLBgs.members[i]!=null&&songL[i]!=null)
 		songLBgs.members[i].y=songL[i].y-200;
 	}
+	for (i=>testtt in siloTest) {testtt.siloSprite.y=songL[i].y-170;
+		if(testtt.newTag!=null)testtt.newTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);
+		if(testtt.vipTag!=null)testtt.vipTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-350,testtt.siloSprite.y+testtt.siloSprite.height-300);
+		if(testtt.updatedTag!=null)testtt.updatedTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);
+	}
 }
 function changements(a) {
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, subCurSelectedLimit);
@@ -182,11 +195,8 @@ function changements(a) {
 	for (i in 0...songL.length) songL[i].alpha = 0.5;
 	songL[subCurSelected].alpha = 1;
 	//for (i in 0...songL.length) {songL[i].x +=(songL[i].width-0)*1;}
-	
-	scorText.text = "Score: "+FunkinSave.getSongHighscore(songser[subCurSelected].name, "normal").score+' (normal)';
-	var ver = songser[subCurSelected].freeplayShit.album;
+	var ver = songser[subCurSelected].freeplayShit.album==null?1:songser[subCurSelected].freeplayShit.album;
 	if (ver == null) ver = 2;
-	if (data[curSelected][0] == "Legacy") ver = 1;
 	
 	album.loadGraphic(Paths.image("menus/freeplay/albums/vol"+ver));
 	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName);
@@ -195,13 +205,13 @@ function changements(a) {
 }
 
 function change(a) {
+	if(siloTest.length > 0) for(icon in siloTest) icon.destroy(); siloTest = [];
 	if(iconArray.length > 0) for(icon in iconArray) icon.destroy();
 			iconArray = [];
     curSelected = FlxMath.wrap(curSelected + a, 0, vinylGroup.length - 1);
 	moveTimer.cancel();
 	
-	if (!appear)
-	{
+	if (!appear) {
 		appear = true;
 		FlxG.sound.play(Paths.sound("freeplay/cassetteAppear"));
 	}
@@ -211,7 +221,6 @@ function change(a) {
 		songser.push(Chart.loadChartMeta(s, "normal", true));
 
 	while(songL.length > songst[curSelected].length) remove(songL.pop());
-	songLBgs.maxSize = songst[curSelected].length;
 
 	for(s in songst[curSelected])
 		songser.push(Chart.loadChartMeta(s, "normal", true));
@@ -259,29 +268,25 @@ function change(a) {
 		if (Assets.exists(Paths.image("menus/freeplay/silhouettes/"+songser[i].displayName.toLowerCase())))
 			kys = songser[i].displayName.toLowerCase();
 
+		var testtt=new freeplaySongthingie2(830,200,kys,songser[i].freeplayShit.vip,songser[i].freeplayShit.new,songser[i].freeplayShit.updated);
+	    insert(4,testtt.siloSprite);
+		if(songser[i].freeplayShit.vip!=null)insert(6,testtt.vipTag);
+		if(songser[i].freeplayShit.new!=null)insert(6,testtt.newTag);
+		if(songser[i].freeplayShit.updated!=null)insert(6,testtt.updatedTag);
+		siloTest.push(testtt);
+
 		if (songL[i] != null) {
 			songL[i].text = songser[i].displayName;
 			songL[i].x=0;
 			songL[i].x=1200+(songL[i].x-songL[i].width);
-			songLBgs.members[i].loadGraphic(Paths.image("menus/freeplay/silhouettes/"+kys));
-			songLBgs.members[i].updateHitbox();
-			songLBgs.members[i].origin.set(songLBgs.members[i].width/2, songLBgs.members[i].height);	
-			songLBgs.members[i].scrollFactor.set(0, 1);
-			songLBgs.members[i].y=songL[i].y;
 			var icon = new HealthIcon(songser[i].icon);
 			icon.sprTracker = songL[i];
 			icon.sprTrackerAlignment='left';
-			//icon.cameras = [textCam];
 			icon.scrollFactor.set(1, 1);
 			iconArray.push(icon);
 			add(icon);
 		} else {
-			var bg = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/silhouettes/"+kys));			
-			songLBgs.add(bg);
-
 			var text = new Alphabet(0,(120 * i) + 30,null,true);
-			//text.isMenuItem=true;
-			text.cameras = [textCam];
 			text.text=songser[i].displayName;
 			text.color = FlxColor.WHITE;
 			text.scale.set(0.9,0.9);
@@ -290,25 +295,13 @@ function change(a) {
 			songL.push(text);
 			add(text);
 
-			bg.scale.set(0.7, 0.7);
-			bg.updateHitbox();
-			bg.origin.set(bg.width/2, bg.height);
-			bg.x = FlxG.width - 430;
-			bg.y = -70 + songL[i].y;		
-			bg.scrollFactor.set(0, 1);
-			//bg.cameras = [textCam];
-
 			var icon = new HealthIcon(songser[i].icon);
-			icon.cameras = [textCam];
 			icon.scrollFactor.set(1, 1);
 			icon.sprTracker = text;
 			icon.sprTrackerAlignment='left';
-			//icon.sprTrackerOffset.set(-20,-60);
 			iconArray.push(icon);
 			add(icon);
 		}
-
-		songLBgs.members[i].y=songL[i].y-200;
 	}
 	
 	subCurSelected = 0;

@@ -5,7 +5,6 @@
 		"NORMAL"
 	],
 	"parsedColor": -15666434,
-	"customValues": {},
 	"color": "#10F2FE",
 	"name": "Judgement Farm",
 	"coopAllowed": true,
@@ -28,5 +27,8 @@
 		"portrait":"bamber-sans",
 		"updated": true,
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "undertale/",
+	"countdownPath": "undertale/",
+	"countdownsound": "undertale"}
 }

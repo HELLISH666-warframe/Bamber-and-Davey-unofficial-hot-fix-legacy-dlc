@@ -1,17 +1,17 @@
 //Custom Combo graphics
-var comboPath = 'HUD/' + (['bfdifield', 'genstage', 'paintvoid', 'exchangetown'].contains(SONG.stage.toLowerCase()) ? SONG.stage.toLowerCase() : 'default') + '/';
+var comboPath = 'game/score/'+PlayState.SONG.meta.customValues.comboPath;
 
 var hasSubfolders = ['paintvoid'];
 if (hasSubfolders.contains(SONG.stage.toLowerCase())) comboPath = 'HUD/' + PlayState.SONG.stage.toLowerCase() + '/' + SONG.meta.name.toLowerCase() + '/';
 
-var countdownOverrideDir = [['judgement_hall', 'undertalestage'] => 'undertale'];
+/*var countdownOverrideDir = [['judgement_hall', 'undertalestage'] => 'undertale'];
 
 for (song in countdownOverrideDir.keys()) {
 	if (song.contains(SONG.stage.toLowerCase()) || song.contains(SONG.meta.name.toLowerCase())) {
 		comboPath = 'HUD/'+countdownOverrideDir[song]+'/';
 		break; //break out of the loop
 	}
-}
+}*/
 
 var hasPlurality = (Assets.exists(Paths.image(comboPath + 'combo-plural')));
 

@@ -5,7 +5,6 @@
 	"color": "#FED73E",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"countdownsound": "amung",
 	"credits": {
 		"Art": ["Seezee"],
 		"Music": ["Kasu"],
@@ -20,5 +19,8 @@
 		"album": 2,
 		"portrait":"ronnie",
 		"composer":"Kasu"
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "romania outskirts/",
+	"countdownsound": "amung"}
 }

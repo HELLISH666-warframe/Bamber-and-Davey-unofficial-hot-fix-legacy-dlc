@@ -3,6 +3,7 @@ import funkin.backend.utils.DiscordUtil;
 import Type;
 import haxe.io.Path;
 import funkin.backend.system.framerate.Framerate;
+import funkin.savedata.FunkinSave;
 import openfl.text.TextFormat;
 
 var stateQuotes:Map<String, String> = [
@@ -108,6 +109,11 @@ function new() {
     };
 
     FlxG.save.data.gameStats.playtime ??= 0;
+    FlxG.save.data.gameStats.clearedSongs ??= [];
+
+    //Tags?
+    FlxG.save.data.freeplayShit ??= {};
+    FlxG.save.data.freeplayShit.favourites ??= [];
 
     FlxG.save.flush();
 }
@@ -197,3 +203,14 @@ public static function playBamberMenuSound(type) {
 
 public static function resetTheModSave() {
 }
+
+//Checks for a score with a special diff like erect , bfdi and etc.
+/*
+public function getTheFuckingHighScore(theSongNameInFp:String,THEFUCKINGDIFF:String) {
+	trace(THEFUCKINGDIFF);
+    for(i in ['ABSOLUTELY FUCKING FUCKED','erect','normal','bfdi'])
+    if(THEFUCKINGDIFF.contains(i))
+    return FunkinSave.getSongHighscore(theSongNameInFp, THEFUCKINGDIFF).score;
+	trace(FunkinSave.getSongHighscore(theSongNameInFp, THEFUCKINGDIFF).score);
+}*/
+//This_thing_can_rot.

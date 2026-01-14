@@ -30,7 +30,11 @@
 	"freeplayShit": {
 		"album": 2.5,
 		"portrait":"bamber",
-		"new": true,
-		"composer":"Glitch.smh"
-	}
+		"updated": true,
+		"composer":"Glitch.smh",
+		"hasCutscenes":true
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "bamber"}
 }

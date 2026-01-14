@@ -16,5 +16,8 @@
 		"album": 2.5,
 		"new": true,
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "",
+	"countdownPath": "funkin/",
+	"countdownsound": "funkin/"}
 }

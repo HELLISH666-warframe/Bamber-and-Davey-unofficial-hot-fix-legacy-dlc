@@ -6,22 +6,10 @@
 		"ABSOLUTELY FUCKING FUCKED"
 	],
 	"credits": {
-		"Chart": {
-			"absolutely fucking fucked": [
-				"Stormy",
-				"Glitch.smh"
-			]
-		},
-		"Art": [
-			"Verwex"
-		],
-		"Music": [
-			"Glitch.smh"
-		],
-		"Code": [
-			"Frakits",
-			"Verwex"
-		]
+		"Chart": {"absolutely fucking fucked": ["Stormy", "Glitch.smh"]},
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Code": ["Frakits", "Verwex"]
 	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
@@ -32,6 +20,7 @@
 	"freeplayShit": {
 		"album": 2,
 		"portrait":"Swindler",
-		"composer":"Glitch.smh"
+		"composer":"Glitch.smh",
+		"hasModchart":true
 	}
 }

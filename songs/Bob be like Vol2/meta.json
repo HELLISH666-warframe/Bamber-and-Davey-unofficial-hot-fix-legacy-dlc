@@ -26,6 +26,10 @@
 	"freeplayShit": {
 		"album": 2,
 		"portrait":"boris",
-		"composer":"Kasu"
-	}
+		"composer":"Kasu",
+		"hasCutscenes":true
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "romania outskirts/",
+	"countdownsound": "amung"}
 }

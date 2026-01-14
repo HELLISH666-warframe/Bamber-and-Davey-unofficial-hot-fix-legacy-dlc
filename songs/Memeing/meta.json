@@ -18,6 +18,7 @@
 		"album": 2,
 		"portrait":"cheating-bambi",
 		"vip": true,
-		"composer":"Itchgø"
+		"composer":"Itchgø",
+		"hasModchart":true
 	}
 }

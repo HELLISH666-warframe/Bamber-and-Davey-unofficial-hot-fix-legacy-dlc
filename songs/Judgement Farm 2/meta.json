@@ -19,5 +19,8 @@
 		"portrait":"bamber-sans-undertale",
 		"updated": true,
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "undertale/",
+	"countdownPath": "undertale/",
+	"countdownsound": "undertale"}
 }

@@ -29,6 +29,7 @@
 		"album": 2.5,
 		"portrait":"davey-coop",
 		"updated": true,
-		"composer":"Glitch.smh"
+		"composer":"Glitch.smh",
+		"hasCutscenes":true
 	}
 }

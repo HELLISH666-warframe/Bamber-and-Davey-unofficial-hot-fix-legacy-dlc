@@ -11,8 +11,8 @@ if(stage != null && stage.stageXML != null){
 				if there's a PNG and XML in `game/countdown/`, it'll play that instead
 	*/
 	function postCreate() {
-	if(Assets.exists(Paths.image("game/countdown/" + stage.stageXML.get("countdown") + "/countdown"))){
-	countdownSprite.frames = Paths.getSparrowAtlas("game/countdown/" + stage.stageXML.get("countdown") + "/countdown");
+	if(Assets.exists(Paths.image("game/countdown/" +PlayState.SONG.meta.customValues.countdownPath+ "countdown"))){
+	countdownSprite.frames = Paths.getSparrowAtlas("game/countdown/" + PlayState.SONG.meta.customValues.countdownPath + "countdown");
 	countdownSprite.animation.addByPrefix("0", "Three", 24, false);
 	countdownSprite.animation.addByPrefix("1", "Two", 24, false);
 	countdownSprite.animation.addByPrefix("2", "One", 24, false);
@@ -35,12 +35,12 @@ if(stage != null && stage.stageXML != null){
 	function onCountdown(e){
 		e.scale *= 2;
 		if(countingDown[e.swagCounter] != null){
-			if(Assets.exists(Paths.image("game/countdown/" + stage.stageXML.get("countdown") + "/countdown"))){
+			if(Assets.exists(Paths.image("game/countdown/" + PlayState.SONG.meta.customValues.countdownPath + "countdown"))){
 			countdownSprite.alpha = 1;
 				countdownSprite.animation.play(Std.string(e.swagCounter), true);}
 			else
-			e.spritePath = "game/countdown/" + (Assets.exists(Paths.image("game/countdown/" + SONG.stage + "/" + countingDown[e.swagCounter])) ? SONG.stage : "default") + "/" + countingDown[e.swagCounter];
-			e.soundPath ="countdowns/" + (Assets.exists(Paths.sound("countdowns/"+PlayState.SONG.meta.countdownsound  + "/" +countingDown[e.swagCounter]))? PlayState.SONG.meta.countdownsound : "funkin") + "/" + countingDown[e.swagCounter];
+			e.spritePath = "game/countdown/" + (Assets.exists(Paths.image("game/countdown/" +PlayState.SONG.meta.customValues.countdownPath + countingDown[e.swagCounter])) ? PlayState.SONG.meta.customValues.countdownPath : "default") + "/" + countingDown[e.swagCounter];
+			e.soundPath ="countdowns/" + (Assets.exists(Paths.sound("countdowns/"+PlayState.SONG.meta.customValues.countdownsound  + "/" +countingDown[e.swagCounter]))? PlayState.SONG.meta.customValues.countdownsound : "funkin") + "/" + countingDown[e.swagCounter];
 			
 		}
 	}
