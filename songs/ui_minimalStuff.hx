@@ -48,8 +48,7 @@ function postCreate() {
                 i.font = Paths.font(customFonts[SONG.stage.toLowerCase()]);
             }
         }
-        for(i in 0...fpsGroupTextOnly.length)
-        fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(customFonts[SONG.stage.toLowerCase()])));
+        changeFpsFont(customFonts[SONG.stage.toLowerCase()]);
     }
     WindowUtils.winTitle='Currently Playing: '+PlayState.SONG.meta.displayName;
 }
@@ -57,8 +56,7 @@ function postCreate() {
 var songLength = FlxG.sound.music.length;
 
 function destroy() {
-    for(i in 0...fpsGroupTextOnly.length)
-        fpsGroupTextOnly[i].defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font('vcr.ttf')));
+    changeFpsFont('vcr.ttf');
     WindowUtils.winTitle='';
 }
 

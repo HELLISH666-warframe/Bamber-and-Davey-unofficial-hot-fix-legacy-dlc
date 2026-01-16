@@ -15,5 +15,8 @@
 		"album": 2.5,
 		"new": true,
 		"composer":"???"
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "bamber"}
 }

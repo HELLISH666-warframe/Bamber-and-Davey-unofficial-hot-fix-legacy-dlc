@@ -18,6 +18,7 @@
 	"freeplayShit": {
 		"album": 2,
 		"portrait":"ronnie",
+		"hasCutscenes": true,
 		"composer":"Kasu"
 	},
 	"customValues": {"comboPath": "default/",

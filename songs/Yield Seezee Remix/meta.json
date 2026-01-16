@@ -16,7 +16,8 @@
 	"instSuffix": "",
 	"vocalsSuffix": "",
 	"freeplayShit": {
-		"album": 1
+		"album": 1,
+		"hasCutscenes": true
 	},
 	"customValues": {"comboPath": "",
 	"countdownPath": "funkin/",

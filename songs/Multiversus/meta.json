@@ -17,5 +17,8 @@
 		"album": 2,
 		"portrait":"bambi",
 		"composer":"Stormy,Lolzeny,Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "bamber"}
 }

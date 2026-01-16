@@ -1,0 +1,25 @@
+{
+	"params": [
+		{
+			"name": "Zoom",
+			"type": "String",
+			"defaultValue": "1"
+		},{
+			"name": "Time(Beats)",
+			"type": "String",
+			"defaultValue": "1"
+		},{
+			"name": "Ease",
+			"type": "String",
+			"defaultValue": "1"
+		},{
+			"name": "affectHud?",
+			"type": "Bool",
+			"defaultValue": true
+		},{
+			"name": "doChangeDefaultZoom",
+			"type": "Bool",
+			"defaultValue": false
+		}
+	]
+}

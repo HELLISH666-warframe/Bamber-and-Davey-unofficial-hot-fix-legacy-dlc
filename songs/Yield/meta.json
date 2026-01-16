@@ -1,4 +1,16 @@
 {
+	"freeplayShit": {
+		"composer": "Glitch.smh",
+		"vip": true,
+		"portrait": "bamber",
+		"hasCutscenes": true,
+		"album": 2
+	},
+	"customValues": {
+		"countdownsound": "bamber",
+		"countdownPath": "default/",
+		"comboPath": "default/"
+	},
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"icon": "bamber",
@@ -8,30 +20,21 @@
 		"Hard",
 		"VIP"
 	],
+	"credits": {
+		"Chart": {
+			"easy": ["Luminous"],
+			"normal": ["Glitch.smh"],
+			"hard": ["Luminous"],
+			"vip": ["???"]
+		},
+		"Code": ["Frakits", "Verwex"],
+		"Music": ["Glitch.smh"],
+		"Art": ["Verwex"]
+	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
 	"displayName": "Yield",
-	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"bpm": 150,
-	"credits":{
-		"Art": ["Verwex"],
-		"Music": ["Glitch.smh"],
-		"Chart": {
-		"easy": ["Luminous"],
-		"normal": ["Glitch.smh"],
-		"hard": ["Luminous"],
-		"vip": ["???"]
-		},
-		"Code": ["Frakits", "Verwex"]
-	},
-	"freeplayShit": {
-		"album": 2,
-		"portrait":"bamber",
-		"vip": true,
-		"composer":"Glitch.smh"
-	},
-	"customValues": {"comboPath": "default/",
-	"countdownPath": "default/",
-	"countdownsound": "bamber"}
+	"beatsPerMeasure": 4,
+	"bpm": 180
 }

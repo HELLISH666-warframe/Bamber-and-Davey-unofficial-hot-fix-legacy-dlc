@@ -27,10 +27,10 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["Legacy", "Legacy/Old Content", 0x16AD01],
 	["Guh", "REMOVE_LATER", 0x16AD01],
 	/*["Vol 2", "Vol 2 Content", 0x16AD01],
-	["", "Vol 1 DLC", 0x16AD01],
-	["", "V2 demo DLC", 0x16AD01],
-	["Two dot four", "Two dot four DLC", 0x16AD01],
-	["Custom", "Custom 2 Content", 0xFFFFFF]*/
+	["", "Vol 1 Content", 0x16AD01],
+	["", "V2 demo Content", 0x16AD01],
+	["Two dot four", "Two dot four Content", 0x16AD01],
+	["Custom", "Custom Content", 0xFFFFFF]*/
 ];
 
 var songst = [	
@@ -62,14 +62,6 @@ subCurSelected = 0;
 subCurSelectedLimit = songser.length - 1;
 
 var iconArray:Array<HealthIcon> = [];
-
-
-
-
-
-//var testtt=new FreeplaySongthingie(0,0,'blusterous day',true,false,false);
-//var testtt=new freeplaySongthingie2('blusterous day',true,true,false);
-
 var siloTest:FlxTypedGroup = [];
 
 function create() {
@@ -270,9 +262,9 @@ function change(a) {
 
 		var testtt=new freeplaySongthingie2(830,200,kys,songser[i].freeplayShit.vip,songser[i].freeplayShit.new,songser[i].freeplayShit.updated);
 	    insert(4,testtt.siloSprite);
-		if(songser[i].freeplayShit.vip!=null)insert(6,testtt.vipTag);
-		if(songser[i].freeplayShit.new!=null)insert(6,testtt.newTag);
-		if(songser[i].freeplayShit.updated!=null)insert(6,testtt.updatedTag);
+		if(songser[i].freeplayShit.vip!=null)insert(5,testtt.vipTag);
+		if(songser[i].freeplayShit.new!=null)insert(5,testtt.newTag);
+		if(songser[i].freeplayShit.updated!=null)insert(5,testtt.updatedTag);
 		siloTest.push(testtt);
 
 		if (songL[i] != null) {

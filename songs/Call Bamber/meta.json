@@ -14,8 +14,6 @@
 	"icon": "elisocray",
 	"name": "Call Bamber",
 	"color": "#996633",
-	"customValues": {},
-	"countdownsound": "elisocray",
 	"composer": "Glitch.smh",
 	"credits": {
 		"Art": ["Verwex", "Cosmic", "Micro"],
@@ -30,5 +28,8 @@
 		"album": 2,
 		"portrait":"elisocray",
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "callstage/",
+	"countdownsound": "elisocray"}
 }

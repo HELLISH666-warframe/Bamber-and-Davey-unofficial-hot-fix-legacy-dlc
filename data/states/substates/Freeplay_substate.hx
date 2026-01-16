@@ -158,8 +158,9 @@ function create() {
 	changeOption(0);
 	changeScroll(0);
 
+	if(curSong.freeplayShit.hasCutscenes==null)optionText.members[0].alpha=0.3;
 	if(!FlxG.save.data.options.scrollSpeed)optionText.members[2].alpha=scroll_speed.alpha=0.3;
-	if(FlxG.save.data.options.modcharts=='Always')optionText.members[1].alpha=0.3;
+	if(FlxG.save.data.options.modcharts=='Always'||curSong.freeplayShit.hasModchart==null)optionText.members[1].alpha=0.3;
 	//Add something to make it skip grayed out ones dynamically.
 
 	bulletoptionREAL.frames = Paths.getFrames('menus/freeplay/bulletOption');

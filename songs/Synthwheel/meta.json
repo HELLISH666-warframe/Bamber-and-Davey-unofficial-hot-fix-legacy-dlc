@@ -15,8 +15,6 @@
 	"icon": "Davey",
 	"name": "Synthwheel",
 	"color": "#0064FF",
-	"customValues": {},
-	"countdownsound": "davey",
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
@@ -31,6 +29,10 @@
 		"album": 2.5,
 		"portrait":"davey",
 		"updated": true,
+		"hasCutscenes": true,
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "davey"}
 }

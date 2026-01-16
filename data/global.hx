@@ -28,8 +28,7 @@ function destroy(){
 	hasseen = false;
     FlxG.mouse.useSystemCursor = true;
     FlxG.mouse.visible = false;
-    Framerate.fpsCounter.fpsNum.defaultTextFormat = new TextFormat(Framerate.fontName, 18, -1);
-    Framerate.fpsCounter.fpsLabel.defaultTextFormat = Framerate.memoryCounter.memoryText.defaultTextFormat = Framerate.memoryCounter.memoryPeakText.defaultTextFormat = Framerate.codenameBuildField.defaultTextFormat = Framerate.textFormat;
+    changeFpsFont(Framerate.fontName);
 }
 
 function new() {
@@ -131,7 +130,6 @@ function postStateSwitch() {
     }
     idleCursorGraphic = Assets.getBitmapData(Paths.image('cursors/'+cursorName));
     FlxG.mouse.load(idleCursorGraphic,1,1,1);
-    fpsGroupTextOnly=[Framerate.fpsCounter.fpsLabel,Framerate.memoryCounter.memoryText,Framerate.memoryCounter.memoryPeakText,Framerate.codenameBuildField,Framerate.fpsCounter.fpsNum];
 }
 
 function postUpdate(elapsed) {
@@ -202,6 +200,10 @@ public static function playBamberMenuSound(type) {
 }
 
 public static function resetTheModSave() {
+}
+
+public static function changeFpsFont(theFuckingFont:String) {
+    Framerate.fpsCounter.fpsNum.defaultTextFormat = Framerate.fpsCounter.fpsLabel.defaultTextFormat = Framerate.memoryCounter.memoryText.defaultTextFormat = Framerate.memoryCounter.memoryPeakText.defaultTextFormat = Framerate.codenameBuildField.defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(theFuckingFont)));
 }
 
 //Checks for a score with a special diff like erect , bfdi and etc.

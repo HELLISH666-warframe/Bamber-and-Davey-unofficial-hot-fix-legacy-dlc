@@ -1,11 +1,109 @@
 {
 	"events": [
+		{
+			"params": [
+				"10",
+				"0.1",
+				""
+			],
+			"time": 0,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"6",
+				"9",
+				"linear"
+			],
+			"time": 10677.0833333333,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"8.5",
+				"0.5",
+				"expoOut"
+			],
+			"time": 20005.2083333333,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"11",
+				"0.5",
+				"expoOut"
+			],
+			"time": 20338.5416666667,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"13.5",
+				"0.5",
+				"expoOut"
+			],
+			"time": 20671.875,
+			"name": "Bars_from_v2"
+		},
         {
+			"params": [
+				"16",
+				"0.5",
+				"expoOut"
+			],
+			"time": 21005.2083333333,
+			"name": "Bars_from_v2"
+		},
+        {
+			"params": [
+				"10",
+				"2",
+				"quartOut"
+			],
+			"time": 21333.3333333333,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"18",
+				"0.5",
+				""
+			],
+			"time": 64000,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"25",
+				"0.3",
+				""
+			],
+			"time": 84000,
+			"name": "Bars_from_v2"
+		},
+		{
+			"params": [
+				"10",
+				"1",
+				""
+			],
+			"time": 85333.3333333333,
+			"name": "Bars_from_v2"
+		},
+		{
 			"params": [
 				1
 			],
 			"time": 5333.33333333333,
 			"name": "Camera Movement"
+		},
+		{
+			"params": [
+				"dawnProgress",
+				"32"
+			],
+			"name": "HScript Call",
+			"time": 10666.6666666667
 		},
 		{
 			"params": [
@@ -34,6 +132,14 @@
 			],
 			"time": 37333.3333333333,
 			"name": "Camera Movement"
+		},
+		{
+			"params": [
+				"dawnProgress",
+				"16"
+			],
+			"name": "HScript Call",
+			"time": 37333.3333333333
 		},
 		{
 			"params": [
@@ -76,6 +182,14 @@
 		},
 		{
 			"params": [
+				2,
+				1
+			],
+			"name": "Camera Modulo Change",
+			"time": 63666.6666666667
+		},
+		{
+			"params": [
 				0,
 				true,
 				4,
@@ -87,10 +201,130 @@
 		},
 		{
 			"params": [
+				"0.4",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"name": "Tween Camera Zoom",
+			"time": 65666.6666666667
+		},
+		{
+			"params": [
+				"0.3",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"time": 65944.4444444444,
+			"name": "Tween Camera Zoom"
+		},
+		{
+			"params": [
+				"0.2",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"name": "Tween Camera Zoom",
+			"time": 66166.6666666667
+		},
+		{
+			"params": [
+				"0.1",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"time": 66444.4444444444,
+			"name": "Tween Camera Zoom"
+		},
+		{
+			"params": [
+				"0.6",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"name": "Tween Camera Zoom",
+			"time": 66666.6666666667
+		},
+		{
+			"params": [
+				"0.4",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"time": 68333.3333333333,
+			"name": "Tween Camera Zoom"
+		},
+		{
+			"params": [
+				"0.3",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"name": "Tween Camera Zoom",
+			"time": 68555.5555555555
+		},
+		{
+			"params": [
+				"0.2",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"time": 68777.7777777778,
+			"name": "Tween Camera Zoom"
+		},
+		{
+			"params": [
 				1
 			],
 			"time": 69000,
 			"name": "Camera Movement"
+		},
+		{
+			"params": [
+				"0.1",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"name": "Tween Camera Zoom",
+			"time": 69000
+		},
+		{
+			"params": [
+				"0.2",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"name": "Tween Camera Zoom",
+			"time": 69222.2222222222
+		},
+		{
+			"params": [
+				"0.2",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"time": 69277.7777777778,
+			"name": "Tween Camera Zoom"
+		},
+		{
+			"params": [
+				"0.6",
+				"1:0:0",
+				"linear",
+				"In"
+			],
+			"time": 69333.3333333333,
+			"name": "Tween Camera Zoom"
 		},
 		{
 			"params": [
@@ -172,208 +406,7 @@
 			],
 			"time": 129333.333333333,
 			"name": "Camera Movement"
-		},
-		{"params": ["10","0.1","quintOut"],"name": "Bars_from_v2","time": 0},
-		{"params": ["25","0.3","quintOut"],"name": "Bars_from_v2","time": 84000},
-		{"params": ["10","1","quintOut"],"name": "Bars_from_v2","time": 85333.3333333333},
-		{"params": ["18","0.5","quintOut"],"name": "Bars_from_v2","time": 64000},
-		{"params": ["6","9","linear"],"name": "Bars_from_v2","time": 10677.0833333333},
-		{"params": ["8.5","0.5","expoOut"],"name": "Bars_from_v2","time": 20005.2083333333},
-		{"params": ["11","0.5","expoOut"],"name": "Bars_from_v2","time": 20338.5416666667},
-		{"params": ["13.5","0.5","expoOut"],"name": "Bars_from_v2","time": 20671.875},
-		{"params": ["16","0.5","expoOut"],"name": "Bars_from_v2","time": 21005.2083333333},
-		{"params": ["10","2","quartOut"],"name": "Bars_from_v2","time": 21333.3333333333},
-		{"params":["dawnProgress","32"],"name":"HScript Call","time":10666.6666666667},
-		{"params":["dawnProgress","16"],"name":"HScript Call","time":37333.3333333333},
-		{"params":["0.1","27.5","linear",false,true],"name":"tweenZoom_From_V2","time":10671.875},
-		{"params":["0.05","0.5","expoOut",false,true],"name":"tweenZoom_From_V2","time":20000},
-		{"params":["0.05","0.5","expoOut",false,true],"name":"tweenZoom_From_V2","time":20333.3333333333},
-		{"params":["0.05","0.5","expoOut",false,true],"name":"tweenZoom_From_V2","time":20666.6666666667},
-		{"params":["0.05","0.5","expoOut",false,true],"name":"tweenZoom_From_V2","time":21000},
-		{"params":["0.78"],"name":"set_cam_zoom","time":64010.4166666667},
-		{"params":["0.6"],"name":"set_cam_zoom","time":21338.5416666667},
-		{"params":["0.6"],"name":"set_cam_zoom","time":85338.5416666667},
-		{"params":["0.9"],"name":"set_cam_zoom","time":84005.2083333333},
-		{"params":["0.7"],"name":"set_cam_zoom","time":46666.6666666667},
-		{"params":["0.8"],"name":"set_cam_zoom","time":47166.6666666667},
-		{"params":["0.9"],"name":"set_cam_zoom","time":47666.6666666667},
-		{"params":["0.6"],"name":"set_cam_zoom","time":48000},
-		{"params":["0.7"],"name":"set_cam_zoom","time":52000},
-		{"params":["0.8"],"name":"set_cam_zoom","time":52500},
-		{"params":["0.9"],"name":"set_cam_zoom","time":53000},
-		{"params":["0.6"],"name":"set_cam_zoom","time":53333.3333333333},
-		{"params":["0.7"],"name":"set_cam_zoom","time":57333.3333333333},
-		{"params":["0.8"],"name":"set_cam_zoom","time":57833.3333333333},
-		{"params":["0.9"],"name":"set_cam_zoom","time":58333.3333333333},
-		{"params":["0.6"],"name":"set_cam_zoom","time":58666.6666666667},
-		{"params":["0.7"],"name":"set_cam_zoom","time":62666.6666666667},
-		{"params":["0.8"],"name":"set_cam_zoom","time":63166.6666666667},
-		{"params":["0.9"],"name":"set_cam_zoom","time":63666.6666666667},
-		{"params":["0.7"],"name":"set_cam_zoom","time":100000},
-		{"params":["0.8"],"name":"set_cam_zoom","time":100500},
-		{"params":["0.9"],"name":"set_cam_zoom","time":101000},
-		{"params":["0.6"],"name":"set_cam_zoom","time":101250},
-		{"params":["0.7"],"name":"set_cam_zoom","time":105333.333333333},
-		{"params":["0.8"],"name":"set_cam_zoom","time":105833.333333333},
-		{"params":["0.9"],"name":"set_cam_zoom","time":106333.333333333},
-		{"params":["0.6"],"name":"set_cam_zoom","time":106666.666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":21328.125},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":22166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":22666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":23500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":24000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":24833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":25333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":26166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":26666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":27500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":28000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":28833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":29333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":30166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":30666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":31500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":32000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":32833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":33333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":34166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":34666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":35500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":36000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":36833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":37338.5416666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":38166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":38666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":39500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":40000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":40833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":41333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":42166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":64005.2083333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":42666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":43500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":43166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":44000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":44500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":44833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":45333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":45833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":46166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":49833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":50166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":50666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":48005.2083333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":48500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":48833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":49333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":51166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":51500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":64500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":66666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":65000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":65666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":67166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":67666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":68333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":68833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":69333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":69833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":70000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":70333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":71000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":72000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":72500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":73666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":73000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":74166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":74666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":75166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":75666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":76333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":77333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":77833.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":78333.3333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":79000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":79500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":80000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":80500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":81000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":81666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":82666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":83166.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":83666.6666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":5.20833333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":833.333333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":1333.33333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":2166.66666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":2666.66666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":3500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":4000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":4833.33333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":5333.33333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":6166.66666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":6666.66666666667},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":7500},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":8000},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":8833.33333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":9333.33333333333},
-		{"params":["0.050","0"],"name":"add_cam_zoom","time":10166.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":85343.75},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":85666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":86000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":86333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":86666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":87000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":87333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":87666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":88000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":88333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":88666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":89000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":89333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":89666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":90000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":90333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":90666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":91000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":91333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":91666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":92000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":92333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":92666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":93000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":93333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":93666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":94000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":94333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":94666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":95000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":95333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":95666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":96000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":96333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":96666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":97000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":97333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":97666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":98000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":98333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":98666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":99333.3333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":99000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":99666.6666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":101333.333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":101666.666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":102000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":102333.333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":102666.666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":103000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":103333.333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":103666.666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":104000},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":104333.333333333},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":104666.666666667},
-		{"params":["0.030","0"],"name":"add_cam_zoom","time":105000}
+		}
 	],
 	"strumLines": [
 		{

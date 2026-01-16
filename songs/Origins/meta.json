@@ -19,5 +19,8 @@
 		"new": true,
 		"vip": true,
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "funkin"}
 }

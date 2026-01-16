@@ -29,5 +29,8 @@
 		"updated": true,
 		"composer":"Glitch.smh",
 		"hasModchart":true
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "swindler"}
 }

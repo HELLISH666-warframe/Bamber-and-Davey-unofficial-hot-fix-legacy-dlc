@@ -28,6 +28,7 @@
 		"album": 2,
 		"portrait":"bamber",
 		"composer":"Glitch.smh",
+		"hasCutscenes": true,
 		"hasModchart":true
 	},
 	"customValues": {"comboPath": "default/",
