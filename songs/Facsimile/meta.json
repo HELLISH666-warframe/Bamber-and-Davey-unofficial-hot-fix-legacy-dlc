@@ -18,5 +18,10 @@
 		"album": 2,
 		"portrait":"joke_davey_obj",
 		"composer":"Glitch.smh"
+	},
+	"customValues": {
+		"countdownsound": "joke_model_obj",
+		"countdownPath": "paintvoid/facsimile/",
+		"comboPath": "paintvoid/facsimile/"
 	}
 }

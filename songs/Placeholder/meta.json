@@ -7,21 +7,11 @@
 	"icon": "face",
 	"credits": {
 		"Chart": {
-			"placeholder": [
-				"Glitch.smh"
-			]
+			"placeholder": ["Glitch.smh"]
 		},
-		"Code": [
-			"Glitch.smh",
-			"Frakits",
-			"Verwex"
-		],
-		"Music": [
-			"Glitch.Smh"
-		],
-		"Art": [
-			"Glitch.Smh"
-		]
+		"Code": ["Glitch.smh", "Frakits", "Verwex"],
+		"Music": ["Glitch.Smh"],
+		"Art": ["Glitch.Smh"]
 	},
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
@@ -35,5 +25,10 @@
 		"portrait":"PLACEHOLDER_new",
 		"updated": true,
 		"composer":"Glitch.smh"
+	},
+	"customValues": {
+		"countdownsound": "theplaceholder",
+		"countdownPath": "paintvoid/",
+		"comboPath": "paintvoid/"
 	}
 }

@@ -1,9 +1,6 @@
 //Custom Combo graphics
 var comboPath = 'game/score/'+PlayState.SONG.meta.customValues.comboPath;
 
-var hasSubfolders = ['paintvoid'];
-if (hasSubfolders.contains(SONG.stage.toLowerCase())) comboPath = 'HUD/' + PlayState.SONG.stage.toLowerCase() + '/' + SONG.meta.name.toLowerCase() + '/';
-
 /*var countdownOverrideDir = [['judgement_hall', 'undertalestage'] => 'undertale'];
 
 for (song in countdownOverrideDir.keys()) {
@@ -14,14 +11,6 @@ for (song in countdownOverrideDir.keys()) {
 }*/
 
 var hasPlurality = (Assets.exists(Paths.image(comboPath + 'combo-plural')));
-
-//Ratings for Custom Graphics
-ratings = [
-    {name: "Sick",image: comboPath + "Sick", accuracy: 1,health: 0.035,maxDiff: 125 * 0.30,score: 350,color: "#24DEFF",fcRating: "MFC",showSplashes: true},
-    {name: "Good",image: comboPath + "Good",accuracy: 2 / 3,health: 0.025,maxDiff: 125 * 0.55,score: 200,color: "#3FD200", cRating: "GFC"},
-    {name: "Bad",image: comboPath + "Bad",accuracy: 1 / 3,health: 0.010,maxDiff: 125 * 0.75,score: 50,color: "#D70000"},
-    {name: "Shit",image: comboPath + "Shit",accuracy: 1 / 6,health: 0.0,maxDiff: 99999,score: -150,color: "#804913"}
-];
 
 var savedCombo = 0;
 var savedMisses = 0;
@@ -65,25 +54,18 @@ var comboOffsets = [
 ];
 var comboXOffset = comboOffsets[SONG.stage.toLowerCase()] != null ? comboOffsets[SONG.stage.toLowerCase()] : -7;
 
-function create() {
-    Flags.USE_LEGACY_TIMING=false;
-    ratingManager.ratingData=[];
-    for(i in 0...ratingManager.ratingData.length)
-	trace(ratingManager.ratingData[i].name);
-	ratingManager.addRating({name: "Sick", window: 125*0.30, accuracy: 1, score: 350, splash: true});
-	ratingManager.addRating({name: "Good", window: 125*0.55, accuracy: 2/3, score: 200, splash: false});
-	ratingManager.addRating({name: "Bad", window: 125*0.75, accuracy: 1/3, score: 50, splash: false});
-	ratingManager.addRating({name: "Shit", window: 125*0.95, accuracy: 1/6, score: -150, splash: false});
-	for(i in 0...ratingManager.ratingData.length)
-	trace(ratingManager.ratingData[i].name);
-	//for (rating in [for (i in ratingManager.ratingData) i.name]) hits.set(rating, 0); // Ensure all keys exist as to prevent null errors.
-}
+importScript("data/scripts/custom-ratings");
+function postCreate() scripts.call('postComboShit');
 function onPlayerHit(e) {
-    trace(e.rating);
     if(e.note.isSustainNote)return;
-   onShowCombo(combo,e.rating);
-   trace(hits[e.rating]);
+    onShowCombo(combo,fuckingKillMe(e.rating));
+    e.healthGain = 0;
+	e.healthGain = combTestShit[e.rating].health;
 }
+
+function fuckingKillMe(fuckingValue:String)
+    for (i in 0...combTestShit.length)
+        if(combTestShit[i].name.toLowerCase()==fuckingValue)return combTestShit[i].image;
 function onPlayerMiss(e) {
     var missCount = misses - savedMisses;
     savedMisses = misses;
@@ -124,7 +106,7 @@ function onShowCombo(combo:Int, coolText:String) {
             broken.destroy();
         }
 
-        var rating:FlxSprite = new FlxSprite().loadGraphic(Paths.image(comboPath+coolText));
+        var rating:FlxSprite = new FlxSprite().loadGraphic(Paths.image(coolText));
         rating.centerOrigin();
         rating.scale.x = rating.scale.y = 1 * strumScale;
         rating.updateHitbox();

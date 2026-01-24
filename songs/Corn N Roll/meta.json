@@ -5,8 +5,6 @@
 	"color": "#2FFE80",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"custom_credits": true,
-	"countdownsound": "four",
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh", "Walto"],
@@ -19,5 +17,8 @@
 		"album": 2,
 		"portrait":"bfdi-bamber",
 		"composer":"Glitch.smh,Walto"
-	}
+	},
+	"customValues": {"comboPath": "beefydie/",
+	"countdownPath": "bfdifield/",
+	"countdownsound": "four"}
 }

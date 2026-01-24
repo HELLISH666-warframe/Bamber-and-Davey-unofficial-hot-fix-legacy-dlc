@@ -5,7 +5,7 @@
 	<char name="isaac" char="isaac" position="right"/>
 
 	<!-- Lines -->
-	<line char="bamber" speed="0.05">
+	<line char="bamber" speed="0.05" changeMusic="fertilizer">
 		Damn, beaten again...
 	</line>
 	<line char="isaac" speed="0.05" >

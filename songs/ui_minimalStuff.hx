@@ -22,7 +22,7 @@ var songArray = [ //sorry guys i fucked up the song order oops...
 
 var customFonts = [
     'bfdifield' => "adelon-serial-bold.ttf",
-    'battlegrounds' => "Impact.ttf",
+    'battlegrounds' => "impact.ttf",
     'judgement hall' => "Mars_Needs_Cunnilingus.ttf",
     'undertalestage' => "Mars_Needs_Cunnilingus.ttf",
     'bot farm' => "goodbyeDespair.ttf",

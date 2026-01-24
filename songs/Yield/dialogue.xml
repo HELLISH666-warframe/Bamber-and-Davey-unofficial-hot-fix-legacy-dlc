@@ -5,7 +5,7 @@
 	<char name="isaac" char="isaac" position="right"/>
 
 	<!-- Lines -->
-	<line char="bamber" speed="0.08" changeMusic="bamber-die-a-log">
+	<line char="bamber" speed="0.08" changeMusic="fertilizer">
 		Who are you and what are you two doing in my farm?
 	</line>
 	<line char="isaac" changeDefAnim="surprised">

@@ -6,7 +6,11 @@
 	],
 	"icon": "joke_model_obj",
 	"color": -15656943,
-	"customValues": {},
+	"customValues": {
+		"countdownsound": "joke_model_obj",
+		"countdownPath": "paintvoid/astray/",
+		"comboPath": "paintvoid/astray/"
+	},
 	"coopAllowed": true,
 	"name": "Astray",
 	"stepsPerBeat": 4,

@@ -27,5 +27,8 @@
 		"album": 2,
 		"portrait":"gen-bamber",
 		"composer":"PK Cool Guy"
-	}
+	},
+	"customValues": {"comboPath": "genstage/",
+	"countdownPath": "genstage/",
+	"countdownsound": "amung"}
 }

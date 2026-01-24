@@ -5,7 +5,7 @@
 	<char name="isaac" char="isaac" position="right"/>
 
 	<!-- Lines -->
-	<line char="isaac" speed="0.05">
+	<line char="isaac" speed="0.05" changeMusic="fertilizer">
 		That was pretty tight!
 	</line>
 	<line char="bamber" changeDefAnim="happy" speed="0.05">
