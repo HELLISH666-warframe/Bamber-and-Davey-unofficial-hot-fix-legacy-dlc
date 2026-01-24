@@ -58,7 +58,7 @@ importScript("data/scripts/custom-ratings");
 function postCreate() scripts.call('postComboShit');
 function onPlayerHit(e) {
     if(e.note.isSustainNote)return;
-    onShowCombo(combo,fuckingKillMe(e.rating));
+    onShowCombo(combo+1,fuckingKillMe(e.rating));
     e.healthGain = 0;
 	e.healthGain = combTestShit[e.rating].health;
 }
@@ -86,7 +86,7 @@ function onShowCombo(combo:Int, coolText:String) {
     var strumCount = 2;
 
     for (e in strumLines){
-        if (e != null) {
+        if (strumLines.members[1].members[0] != null) {
             strumsX += strumLines.members[1].members[0].x + (strumLines.members[1].members[0].width / 2);
             strumsY += strumLines.members[1].members[0].y + (strumLines.members[1].members[0].height / 2);
             strumScale += strumLines.members[1].members[0].scale.x/7*4;

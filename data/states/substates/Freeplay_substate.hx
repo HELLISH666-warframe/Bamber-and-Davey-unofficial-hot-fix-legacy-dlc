@@ -190,7 +190,7 @@ function update(elapsed:Float) {
 var __oldDiffName = null;
 function changeDiff(e) {
 	arrows[FlxMath.bound(e, 0, 1)].animation.play("hit");
-	curDifficulty = FlxMath.wrap(curDifficulty + e, 0,  FlxG.save.data.Bamber_SONGSONG.difficulties.length - 1);
+	curDifficulty = FlxMath.wrap(curDifficulty + e, 0, FlxG.save.data.Bamber_SONGSONG.difficulties.length - 1);
 	if (__oldDiffName != (__oldDiffName = FlxG.save.data.Bamber_song_diff[curDifficulty].toLowerCase())) {
 		for(e in difficultySprites) e.alpha = 0.001;
 

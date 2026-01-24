@@ -101,11 +101,11 @@ function new() {
 
     //Game Statistics
     FlxG.save.data.gameStats ??= {};
-    FlxG.save.data.gameStats.discoveries ??= {
-        "Bamber's Farm": false,
-        "Davey's Yard": false,
-        "Romania Outskirts": false
-    };
+    FlxG.save.data.gameStats.discoveries ??= [
+        "Bamber's Farm"=> false,
+        "Davey's Yard"=> false,
+        "Romania Outskirts"=> false
+    ];
 
     FlxG.save.data.gameStats.playtime ??= 0;
     FlxG.save.data.gameStats.clearedSongs ??= [];

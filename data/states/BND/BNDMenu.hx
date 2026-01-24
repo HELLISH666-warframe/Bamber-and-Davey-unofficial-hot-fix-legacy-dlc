@@ -68,10 +68,14 @@ var conditionProcess = false; //When you can progress
 var currentlyUsedObjects = []; //For clickable objects, where they are going through a something
 
 //Week Score Checker Per Character
+import funkin.menus.StoryMenuState.StoryWeeklist;
 function checkDifficultyDiscover(weekName, ?doCheckDifficulty = true) {
+    FlxG.save.data.gameStats.discoveries["Bamber's Farm"]=true;
+    trace(FlxG.save.data.gameStats.discoveries);
     var found = null;
 
     if (FlxG.save.data.gameStats.discoveries[weekName]) {
+        trace("Oh");
         found = (doCheckDifficulty == true ? 'Easy' : true);
 
         if (doCheckDifficulty) {
@@ -1008,6 +1012,9 @@ function postUpdate(elapsed) {
 			else
 				hoveringOverButton = false;
         });
+    }
+    if (FlxG.keys.justPressed.G) { //DEV, REMOVE ONCE DONE!
+        FlxG.switchState(new ModState("medal_shit/MedalsState"));
     }
 }
 
