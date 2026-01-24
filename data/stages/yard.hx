@@ -6,6 +6,10 @@ function create(){
 	insert(members.indexOf(hill), balloons = new FlxBackdrop(Paths.image("stages/yard/scrollingBG"), FlxAxes.X));
 	balloons.setPosition(-600, -100);
 	balloons.scrollFactor.x = balloons.scrollFactor.y = 0.2;
+	if(strumLines.members[2].characters[0].curCharacter == "BnD-gf"){
+		strumLines.members[2].characters[0].x -= 200;
+		strumLines.members[2].characters[0].y -= 420;
+	}
 }
 
 var danced = false;

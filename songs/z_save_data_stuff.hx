@@ -7,11 +7,9 @@ function onPlayerMiss(e) {
 }
 function postCreate() {
 	//Sound
-	if(FlxG.save.data.options.missSounds!=true){
-		muteVocalsOnMiss=false;
-	}
+	muteVocalsOnMiss=FlxG.save.data.options.missSounds;
 	//Appearance
-	if(FlxG.save.data.options.healthIcons!=true){
+	if(!FlxG.save.data.options.healthIcons){
 		iconP1.alpha=iconP2.alpha=0.001;
 	}
 	//Gameplay Options

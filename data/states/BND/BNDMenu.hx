@@ -70,8 +70,6 @@ var currentlyUsedObjects = []; //For clickable objects, where they are going thr
 //Week Score Checker Per Character
 import funkin.menus.StoryMenuState.StoryWeeklist;
 function checkDifficultyDiscover(weekName, ?doCheckDifficulty = true) {
-    FlxG.save.data.gameStats.discoveries["Bamber's Farm"]=true;
-    trace(FlxG.save.data.gameStats.discoveries);
     var found = null;
 
     if (FlxG.save.data.gameStats.discoveries[weekName]) {

@@ -57,6 +57,8 @@ var comboXOffset = comboOffsets[SONG.stage.toLowerCase()] != null ? comboOffsets
 importScript("data/scripts/custom-ratings");
 function postCreate() scripts.call('postComboShit');
 function onPlayerHit(e) {
+    if(SONG.stage=='oldFarm_night'||SONG.stage=='oldFarm') return;
+    e.showRating=false;
     if(e.note.isSustainNote)return;
     onShowCombo(combo+1,fuckingKillMe(e.rating));
     e.healthGain = 0;
