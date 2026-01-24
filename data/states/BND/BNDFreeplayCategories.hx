@@ -42,7 +42,7 @@ var songst = [
 	["Call Bamber","Deathbattle","H2O"],
 	["Corn N Roll","Screencast"],
 	["Spookeez", "South", "Pico", "2Hot"],
-	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever",'Harvest Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],
+	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever",'Harvest Vol2','Synthwheel Vol2','Coop Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],
 	["Astray", "Facsimile", "Placeholder", "Test Footage"]
 ];
 

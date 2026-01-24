@@ -1,0 +1,36 @@
+{
+	"beatsPerMeasure": 4,
+	"opponentModeAllowed": false,
+	"coopAllowed": false,
+	"stepsPerBeat": 4,
+	"bpm": 150,
+	"difficulties": [
+		"EASY",
+		"NORMAL",
+		"HARD"
+	],
+	"needsVoices": false,
+	"parsedColor": -16751361,
+	"displayName": "Coop Vol2",
+	"icon": "Davey",
+	"color": "#0064FF",
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+			"Easy": ["Glitch.smh"],
+			"Normal": ["Glitch.smh"],
+			"Hard": ["Glitch.smh"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"davey-coop",
+		"hasCutscenes": true,
+		"composer":"Glitch.smh"
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "davey"}
+}

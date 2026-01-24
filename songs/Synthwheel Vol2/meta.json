@@ -1,0 +1,35 @@
+{
+	"freeplayShit": {
+		"composer": "Glitch.smh",
+		"portrait": "davey",
+		"hasCutscenes": true,
+		"album": 2
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "davey"},
+	"color": "#0066FF",
+	"opponentModeAllowed": true,
+	"icon": "davey",
+	"difficulties": [
+		"Easy",
+		"Normal",
+		"Hard"
+	],
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {
+			"Easy": ["Glitch.smh"],
+			"Normal": ["Glitch.smh"],
+			"Hard": ["Luminous"]
+		},
+		"Code": ["Frakits", "Verwex"]
+	},
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Synthwheel Vol1",
+	"needsVoices": true,
+	"beatsPerMeasure": 4,
+	"bpm": 150
+}

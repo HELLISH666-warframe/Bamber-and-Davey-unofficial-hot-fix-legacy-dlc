@@ -16,9 +16,8 @@
 		"Code": ["Frakits", "Verwex"]
 	},
 	"freeplayShit": {
-		"album": 2.5,
+		"album": 2,
 		"portrait":"davey",
-		"updated": true,
 		"hasCutscenes": true,
 		"composer":"Glitch.smh"
 	},
