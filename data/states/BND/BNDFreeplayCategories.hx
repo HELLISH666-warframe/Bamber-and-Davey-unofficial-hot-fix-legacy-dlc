@@ -26,7 +26,8 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["Remixes", "Remixes", 0xFF338A9C],
 	["Legacy", "Legacy/Old Content", 0x16AD01],
 	["Guh", "REMOVE_LATER", 0x16AD01],
-	/*["Vol 2", "Vol 2 Content", 0x16AD01],
+	/*["Guh", "Legacy-er Content", 0x16AD01],
+	["Vol 2", "Vol 2 Content", 0x16AD01],
 	["", "Vol 1 Content", 0x16AD01],
 	["", "V2 demo Content", 0x16AD01],
 	["Two dot four", "Two dot four Content", 0x16AD01],
@@ -43,7 +44,8 @@ var songst = [
 	["Corn N Roll","Screencast"],
 	["Spookeez", "South", "Pico", "2Hot"],
 	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever",'Harvest Vol2','Synthwheel Vol2','Coop Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],
-	["Astray", "Facsimile", "Placeholder", "Test Footage"]
+	["Astray", "Facsimile", "Placeholder", "Test Footage"]/*,
+	['Yield In-Dev','Cornaholic Demo','Harvest Demo','Coop Old','Fortnite Duos Old','Matemathon Old','Godzilla','Judgement Farm Old','Call Bamber Old','Astray Old','Astray Oldest']*///50 Songs.
 ];
 
 var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
@@ -52,7 +54,6 @@ var textCam = new FlxCamera();
 static var curSelected:Int = 0;
 var songser = [];
 var songL:FlxTypedGroup<FlxText> = [];
-var songLBgs:FlxTypedGroup = new FlxTypedGroup();
 var album;
 var timer = 0;
 var playall;
@@ -128,7 +129,6 @@ function create() {
     }
 	
 	change(0);
-	insert(7,songLBgs);
 	
 	changements(0);
 	textCam.zoom=0.9;
@@ -169,10 +169,6 @@ function update(elapsed) {
 		i.targetY = i.ID - subCurSelected;
 		var scaledY = FlxMath.remapToRange(i.targetY, 0, 1, 0, 1.3);
 		i.y = CoolUtil.fpsLerp(i.y, (scaledY * 200) + (FlxG.height * 0.30), 0.16);
-	}
-	for (i in 0...songL.length) {
-		if(songLBgs.members[i]!=null&&songL[i]!=null)
-		songLBgs.members[i].y=songL[i].y-200;
 	}
 	for (i=>testtt in siloTest) {testtt.siloSprite.y=songL[i].y-170;
 		if(testtt.newTag!=null)testtt.newTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);

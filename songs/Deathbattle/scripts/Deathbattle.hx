@@ -242,11 +242,11 @@ function postUpdate(elapsed:Float) {
 	//return false;
 
 
-	/*for (i in 0...comboObjects.length) {
+	for (i in 0...comboObjects.length) {
 		comboObjects[i].x = comboPositions[i][0] + FlxG.random.float(combo/-50, combo/50);
 		comboObjects[i].y = comboPositions[i][1] + FlxG.random.float(combo/-50, combo/50);
 		comboObjects[i].angle = comboPositions[i][2] + FlxG.random.float(combo/-90, combo/90);
-	}*/
+	}
 
 	if (creditTimer != null) creditTimer.active = !paused;
 }
@@ -394,6 +394,16 @@ function onPlayerHit(e) {
 		punch(dads, FlxG.random.int(0,dads.length-1), FlxG.random.int(0,100) > 80, FlxG.random.int(0,100) > 80);
 	}
 }*/
+function onPlayerHit(e) {
+    e.showRating=false;
+    if(e.note.isSustainNote)return;
+    onShowCombo(combo+1,fuckingKillMe(e.rating));
+    e.healthGain = 0;
+	e.healthGain = combTestShit[e.rating].health;
+}
+function fuckingKillMe(fuckingValue:String)
+    for (i in 0...combTestShit.length)
+        if(combTestShit[i].name.toLowerCase()==fuckingValue)return combTestShit[i].image;
 
 var comboSprite = new FlxSprite();
 var comboTweens = [];
@@ -404,8 +414,7 @@ var comboTimers = [];
 
 
 //An Effect for when a miss occurs, regular or ghost tapping misses.
-/*
-function miss() {
+function onPlayerMiss(e) {
 	punch(playerTeam, FlxG.random.int(0,playerTeam.length-1), true, true);
 	scripts.call('shake', [0.5]);
 
@@ -424,8 +433,8 @@ function miss() {
 		comboTimers = [];
 	}
 }
-
-function spawnJudgement(coolText, lastRating) {
+var thing = new FlxSprite();
+function spawnJudgement(lastRating) {
 	var tweens:Array<VarTween> = [];
 
     var strumsX:Float = 0;
@@ -433,10 +442,8 @@ function spawnJudgement(coolText, lastRating) {
     var strumScale:Float = 0;
     var strumCount = 0;
 
-    for (e in playerStrums.members)
-    {
-        if (e != null)
-        {
+	for (e in playerStrums.members) {
+        if (e != null) {
             strumsX += e.x + (e.width / 2);
             strumsY += e.y + (e.height / 2);
             strumScale += e.notesScale/7*4;
@@ -447,17 +454,17 @@ function spawnJudgement(coolText, lastRating) {
     strumsY /= strumCount;
     strumScale /= strumCount;
 
-    coolText.x = Math.max(Math.min(strumsX, FlxG.width - 80), 20);
-    coolText.y = Math.max(Math.min(strumsY - FlxG.height/2*(engineSettings.downscroll ? 1 : -1), FlxG.height - 80), 20);
+    thing.x = Math.max(Math.min(strumsX, FlxG.width - 80), 20);
+    thing.y = Math.max(Math.min(strumsY - FlxG.height/2*(PlayState.downscroll ? 1 : -1), FlxG.height - 80), 20);
 
-	var rating:FlxSprite = new FlxSprite().loadGraphic(lastRating.bitmap);
+	var rating:FlxSprite = new FlxSprite().loadGraphic(Paths.image(lastRating));
     rating.centerOrigin();
 
-    rating.x = coolText.x - rating.width/2;
-    rating.y = coolText.y - rating.height/2;
+    rating.x = thing.x - rating.width/2;
+    rating.y = thing.y - rating.height/2;
     rating.cameras = [camHUD];
     rating.antialiasing = lastRating.antialiasing;
-    PlayState.add(rating);
+    add(rating);
 
     rating.alpha = 0;
     rating.y -= 20;
@@ -475,28 +482,28 @@ function spawnJudgement(coolText, lastRating) {
         ease: FlxEase.quartOut
     }));
 
-	if (engineSettings.maxRatingsAllowed > -1) optimizedTweenSet.push(tweens);
+	//if (engineSettings.maxRatingsAllowed > -1) optimizedTweenSet.push(tweens);
 }
 
 function onShowCombo(combo:Int, coolText:FlxText) {
-	spawnJudgement(coolText, lastRating);
+	spawnJudgement(coolText);
 
 	otherHitCounter.text = 'Brutal: '+hits['Brutal']+'\r\nStrong: '+hits['Strong']+'\r\nAverage: '+hits['Average']+'\r\nWeak: '+hits['Weak'];
 	otherHitCounter.y = (FlxG.height / 2) - (otherHitCounter.height / 2);
 
 	if (PlayState.combo == 1) for (i in comboTweens) i.finish();
 
-    coolText.x = 160;
-    coolText.y = FlxG.height/2 - 130 * (engineSettings.downscroll ? 1 : -1);
+    thing.x = 160;
+    thing.y = FlxG.height/2 - 130 * (PlayState.downscroll ? 1 : -1);
 
 	if (comboObjects[0] == null) {
-		var comboSpr = new FlxSprite(coolText.x, coolText.y).loadGraphic(Paths.image('HUD/battlegrounds/Combo'));
+		var comboSpr = new FlxSprite(thing.x, thing.y).loadGraphic(Paths.image('game/score/battlegrounds/Combo'));
 		comboSpr.cameras = [camHUD];
 		comboSpr.y -= comboSpr.height/2;
 		add(comboSpr);
 		comboObjects.push(comboSpr);
 		comboPositions.push([comboSpr.x, comboSpr.y, 0]);
-		comboSpr.antialiasing = engineSettings.antialiasing;
+		comboSpr.antialiasing = Options.antialiasing;
 
 		comboSpr.centerOrigin();
 	}
@@ -505,8 +512,8 @@ function onShowCombo(combo:Int, coolText:FlxText) {
 	
 	for (i in 0...splitCombo.length) {
 		if (comboObjects[i+1] == null) {
-			var comboNum = new FlxSprite(coolText.x, coolText.y + 20);
-			comboNum.frames = Paths.getSparrowAtlas('HUD/battlegrounds/comboNum', mod);
+			var comboNum = new FlxSprite(thing.x, thing.y + 20);
+			comboNum.frames = Paths.getSparrowAtlas('game/score/battlegrounds/comboNum');
 			comboNum.animation.addByPrefix('num', 'Num', 0, false);
 			comboNum.animation.play('num');
 			comboNum.cameras = [camHUD];
@@ -515,7 +522,7 @@ function onShowCombo(combo:Int, coolText:FlxText) {
 			add(comboNum);
 			comboObjects.push(comboNum);
 			comboPositions.push([comboNum.x, comboNum.y, FlxG.random.float(-10, 10)]);
-			comboNum.antialiasing = engineSettings.antialiasing;
+			comboNum.antialiasing = Options.antialiasing;
 
 			comboNum.centerOrigin();
 		}
@@ -540,7 +547,7 @@ function onShowCombo(combo:Int, coolText:FlxText) {
 	}
 
     return false;
-}
+}/*
 
 //Handler for Big Hits
 function beatHit(curBeat) {

@@ -56,13 +56,16 @@ function create() {
 	timerFinal.visible = false;
 
 	if (FlxG.save.data.options.timeBar) {
-		add(timerBar);
-		add(timerBG);
-		add(timerText);
-		add(timerNow);
-		add(timerFinal);
+		for(i in [timerBar,timerBG,timerText,timerNow,timerFinal])add(i);
 	}
-}
+}/*
+function postCreate() {
+	if (FlxG.save.data.options.timeBar) {
+		for(i in [timerBar,timerBG,timerText,timerNow,timerFinal]){remove(i);
+			insert(members.indexOf(iconP2)+1,i);
+		}
+	}
+}*/
 
 function onStartCountdown() {
     if (timerBar != null){

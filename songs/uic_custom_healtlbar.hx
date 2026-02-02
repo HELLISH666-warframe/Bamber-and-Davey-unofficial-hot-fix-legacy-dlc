@@ -1,6 +1,5 @@
 import flixel.util.FlxAxes;
 import flixel.math.FlxRect;
-import ColoredNoteShader;
 var colorShader1 = new CustomShader("ColoredNoteShader");
 var colorShader2 = new CustomShader("ColoredNoteShader");
 
@@ -85,7 +84,7 @@ function postPostCreate() {
                 colorShader2.b = ((barColors[1]) & 0xFF);
         }
 
-        insert(members.indexOf(iconP1),maskHealthBar);
+        insert(members.indexOf(iconP2),maskHealthBar);
         insert(members.indexOf(timerBG)+1,maskTimeBar);
     } else {
 
@@ -100,7 +99,7 @@ function postPostCreate() {
     healthBar.y = healthBarBG.y + healthBarBG.height/2 - healthBar.height/2;
     timerBar.y = timerBG.y + timerBG.height/2 - timerBar.height/2;
 
-    for(i in [healthBarBG,maskTimeBar,maskHealthBar,iconP1,iconP2,scoreTxt,accuracyTxt,missesTxt])
+    for(i in [healthBar,healthBarBG,maskTimeBar,maskHealthBar,iconP1,iconP2,scoreTxt,accuracyTxt,missesTxt])
     i.alpha = 0;
 
     if (!FlxG.save.data.options.timeBar && timerText != null) {
@@ -116,7 +115,7 @@ function postPostCreate() {
 
 function onStartCountdown() {
     if (FlxG.save.data.options.timeBar) strumLine.y += barType_StrumY[0];
-    for(i in [healthBarBG,maskTimeBar,maskHealthBar,iconP1,iconP2,scoreTxt,accuracyTxt,missesTxt])
+    for(i in [healthBar,healthBarBG,maskTimeBar,maskHealthBar,iconP1,iconP2,scoreTxt,accuracyTxt,missesTxt])
 	FlxTween.tween(i, {alpha: 1}, 0.75, {ease: FlxEase.quartInOut});
 
     if (FlxG.save.data.options.timeBar) {

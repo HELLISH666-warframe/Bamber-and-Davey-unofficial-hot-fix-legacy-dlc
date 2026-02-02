@@ -73,7 +73,6 @@ function checkDifficultyDiscover(weekName, ?doCheckDifficulty = true) {
     var found = null;
 
     if (FlxG.save.data.gameStats.discoveries[weekName]) {
-        trace("Oh");
         found = (doCheckDifficulty == true ? 'Easy' : true);
 
         if (doCheckDifficulty) {

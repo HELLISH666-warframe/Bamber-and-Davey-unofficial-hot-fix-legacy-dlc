@@ -5,7 +5,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Framerate", "The framerate that the game will run at.", [30, 60, 90, 120, 150, 180, 210, 240], 'framerate'],
         ["Anti-aliasing", "Toggles smoothing jagged edges on curves and diagonal lines", [], 'antialiasing'],
         ["Pixel Perfect", "", [], 'pixelperfect'],
-        ["Resolution", "How many pixels the game renders at", ["1280x720"], 'resolution'],
+        ["Resolution", "How many pixels the game renders at", ['256x144','854x480',"1280x720",'1920x1080','2560x1440','3840x2160'], 'resolution'],
         ["Fullscreen", "Toggles the game filling your screen", [], 'fullscreen'],
         ["Borderless", "Toggles the game window border", [], 'borderless'],
         ["Brightness", "How bright the game is", [], 'brightness'],
@@ -36,7 +36,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Stamp Keybinds", "Shows keybinds under the your strum.(???)", [], 'stampKeybinds']
     ],
     [ // NOTE OPTIONS
-        ["Noteskin", "What the notes appear as", ["Default", "Arrows"], 'noteskin'],
+        ["Noteskin", "What the notes appear as", ["Default", "Arrows",'3dcheater','awesome','bfdi','davey_obj','deathbattle','facsimile','funkin','joke_model_obj','night','test footage','trade','undertale'], 'noteskin'],
         ["Note Scale", "How big the notes appear in-game (Default is \"1\")", [1,2,3,4], 'noteScale'], //#
         ["Note Colors", "What color notes appear as", ["Placeholder","placeholder but not captialised."], 'noteColors']
     ],
@@ -53,11 +53,13 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Skip Song Intro", "", [], 'skipSongIntro'],
         ["Scroll Mode", "Where the notes appear on your screen", ["Top", "Bottom"], 'scrollMode'],
         ["Middle Scroll", "Toggles your strum being centered", [], 'middleScroll'],
+        ["Ghost Tapping", "Toggles ghost tapping", [], 'ghostTapping'],
         ["Story Mode Dialogue", "Toggles story mode dialogue", [], 'storyDialogue'],
         ["Freeplay Dialogue", "Toggles freeplay dialogue", [], 'freeplayDialogue']
     ],
     [ // MISC
 	    ["Reset Scores", "Erases ALL song & week scores/achievements", [""], 'gameStats'],
-	    ["Reset Options", "Restores all settings to their default", [""], 'idek']
+	    ["Reset Options", "Restores all settings to their default", [""], 'idek'],
+        ["Reset Misc", "Restores week completion, freeplay tags and stats.", [""], 'idek']
     ]
 ];

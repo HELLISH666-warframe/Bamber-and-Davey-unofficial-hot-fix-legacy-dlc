@@ -1,3 +1,4 @@
+//FREE_ME_FROM_THIS_HELL.
 import funkin.editors.ui.UISliceSprite;
 import funkin.options.Options;
 import hxvlc.flixel.FlxVideoSprite;
@@ -11,6 +12,7 @@ import StringTools;
 importScript("data/states/BND/BNDSettings-Options");
 // bg stuff, not used later
 var box = new UISliceSprite(0, 0, FlxG.width/2 * 1.6, FlxG.height/3 * 2.25, 'menus/options/optionsBox');
+var box2 = new UISliceSprite(0, 0, FlxG.width/2 * 1.6, FlxG.height/3 * 2.25, 'menus/options/optionsBoxbutuhh');
 // stuff you can't interact with
 
 add(vid = new FlxVideoSprite());
@@ -27,6 +29,8 @@ var daCheckboxes = new FlxTypedGroup();
 var curMenu:Int = 0;
 var curSelect:Int = 0;
 var curParam:Int = 0;
+
+var theFuckingIMPORTANTbar = new FlxSprite(700, 0).makeSolid(1000, 100, 0xFFFEFEFB);
 
 function create() {
     // Initialisation
@@ -63,6 +67,7 @@ function create() {
 	    if([2, 7].contains(num)) b.alpha = 0.5;
         //if(num != 0 || num != 2) b.antialiasing = Options.antialiasing;
     }
+    insert(3,theFuckingIMPORTANTbar).screenCenter();
 	
 	changeOption(0);
 }
@@ -92,6 +97,10 @@ function acceptThingieAndNotDie(){
         if(daCheckboxes.members[i].ID==optionsFile[curMenu][curSelect][3])
         Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3])?
         daCheckboxes.members[i].animation.play('ya',true): daCheckboxes.members[i].animation.play('nah',true);
+
+    if(StringTools.endsWith(daOptions.members[curSelect].text, 'Scores'))resetTheModSave('Score');
+    if(StringTools.endsWith(daOptions.members[curSelect].text, 'Options'))resetTheModSave('Options');
+    if(StringTools.endsWith(daOptions.members[curSelect].text, 'Misc'))resetTheModSave('Misc');
 }
 
 function changeOption(a:Int){
@@ -107,33 +116,31 @@ function changeOption(a:Int){
     changeCurSelected(0);
 }
 
-var KYS;
 var type:String;
 function changeSelected(a:Int){
-    KYS=Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]);
-    trace('AHHHHH');
-    trace(optionsFile[curMenu][curSelect][2]);
-
-    if(type=='100'){
-        Reflect.setProperty(FlxG.save.data.options, optionsFile[curMenu][curSelect][3],FlxMath.bound(KYS+a, 0, curParam.length-1));
-    }
-    else if(type=='pre-set'){
-        Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3],curParam[FlxMath.bound(curParam[KYS]+a, 0, curParam.length-1)]);
-    }
+    Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3],curParam[FlxMath.wrap(getTheFuckingValue()+a, 0, curParam.length-1)]);
     daParams.members[curSelect].text = '<' + Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]) + '>';
-    trace(KYS);
+    laText = daParams.members[curSelect];
+    //laText.members[0].color = laText.members[laText.text.length - 1].color = FlxColor.fromRGB(255, 100, 19);
+    regenMenu();
+}
+function getTheFuckingValue(){
+    var found = null;
+    for (i in 0...curParam.length)
+        if(Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3])==curParam[i]){
+            found=i; break;
+        }
+    return found;
 }
 
 function changeCurSelected(a:Int){
     curSelect = FlxMath.wrap(curSelect + a, 0, optionsFile[curMenu].length-1);
     if(optionsFile[curMenu][curSelect][2]==numArray){curParam=numArray;
         type='100';
-        trace("NUM");
     }
     else if(optionsFile[curMenu][curSelect][2].length>=0){curParam=optionsFile[curMenu][curSelect][2];
         type='pre-set';
     }
-    trace(curSelect);
     for(i in 0...daOptions.length){
     daOptions.members[i].alpha=0.6;
     daOptions.members[curSelect].alpha=1;
@@ -159,7 +166,7 @@ function regenMenu(){
         if(a[2].length != 0){
             daParams.add(new ClassicAlphabet(0, (90 * num), (a[2].length != 1 ? "<" + (a[2][a[2].indexOf(Reflect.field(FlxG.save.data.options, a[3]))]) + ">" : a[2][0]), true));
             laText = daParams.members[daParams.length - 1];
-            trace(laText.text);
+            //trace(laText.text);
 
             laText.camera = optionsCam;
             laText.x = optionsCam.x + optionsCam.width - laText.width - 175;
@@ -171,7 +178,7 @@ function regenMenu(){
             checkbox.animation.addByPrefix("ya", "Checkbox", 24, false);
             checkbox.animation.addByIndices("nah", "Checkbox", [9,8,7,6,5,4,3,2,1,0], '',24, false);
             checkbox.ID=a[1*num];//Make this fucking ID thing match the cur savedata thing , AHHHHH-
-            trace(checkbox.ID);
+            //trace(checkbox.ID);
 
             daCheckboxes.add(checkbox);
             daCheckboxes.members[daCheckboxes.length - 1].animation.play("ya", true, !Reflect.field(FlxG.save.data.options, a[3]), !Reflect.field(FlxG.save.data.options, a[3]) ? 24 : 0);
@@ -180,6 +187,7 @@ function regenMenu(){
         }
         daOptions.members[num].camera = optionsCam;
     }
+    changeCurSelected(0);
 }
 
 function destroy()
@@ -187,84 +195,90 @@ function destroy()
 
 function savetheshit() {
     // save it
+    Options.framerate=FlxG.save.data.options.framerate;
+    Options.week6PixelPerfect=FlxG.save.data.options.pixelperfect;
+    Options.ghostTapping=FlxG.save.data.options.ghostTapping;
+    Options.antialiasing=FlxG.save.data.options.antialiasing;
+    Options.colorHealthBar=FlxG.save.data.options.coloredBar;
+    Options.lowMemoryMode=FlxG.save.data.options.lowMemory;
+    Options.gpuOnlyBitmaps=FlxG.save.data.options.vramSprites;
+    Options.downscroll=FlxG.save.data.options.scrollMode=='Top'? false: true;
     Options.save();
+    if (FlxG.updateFramerate < Options.framerate) FlxG.drawFramerate = FlxG.updateFramerate = Options.framerate;
+	else FlxG.updateFramerate = FlxG.drawFramerate = Options.framerate;
 }
 
-public static function resetTheModSave() {
-    trace(FlxG.save.data.options);
-    if (FlxG.save.data.options == null) FlxG.save.data.options = {};
-    trace(FlxG.save.data.options);
+function resetTheModSave(howBad:String) {
+    switch(howBad){
+        case 'Options':
+        FlxG.save.data.options = {};
+        FlxG.save.data.options.framerate ??= 120; // is 120 a good default idk
+        FlxG.save.data.options.antialiasing ??= true;
+        FlxG.save.data.options.pixelperfect ??= true;
+        FlxG.save.data.options.resolution ??= [1280, 720];
+        FlxG.save.data.options.fullscreen ??= false; 
+        FlxG.save.data.options.borderless ??= false;
+        FlxG.save.data.options.brightness ??= 50;
+        FlxG.save.data.options.gamma ??= 50;
 
-    //MOD SPECIFIC OPTIONS, DEFAULT ONES SHOULD BE INCLUDED TOO
-    //Video Options
-    FlxG.save.data.options.framerate ??= 120; // is 120 a good default idk
-    FlxG.save.data.options.antialiasing ??= true;
-    FlxG.save.data.options.pixelperfect ??= true;
-    FlxG.save.data.options.resolution ??= [1280, 720];
-    FlxG.save.data.options.fullscreen ??= false; 
-    FlxG.save.data.options.borderless ??= false;
-    FlxG.save.data.options.brightness ??= 50;
-    FlxG.save.data.options.gamma ??= 50;
+        FlxG.save.data.options.musicVolume ??= 20; 
+        FlxG.save.data.options.sfxVolume ??= 100;
+        FlxG.save.data.options.voiceVolume ??= 100;
+        FlxG.save.data.options.missSounds ??= true;
+        FlxG.save.data.options.copyrightBypass ??= false;
+        FlxG.save.data.options.subtitles ??= true;
 
-    //Sound options
-    //Master Volume - FlxG.volume
-    FlxG.save.data.options.musicVolume ??= 20; 
-    FlxG.save.data.options.sfxVolume ??= 100;
-    FlxG.save.data.options.voiceVolume ??= 100;
-    FlxG.save.data.options.missSounds ??= true;
-    FlxG.save.data.options.copyrightBypass ??= false;
-    FlxG.save.data.options.subtitles ??= true;
+        FlxG.save.data.options.lowMemory ??= true;
+        FlxG.save.data.options.vramSprites ??= true;
+        FlxG.save.data.options.flashingLights ??= true;
+        FlxG.save.data.options.shaders ??= 'all';
+        FlxG.save.data.options.botplayUI ??= true;
+        FlxG.save.data.options.bgBlur ??= 0;
+        FlxG.save.data.options.bgDim ??= 0;
+        FlxG.save.data.options.rapidCam ??= true;
+        FlxG.save.data.options.breakTime ??= true;
+        FlxG.save.data.options.timeBar ??= true;
+        FlxG.save.data.options.comboPosPercent ??= 0;
+        FlxG.save.data.options.cinematicBars ??= true;
+        FlxG.save.data.options.healthIcons ??= true;
+        FlxG.save.data.options.songCredits ??= true;
+        FlxG.save.data.options.stampKeybinds ??= false;
 
-    //Appearance Options
-    FlxG.save.data.options.lowMemory ??= true;
-    FlxG.save.data.options.vramSprites ??= true;
-    FlxG.save.data.options.flashingLights ??= true;
-    FlxG.save.data.options.shaders ??= 'all';
-    FlxG.save.data.options.botplayUI ??= true;
-    FlxG.save.data.options.bgBlur ??= 0;
-    FlxG.save.data.options.bgDim ??= 0;
-    FlxG.save.data.options.rapidCam ??= true;
-    FlxG.save.data.options.breakTime ??= true;
-    FlxG.save.data.options.timeBar ??= true;
-    FlxG.save.data.options.comboPosPercent ??= 0;
-    FlxG.save.data.options.cinematicBars ??= true;
-    FlxG.save.data.options.healthIcons ??= true;
-    FlxG.save.data.options.songCredits ??= true;
-    FlxG.save.data.options.stampKeybinds ??= false;
+        FlxG.save.data.options.noteskin ??= 'Arrows';
+        FlxG.save.data.options.noteScale ??= 1;
+        FlxG.save.data.options.noteColors ??= [0xFFC24B99, 0xFF00FFFF, 0xFF12FA05, 0xFFF9393F];
 
-    //Notes Options
-    FlxG.save.data.options.noteskin ??= 'Arrows';
-    FlxG.save.data.options.noteScale ??= 1;
-    FlxG.save.data.options.noteColors ??= [0xFFC24B99, 0xFF00FFFF, 0xFF12FA05, 0xFFF9393F];
+        FlxG.save.data.options.coloredBar ??= true;
+        FlxG.save.data.options.modcharts ??= 'Always';
+        FlxG.save.data.options.dialogue ??= [true, true, false]; //Story Mode, Playlists, Freeplay
+        FlxG.save.data.options.scrollSpeed ??= false;
+        FlxG.save.data.options.scrollSpeed_Speed ??= 3;
+        FlxG.save.data.options.pauseCountdown ??= true;
+        FlxG.save.data.options.skipGameOver ??=false;
+        FlxG.save.data.options.skipSongIntro ??= false;
+        FlxG.save.data.options.scrollMode ??= 'Top';
+        FlxG.save.data.options.middleScroll ??= false;
+        FlxG.save.data.options.storyDialogue ??= true;
+        FlxG.save.data.options.freeplayDialogue ??= true;
+        FlxG.save.data.options.ghostTapping??=true;
 
-    //Control Options
-    //will have to be reserved elsewhere
+        savetheshit(0);
+        case 'Misc':
+        FlxG.save.data.gameStats ??= {};
+        FlxG.save.data.gameStats.discoveries ??= [
+            "Bamber's Farm"=> false,
+            "Davey's Yard"=> false,
+            "Romania Outskirts"=> false
+        ];
 
-    //Gameplay Options
-    FlxG.save.data.options.coloredBar ??= true;
-    FlxG.save.data.options.modcharts ??= 'Always';
-    FlxG.save.data.options.dialogue ??= [true, true, false]; //Story Mode, Playlists, Freeplay
-    FlxG.save.data.options.scrollSpeed ??= false;
-    FlxG.save.data.options.scrollSpeed_Speed ??= 3;
-    FlxG.save.data.options.pauseCountdown ??= true;
-    FlxG.save.data.options.skipGameOver ??=false;
-    //Why is it a choice option????
-    //FlxG.save.data.options.skipGameOver ??='off';
-    FlxG.save.data.options.skipSongIntro ??= false;
-    FlxG.save.data.options.scrollMode ??= 'Top';
-    FlxG.save.data.options.middleScroll ??= false;
-    FlxG.save.data.options.storyDialogue ??= true;
-    FlxG.save.data.options.freeplayDialogue ??= true;
+        FlxG.save.data.gameStats.playtime ??= 0;
+        FlxG.save.data.gameStats.clearedSongs ??= [];
+        FlxG.save.data.gameStats.achievements ??= [];
 
-    //Game Statistics
-    FlxG.save.data.gameStats ??= {};
-    FlxG.save.data.gameStats.discoveries ??= {
-        "Bamber's Farm": false,
-        "Davey's Yard": false,
-        "Romania Outskirts": false
-    };
-
-    FlxG.save.data.gameStats.playtime ??= 0;
+        FlxG.save.data.freeplayShit ??= {};
+        FlxG.save.data.freeplayShit.favourites ??= [];
+    }
 
     FlxG.save.flush();
+    FlxG.resetState();
 }

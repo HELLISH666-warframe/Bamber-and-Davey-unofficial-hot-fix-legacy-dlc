@@ -1,8 +1,13 @@
 {
 	"freeplayShit": {
-		"composer": "Glitch.smh",
+		"composer": "Glitch.smh,Sibottle",
 		"portrait": "manny",
 		"album": 2
+	},
+	"customValues": {
+		"countdownPath": "battlegrounds/",
+		"countdownsound": "manny",
+		"comboPath": "battlegrounds/"
 	},
 	"color": "#DF1207",
 	"opponentModeAllowed": true,
@@ -26,8 +31,5 @@
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
 	"album": 2,
-	"bpm": 250,
-	"customValues": {"comboPath": "battlegrounds/",
-	"countdownPath": "battlegrounds/",
-	"countdownsound": "manny"}
+	"bpm": 250
 }

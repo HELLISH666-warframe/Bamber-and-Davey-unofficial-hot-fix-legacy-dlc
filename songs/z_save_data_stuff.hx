@@ -16,6 +16,7 @@ function postCreate() {
 	if(FlxG.save.data.options.scrollSpeed){
 	scrollSpeed=FlxG.save.data.options.scrollSpeed_Speed;
 	}
+	Options.ghostTapping=FlxG.save.data.options.ghostTapping;
 }
 function onGameOver(e) {
 	//Gameplay Options

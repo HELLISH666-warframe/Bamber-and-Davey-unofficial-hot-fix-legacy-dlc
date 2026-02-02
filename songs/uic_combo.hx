@@ -80,6 +80,7 @@ function onPlayerMiss(e) {
 }
 var thing = new FlxSprite();
 function onShowCombo(combo:Int, coolText:String) {
+    if(SONG.meta.displayName=='Deathbattle')return;
 	var tweens:Array<VarTween> = [];
 
     var strumsX:Float = 0;

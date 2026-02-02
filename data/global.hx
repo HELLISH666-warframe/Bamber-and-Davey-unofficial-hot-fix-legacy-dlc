@@ -36,7 +36,6 @@ function new() {
 
     trace(FlxG.save.data.options);
     if (FlxG.save.data.options == null) FlxG.save.data.options = {};
-    trace(FlxG.save.data.options);
 
     //MOD SPECIFIC OPTIONS, DEFAULT ONES SHOULD BE INCLUDED TOO
     //Video Options
@@ -98,6 +97,7 @@ function new() {
     FlxG.save.data.options.middleScroll ??= false;
     FlxG.save.data.options.storyDialogue ??= true;
     FlxG.save.data.options.freeplayDialogue ??= true;
+    FlxG.save.data.options.ghostTapping??=true;
 
     //Game Statistics
     FlxG.save.data.gameStats ??= {};

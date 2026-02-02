@@ -2,6 +2,8 @@
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.menus.ui.ClassicAlphabet;
 import funkin.options.Options;
+import freeplay.ComposerIcon;
+import freeplay.ComposerIcon2;
 
 var curSong=FlxG.save.data.Bamber_SONGSONG;//Lazy_way_of_getting_the_selected_song_and_it's_meta.
 var click_through:Bool = false;
@@ -13,7 +15,6 @@ var hitbox:FlxSprite;//Scaling_the_text_up_fucks_up_the_hitbox_so_this.
 
 var songName = new Alphabet(285.25, 70, 0, true);
 var composer = new Alphabet(0, 130, 0, true);
-var composer_icon = new FlxSprite(530,0);
 
 var scroll_speed = new Alphabet(540, 505, "<"+ FlxG.save.data.options.scrollSpeed_Speed+">", true);
 
@@ -67,14 +68,8 @@ function create() {
 	composer.scale.set(0.5,0.5);
 	composer.screenCenter(FlxAxes.X);
 	add(composer).x +=songName.width-songName.width/1.5;
-
-	composer_icon.camera = coolCam;
-	if (!Assets.exists(Paths.image('credits/devs/' +curSong.freeplayShit.composer)))
-		composer_icon.loadGraphic(Paths.image('credits/missing'));
-	else
-		composer_icon.loadGraphic(Paths.image('credits/devs/'+curSong.freeplayShit.composer));
-	add(composer_icon);
-	composer_icon.x= songName.x+songName.width+10;//Make_a_custom_class_later_for_handling_multi_icons?
+	var testtt2=new ComposerIcon2(songName.x+songName.width+10,200,curSong.freeplayShit.composer);
+	add(testtt2.lines).camera=coolCam;
     }
 
 	//Scroll_speed_modifier.
@@ -233,4 +228,14 @@ function playsong() {
 function destroy() {
 	//Destroy_the_other_stuff_later.
 	FlxG.cameras.remove(coolCam);
+}
+
+function doesIconExist(name) {
+	for (cate in ['devs', 'contributors', 'specialthanks']) {
+		if (Assets.exists(Paths.image('credits/'+cate+'/'+name.toLowerCase()))) {
+			iconpath= Paths.image('credits/'+cate+'/'+name.toLowerCase());
+            break;
+		}
+	}
+	return iconpath;
 }
