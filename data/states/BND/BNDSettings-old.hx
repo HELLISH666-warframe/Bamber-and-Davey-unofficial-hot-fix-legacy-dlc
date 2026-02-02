@@ -30,17 +30,23 @@ var curMenu:Int = 0;
 var curSelect:Int = 0;
 var curParam:Int = 0;
 
-var theFuckingIMPORTANTbar = new FlxSprite(700, 0).makeSolid(1000, 100, 0xFFFEFEFB);
+var theFuckingIMPORTANTbar = new FlxSprite(240, 130).loadGraphic(Paths.image('menus/options/backGround'));
 
 function create() {
+    /*FlxG.resizeWindow(1280, 720);
+    FlxG.resizeGame(1280, 1280);
+    FlxG.scaleMode.width = FlxG.width = FlxG.initialWidth = 1280;
+    FlxG.scaleMode.height = FlxG.height = FlxG.initialHeight = 720;*/
     // Initialisation
     WindowUtils.set_winTitle("Options Menu");
     CoolUtil.playMenuSong();
-    box.incorporeal = true;
-    box.screenCenter();
-    box.x -= Math.round(box.bWidth/2) - 16;
-    box.y -= Math.round(box.bHeight/2) - 16;
-    FlxG.cameras.add(optionsCam = new FlxCamera(box.x, box.y, FlxG.width/2 * 1.6, FlxG.height/3 * 2.19), false);
+    for(i in [box,box2]){
+        i.incorporeal = true;
+        i.screenCenter();
+        i.x -= Math.round(i.bWidth/2) - 16;
+        i.y -= Math.round(i.bHeight/2) - 16;
+    }
+    FlxG.cameras.add(optionsCam = new FlxCamera(box.x, box.y, FlxG.width/2 * 1.6, FlxG.height/3 * 2.23), false);
     optionsCam.bgColor = FlxColor.TRANSPARENT;
     // the menu	
 	for(num => a in ["Video", "Sound", "Visual", "Notes", "Controls", "Gameplay", "Misc"]){
@@ -67,9 +73,13 @@ function create() {
 	    if([2, 7].contains(num)) b.alpha = 0.5;
         //if(num != 0 || num != 2) b.antialiasing = Options.antialiasing;
     }
-    insert(3,theFuckingIMPORTANTbar).screenCenter();
+    theFuckingIMPORTANTbar.camera=optionsCam;
+    insert(3,theFuckingIMPORTANTbar).scale.set(1.8,1.8);
 	
 	changeOption(0);
+    FlxG.cameras.add(optionsCam2 = new FlxCamera(), false);
+    optionsCam2.bgColor = FlxColor.TRANSPARENT;
+    add(box2).camera=optionsCam2;
 }
 
 function update(){
@@ -80,15 +90,15 @@ function update(){
     if (controls.UP_P||controls.DOWN_P) changeCurSelected(controls.UP_P?-1:1);
     optionsCam.scroll.y = CoolUtil.fpsLerp(optionsCam.scroll.y, curSelect * 60, 0.2);
     if ((controls.LEFT_P||controls.RIGHT_P)&&optionsFile[curMenu][curSelect][2].length!=0) changeSelected(controls.LEFT_P?-1:1);
-    if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
-    if (controls.ACCEPT) acceptThingieAndNotDie();
-
-
-    if (FlxG.keys.justPressed.J) { //DEV, REMOVE ONCE DONE!
-        FlxG.save.data.options=null;
-        resetTheModSave();
-        FlxG.resetState();
+    if (controls.BACK){
+        if(inPlayState){
+            inPlayState=false;
+            FlxG.switchState(new PlayState());
+            trace("Playstate.");
+        }
+        else FlxG.switchState(new ModState("BND/BNDMenu"));
     }
+    if (controls.ACCEPT) acceptThingieAndNotDie();
 }
 
 function acceptThingieAndNotDie(){
@@ -147,6 +157,7 @@ function changeCurSelected(a:Int){
     }
     explainText.text=optionsFile[curMenu][curSelect][1];
     explainText.screenCenter(FlxAxes.X);
+    theFuckingIMPORTANTbar.y=daOptions.members[curSelect].y+40;
 }
 
 var numArray:Array<Int> = [];

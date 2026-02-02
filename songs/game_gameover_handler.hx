@@ -5,6 +5,7 @@ var gradientSprite;
 //Thought having this script would be better then having charater scripts
 if(!FlxG.save.data.options.skipGameOver){
 function onGameOver(e) {
+    inPlayState=false;
     switch(boyfriend.curCharacter){
         case"bf":
         switch(PlayState.SONG.meta.name){

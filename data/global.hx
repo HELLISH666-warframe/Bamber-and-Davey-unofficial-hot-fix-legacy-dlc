@@ -21,6 +21,7 @@ public var clickableObjects = [];
 var isHovering = false;
 var switched = false;
 static var hasseen = false;
+public static var inPlayState = false;
 
 public static var fpsGroupTextOnly=[];
 

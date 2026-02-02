@@ -14,8 +14,20 @@ public function executeFuncMultiple(funcName:String, ?args:Array<Any>, ?defaultR
 public var scoreText=[];
 function create() {
     scoreText = [scoreTxt,accuracyTxt,missesTxt];
+    inPlayState=true;
 }
 
 function postCreate() {
 	scripts.call('postPostCreate');
 }
+function onGamePause(event) {
+    if(!PlayState.seenCutscene&&PlayState.isStoryMode)return;
+    event.cancel();
+    persistentUpdate = false;
+    persistentDraw = true;
+    paused = true;
+        
+    openSubState(new ModSubState("PauseSubState_DIE"));
+}
+
+function onSongEnd(e) inPlayState=false;
