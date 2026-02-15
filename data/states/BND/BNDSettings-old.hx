@@ -47,6 +47,7 @@ function create() {
         i.y -= Math.round(i.bHeight/2) - 16;
     }
     FlxG.cameras.add(optionsCam = new FlxCamera(box.x, box.y, FlxG.width/2 * 1.6, FlxG.height/3 * 2.23), false);
+    trace(optionsCam.x,optionsCam.y,optionsCam.width,optionsCam.height);
     optionsCam.bgColor = FlxColor.TRANSPARENT;
     // the menu	
 	for(num => a in ["Video", "Sound", "Visual", "Notes", "Controls", "Gameplay", "Misc"]){
@@ -102,6 +103,11 @@ function update(){
 }
 
 function acceptThingieAndNotDie(){
+    if(StringTools.endsWith(daOptions.members[curSelect].text, 'Controls')){
+    persistentUpdate=false;
+    openSubState(new ModSubState('substates/Keybinds'));
+    return;
+    }
     Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3], !Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]));
     for(i in 0...daCheckboxes.length)
         if(daCheckboxes.members[i].ID==optionsFile[curMenu][curSelect][3])
@@ -161,8 +167,9 @@ function changeCurSelected(a:Int){
 }
 
 var numArray:Array<Int> = [];
-for(c in 0...101)
-    numArray.push(c);
+var numArray2:Array<Int> = [];
+for (c in 0...101) numArray.push(c);
+for (c in -1000...1000)  numArray2.push(c);
 
 function regenMenu(){
     savetheshit();
@@ -170,6 +177,7 @@ function regenMenu(){
     for(num => a in optionsFile[curMenu]){
         if(["Brightness", "Gamma", "Music Volume", "SFX Volume", "Voice Volume"].contains(a[0]))
             a[2] = numArray;
+        if(['Song Offset'].contains(a[0]))  a[2] = numArray2;
 
         //trace("Name: " + b[0] + " | Desc: " + b[1], " | Params: " + b[2]);
         daOptions.add(new ClassicAlphabet(25, (90 * num), a[0], true));
@@ -208,10 +216,14 @@ function savetheshit() {
     // save it
     Options.framerate=FlxG.save.data.options.framerate;
     Options.week6PixelPerfect=FlxG.save.data.options.pixelperfect;
+    FlxG.autoPause=Options.autoPause=FlxG.save.data.options.autoPause;
+    Options.songOffset=FlxG.save.data.options.songOffset;
     Options.ghostTapping=FlxG.save.data.options.ghostTapping;
     Options.antialiasing=FlxG.save.data.options.antialiasing;
     Options.colorHealthBar=FlxG.save.data.options.coloredBar;
     Options.lowMemoryMode=FlxG.save.data.options.lowMemory;
+    Options.streamedMusic=FlxG.save.data.options.streamedMusic;
+    Options.streamedVocals=FlxG.save.data.options.streamedVocals;
     Options.gpuOnlyBitmaps=FlxG.save.data.options.vramSprites;
     Options.downscroll=FlxG.save.data.options.scrollMode=='Top'? false: true;
     Options.save();
@@ -233,8 +245,10 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.options.gamma ??= 50;
 
         FlxG.save.data.options.musicVolume ??= 20; 
-        FlxG.save.data.options.sfxVolume ??= 100;
-        FlxG.save.data.options.voiceVolume ??= 100;
+        FlxG.save.data.options.sfxVolume ??= 20;
+        FlxG.save.data.options.voiceVolume ??= 20;
+        FlxG.save.data.options.streamedMusic ??= true;
+        FlxG.save.data.options.streamedVocals ??= false;
         FlxG.save.data.options.missSounds ??= true;
         FlxG.save.data.options.copyrightBypass ??= false;
         FlxG.save.data.options.subtitles ??= true;
@@ -254,6 +268,7 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.options.healthIcons ??= true;
         FlxG.save.data.options.songCredits ??= true;
         FlxG.save.data.options.stampKeybinds ??= false;
+        FlxG.save.data.options.autoPause ??= true;
 
         FlxG.save.data.options.noteskin ??= 'Arrows';
         FlxG.save.data.options.noteScale ??= 1;
@@ -272,6 +287,7 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.options.storyDialogue ??= true;
         FlxG.save.data.options.freeplayDialogue ??= true;
         FlxG.save.data.options.ghostTapping??=true;
+        FlxG.save.data.options.songOffset??=0;
 
         savetheshit(0);
         case 'Misc':

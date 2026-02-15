@@ -6,7 +6,9 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Anti-aliasing", "Toggles smoothing jagged edges on curves and diagonal lines", [], 'antialiasing'],
         ["Pixel Perfect", "", [], 'pixelperfect'],
         ["Resolution", "How many pixels the game renders at", ['256x144','854x480',"1280x720",'1920x1080','2560x1440','3840x2160'], 'resolution'],
+        #if !mac
         ["Fullscreen", "Toggles the game filling your screen", [], 'fullscreen'],
+        #end
         ["Borderless", "Toggles the game window border", [], 'borderless'],
         ["Brightness", "How bright the game is", [], 'brightness'],
         ["Gamma", "The gamma of the game", [], 'gamma']
@@ -15,6 +17,8 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Music Volume", "How loud the music is", [], 'musicVolume'],
         ["SFX Volume", "How loud sound effects are", [], 'sfxVolume'],
         ["Voice Volume","How loud the character voices are while playing a song", [], 'voiceVolume'], 
+        ["Streamed Music", "Toggles streamed music.", [], 'streamedMusic'],
+        ["Streamed Voices", "Toggles streamed voices.", [], 'streamedVocals'],
         ["Miss Sounds", "Toggles playing a sound effect on miss", [], 'missSounds'],
         ["Copyrighted Bypass", "Toggles replacing copyrighted audio with MIDI covers", [], 'copyrightBypass'],
         ["Subtitles", "Toggles words appearing on screen when spoken lyrics are heard", [], 'subtitles'], // can someone refine this description please
@@ -33,7 +37,8 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Cinematic Bars", "Toggles the bars seen at the top and bottom of the screen during a song", [], 'cinematicBars'],
         ["Health Icons", "Toggles health bar icons", [], 'healthIcons'],
         ["Song Credits", "Toggles the credits popup at the beginning of a song", [], 'songCredits'],
-        ["Stamp Keybinds", "Shows keybinds under the your strum.(???)", [], 'stampKeybinds']
+        ["Stamp Keybinds", "Shows keybinds under the your strum.(???)", [], 'stampKeybinds'],
+        ["Auto pause", "If checked, switching windows will pause the game.", [], 'autoPause']
     ],
     [ // NOTE OPTIONS
         ["Noteskin", "What the notes appear as", ["Default", "Arrows",'3dcheater','awesome','bfdi','davey_obj','deathbattle','facsimile','funkin','joke_model_obj','night','test footage','trade','undertale'], 'noteskin'],
@@ -41,7 +46,23 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Note Colors", "What color notes appear as", ["Placeholder","placeholder but not captialised."], 'noteColors']
     ],
     [ // Controls
-        ["Placeholder", "Placeholder", [], 'placeholder']
+        ["Controls", "Placeholder", ['Open'], 'placeholder']
+        /*
+        ["Left", "Placeholder", [], 'placeholder'],
+        ["Down", "Placeholder", [], 'placeholder'],
+        ["Up", "Placeholder", [], 'placeholder'],
+        ["Right", "Placeholder", [], 'placeholder'],
+        ["Reset", "Placeholder", [], 'placeholder'],
+        ["Accept", "Placeholder", [], 'placeholder'],
+        ["Back", "Placeholder", [], 'placeholder'],
+
+        ["Volume up", "Placeholder", [], 'placeholder'],
+        ["Volume down", "Placeholder", [], 'placeholder'],
+        ["Volume mute", "Placeholder", [], 'placeholder'],
+
+        ["Switch mod", "Placeholder", [], 'placeholder'],
+        ["Fps counter", "Placeholder", [], 'placeholder'],
+        */
     ],
     [ // GAMEPLAY
         ["Coloured Healthbar", "Toggles if  green and red or the char colors will be used.", [], 'coloredBar'],
@@ -55,11 +76,29 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Middle Scroll", "Toggles your strum being centered", [], 'middleScroll'],
         ["Ghost Tapping", "Toggles ghost tapping", [], 'ghostTapping'],
         ["Story Mode Dialogue", "Toggles story mode dialogue", [], 'storyDialogue'],
-        ["Freeplay Dialogue", "Toggles freeplay dialogue", [], 'freeplayDialogue']
+        ["Freeplay Dialogue", "Toggles freeplay dialogue", [], 'freeplayDialogue'],
+        ["Song Offset", "Changes the offset that songs should start with.", [], 'cinematicBars'],
     ],
     [ // MISC
 	    ["Reset Scores", "Erases ALL song & week scores/achievements", [""], 'gameStats'],
 	    ["Reset Options", "Restores all settings to their default", [""], 'idek'],
         ["Reset Misc", "Restores week completion, freeplay tags and stats.", [""], 'idek']
     ]
+];
+
+public var controlsOptions:Array<Dynamic> = [ // god help me
+    ["Left", "Placeholder", [], 'placeholder'],
+    ["Down", "Placeholder", [], 'placeholder'],
+    ["Up", "Placeholder", [], 'placeholder'],
+    ["Right", "Placeholder", [], 'placeholder'],
+    ["Reset", "Placeholder", [], 'placeholder'],
+    ["Accept", "Placeholder", [], 'placeholder'],
+    ["Back", "Placeholder", [], 'placeholder'],
+
+    ["Volume up", "Placeholder", [], 'placeholder'],
+    ["Volume down", "Placeholder", [], 'placeholder'],
+    ["Volume mute", "Placeholder", [], 'placeholder'],
+
+    ["Switch mod", "Placeholder", [], 'placeholder'],
+    ["Fps counter", "Placeholder", [], 'placeholder']
 ];

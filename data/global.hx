@@ -54,6 +54,8 @@ function new() {
     FlxG.save.data.options.musicVolume ??= 20; 
     FlxG.save.data.options.sfxVolume ??= 100;
     FlxG.save.data.options.voiceVolume ??= 100;
+    FlxG.save.data.options.streamedMusic ??= true;
+    FlxG.save.data.options.streamedVocals ??= false;
     FlxG.save.data.options.missSounds ??= true;
     FlxG.save.data.options.copyrightBypass ??= false;
     FlxG.save.data.options.subtitles ??= true;
@@ -74,6 +76,7 @@ function new() {
     FlxG.save.data.options.healthIcons ??= true;
     FlxG.save.data.options.songCredits ??= true;
     FlxG.save.data.options.stampKeybinds ??= false;
+    FlxG.save.data.options.autoPause ??= true;
 
     //Notes Options
     FlxG.save.data.options.noteskin ??= 'Arrows';
@@ -81,6 +84,7 @@ function new() {
     FlxG.save.data.options.noteColors ??= [0xFFC24B99, 0xFF00FFFF, 0xFF12FA05, 0xFFF9393F];
 
     //Control Options
+    //FlxG.save.data.options.controls ??= {};
     //will have to be reserved elsewhere
 
     //Gameplay Options
@@ -99,6 +103,7 @@ function new() {
     FlxG.save.data.options.storyDialogue ??= true;
     FlxG.save.data.options.freeplayDialogue ??= true;
     FlxG.save.data.options.ghostTapping??=true;
+    FlxG.save.data.options.songOffset??=0;
 
     //Game Statistics
     FlxG.save.data.gameStats ??= {};

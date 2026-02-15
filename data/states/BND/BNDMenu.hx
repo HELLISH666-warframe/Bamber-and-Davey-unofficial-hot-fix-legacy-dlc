@@ -609,7 +609,7 @@ function update(elapsed) {
         FlxG.resetState();
     }
     if (FlxG.keys.justPressed.J) { //DEV, REMOVE ONCE DONE!
-        FlxG.switchState(new ModState("BND/BNDSettings-test"));
+        FlxG.switchState(new ModState("FirstTimeState"));
     }
 
     if (!initialized) {

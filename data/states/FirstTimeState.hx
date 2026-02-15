@@ -12,7 +12,7 @@ import funkin.backend.FunkinSprite;
 import funkin.backend.utils.CoolUtil;
 import flixel.math.FlxMath;
 
-var gradient = new FlxGradient().createGradientFlxSprite(FlxG.width, 117, [0x0066FFFF, 0xFFFFFFFF]);
+var gradient = FlxGradient.createGradientFlxSprite(FlxG.width, 117, [0x0066FFFF, 0xFFFFFFFF]);
 
 var marqueeText = new FlxTypedSpriteGroup();
 
