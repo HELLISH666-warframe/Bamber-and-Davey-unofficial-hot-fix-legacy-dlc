@@ -23,13 +23,12 @@ var switched = false;
 static var hasseen = false;
 public static var inPlayState = false;
 
-public static var fpsGroupTextOnly=[];
-
 function destroy(){
 	hasseen = false;
     FlxG.mouse.useSystemCursor = true;
     FlxG.mouse.visible = false;
     changeFpsFont(Framerate.fontName);
+    if(!window.fullscreen)window.borderless=false;
 }
 
 function new() {
@@ -122,6 +121,7 @@ function new() {
     FlxG.save.data.freeplayShit.favourites ??= [];
 
     FlxG.save.flush();
+    savetheshit();
 }
 
 function postStateSwitch() {
@@ -223,3 +223,26 @@ public function getTheFuckingHighScore(theSongNameInFp:String,THEFUCKINGDIFF:Str
 	trace(FunkinSave.getSongHighscore(theSongNameInFp, THEFUCKINGDIFF).score);
 }*/
 //This_thing_can_rot.
+
+public static function savetheshit() {
+    // save it
+    Options.framerate=FlxG.save.data.options.framerate;
+    Options.week6PixelPerfect=FlxG.save.data.options.pixelperfect;
+    FlxG.autoPause=Options.autoPause=FlxG.save.data.options.autoPause;
+    Options.songOffset=FlxG.save.data.options.songOffset;
+    Options.ghostTapping=FlxG.save.data.options.ghostTapping;
+    Options.antialiasing=FlxG.save.data.options.antialiasing;
+    Options.colorHealthBar=FlxG.save.data.options.coloredBar;
+    Options.lowMemoryMode=FlxG.save.data.options.lowMemory;
+    Options.streamedMusic=FlxG.save.data.options.streamedMusic;
+    Options.streamedVocals=FlxG.save.data.options.streamedVocals;
+    Options.gpuOnlyBitmaps=FlxG.save.data.options.vramSprites;
+    Options.downscroll=FlxG.save.data.options.scrollMode=='Top'? false: true;
+    Options.save();
+    if (FlxG.updateFramerate < Options.framerate) FlxG.drawFramerate = FlxG.updateFramerate = Options.framerate;
+	else FlxG.updateFramerate = FlxG.drawFramerate = Options.framerate;
+
+    //Window_shit.
+    if(!window.fullscreen) window.borderless=FlxG.save.data.options.borderless;
+    window.fullscreen=FlxG.save.data.options.fullscreen;
+}

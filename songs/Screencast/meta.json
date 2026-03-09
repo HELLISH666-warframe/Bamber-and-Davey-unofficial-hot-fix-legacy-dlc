@@ -28,5 +28,8 @@
 		"album": 2,
 		"portrait":"nikku",
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "default"}
 }

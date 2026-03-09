@@ -62,7 +62,7 @@ typedef MedalsJSON = {
     var medals:Array<Medal>;
 }
 
-var Medal = {
+typedef Medal = {
     var name:String;
     var desc:String;
     var img:MedalImg;

@@ -5,7 +5,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Framerate", "The framerate that the game will run at.", [30, 60, 90, 120, 150, 180, 210, 240], 'framerate'],
         ["Anti-aliasing", "Toggles smoothing jagged edges on curves and diagonal lines", [], 'antialiasing'],
         ["Pixel Perfect", "", [], 'pixelperfect'],
-        ["Resolution", "How many pixels the game renders at", ['256x144','854x480',"1280x720",'1920x1080','2560x1440','3840x2160'], 'resolution'],
+        ["Resolution", "How many pixels the game renders at", ['854x480',"1280x720",'1920x1080','2560x1440','3840x2160'], 'resolution'],
         #if !mac
         ["Fullscreen", "Toggles the game filling your screen", [], 'fullscreen'],
         #end

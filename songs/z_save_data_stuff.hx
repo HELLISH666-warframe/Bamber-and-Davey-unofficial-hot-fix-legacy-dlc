@@ -20,14 +20,14 @@ function postCreate() {
 	scrollSpeed=FlxG.save.data.options.scrollSpeed_Speed;
 	}
 	Options.ghostTapping=FlxG.save.data.options.ghostTapping;
-	if(inst!=null) inst.volume = getVolume(0.3/6, 'music');
+	//if(inst!=null) inst.volume = getVolume(0.3/6, 'music');
 }
-function update(elapsed:Float) {
+/*function update(elapsed:Float) {
 	//if (!isOffsync) return;
 	for (strumLine in strumLines.members) {
 		strumLine.vocals.group.volume = getVolume(4/10,'voices');
 	}
-}
+}*/
 function onGameOver(e) {
 	//Gameplay Options
 	if(FlxG.save.data.options.skipGameOver){

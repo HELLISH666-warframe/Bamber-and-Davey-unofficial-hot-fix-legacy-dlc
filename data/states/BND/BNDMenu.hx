@@ -611,6 +611,12 @@ function update(elapsed) {
     if (FlxG.keys.justPressed.J) { //DEV, REMOVE ONCE DONE!
         FlxG.switchState(new ModState("FirstTimeState"));
     }
+    if (FlxG.keys.justPressed.G) { //DEV, REMOVE ONCE DONE!
+        FlxG.switchState(new ModState("medal_shit/MedalsState"));
+    }
+    if (FlxG.keys.justPressed.H) { //DEV, REMOVE ONCE DONE!
+        FlxG.switchState(new ModState("YCE/CreditsState"));
+    }
 
     if (!initialized) {
         earth.scale.x = earth.scale.y += 0.04 * elapsed;
@@ -1009,9 +1015,6 @@ function postUpdate(elapsed) {
 			else
 				hoveringOverButton = false;
         });
-    }
-    if (FlxG.keys.justPressed.G) { //DEV, REMOVE ONCE DONE!
-        FlxG.switchState(new ModState("medal_shit/MedalsState"));
     }
 }
 

@@ -196,8 +196,8 @@ function regenMenu(){
             checkbox.frames = Paths.getSparrowAtlas("menus/options/checkbox");
             checkbox.animation.addByPrefix("ya", "Checkbox", 24, false);
             checkbox.animation.addByIndices("nah", "Checkbox", [9,8,7,6,5,4,3,2,1,0], '',24, false);
-            checkbox.ID=a[1*num];//Make this fucking ID thing match the cur savedata thing , AHHHHH-
-            //trace(checkbox.ID);
+            checkbox.ID=num;//Make this fucking ID thing match the cur savedata thing , AHHHHH-
+            trace(checkbox.ID);
 
             daCheckboxes.add(checkbox);
             daCheckboxes.members[daCheckboxes.length - 1].animation.play("ya", true, !Reflect.field(FlxG.save.data.options, a[3]), !Reflect.field(FlxG.save.data.options, a[3]) ? 24 : 0);
@@ -211,25 +211,6 @@ function regenMenu(){
 
 function destroy()
     savetheshit();
-
-function savetheshit() {
-    // save it
-    Options.framerate=FlxG.save.data.options.framerate;
-    Options.week6PixelPerfect=FlxG.save.data.options.pixelperfect;
-    FlxG.autoPause=Options.autoPause=FlxG.save.data.options.autoPause;
-    Options.songOffset=FlxG.save.data.options.songOffset;
-    Options.ghostTapping=FlxG.save.data.options.ghostTapping;
-    Options.antialiasing=FlxG.save.data.options.antialiasing;
-    Options.colorHealthBar=FlxG.save.data.options.coloredBar;
-    Options.lowMemoryMode=FlxG.save.data.options.lowMemory;
-    Options.streamedMusic=FlxG.save.data.options.streamedMusic;
-    Options.streamedVocals=FlxG.save.data.options.streamedVocals;
-    Options.gpuOnlyBitmaps=FlxG.save.data.options.vramSprites;
-    Options.downscroll=FlxG.save.data.options.scrollMode=='Top'? false: true;
-    Options.save();
-    if (FlxG.updateFramerate < Options.framerate) FlxG.drawFramerate = FlxG.updateFramerate = Options.framerate;
-	else FlxG.updateFramerate = FlxG.drawFramerate = Options.framerate;
-}
 
 function resetTheModSave(howBad:String) {
     switch(howBad){
@@ -289,7 +270,7 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.options.ghostTapping??=true;
         FlxG.save.data.options.songOffset??=0;
 
-        savetheshit(0);
+        savetheshit();
         case 'Misc':
         FlxG.save.data.gameStats ??= {};
         FlxG.save.data.gameStats.discoveries ??= [

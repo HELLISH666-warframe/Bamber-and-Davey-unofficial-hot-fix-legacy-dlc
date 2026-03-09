@@ -23,6 +23,13 @@ public var game:PlayState = PlayState.instance; // shortcut
 var menuItems:Array<String> = ['Resume', 'Restart Song', 'Change Controls', 'Change Options', 'Exit to menu', "Exit to charter"];
 
 var parentDisabler:FunkinParentDisabler;
+
+//Bamber_shit.
+var countTimer;
+var diffColors = ["normal" => 0xfcfc04, "easy" => 0x04fc04, "hard" => 0xfc0404, "absolutely fucking fucked" => 0xfc0404];
+var countdownTempo = 1 / Math.pow(2, Math.floor(Math.log(Conductor.bpm/120) / Math.log(2)));
+
+var countdownSprite = new FlxSprite();
 function create(){
 	if(!PlayState.seenCutscene&&PlayState.isStoryMode)return;
 	if (menuItems.contains("Exit to charter") && !PlayState.chartingMode)
@@ -62,6 +69,9 @@ function create(){
 		add(label);
 	}
 
+	if(diffColors[levelDifficulty.text.toLowerCase()] != null){levelDifficulty.color = diffColors[levelDifficulty.text.toLowerCase()];} else {levelDifficulty.color = 0xFFFFFF;}
+	for (i in [levelInfo, levelDifficulty, deathCounter]) i.font = PlayState.instance.scoreTxt.font;
+
 	FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
 
 	grpMenuShit = new FlxTypedGroup<Alphabet>();
@@ -75,6 +85,22 @@ function create(){
 	}
 
 	changeSelection(0);
+
+	if(Assets.exists(Paths.image("game/countdown/" +PlayState.SONG.meta.customValues.countdownPath+ "countdown"))){
+		countdownSprite.frames = Paths.getSparrowAtlas("game/countdown/"+PlayState.SONG.meta.customValues.countdownPath+"/countdown");
+		countdownSprite.animation.addByPrefix("3", "Three", 24, false);
+		countdownSprite.animation.addByPrefix("2", "Two", 24, false);
+		countdownSprite.animation.addByPrefix("1", "One", 24, false);
+		countdownSprite.animation.addByPrefix("0", "Go", 24, false);
+		countdownSprite.animation.play("3");
+	} else {
+		countdownSprite.loadGraphic(Paths.image("game/countdown/"+PlayState.SONG.meta.customValues.countdownPath+'/Get'));
+	}
+    
+	countdownSprite.updateHitbox();
+	countdownSprite.screenCenter();
+	insert(2, countdownSprite);
+	countdownSprite.alpha = 0.0001;
 
 	camera = new FlxCamera();
 	camera.bgColor = 0;
@@ -99,8 +125,63 @@ function update(elapsed:Float) {
 function selectOption() {
 	switch (menuItems[curSelected_Pause]) {
 		case "Resume":
+			if(FlxG.save.data.options.pauseCountdown){
+			var swagCounter = 2;
+			isCountingDown = true;
+
+			grpMenuShit.clear();
+			menuItems = ['Cancel'];
+
+			for (i in 0...menuItems.length)
+			{
+				var songText:Alphabet = new Alphabet(0, (70 * i) + 30, menuItems[i], true, false);
+				songText.isMenuItem = true;
+				songText.targetY = i;
+				grpMenuShit.add(songText);
+			}
+
+			CoolUtil.playMenuSFX(1);
+			changeSelection(0);
+
+			executeFuncMultiple("onCountdown", [3, countdownSprite], [true, null]);
+			countTimer = new FlxTimer().start(Conductor.crochet / 1000 / countdownTempo, function(tmr:FlxTimer) {
+				if (swagCounter > -1) { 
+					executeFuncMultiple("onCountdown", [swagCounter, countdownSprite], [true, null]);
+				}
+				else {
+					inPlayState=true;
+					close();
+				}
+
+				swagCounter--;
+			}, 4);
+        return false;
+			}
+			else{
 			inPlayState=true;
 			close();
+			}
+		case "Cancel":
+		grpMenuShit.clear();
+        menuItems = ['Resume', 'Restart Song', 'Change Controls', 'Change Options', 'Exit to menu', "Exit to charter"];
+
+        for (i in 0...menuItems.length)
+        {
+            var songText:Alphabet = new Alphabet(0, (70 * i) + 30, menuItems[i], true, false);
+            songText.isMenuItem = true;
+            songText.targetY = i;
+            grpMenuShit.add(songText);
+        }
+
+        isCountingDown = false;
+
+        CoolUtil.playMenuSFX(2);
+        changeSelection(0);
+
+        countdownSprite.alpha = 0.0001;
+        countTimer.cancel();
+
+        return true;
 		case "Restart Song":
 			parentDisabler.reset();
 			game.registerSmoothTransition();

@@ -1,4 +1,4 @@
-public function executeFuncMultiple(funcName:String, ?args:Array<Any>, ?defaultReturnVal:Array<Any>) {
+public static function executeFuncMultiple(funcName:String, ?args:Array<Any>, ?defaultReturnVal:Array<Any>) {
     var a = args;
     if (a == null) a = [];
     if (defaultReturnVal == null) defaultReturnVal = [null];
@@ -31,7 +31,7 @@ function create() {
     FlxG.resizeGame(256,144);
     FlxG.resizeWindow(1280,720);
     trace(FlxG.scaleMode.width,FlxG.scaleMode.height);*/
-    windowShit(1280,720);
+    //windowShit(1280,720);
     //['256x144','854x480',"1280x720",'1920x1080','2560x1440','3840x2160']
     /*FlxG.resizeWindow(1280, 720);
     FlxG.resizeGame(1280/1.4, 720/1.4);
