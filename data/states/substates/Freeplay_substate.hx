@@ -200,7 +200,6 @@ function changeDiff(e) {
 }
 function changeOption(p) {
 	curOption = FlxMath.wrap(curOption + p, 0,  3);
-	trace("Options: "+options[curOption]);
 	if(click_through && curOption!=0){
 	FlxTween.tween(bulletoptionREAL, {y: bulletoptionREAL.height/10 + optionSprites.members[(curOption/4) * 11].y}, 0.4,{ease: FlxEase.quartInOut});
 	}

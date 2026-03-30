@@ -52,5 +52,4 @@ function postComboShit() {
 		ratingManager.addRating({name:combTestShit[i].name, accuracy:combTestShit[i].accuracy, window:combTestShit[i].maxDiff, score:combTestShit[i].score, splash:combTestShit[i].showSplashes!=null? true :false});
 	ratingManager.ratingData.sort((a, b) -> Reflect.compare(a.window, b.window));
 	for (rating in [for (i in ratingManager.ratingData) i.name]) hits.set(rating, 0); // Ensure all keys exist as to prevent null errors.
-	trace(hits);
 }

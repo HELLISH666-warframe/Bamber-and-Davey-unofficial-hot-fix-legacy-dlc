@@ -3,7 +3,6 @@ import flixel.text.FlxTextBorderStyle;
 import Reflect;
 
 if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
-    trace(curSong,'\n',SONG.meta.displayName);
     var isOnLeftSide = StringTools.contains(curSong, "call bamber");//WHY_DOES_CURSONG_MAKE_IT_LOWERCASE???
     var curSongLowerCase:String = PlayState.SONG.meta.name.toLowerCase();
 

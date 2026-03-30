@@ -36,7 +36,6 @@ function postUpdate(elapsed:Float) {
 	for (i in callTweens) {
 		if (i != null) i.active = !paused;
 	}
-	//trace(boyfriend.getAnimName()+"     "+boyfriend.isAnimFinished());
 	if (justDIED) {
 		Conductor.changeBPM(0);
 		Conductor.songPosition = -5000;

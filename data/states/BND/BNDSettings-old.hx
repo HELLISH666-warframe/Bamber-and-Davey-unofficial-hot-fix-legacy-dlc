@@ -47,7 +47,6 @@ function create() {
         i.y -= Math.round(i.bHeight/2) - 16;
     }
     FlxG.cameras.add(optionsCam = new FlxCamera(box.x, box.y, FlxG.width/2 * 1.6, FlxG.height/3 * 2.23), false);
-    trace(optionsCam.x,optionsCam.y,optionsCam.width,optionsCam.height);
     optionsCam.bgColor = FlxColor.TRANSPARENT;
     // the menu	
 	for(num => a in ["Video", "Sound", "Visual", "Notes", "Controls", "Gameplay", "Misc"]){
@@ -95,12 +94,10 @@ function update(){
         if(inPlayState){
             inPlayState=false;
             FlxG.switchState(new PlayState());
-            trace("Playstate.");
         }
         else FlxG.switchState(new ModState("BND/BNDMenu"));
     }
     if (controls.ACCEPT) acceptThingieAndNotDie();
-    trace(FlxG.save.data.options.brightness);
 }
 
 function acceptThingieAndNotDie(){
@@ -186,7 +183,6 @@ function regenMenu(){
         if(a[2].length != 0){
             daParams.add(new ClassicAlphabet(0, (90 * num), (a[2].length != 1 ? "<" + (a[2][a[2].indexOf(Reflect.field(FlxG.save.data.options, a[3]))]) + ">" : a[2][0]), true));
             laText = daParams.members[daParams.length - 1];
-            //trace(laText.text);
 
             laText.camera = optionsCam;
             laText.x = optionsCam.x + optionsCam.width - laText.width - 175;
@@ -198,7 +194,6 @@ function regenMenu(){
             checkbox.animation.addByPrefix("ya", "Checkbox", 24, false);
             checkbox.animation.addByIndices("nah", "Checkbox", [9,8,7,6,5,4,3,2,1,0], '',24, false);
             checkbox.ID=num;//Make this fucking ID thing match the cur savedata thing , AHHHHH-
-            trace(checkbox.ID);
 
             daCheckboxes.add(checkbox);
             daCheckboxes.members[daCheckboxes.length - 1].animation.play("ya", true, !Reflect.field(FlxG.save.data.options, a[3]), !Reflect.field(FlxG.save.data.options, a[3]) ? 24 : 0);

@@ -66,10 +66,7 @@ static function updateColorMatrix(){
 	colorMatrixFilterGLOBAL.uMultipliers[14] = matrix[17];
 	colorMatrixFilterGLOBAL.uMultipliers[15] = matrix[18];
 
-	colorMatrixFilterGLOBAL.uOffsets[0] = matrix[4] / 255.0;
-	colorMatrixFilterGLOBAL.uOffsets[1] = matrix[9] / 255.0;
-	colorMatrixFilterGLOBAL.uOffsets[2] = matrix[14] / 255.0;
-	colorMatrixFilterGLOBAL.uOffsets[3] = matrix[19] / 255.0;
+    colorMatrixFilterGLOBAL.uOffsets=[matrix[4]/255.0,matrix[9]/255.0,matrix[14]/255.0,matrix[19]/255.0];
 
     var cosA:Float = Math.cos(-0 * Math.PI / 180);
 	var sinA:Float = Math.sin(-0 * Math.PI / 180);
@@ -109,15 +106,12 @@ static function updateColorMatrix(){
 	colorMatrixFilterGLOBAL2.uMultipliers[13] = colorM[16];
 	colorMatrixFilterGLOBAL2.uMultipliers[14] = colorM[17];
 
-    colorMatrixFilterGLOBAL2.data.uOffsets.value=[colorM[4] / 255.0,colorM[9] / 255.0,colorM[14] / 255.0,
-	colorM[19] / 255.0
-	];
+    colorMatrixFilterGLOBAL2.uOffsets=[colorM[4]/255.0,colorM[9]/255.0,colorM[14]/255.0,colorM[19]/255.0];
 }
 
 function new() {
     FlxG.save.bind('BamberAndDavey', 'TeamReimagination'); //I found out that mod options use regular saves instead of a save in the Options class for example
 
-    trace(FlxG.save.data.options);
     if (FlxG.save.data.options == null) FlxG.save.data.options = {};
 
     //MOD SPECIFIC OPTIONS, DEFAULT ONES SHOULD BE INCLUDED TOO
@@ -210,7 +204,6 @@ function new() {
 function postStateSwitch() {
     WindowUtils.set_prefix('Bamber & Davey Vol. 2.5 | ');
     if (stateQuotes[ModState.lastName] != null && Type.getClassName(Type.getClass(FlxG.state)) == 'funkin.backend.scripting.ModState') {
-        trace("DIE.");
         WindowUtils.set_winTitle(stateQuotes[ModState.lastName]);
         DiscordUtil.changePresence(stateQuotes[ModState.lastName], null);
     }
@@ -300,17 +293,6 @@ public static function resetTheModSave() {
 public static function changeFpsFont(theFuckingFont:String) {
     Framerate.fpsCounter.fpsNum.defaultTextFormat = Framerate.fpsCounter.fpsLabel.defaultTextFormat = Framerate.memoryCounter.memoryText.defaultTextFormat = Framerate.memoryCounter.memoryPeakText.defaultTextFormat = Framerate.codenameBuildField.defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(theFuckingFont)));
 }
-
-//Checks for a score with a special diff like erect , bfdi and etc.
-/*
-public function getTheFuckingHighScore(theSongNameInFp:String,THEFUCKINGDIFF:String) {
-	trace(THEFUCKINGDIFF);
-    for(i in ['ABSOLUTELY FUCKING FUCKED','erect','normal','bfdi'])
-    if(THEFUCKINGDIFF.contains(i))
-    return FunkinSave.getSongHighscore(theSongNameInFp, THEFUCKINGDIFF).score;
-	trace(FunkinSave.getSongHighscore(theSongNameInFp, THEFUCKINGDIFF).score);
-}*/
-//This_thing_can_rot.
 
 public static function savetheshit() {
     // save it

@@ -30,7 +30,6 @@ function onGameOver(e) {
     }
     }
     if(StringTools.startsWith(curSong, "judgement")){
-        trace("Chris_pratt.");
         e.gameOverSong = "death/ut";
         GameOverSubstate.script = 'data/scripts/gameovers/judgemental-failure';
     }

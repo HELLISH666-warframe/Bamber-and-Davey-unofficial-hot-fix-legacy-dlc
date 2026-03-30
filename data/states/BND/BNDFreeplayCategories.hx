@@ -120,7 +120,6 @@ function create() {
         arrows[a].frames = Paths.getSparrowAtlas("menus/freeplay/selectArrows");
         for(z in ["hit", "idle"]) {
 			arrows[a].animation.addByPrefix(z, z + ["Left", "Right"][a], 4, false);
-			//trace(z + ":" + z + ["Left", "Right"][a]);
 		}
         arrows[a].animation.play("idle");
         add(arrows[a]).antialiasing = Options.antialiasing;
@@ -224,7 +223,6 @@ function change(a) {
 		var relSel = Math.abs(curSelected - i.ID);
 		var targetNumber = curSelected == i.ID ? 190 : 300;
 		FlxTween.globalManager.cancelTweensOf(i);
-		//trace(relSel);
 		FlxTween.tween(i, {y: targetNumber + relSel * 50}, 0.4, {ease: FlxEase.quartOut});
 	}
 		
