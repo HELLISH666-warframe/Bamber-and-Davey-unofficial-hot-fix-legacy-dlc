@@ -12,3 +12,9 @@ Again, we hope you enjoy the buggy mess we have, and thank you for staying with 
 (While keeping our workflow nice and healthy of course!)
 
 Thank you, and have a great rest of your day! - Cassandra, on behalf of Team Reimagination
+
+# DOWNLOAD [THIS](https://drive.google.com/drive/folders/1V6WMZrjS50AcWUKXAF8o-DrnEvjCd7c4?usp=sharing) VERSON OF CODENAME FOR EVERYTHING TO WORK CORRECTLY.
+
+# Uhh Earframe here!
+
+This fork of Bamber And Davey aims to "finish" everything I can.
