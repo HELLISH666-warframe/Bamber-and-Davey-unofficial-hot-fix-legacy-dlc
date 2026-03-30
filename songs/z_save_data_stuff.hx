@@ -43,9 +43,9 @@ function onSongEnd(){
 	if(!FlxG.save.data.gameStats.clearedSongs.contains(curSong))
 		FlxG.save.data.gameStats.clearedSongs.push(curSong);
 	if(PlayState.isStoryMode)
-	switch(curSong){
-		case'Harvest':FlxG.save.data.gameStats.discoveries["Bamber's Farm"]=true;
-		case'Coop':FlxG.save.data.gameStats.discoveries["Davey's Yard"]=true;
-		case'Fortnite Duos':FlxG.save.data.gameStats.discoveries["Romania Outskirts"]=true;
+	switch(curSong.toLowerCase()){
+		case'harvest':FlxG.save.data.gameStats.discoveries["Bamber's Farm"]=true;
+		case'coop':FlxG.save.data.gameStats.discoveries["Davey's Yard"]=true;
+		case'fortnite duos':FlxG.save.data.gameStats.discoveries["Romania Outskirts"]=true;
 	}
 }
