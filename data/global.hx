@@ -22,6 +22,8 @@ var isHovering = false;
 var switched = false;
 static var hasseen = false;
 public static var inPlayState = false;
+public static var colorMatrixFilterGLOBAL = new CustomShader('colorMatrix');
+public static var colorMatrixFilterGLOBAL2 = new CustomShader('colorMatrix');
 
 function destroy(){
 	hasseen = false;
@@ -29,6 +31,56 @@ function destroy(){
     FlxG.mouse.visible = false;
     changeFpsFont(Framerate.fontName);
     if(!window.fullscreen)window.borderless=false;
+    if(colorMatrixFilterGLOBAL!=null)FlxG.game.removeShader(colorMatrixFilterGLOBAL);
+    if(colorMatrixFilterGLOBAL2!=null)FlxG.game.removeShader(colorMatrixFilterGLOBAL2);
+}
+
+static function updateColorMatrix(){
+    for(i in [colorMatrixFilterGLOBAL,colorMatrixFilterGLOBAL2])
+    i.uMultipliers = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+    colorMatrixFilterGLOBAL.data.uOffsets.value = [FlxG.save.data.options.brightness/ 255.0,
+		FlxG.save.data.options.brightness/ 255.0,FlxG.save.data.options.brightness/ 255.0,0/ 255.0];
+
+    var cunt = [
+	1 * FlxG.save.data.options.gamma,0,0, 0, FlxG.save.data.options.brightness,
+	0, 1 * FlxG.save.data.options.gamma, 0, 0, FlxG.save.data.options.brightness,
+	0, 0, 1 * FlxG.save.data.options.gamma, 0, FlxG.save.data.options.brightness,
+	0,                    0,                    0, 1,                     0,
+	];
+
+    colorMatrixFilterGLOBAL.data.uMultipliers.value=[cunt[0],cunt[1],cunt[2],cunt[3],cunt[5],cunt[6],cunt[7],cunt[8],cunt[10],
+    cunt[11],cunt[12],cunt[13],cunt[15],cunt[16],cunt[17],cunt[18]];
+
+    var cosA:Float = Math.cos(-50 * Math.PI / 180);
+	var sinA:Float = Math.sin(-50 * Math.PI / 180);
+
+	var a1:Float = cosA + (1.0 - cosA) / 3.0;
+	var a2:Float = 1.0 / 3.0 * (1.0 - cosA) - Math.sqrt(1.0 / 3.0) * sinA;
+	var a3:Float = 1.0 / 3.0 * (1.0 - cosA) + Math.sqrt(1.0 / 3.0) * sinA;
+
+	var b1:Float = a3;
+	var b2:Float = cosA + 1.0 / 3.0 * (1.0 - cosA);
+	var b3:Float = a2;
+
+	var c1:Float = a2;
+	var c2:Float = a3;
+	var c3:Float = b2;
+
+	colorM = [
+		a1, b1, c1, 0, 0,
+		a2, b2, c2, 0, 0,
+		a3, b3, c3, 0, 0,
+		 0,  0,  0, 1, 0
+	];
+
+
+    colorMatrixFilterGLOBAL2.uMultipliers = [colorM[0],colorM[1],colorM[2],colorM[3],colorM[5],colorM[6],colorM[7],
+    colorM[8],colorM[10],colorM[11],colorM[12],colorM[13],colorM[15],colorM[16],colorM[17],colorM[18]];
+
+    colorMatrixFilterGLOBAL2.data.uOffsets.value=[colorM[4] / 255.0,colorM[9] / 255.0,colorM[14] / 255.0,
+	colorM[19] / 255.0
+	];
+    colorMatrixFilterGLOBAL2.data.uOffsets.value = [0,0,0,0];
 }
 
 function new() {
@@ -137,6 +189,9 @@ function postStateSwitch() {
     }
     idleCursorGraphic = Assets.getBitmapData(Paths.image('cursors/'+cursorName));
     FlxG.mouse.load(idleCursorGraphic,1,1,1);
+    FlxG.game.addShader(colorMatrixFilterGLOBAL);
+    FlxG.game.addShader(colorMatrixFilterGLOBAL2);
+    updateColorMatrix();
 }
 
 function postUpdate(elapsed) {
@@ -169,6 +224,8 @@ function preStateSwitch() { //Switch to where it was meant to be
     if (Type.getClassName(Type.getClass(FlxG.game._requestedState)) == "funkin.menus.TitleState") FlxG.game._requestedState = new ModState("SplashScreen");
 
     FlxG.mouse.useSystemCursor = false;
+    for (a in [colorMatrixFilterGLOBAL,colorMatrixFilterGLOBAL2])
+		FlxG.game.removeShader(a);
 }
 
 function update(elapsed) {
