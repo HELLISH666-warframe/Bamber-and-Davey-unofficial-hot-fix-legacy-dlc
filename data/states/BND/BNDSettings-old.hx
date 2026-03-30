@@ -100,6 +100,7 @@ function update(){
         else FlxG.switchState(new ModState("BND/BNDMenu"));
     }
     if (controls.ACCEPT) acceptThingieAndNotDie();
+    trace(FlxG.save.data.options.brightness);
 }
 
 function acceptThingieAndNotDie(){
@@ -135,10 +136,10 @@ function changeOption(a:Int){
 var type:String;
 function changeSelected(a:Int){
     Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3],curParam[FlxMath.wrap(getTheFuckingValue()+a, 0, curParam.length-1)]);
+    regenMenu();
     daParams.members[curSelect].text = '<' + Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]) + '>';
     laText = daParams.members[curSelect];
     //laText.members[0].color = laText.members[laText.text.length - 1].color = FlxColor.fromRGB(255, 100, 19);
-    regenMenu();
 }
 function getTheFuckingValue(){
     var found = null;
@@ -168,7 +169,7 @@ function changeCurSelected(a:Int){
 
 var numArray:Array<Int> = [];
 var numArray2:Array<Int> = [];
-for (c in 0...101) numArray.push(c);
+for (c in -200...201) numArray.push(c);
 for (c in -1000...1000)  numArray2.push(c);
 
 function regenMenu(){

@@ -74,6 +74,7 @@ function create() {
 	add(album = new FlxSprite(-140,-140).loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"))).angle=-3;
 	album.setGraphicSize(350,350);
 
+	//Make this a whole FlxGroup that gets tweened on screen showing the songs statstitcs later.
 	scorText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "right", FlxTextBorderStyle.SHADOW, 0xFF000000);
 	scorText.text = "Stats(Wip)";
 	scorText.shadowOffset.set(2, 2);
@@ -174,6 +175,12 @@ function update(elapsed) {
 		if(testtt.newTag!=null)testtt.newTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);
 		if(testtt.vipTag!=null)testtt.vipTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-350,testtt.siloSprite.y+testtt.siloSprite.height-300);
 		if(testtt.updatedTag!=null)testtt.updatedTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);
+	}
+	if (FlxG.mouse.overlaps(scorText) && FlxG.mouse.pressed){
+		FlxG.save.data.Bamber_song_diff = songser[subCurSelected].difficulties;
+		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
+		persistentUpdate = !persistentDraw;
+		openSubState(new MusicBeatSubstate(true,"substates/stats-test"));
 	}
 }
 function changements(a) {

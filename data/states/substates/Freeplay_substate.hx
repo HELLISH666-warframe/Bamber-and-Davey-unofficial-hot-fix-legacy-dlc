@@ -33,7 +33,6 @@ var curOption:Int = 0;
 static var curPlayingInst = Paths.inst(curSong.name, curSong.difficulties[curDifficulty]);
 static var prevSong:String = "";
 
-
 //Idea , have the option greyed out if mod-charts are set to always, same with scroll-speed.
 function create() {
 	new FlxTimer().start(0.2, ()->{click_through = true;});//Anti_fuckup_thing.

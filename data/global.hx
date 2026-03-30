@@ -22,8 +22,8 @@ var isHovering = false;
 var switched = false;
 static var hasseen = false;
 public static var inPlayState = false;
-public static var colorMatrixFilterGLOBAL = new CustomShader('colorMatrix');
-public static var colorMatrixFilterGLOBAL2 = new CustomShader('colorMatrix');
+var colorMatrixFilterGLOBAL = new CustomShader('ColorMatrixFilter');
+var colorMatrixFilterGLOBAL2 = new CustomShader('ColorMatrixFilter');
 
 function destroy(){
 	hasseen = false;
@@ -31,28 +31,48 @@ function destroy(){
     FlxG.mouse.visible = false;
     changeFpsFont(Framerate.fontName);
     if(!window.fullscreen)window.borderless=false;
-    if(colorMatrixFilterGLOBAL!=null)FlxG.game.removeShader(colorMatrixFilterGLOBAL);
-    if(colorMatrixFilterGLOBAL2!=null)FlxG.game.removeShader(colorMatrixFilterGLOBAL2);
+    FlxG.game.removeShader(colorMatrixFilterGLOBAL);
+    FlxG.game.removeShader(colorMatrixFilterGLOBAL2);
 }
 
 static function updateColorMatrix(){
-    for(i in [colorMatrixFilterGLOBAL,colorMatrixFilterGLOBAL2])
-    i.uMultipliers = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
-    colorMatrixFilterGLOBAL.data.uOffsets.value = [FlxG.save.data.options.brightness/ 255.0,
-		FlxG.save.data.options.brightness/ 255.0,FlxG.save.data.options.brightness/ 255.0,0/ 255.0];
+    matrix=[1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0];
+    colorMatrixFilterGLOBAL.uMultipliers = matrix;
+    colorMatrixFilterGLOBAL2.uMultipliers = matrix;
+    colorMatrixFilterGLOBAL.uOffsets = [0, 0, 0, 0];
+    colorMatrixFilterGLOBAL2.uOffsets = [0, 0, 0, 0];
 
-    var cunt = [
-	1 * FlxG.save.data.options.gamma,0,0, 0, FlxG.save.data.options.brightness,
-	0, 1 * FlxG.save.data.options.gamma, 0, 0, FlxG.save.data.options.brightness,
-	0, 0, 1 * FlxG.save.data.options.gamma, 0, FlxG.save.data.options.brightness,
-	0,                    0,                    0, 1,                     0,
+    matrix = [
+		0.20 * FlxG.save.data.options.gamma, 0.99 * FlxG.save.data.options.gamma, -.19 * FlxG.save.data.options.gamma, 0, FlxG.save.data.options.brightness,
+		0.16 * FlxG.save.data.options.gamma, 0.79 * FlxG.save.data.options.gamma, 0.04 * FlxG.save.data.options.gamma, 0, FlxG.save.data.options.brightness,
+		0.01 * FlxG.save.data.options.gamma, -.01 * FlxG.save.data.options.gamma,    1 * FlxG.save.data.options.gamma, 0, FlxG.save.data.options.brightness,
+		 0,                       0,                       0, 1,                     0,
 	];
 
-    colorMatrixFilterGLOBAL.data.uMultipliers.value=[cunt[0],cunt[1],cunt[2],cunt[3],cunt[5],cunt[6],cunt[7],cunt[8],cunt[10],
-    cunt[11],cunt[12],cunt[13],cunt[15],cunt[16],cunt[17],cunt[18]];
+    colorMatrixFilterGLOBAL.uMultipliers[0] = matrix[0];
+	colorMatrixFilterGLOBAL.uMultipliers[1] = matrix[1];
+	colorMatrixFilterGLOBAL.uMultipliers[2] = matrix[2];
+	colorMatrixFilterGLOBAL.uMultipliers[3] = matrix[3];
+	colorMatrixFilterGLOBAL.uMultipliers[4] = matrix[5];
+	colorMatrixFilterGLOBAL.uMultipliers[5] = matrix[6];
+	colorMatrixFilterGLOBAL.uMultipliers[6] = matrix[7];
+	colorMatrixFilterGLOBAL.uMultipliers[7] = matrix[8];
+	colorMatrixFilterGLOBAL.uMultipliers[8] = matrix[10];
+	colorMatrixFilterGLOBAL.uMultipliers[9] = matrix[11];
+	colorMatrixFilterGLOBAL.uMultipliers[10] = matrix[12];
+	colorMatrixFilterGLOBAL.uMultipliers[11] = matrix[13];
+	colorMatrixFilterGLOBAL.uMultipliers[12] = matrix[15];
+	colorMatrixFilterGLOBAL.uMultipliers[13] = matrix[16];
+	colorMatrixFilterGLOBAL.uMultipliers[14] = matrix[17];
+	colorMatrixFilterGLOBAL.uMultipliers[15] = matrix[18];
 
-    var cosA:Float = Math.cos(-50 * Math.PI / 180);
-	var sinA:Float = Math.sin(-50 * Math.PI / 180);
+	colorMatrixFilterGLOBAL.uOffsets[0] = matrix[4] / 255.0;
+	colorMatrixFilterGLOBAL.uOffsets[1] = matrix[9] / 255.0;
+	colorMatrixFilterGLOBAL.uOffsets[2] = matrix[14] / 255.0;
+	colorMatrixFilterGLOBAL.uOffsets[3] = matrix[19] / 255.0;
+
+    var cosA:Float = Math.cos(-150 * Math.PI / 180);
+	var sinA:Float = Math.sin(-150 * Math.PI / 180);
 
 	var a1:Float = cosA + (1.0 - cosA) / 3.0;
 	var a2:Float = 1.0 / 3.0 * (1.0 - cosA) - Math.sqrt(1.0 / 3.0) * sinA;
@@ -73,14 +93,25 @@ static function updateColorMatrix(){
 		 0,  0,  0, 1, 0
 	];
 
-
-    colorMatrixFilterGLOBAL2.uMultipliers = [colorM[0],colorM[1],colorM[2],colorM[3],colorM[5],colorM[6],colorM[7],
-    colorM[8],colorM[10],colorM[11],colorM[12],colorM[13],colorM[15],colorM[16],colorM[17],colorM[18]];
+    colorMatrixFilterGLOBAL2.uMultipliers[0] = colorM[0];
+	colorMatrixFilterGLOBAL2.uMultipliers[1] = colorM[1];
+	colorMatrixFilterGLOBAL2.uMultipliers[2] = colorM[2];
+	colorMatrixFilterGLOBAL2.uMultipliers[3] = colorM[3];
+	colorMatrixFilterGLOBAL2.uMultipliers[4] = colorM[5];
+	colorMatrixFilterGLOBAL2.uMultipliers[5] = colorM[6];
+	colorMatrixFilterGLOBAL2.uMultipliers[6] = colorM[7];
+	colorMatrixFilterGLOBAL2.uMultipliers[7] = colorM[8];
+	colorMatrixFilterGLOBAL2.uMultipliers[8] = colorM[10];
+	colorMatrixFilterGLOBAL2.uMultipliers[9] = colorM[11];
+	colorMatrixFilterGLOBAL2.uMultipliers[10] = colorM[12];
+	colorMatrixFilterGLOBAL2.uMultipliers[11] = colorM[13];
+	colorMatrixFilterGLOBAL2.uMultipliers[12] = colorM[15];
+	colorMatrixFilterGLOBAL2.uMultipliers[13] = colorM[16];
+	colorMatrixFilterGLOBAL2.uMultipliers[14] = colorM[17];
 
     colorMatrixFilterGLOBAL2.data.uOffsets.value=[colorM[4] / 255.0,colorM[9] / 255.0,colorM[14] / 255.0,
 	colorM[19] / 255.0
 	];
-    colorMatrixFilterGLOBAL2.data.uOffsets.value = [0,0,0,0];
 }
 
 function new() {
@@ -237,7 +268,7 @@ function update(elapsed) {
 }
 
 public static function getVolume(initValue = 1, type = 'sfx') {
-    return initValue * switch (type) { case 'music': FlxG.save.data.options.musicVolume; case 'sfx': FlxG.save.data.options.sfxVolume; default: FlxG.save.data.options.voiceVolume;};
+    return initValue * switch (type) { case 'music': FlxG.save.data.options.musicVolume; case 'sfx': FlxG.save.data.options.sfxVolume; default: FlxG.save.data.options.voiceVolume;}/70;
 }
 
 public static function pushToClickables(obj) {
@@ -302,4 +333,5 @@ public static function savetheshit() {
     //Window_shit.
     if(!window.fullscreen) window.borderless=FlxG.save.data.options.borderless;
     window.fullscreen=FlxG.save.data.options.fullscreen;
+    updateColorMatrix();
 }

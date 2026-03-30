@@ -5,7 +5,6 @@ class Medals {
         
         var save = ModSupport.modSaves[mod];
         if (save == null) {
-            FlxG.log.error("Mod Save for " + mod + " not found.");
             return null;
         }
         var states:MedalStates = cast save.data.medalStates;
@@ -15,8 +14,8 @@ class Medals {
         }
         return states;
     }
-    public static function lock(mod:String, medal:String) {
-        __getStates(mod)[medal] = MedalState.LOCKED;
+    public static function lock(medal:String) {
+        __getStates()[medal] = MedalState.LOCKED;
     }
 
     public static function unlock(mod:String, medal:String) {

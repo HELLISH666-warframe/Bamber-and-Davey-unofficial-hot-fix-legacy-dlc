@@ -17,7 +17,7 @@
 	"countdownsound": "amung",
 	"credits": {
 		"Art": ["Seezee"],
-		"Music": ["Kasu"],
+		"Music": ["Glitch.smh"],
 		"Chart": {
 		"easy": ["Luminous"],
 		"normal": ["Glitch.smh"],
@@ -31,7 +31,7 @@
 		"updated": true,
 		"hasModchart":true,
 		"hasCutscenes":true,
-		"composer":"Kasu"
+		"composer":"Glitch.smh"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "romania outskirts/",

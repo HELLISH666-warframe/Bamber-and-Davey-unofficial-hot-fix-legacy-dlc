@@ -46,6 +46,11 @@ function postComboShit() {
     	{name:"Shit",image:comboPath + "Shit",accuracy:1/6,health:0.0,maxDiff:250,score:-150,color:"#804913"}
 		];
 	}
+	ratingManager.hitWindows.clear();
+	hits.clear();
 	for (i in 0...combTestShit.length)
 		ratingManager.addRating({name:combTestShit[i].name, accuracy:combTestShit[i].accuracy, window:combTestShit[i].maxDiff, score:combTestShit[i].score, splash:combTestShit[i].showSplashes!=null? true :false});
+	ratingManager.ratingData.sort((a, b) -> Reflect.compare(a.window, b.window));
+	for (rating in [for (i in ratingManager.ratingData) i.name]) hits.set(rating, 0); // Ensure all keys exist as to prevent null errors.
+	trace(hits);
 }

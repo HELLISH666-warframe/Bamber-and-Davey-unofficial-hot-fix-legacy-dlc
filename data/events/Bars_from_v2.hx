@@ -55,6 +55,7 @@ function onEvent(_) {
 					 CoolUtil.flxeaseFromString(value3))});
 		FlxTween.tween(bar2, {y: 720 + -(val1 * 10)}, val2, {ease: (value3 == null ? FlxEase.quintOut : CoolUtil.flxeaseFromString(value3))});
 	}
+	trace('Bars.');
 }
 function update(elapsed){
 	bar1.x = -bar1.width / 10;

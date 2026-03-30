@@ -10,5 +10,10 @@
 	"displayName": "Yield",
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
-	"bpm": 180
+	"bpm": 180,
+	"customValues": {
+		"countdownsound": "bamber",
+		"countdownPath": "default/",
+		"comboPath": "default/"
+	}
 }
