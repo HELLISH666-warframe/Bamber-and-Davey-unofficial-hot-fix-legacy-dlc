@@ -71,8 +71,8 @@ static function updateColorMatrix(){
 	colorMatrixFilterGLOBAL.uOffsets[2] = matrix[14] / 255.0;
 	colorMatrixFilterGLOBAL.uOffsets[3] = matrix[19] / 255.0;
 
-    var cosA:Float = Math.cos(-150 * Math.PI / 180);
-	var sinA:Float = Math.sin(-150 * Math.PI / 180);
+    var cosA:Float = Math.cos(-0 * Math.PI / 180);
+	var sinA:Float = Math.sin(-0 * Math.PI / 180);
 
 	var a1:Float = cosA + (1.0 - cosA) / 3.0;
 	var a2:Float = 1.0 / 3.0 * (1.0 - cosA) - Math.sqrt(1.0 / 3.0) * sinA;
