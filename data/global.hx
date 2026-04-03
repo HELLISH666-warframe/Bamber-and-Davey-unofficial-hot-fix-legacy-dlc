@@ -33,6 +33,7 @@ function destroy(){
     if(!window.fullscreen)window.borderless=false;
     FlxG.game.removeShader(colorMatrixFilterGLOBAL);
     FlxG.game.removeShader(colorMatrixFilterGLOBAL2);
+    FlxG.save.bind('save-default', 'CodenameEngine');
 }
 
 static function updateColorMatrix(){
@@ -316,4 +317,5 @@ public static function savetheshit() {
     if(!window.fullscreen) window.borderless=FlxG.save.data.options.borderless;
     window.fullscreen=FlxG.save.data.options.fullscreen;
     updateColorMatrix();
+    FlxG.save.flush();
 }
