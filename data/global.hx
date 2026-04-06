@@ -193,6 +193,7 @@ function new() {
     FlxG.save.data.gameStats.playtime ??= 0;
     FlxG.save.data.gameStats.clearedSongs ??= [];
     FlxG.save.data.gameStats.achievements ??= [];
+    FlxG.save.data.gameStats.deaths ??= 0;
 
     //Tags?
     FlxG.save.data.freeplayShit ??= {};

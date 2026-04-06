@@ -30,6 +30,7 @@ function postCreate() {
 }*/
 function onGameOver(e) {
 	//Gameplay Options
+	FlxG.save.data.gameStats.deaths++;
 	if(FlxG.save.data.options.skipGameOver){
 		e.cancel();
 		FlxG.resetState();

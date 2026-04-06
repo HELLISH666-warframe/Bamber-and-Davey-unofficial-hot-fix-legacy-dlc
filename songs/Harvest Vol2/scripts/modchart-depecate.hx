@@ -1,7 +1,9 @@
+/*if(FlxG.save.data.options.modcharts==true){
 var time:Float = 0;
 var allStrums = [];
 var allStrumsX = [];
 var allStrumsY = 0;
+var fuck:Bool=true;
 function postCreate() {
 	for (i in cpuStrums.members) {allStrums.push(i); allStrumsX.push(i.x); allStrumsY = i.y;} 
 	for (j in playerStrums.members) {allStrums.push(j); allStrumsX.push(j.x);}
@@ -11,10 +13,10 @@ function update(elapsed:Float) {
 	var i:Int = 0;
 	for (strum in allStrums) {
 		strum.y = FlxMath.lerp(strum.y, 
-			FlxG.save.data.options.modcharts!='Never' ? allStrumsY + (Math.sin((i % 4 + 4) * (time - (20 * i))) / 2) * 50 : allStrumsY,
+			fuck ? allStrumsY + (Math.sin((i % 4 + 4) * (time - (20 * i))) / 2) * 50 : allStrumsY,
 			0.2);
 		strum.x = FlxMath.lerp(strum.x, 
-			FlxG.save.data.options.modcharts!='Never' ? allStrumsX[i] + Math.cos(((i % 4 + 4) + 2) * (time - (20 * i))) * 10 : allStrumsX[i],
+			fuck ? allStrumsX[i] + Math.cos(((i % 4 + 4) + 2) * (time - (20 * i))) * 10 : allStrumsX[i],
 			0.2);
 		strum.scale.y = FlxMath.lerp(strum.scale.y, 0.7, 0.2);
 		strum.scale.x = FlxMath.lerp(strum.scale.x, 0.7, 0.2);
@@ -23,7 +25,7 @@ function update(elapsed:Float) {
 }
 var beating:Bool = true;
 function beatHit(curBeat) {
-	if (FlxG.save.data.options.modcharts!='Never') {
+	//if (save.data.vs_bamber_modChart[PlayState.SONG.song.toLowerCase()]) {
 		for (strum in allStrums) {
 			if (beating) {
 				if (curBeat >= 32) {
@@ -34,11 +36,13 @@ function beatHit(curBeat) {
 					strum.scale.y = 0.5;
 			}
 		}
-	}
+	//}
 }
-function turnOn() beating = !beating;
+function turnOn() {
+	beating = !beating;
+}
 function bigboom() {
-	if (FlxG.save.data.options.modcharts!='Never') {
+	if (fuck) {
 		var i:Int = 0;
 		for (strum in allStrums) {
 			i++; 
@@ -50,7 +54,7 @@ function bigboom() {
 	}
 }
 function smallboom() {
-	if (FlxG.save.data.options.modcharts!='Never') {
+	if (fuck) {
 		var i:Int = 0;
 		for (strum in allStrums) {
 			i++; 
@@ -62,7 +66,7 @@ function smallboom() {
 	}
 }
 function heychant() {
-	if (FlxG.save.data.options.modcharts!='Never') {
+	if (fuck) {
 		var i:Int = 0;
 		for (strum in allStrums) {
 			i++; 
@@ -71,3 +75,4 @@ function heychant() {
 		}
 	}
 }
+}*/

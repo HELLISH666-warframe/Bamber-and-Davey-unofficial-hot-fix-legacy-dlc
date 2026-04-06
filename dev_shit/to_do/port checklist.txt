@@ -10,6 +10,7 @@ WEEK D
 - Dialogue
 - Dialogue char spritemaps
 - Coop multiplayer chart
+- Yard from Vol2
 
 WEEK R&B
 - Dialogue
@@ -70,6 +71,12 @@ COLLABS/CROSSOVERS
 DAVEY'S NIGHTMARE;
 - Shaders
 - idk i think i did the rest
+
+LEGACY-CONTENT
+- Harvest-Vol2;
+    -Modhcart.
+- Synthwheel-Vol2
+- Coop-Vol2
 
 MISC SCRIPTS
 - Credits script

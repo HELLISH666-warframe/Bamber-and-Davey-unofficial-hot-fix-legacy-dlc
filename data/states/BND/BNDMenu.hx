@@ -17,7 +17,6 @@ import Date;
 import flixel.text.FlxText;
 import flixel.text.FlxTextBorderStyle;
 import flixel.addons.display.FlxBackdrop;
-import funkin.menus.ModSwitchMenu;
 import funkin.menus.ui.ClassicAlphabet;
 import AnimatedFunkinSprite;
 
@@ -593,11 +592,10 @@ var yLevel = 0;
 var oldYLevel = 0;
 
 function update(elapsed) {
-    if (FlxG.keys.justPressed.SEVEN) {
-		persistentUpdate = false;
-		persistentDraw = true;
-		import funkin.editors.EditorPicker;
-		openSubState(new EditorPicker());
+    if (controls.SWITCHMOD||FlxG.keys.justPressed.SEVEN) {
+		import funkin.menus.ModSwitchMenu; import funkin.editors.EditorPicker;
+		controls.SWITCHMOD ? openSubState(new ModSwitchMenu()) :openSubState(new EditorPicker());
+		persistentUpdate = !persistentDraw;
 	}
     if (FlxG.keys.justPressed.F9) { //DEV, REMOVE ONCE DONE!
         initialized = false;
@@ -779,10 +777,6 @@ function update(elapsed) {
         (initialized == false) ? skipIntro() : progressForwards(); //the switchstate is a placeholder thing
     }
     if ((controls.BACK || FlxG.mouse.justPressedRight) && isInMenu&&submenuNum==1) progressBackwards();
-	if (controls.SWITCHMOD) { //OUT OF NECESSITY, WILL REFURBISH LATER
-		openSubState(new ModSwitchMenu());
-		persistentUpdate = false;
-	}
 
     if (isInMenu&&submenuNum==1) {
         if ((controls.LEFT_P || controls.RIGHT_P)) {

@@ -278,6 +278,7 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.gameStats.playtime ??= 0;
         FlxG.save.data.gameStats.clearedSongs ??= [];
         FlxG.save.data.gameStats.achievements ??= [];
+        FlxG.save.data.gameStats.deaths ??= 0;
 
         FlxG.save.data.freeplayShit ??= {};
         FlxG.save.data.freeplayShit.favourites ??= [];
