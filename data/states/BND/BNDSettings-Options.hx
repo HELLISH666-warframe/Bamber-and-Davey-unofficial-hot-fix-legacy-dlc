@@ -77,7 +77,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Ghost Tapping", "Toggles ghost tapping", [], 'ghostTapping'],
         ["Story Mode Dialogue", "Toggles story mode dialogue", [], 'storyDialogue'],
         ["Freeplay Dialogue", "Toggles freeplay dialogue", [], 'freeplayDialogue'],
-        ["Song Offset", "Changes the offset that songs should start with.", [], 'cinematicBars'],
+        ["Song Offset", "Changes the offset that songs should start with.", [], 'songOffset'],
     ],
     [ // MISC
 	    ["Reset Scores", "Erases ALL song & week scores/achievements", [""], 'gameStats'],
