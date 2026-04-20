@@ -182,6 +182,9 @@ function new() {
     FlxG.save.data.options.ghostTapping??=true;
     FlxG.save.data.options.songOffset??=0;
 
+    //Debug/dev
+    FlxG.save.data.options.editorResize??=true;
+
     //Game Statistics
     FlxG.save.data.gameStats ??= {};
     FlxG.save.data.gameStats.discoveries ??= [

@@ -81,7 +81,19 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Song Offset", "Changes the offset that songs should start with.", [-5000,5000], 'songOffset','Int'],
     ],
     [ // MISC
+        //Add_an_if_statament_for_dev_shit_later.
+        ["Resizable Editors", "If checked, this will allow the editors to render beyond the base 1280x720.", [], 'editorResize','Bool'],
+        ["Bypass Editor Resize", "Disables the minimum resolution for resizing editors (Needs Resizable Editors To Be Enabled)", [], 'skipGameOver','Bool'],
+        ["Editor SFXs", "If checked, will play sound effects when working on editors (ex: will play sfxs when checking checkboxes...)", [], 'skipGameOver','Bool'],
 	    ["Reset Scores", "Erases ALL song & week scores/achievements", [""], 'gameStats'],
+        ["Chart Pretty Print", "If checked, the saved files from the chart editor will be formatted to be easily viewable", [], 'skipGameOver','Bool'],
+        ["Character Pretty Print", "If checked, the saved files from the character editor will be formatted to be easily viewable", [], 'skipGameOver','Bool'],
+        ["Stage Pretty Print", "If checked, the saved files from the stage editor will be formatted to be easily viewable", [], 'skipGameOver','Bool'],
+        ["Intensive Blur(editor)", "If checked, will use more intensive blur that may be laggier but look better.", [], 'skipGameOver','Bool'],
+        ["Editor Autosaves", "If checked, this will autosave your files in the editor, with the settings listed below.", [], 'skipGameOver','Bool'],
+        ["Autosaving Time", "This controls how often the editor will autosave your file (in seconds...)", [60,600], 'skipGameOver','Int'],
+        ["Save Warning Time", "If checked, this will autosave your file in a separate folder with a time stamp instead of overriding your current file. (song/autosaves/)", [0,15], 'skipGameOver','Int'],
+        ["Offset in Charter", "If checked, this will enable the Song Offset option in the Chart Editor too.", [], 'skipGameOver','Bool'],
 	    ["Reset Options", "Restores all settings to their default", [""], 'idek'],
         ["Reset Misc", "Restores week completion, freeplay tags and stats.", [""], 'idek']
     ]
