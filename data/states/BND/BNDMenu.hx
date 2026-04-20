@@ -609,9 +609,6 @@ function update(elapsed) {
     if (FlxG.keys.justPressed.G) { //DEV, REMOVE ONCE DONE!
         FlxG.switchState(new ModState("medal_shit/MedalsState"));
     }
-    if (FlxG.keys.justPressed.H) { //DEV, REMOVE ONCE DONE!
-        FlxG.switchState(new ModState("BND/Test-shit/BNDSettings-test"));
-    }
     if (FlxG.keys.justPressed.J) { //DEV, REMOVE ONCE DONE!
         FlxG.switchState(new ModState("FirstTimeState"));
     }
@@ -899,7 +896,7 @@ function progressForwards() {
 				case 1: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("GalleryState"));
 				case 2: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("AchievementsState"));
 				case 3: 
-                    FlxG.switchState(new ModState("BND/BNDSettings-old"));
+                    FlxG.switchState(new ModState("BND/BNDSettings"));
 				case 4:
 					import funkin.menus.credits.CreditsMain;
 					FlxG.switchState(new CreditsMain());

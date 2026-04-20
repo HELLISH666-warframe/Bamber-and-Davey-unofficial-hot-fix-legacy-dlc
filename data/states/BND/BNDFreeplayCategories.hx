@@ -271,7 +271,7 @@ function change(a) {
 		if (songL[i] != null) {
 			songL[i].text = songser[i].displayName;
 			songL[i].x=0;
-			songL[i].x=1200+(songL[i].x-songL[i].width);
+			songL[i].x=1240+(songL[i].x-songL[i].width);
 			var icon = new HealthIcon(songser[i].icon);
 			icon.sprTracker = songL[i];
 			icon.sprTrackerAlignment='left';
@@ -284,7 +284,7 @@ function change(a) {
 			text.color = FlxColor.WHITE;
 			text.scale.set(0.9,0.9);
 			text.targetY = text.ID = i;
-			text.x=(text.x-text.width)+1200;
+			text.x=(text.x-text.width)+1240;
 			songL.push(text);
 			add(text);
 

@@ -191,7 +191,7 @@ function selectOption() {
 			openSubState(new KeybindsOptions());
 		case "Change Options":
 			inPlayState=true;
-			FlxG.switchState(new ModState("BND/BNDSettings-old"));
+			FlxG.switchState(new ModState("BND/BNDSettings"));
 		case "Exit to charter":
 			FlxG.switchState(new Charter(PlayState.SONG.meta.name, PlayState.difficulty/*, true*/));
 			inPlayState=false;

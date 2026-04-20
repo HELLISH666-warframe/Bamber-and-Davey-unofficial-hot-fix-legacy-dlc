@@ -22,10 +22,11 @@
 			"hard": ["Glitch.smh", "Stormy"],
 			"normal": ["Glitch.smh"]
 		},
-		"Code": ["Frakits", "Verwex"],
+		"Code": ["Frakits", "Verwex","Earframe"],
 		"Music": ["Glitch.smh"],
 		"Art": ["Verwex"],
 		"offset":[0,40],
+		"delay":30,
 		"title":"Cornaholic"
 	},
 	"coopAllowed": true,

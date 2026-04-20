@@ -184,6 +184,16 @@ function new() {
 
     //Debug/dev
     FlxG.save.data.options.editorResize??=true;
+    FlxG.save.data.options.editorSFX??=true;
+    FlxG.save.data.options.prettyChart??=true;
+    FlxG.save.data.options.prettyChara??=true;
+    FlxG.save.data.options.prettyStage??=true;
+    FlxG.save.data.options.editorBlur??=true;
+    FlxG.save.data.options.editorAutosave??=true;
+    FlxG.save.data.options.editorAutosaveTime??=60;
+    FlxG.save.data.options.editorSaveWarnTime??=15;
+    FlxG.save.data.options.editorSaveFolder??=true;
+    FlxG.save.data.options.charterOffset??=true;
 
     //Game Statistics
     FlxG.save.data.gameStats ??= {};
@@ -313,6 +323,17 @@ public static function savetheshit() {
     Options.streamedVocals=FlxG.save.data.options.streamedVocals;
     Options.gpuOnlyBitmaps=FlxG.save.data.options.vramSprites;
     Options.downscroll=FlxG.save.data.options.scrollMode=='Top'? false: true;
+    Options.intensiveBlur=FlxG.save.data.options.editorBlur;
+    Options.editorSFX=FlxG.save.data.options.editorSFX;
+    Options.editorCharterPrettyPrint=FlxG.save.data.options.prettyChart;
+    Options.editorCharacterPrettyPrint=FlxG.save.data.options.prettyChara;
+    Options.editorStagePrettyPrint=FlxG.save.data.options.prettyStage;
+    Options.editorsResizable=FlxG.save.data.options.editorResize;
+    Options.songOffsetAffectEditors=FlxG.save.data.options.charterOffset;
+    Options.charterAutoSaves=FlxG.save.data.options.editorAutosave;
+    Options.charterAutoSaveTime=FlxG.save.data.options.editorAutosaveTime;
+    Options.charterAutoSaveWarningTime=FlxG.save.data.options.editorSaveWarnTime;
+    Options.charterAutoSavesSeparateFolder=FlxG.save.data.options.editorSaveFolder;
     Options.save();
     if (FlxG.updateFramerate < Options.framerate) FlxG.drawFramerate = FlxG.updateFramerate = Options.framerate;
 	else FlxG.updateFramerate = FlxG.drawFramerate = Options.framerate;

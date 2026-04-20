@@ -1,0 +1,23 @@
+setVar.hx________PACKSEP________
+
+function onEvent(_) {
+    if(_.event.name=='setVar')
+    testFuckingShit( _.event.params[0])=_.event.params[1];
+}
+public function testFuckingShit(tag:String) {
+	if(stage.getSprite(tag)!=null)return stage.getSprite(tag);
+	if(Reflect.field(state, tag)!=null)return Reflect.field(state, tag);
+	if(scripts.get(tag)!=null)return scripts.get(tag);
+}________PACKSEP________{
+    "params": [
+        {
+            "name": "The_var",
+            "type": "String",
+            "defaultValue": "defaultCamZoom"
+        },{
+            "name": "TheNUMBER",
+            "type": "String",
+            "defaultValue": "-3435"
+        }
+    ]
+}
