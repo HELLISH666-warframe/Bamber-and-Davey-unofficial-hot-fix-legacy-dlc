@@ -606,14 +606,14 @@ function update(elapsed) {
         menuGroupDrags = [-250, 250];
         FlxG.resetState();
     }
-    if (FlxG.keys.justPressed.J) { //DEV, REMOVE ONCE DONE!
-        FlxG.switchState(new ModState("FirstTimeState"));
-    }
     if (FlxG.keys.justPressed.G) { //DEV, REMOVE ONCE DONE!
         FlxG.switchState(new ModState("medal_shit/MedalsState"));
     }
     if (FlxG.keys.justPressed.H) { //DEV, REMOVE ONCE DONE!
-        FlxG.switchState(new ModState("YCE/CreditsState"));
+        FlxG.switchState(new ModState("BND/Test-shit/BNDSettings-test"));
+    }
+    if (FlxG.keys.justPressed.J) { //DEV, REMOVE ONCE DONE!
+        FlxG.switchState(new ModState("FirstTimeState"));
     }
 
     if (!initialized) {

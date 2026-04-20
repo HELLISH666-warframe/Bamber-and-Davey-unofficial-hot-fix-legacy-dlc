@@ -15,7 +15,10 @@
 		},
 		"Art": ["Seezee"],
 		"Music": ["Glitch.smh"],
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"offset":[0,-10],
+		"delay":32,
+		"title":"Fortnite Duos"
 	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,

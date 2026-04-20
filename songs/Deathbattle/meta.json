@@ -22,7 +22,8 @@
 		"Chart": {
 			"normal": ["Glitch.smh", "Stormy"]
 		},
-		"Art": ["Sibottle", "Verwex"]
+		"Art": ["Sibottle", "Verwex"],
+		"title":"Cornaholic"
 	},
 	"coopAllowed": true,
 	"stepsPerBeat": 4,

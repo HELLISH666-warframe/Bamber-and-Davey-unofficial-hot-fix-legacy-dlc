@@ -12,7 +12,9 @@
 		"Chart": {
 		"fortnite": ["Glitch.smh"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"offset":[10,40],
+		"title":"Squeaky Clean"
 	},
 	"freeplayShit": {
 		"album": 2,

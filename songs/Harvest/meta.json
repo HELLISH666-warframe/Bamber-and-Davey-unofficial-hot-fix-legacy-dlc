@@ -25,7 +25,10 @@
 		"normal": ["Glitch.smh"],
 		"hard": ["Luminous"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"offset":[0,30],
+		"delay":7,
+		"title":"Harvest"
 	},
 	"freeplayShit": {
 		"album": 2.5,

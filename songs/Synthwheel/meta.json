@@ -23,7 +23,9 @@
 		"normal": ["Glitch.smh"],
 		"hard": ["Luminous"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"offset":[70,45],
+		"title":"Synthwheel"
 	},
 	"freeplayShit": {
 		"album": 2.5,

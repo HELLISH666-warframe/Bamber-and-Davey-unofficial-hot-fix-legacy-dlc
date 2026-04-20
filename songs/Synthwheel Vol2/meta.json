@@ -24,7 +24,9 @@
 			"Normal": ["Glitch.smh"],
 			"Hard": ["Luminous"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"offset":[70,45],
+		"title":"Synthwheel"
 	},
 	"coopAllowed": true,
 	"stepsPerBeat": 4,

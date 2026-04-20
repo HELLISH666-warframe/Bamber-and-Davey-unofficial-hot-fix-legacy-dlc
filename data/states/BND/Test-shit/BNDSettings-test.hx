@@ -136,15 +136,13 @@ function changeOption(a:Int){
 }
 
 var type:String;
-function changeSelected(a:Int){
-    //FlxG.save.data.options.gamma=0;
-    trace(optionsFile[curMenu][curSelect][2][1]);
-    trace(Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]));
-    trace(optionsFile[curMenu][curSelect][2],optionsFile[curMenu][curSelect][4]);
+function changeSelected(a:Float){
     if(optionsFile[curMenu][curSelect][4]=='Choice')Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3],curParam[FlxMath.wrap(getTheFuckingValue()+a, 0, curParam.length-1)]);
+    trace(optionsFile[curMenu][curSelect][2][0]);
     if(optionsFile[curMenu][curSelect][4]!='Choice')
-        Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3],FlxMath.bound(Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3])+a, optionsFile[curMenu][curSelect][2][0], optionsFile[curMenu][curSelect][2][1]-1));
+        Reflect.setField(FlxG.save.data.options, optionsFile[curMenu][curSelect][3],FlxMath.bound(Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3])+a, optionsFile[curMenu][curSelect][2][0], optionsFile[curMenu][curSelect][2][1]));
     regenMenu();
+    //trace(Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]));
     daParams.members[curSelect].text = '<' + Reflect.field(FlxG.save.data.options, optionsFile[curMenu][curSelect][3]) + '>';
     laText = daParams.members[curSelect];
     //laText.members[0].color = laText.members[laText.text.length - 1].color = FlxColor.fromRGB(255, 100, 19);
@@ -160,11 +158,7 @@ function getTheFuckingValue(){
 
 function changeCurSelected(a:Int){
     curSelect = FlxMath.wrap(curSelect + a, 0, optionsFile[curMenu].length-1);
-    if(optionsFile[curMenu][curSelect][2]==numArray){curParam=numArray;
-        type='100';
-    }
-    else if(optionsFile[curMenu][curSelect][2].length>=0){curParam=optionsFile[curMenu][curSelect][2];
-        type='pre-set';
+    if(optionsFile[curMenu][curSelect][2].length>=0){curParam=optionsFile[curMenu][curSelect][2];
     }
     for(i in 0...daOptions.length){
     daOptions.members[i].alpha=0.6;
@@ -175,25 +169,17 @@ function changeCurSelected(a:Int){
     theFuckingIMPORTANTbar.y=daOptions.members[curSelect].y+40;
 }
 
-var numArray:Array<Int> = [];
-var numArray2:Array<Int> = [];
-for (c in -200...201) numArray.push(c);
-for (c in -1000...1000)  numArray2.push(c);
-
 function regenMenu(){
     savetheshit();
     for(z in [daParams, daOptions, daCheckboxes]) z.clear();
     for(num => a in optionsFile[curMenu]){
         //trace(a[2],a[4]);
-        if(["Brightness", "Music Volume", "SFX Volume", "Voice Volume"].contains(a[0]))
-            a[2] = numArray;
-        if(['Song Offset'].contains(a[0]))  a[2] = numArray2;
 
         //trace("Name: " + b[0] + " | Desc: " + b[1], " | Params: " + b[2]);
         daOptions.add(new ClassicAlphabet(25, (90 * num), a[0], true));
         daOptions.members[num].color = (StringTools.startsWith(daOptions.members[num].text, "Reset") ? FlxColor.fromRGB(225, 225/7.5, 225/7.5) : FlxColor.WHITE);
         if(a[2].length != 0){
-            daParams.add(new ClassicAlphabet(0, (90 * num), (a[2].length != 1 ? "<" + (a[2][a[2].indexOf(Reflect.field(FlxG.save.data.options, a[3]))]) + ">" : a[2][0]), true));
+            daParams.add(new ClassicAlphabet(0, (90 * num), '<'+Reflect.field(FlxG.save.data.options, a[3])+'>', true));
             laText = daParams.members[daParams.length - 1];
 
             laText.camera = optionsCam;

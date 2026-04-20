@@ -21,7 +21,8 @@
 		"note stuff": {
 		"normal": ["Stormy"]
 		},
-		"funny hacking": ["Frakits", "Verwex"]
+		"funny hacking": ["Frakits", "Verwex"],
+		"title":"Generations"
 	},
 	"freeplayShit": {
 		"album": 2,

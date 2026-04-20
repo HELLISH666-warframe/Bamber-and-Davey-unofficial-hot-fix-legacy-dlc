@@ -1,15 +1,6 @@
 //Custom Combo graphics
 var comboPath = 'game/score/'+PlayState.SONG.meta.customValues.comboPath;
 
-/*var countdownOverrideDir = [['judgement_hall', 'undertalestage'] => 'undertale'];
-
-for (song in countdownOverrideDir.keys()) {
-	if (song.contains(SONG.stage.toLowerCase()) || song.contains(SONG.meta.name.toLowerCase())) {
-		comboPath = 'HUD/'+countdownOverrideDir[song]+'/';
-		break; //break out of the loop
-	}
-}*/
-
 var hasPlurality = (Assets.exists(Paths.image(comboPath + 'combo-plural')));
 
 var savedCombo = 0;

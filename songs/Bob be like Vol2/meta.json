@@ -8,14 +8,17 @@
 		"hard"
 	],
 	"credits": {
+		"Art": ["Seezee"],
+		"Music": ["Kasu"],
 		"Chart": {
 		"easy": ["Luminous"],
-		"hard": ["Luminous"],
-		"normal": ["Glitch.smh"]
+		"normal": ["Glitch.smh"],
+		"hard": ["Luminous"]
 		},
 		"Code": ["Frakits", "Verwex"],
-		"Music": ["Kasu"],
-		"Art": ["Seezee"]
+		"offset":[0,10],
+		"delay":8,
+		"title":"Bob be like"
 	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,

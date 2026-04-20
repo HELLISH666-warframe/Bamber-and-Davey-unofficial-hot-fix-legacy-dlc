@@ -9,7 +9,9 @@
 		"Chart": {
 		"normal": ["Glitch.smh"]
 		},
-		"Code": ["Frakits", "Verwex", "Seezee"]
+		"Code": ["Frakits", "Verwex", "Seezee"],
+		"offset":[0,5],
+		"title":"Trade"
 	},
 	"freeplayShit": {
 		"album": 2,

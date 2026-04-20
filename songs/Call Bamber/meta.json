@@ -22,7 +22,10 @@
 		"Chart": {
 		"normal": ["Glitch.smh"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"offset":[50,-15],
+		"delay":16,
+		"title":"call bamber"
 	},
 	"freeplayShit": {
 		"album": 2,

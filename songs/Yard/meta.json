@@ -13,7 +13,9 @@
 		"normal": ["Glitch.smh"],
 		"hard": ["Glitch.smh", "Stormy"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"offset":[0,30],
+		"title":"Yard"
 	},
 	"freeplayShit": {
 		"album": 2,

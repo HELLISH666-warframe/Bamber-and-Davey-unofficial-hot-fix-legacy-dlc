@@ -11,7 +11,8 @@
 		"Chart": {
 		"normal": ["Glitch.smh"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"delay":32
 	},
 	"freeplayShit": {
 		"album": 2,

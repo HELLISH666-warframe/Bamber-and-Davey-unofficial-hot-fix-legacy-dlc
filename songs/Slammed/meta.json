@@ -1,4 +1,14 @@
 {
+	"freeplayShit": {
+		"composer": "???",
+		"new": true,
+		"album": 2.5
+	},
+	"customValues": {
+		"countdownsound": "bamber",
+		"countdownPath": "default/",
+		"comboPath": "default/"
+	},
 	"color": "#E2FF00",
 	"opponentModeAllowed": true,
 	"difficulties": [
@@ -10,13 +20,5 @@
 	"displayName": "Slammed",
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
-	"bpm": 200,
-	"freeplayShit": {
-		"album": 2.5,
-		"new": true,
-		"composer":"???"
-	},
-	"customValues": {"comboPath": "default/",
-	"countdownPath": "default/",
-	"countdownsound": "bamber"}
+	"bpm": 200
 }

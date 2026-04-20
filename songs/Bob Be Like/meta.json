@@ -23,7 +23,10 @@
 		"normal": ["Glitch.smh"],
 		"hard": ["Luminous"]
 		},
-		"Code": ["Frakits", "Verwex", "Glitch.smh"]
+		"Code": ["Frakits", "Verwex", "Glitch.smh"],
+		"offset":[0,30],
+		"delay":8,
+		"title":"Bob be like"
 	},
 	"freeplayShit": {
 		"album": 2.5,

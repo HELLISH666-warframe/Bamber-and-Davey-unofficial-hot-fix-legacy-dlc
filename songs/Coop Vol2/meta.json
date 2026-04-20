@@ -22,7 +22,9 @@
 			"Normal": ["Glitch.smh"],
 			"Hard": ["Glitch.smh"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"offset":[10,15],
+		"title":"Coop"
 	},
 	"freeplayShit": {
 		"album": 2,

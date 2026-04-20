@@ -24,7 +24,9 @@
 		},
 		"Code": ["Frakits", "Verwex"],
 		"Music": ["Glitch.smh"],
-		"Art": ["Verwex"]
+		"Art": ["Verwex"],
+		"offset":[0,40],
+		"title":"Cornaholic"
 	},
 	"coopAllowed": true,
 	"stepsPerBeat": 4,

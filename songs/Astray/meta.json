@@ -29,7 +29,10 @@
 		"normal": ["Glitch.smh"],
 		"vip": ["???"]
 		},
-		"Code": ["Glitch.smh", "Frakits", "Verwex"]
+		"Code": ["Glitch.smh", "Frakits", "Verwex"],
+		"offset":[0,125],
+		"delay":32,
+		"title":"Astray"
 	},
 	"freeplayShit": {
 		"album": 2,

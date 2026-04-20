@@ -1,5 +1,6 @@
 /*The_cne_combo_shit_wasn't_capable_enough.
 Also_split_up_to_reduce_clutter_in_uic-combo.hx.*/
+import flixel.util.FlxSort;
 var comboPath = 'game/score/'+PlayState.SONG.meta.customValues.comboPath;
 public var combTestShit = [];
 function postComboShit() {
@@ -48,8 +49,13 @@ function postComboShit() {
 	}
 	ratingManager.hitWindows.clear();
 	hits.clear();
-	for (i in 0...combTestShit.length)
+	for (i in 0...combTestShit.length){
 		ratingManager.addRating({name:combTestShit[i].name, accuracy:combTestShit[i].accuracy, window:combTestShit[i].maxDiff, score:combTestShit[i].score, splash:combTestShit[i].showSplashes!=null? true :false});
+	}
 	ratingManager.ratingData.sort((a, b) -> Reflect.compare(a.window, b.window));
-	for (rating in [for (i in ratingManager.ratingData) i.name]) hits.set(rating, 0); // Ensure all keys exist as to prevent null errors.
+	//for (rating in [for (i in ratingManager.ratingData) i.name]) hits.set(rating, 0); // Ensure all keys exist as to prevent null errors.
+	for (i in ratingManager.ratingData) {hits[i.name]=0;
+		trace(i.name,hits);
+	}
+	trace(hits);
 }

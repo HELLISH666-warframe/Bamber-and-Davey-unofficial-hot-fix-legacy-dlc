@@ -9,7 +9,9 @@
 		"Chart": {
 		"normal": ["Glitch.smh"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"delay":32,
+		"title":"Judgement Farm"
 	},
 	"freeplayShit": {
 		"album": 2,

@@ -29,7 +29,8 @@
 		},
 		"Code": ["Frakits", "Verwex"],
 		"Music": ["Glitch.smh"],
-		"Art": ["Verwex"]
+		"Art": ["Verwex"],
+		"title":"Yield"
 	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,

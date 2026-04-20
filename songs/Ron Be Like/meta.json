@@ -13,7 +13,9 @@
 		"normal": ["Glitch.smh"],
 		"hard": ["Luminous"]
 		},
-		"Code": ["Frakits", "Verwex"]
+		"Code": ["Frakits", "Verwex"],
+		"offset":[0,10],
+		"title":"Ron be like"
 	},
 	"freeplayShit": {
 		"album": 2,

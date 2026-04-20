@@ -2,7 +2,7 @@ import openfl.utils.Assets;
 import flixel.text.FlxTextBorderStyle;
 import Reflect;
 
-if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
+if (SONG.meta.credits!=null&&FlxG.save.data.options.songCredits) {
     var isOnLeftSide = StringTools.contains(curSong, "call bamber");//WHY_DOES_CURSONG_MAKE_IT_LOWERCASE???
     var curSongLowerCase:String = PlayState.SONG.meta.name.toLowerCase();
 
@@ -14,18 +14,12 @@ if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
     var orderShit = ['Art', '3D Model', 'Music', 'Instrumental', 'Vocals', 'OG Music', 'Remix', 'Chart', 'Code', "My (Art)", "Asshole (Music)", "Burns (Chart)", "Bruh (Code)",
                     "drawingz", "myoosick", "note stuff", "funny hacking"]; //Fields for ordering JSONs
 
-    var songTitleOffsets = ['Cornaholic' => [0,40], "Harvest" => [0,30],
-                            "Synthwheel" => [70,45], "Yard" => [0,30], "Coop" => [10,15],
-                            "Ron Be Like" => [0, 10], "Bob be like" => [0,30], "Fortnite Duos" => [0,-10],
-                            "Blusterous Day" => [0,20], "Swindled" => [20,25], "Trade" => [0,5],
-                            "Squeaky Clean" => [10,40],
-                            "call-bamber" => [50,-15],
-                            "Astray" => [0, 125], "Facsimile" => [0, 125]][curSong];
-    if (songTitleOffsets == null) songTitleOffsets = [0,0];
+    var songTitleOffsets = SONG.meta.credits.offset;
+    songTitleOffsets ??= [0,0];
 
     function postCreate() {
         songBG = new FlxSprite(0).loadGraphic(Assets.exists(Paths.image('credits/backgrounds/'+curSong.toLowerCase())) ? Paths.image('credits/backgrounds/'+curSong.toLowerCase()) : Paths.image('credits/backgrounds/'+SONG.stage.toLowerCase()));
-        songTitle = new FlxSprite(0).loadGraphic(Paths.image('credits/titles/'+curSong));
+        songTitle = new FlxSprite(0).loadGraphic(Paths.image('credits/titles/'+SONG.meta.credits.title));
         songBG.screenCenter();
         songBG.x += 2 * (isOnLeftSide ? -0.5 : 1); //Minor correction due to outlines
 
@@ -139,28 +133,11 @@ if ((SONG.meta.credits!=null)&&FlxG.save.data.options.songCredits) {
         if (creditTimer != null) creditTimer.active = !paused;
     }
 
-    var creditDelay = [
-        ['Astray', 'Swindled', 'Multiversus', 'Fortnite Duos', 'Blusterous Day', 'Megalofarmer','Judgement Farm V1'] => 32,
-        ['call-bamber'] => 16,
-        ['Harvest'] => 7,
-        ['Bob Be Like'] => 8,
-        ['Screencast'] => -4
-    ];
-    var delaySize = 0;
-    
-    for (song in creditDelay.keys()) {
-        if (StringTools.contains(song, SONG.meta.displayName)) {
-            delaySize = creditDelay[song];
-            break; //break out of the loop
-        }
-    }
+    var delaySize = SONG.meta.credits.delay;
+    delaySize ??= 0;
 
-    function musicStart() {
-        if (delaySize == 0) spawnCredit();
-    }
-    function beatHit(curBeat) {
-        if (curBeat == delaySize) spawnCredit();
-    }
+    function musicStart() if (delaySize == 0) spawnCredit();
+    function beatHit(curBeat) if (curBeat == delaySize) spawnCredit();
 
     var creditTweens = [];
     var creditTime;

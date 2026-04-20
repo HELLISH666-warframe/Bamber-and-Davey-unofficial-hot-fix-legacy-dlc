@@ -12,7 +12,9 @@
 		"Chart": {
 		"normal": ["Glitch.smh"]
 		},
-		"Code": ["Glitch.smh", "Frakits", "Verwex"]
+		"Code": ["Glitch.smh", "Frakits", "Verwex"],
+		"offset":[0,125],
+		"title":"Facsimile"
 	},
 	"freeplayShit": {
 		"album": 2,
