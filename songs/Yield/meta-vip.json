@@ -11,6 +11,19 @@
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
 	"bpm": 180,
+	"credits": {
+		"Chart": {
+			"easy": ["Luminous"],
+			"normal": ["Glitch.smh"],
+			"hard": ["Luminous"],
+			"vip": ["???"]
+		},
+		"Code": ["Frakits", "Verwex"],
+		"Music": ["Glitch.smh"],
+		"Art": ["Verwex"],
+		"title":"Yield",
+		"background":"farm"
+	},
 	"customValues": {
 		"countdownsound": "bamber",
 		"countdownPath": "default/",

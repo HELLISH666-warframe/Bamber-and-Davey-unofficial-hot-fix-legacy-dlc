@@ -1,0 +1,25 @@
+{
+	"displayName": null,
+	"bpm": 250,
+	"icon": "Cheating-Bambi",
+	"color": "#038703",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
+	"credits": {
+		"My (Art)": ["Vs Dave and Bambi Team", "Verwex"],
+		"Asshole (Music)": ["Glitch.smh"],
+		"Burns (Chart)": {
+		"normal": ["Stormy"],
+		"vip": ["???"]
+		},
+		"Bruh (Code)": ["Frakits", "Verwex"],
+		"title":"Memeing"
+	},
+	"freeplayShit": {
+		"album": 2,
+		"portrait":"cheating-bambi",
+		"vip": true,
+		"composer":"Itchgø",
+		"hasModchart":true
+	}
+}

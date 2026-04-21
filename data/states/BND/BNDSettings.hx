@@ -213,12 +213,12 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.options.resolution ??= [1280, 720];
         FlxG.save.data.options.fullscreen ??= false; 
         FlxG.save.data.options.borderless ??= false;
-        FlxG.save.data.options.brightness ??= 50;
-        FlxG.save.data.options.gamma ??= 50;
+        FlxG.save.data.options.brightness ??= 0;
+        FlxG.save.data.options.gamma ??= 0;
 
-        FlxG.save.data.options.musicVolume ??= 20; 
-        FlxG.save.data.options.sfxVolume ??= 20;
-        FlxG.save.data.options.voiceVolume ??= 20;
+        FlxG.save.data.options.musicVolume ??= 100; 
+        FlxG.save.data.options.sfxVolume ??= 100;
+        FlxG.save.data.options.voiceVolume ??= 100;
         FlxG.save.data.options.streamedMusic ??= true;
         FlxG.save.data.options.streamedVocals ??= false;
         FlxG.save.data.options.missSounds ??= true;

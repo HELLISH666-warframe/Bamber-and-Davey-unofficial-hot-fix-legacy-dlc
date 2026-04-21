@@ -20,7 +20,8 @@ function beatHit(curBeat:Int) {
 }
 
 function update(elapsed:Float) {
-    //return;
+    strumLines.members[0].notes.forEach((note) -> {trace(note);});
+    return;
     for(b in 0...playerStrums.members.length){
         for (i in playerStrums.notes) {
             if(i.noteData==b&&i.strumTime-Conductor.songPosition<=900)
@@ -34,6 +35,7 @@ function update(elapsed:Float) {
             i.scale.set(cpuStrums.members[b].scale.x,cpuStrums.members[b].scale.y);
         }
     }
+
         //playerStrums.members[i].scale.x
     //for(b in strumLines)for(i in b.notes) i.scale.set(0.4,0.4);
 }

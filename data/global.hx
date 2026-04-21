@@ -123,12 +123,12 @@ function new() {
     FlxG.save.data.options.resolution ??= [1280, 720];
     FlxG.save.data.options.fullscreen ??= false; 
     FlxG.save.data.options.borderless ??= false;
-    FlxG.save.data.options.brightness ??= 50;
-    FlxG.save.data.options.gamma ??= 50;
+    FlxG.save.data.options.brightness ??= 0;
+    FlxG.save.data.options.gamma ??= 0;
 
     //Sound options
     //Master Volume - FlxG.volume
-    FlxG.save.data.options.musicVolume ??= 20; 
+    FlxG.save.data.options.musicVolume ??= 100; 
     FlxG.save.data.options.sfxVolume ??= 100;
     FlxG.save.data.options.voiceVolume ??= 100;
     FlxG.save.data.options.streamedMusic ??= true;
@@ -276,7 +276,7 @@ function update(elapsed) {
 }
 
 public static function getVolume(initValue = 1, type = 'sfx') {
-    return initValue * switch (type) { case 'music': FlxG.save.data.options.musicVolume; case 'sfx': FlxG.save.data.options.sfxVolume; default: FlxG.save.data.options.voiceVolume;};
+    return initValue * switch (type) { case 'music': FlxG.save.data.options.musicVolume; case 'sfx': FlxG.save.data.options.sfxVolume; default: FlxG.save.data.options.voiceVolume;}/100;
 }
 
 public static function pushToClickables(obj) {

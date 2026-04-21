@@ -76,20 +76,22 @@ function onShowCombo(combo:Int, coolText:String) {
 
     var strumsX:Float = 0;
     var strumsY:Float = 0;
-    var strumScale:Float = 0;
+    var strumScale:Float = 0.57;//0.5714
     var strumCount = 2;
 
-    for (e in strumLines){
-        if (strumLines.members[1].members[0] != null) {
-            strumsX += strumLines.members[1].members[0].x + (strumLines.members[1].members[0].width / 2);
-            strumsY += strumLines.members[1].members[0].y + (strumLines.members[1].members[0].height / 2);
-            strumScale += strumLines.members[1].members[0].scale.x/7*4;
+    for(i in 0...playerStrums.length)
+    for (e in playerStrums.members){
+        if (e != null){
+            strumsX += e.x + (e.width / 2);
+            strumsY += e.y + (e.height / 2);
+            strumCount++;
         }
     }
     strumsX /= strumCount;
     strumsY /= strumCount;
-    strumScale /= strumCount;
 
+    //Cooltext_is_704,360
+     trace(strumsX);
     thing.x = Math.max(Math.min(strumsX, FlxG.width - 350), 20);
     thing.y = Math.max(Math.min(strumsY - FlxG.height/2* -1, FlxG.height - 80), 20);
 
