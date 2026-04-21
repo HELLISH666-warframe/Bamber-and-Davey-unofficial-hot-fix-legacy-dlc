@@ -18,3 +18,22 @@ function beatHit(curBeat:Int) {
                 }
     }
 }
+
+function update(elapsed:Float) {
+    //return;
+    for(b in 0...playerStrums.members.length){
+        for (i in playerStrums.notes) {
+            if(i.noteData==b&&i.strumTime-Conductor.songPosition<=900)
+            i.scale.set(playerStrums.members[b].scale.x,playerStrums.members[b].scale.y);
+        }
+    }
+
+    for(b in 0...cpuStrums.members.length){
+        for (i in cpuStrums.notes) {
+            if(i.noteData==b&&i.strumTime-Conductor.songPosition<=900)
+            i.scale.set(cpuStrums.members[b].scale.x,cpuStrums.members[b].scale.y);
+        }
+    }
+        //playerStrums.members[i].scale.x
+    //for(b in strumLines)for(i in b.notes) i.scale.set(0.4,0.4);
+}

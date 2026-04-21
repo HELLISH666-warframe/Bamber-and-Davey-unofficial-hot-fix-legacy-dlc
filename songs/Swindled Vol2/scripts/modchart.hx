@@ -38,8 +38,8 @@ function postCreate() {
 
 var time:Float = 0;
 function update(elapsed:Float) {
-    if (curBeat <= 513) time = Conductor.songPosition/450;
-    else if (time >= 20) time -= (Conductor.crochet/1000);
+    if (curBeat <= 513) time = Conductor.songPosition / 450;
+    else if (time >= 20) time -= (Conductor.crochet / 1000);
     var i:Int = 0;
 
   //  if (FlxG.save.data.vs_bamber_modChart[PlayState.SONG.song]) {
