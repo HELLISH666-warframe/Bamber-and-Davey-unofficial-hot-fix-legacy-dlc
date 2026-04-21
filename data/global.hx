@@ -7,8 +7,8 @@ import funkin.savedata.FunkinSave;
 import openfl.text.TextFormat;
 
 var stateQuotes:Map<String, String> = [
-    "SplashScreen" => "Team Reimagination Splash Screen",
-    "FirstTimeState" => "First Time Setup",
+    "BND/SplashScreen" => "Team Reimagination Splash Screen",
+    "BND/FirstTimeState" => "First Time Setup",
     "BND/BNDMenu" => "In The Menus",
     "BND/BNDSettings" => "Options Menu",
     "BND/BNDFreeplayCategories" => "Freeplay Menu"
@@ -260,7 +260,7 @@ function preStateCreate() {
 }
 
 function preStateSwitch() { //Switch to where it was meant to be
-    if (Type.getClassName(Type.getClass(FlxG.game._requestedState)) == "funkin.menus.TitleState") FlxG.game._requestedState = new ModState("SplashScreen");
+    if (Type.getClassName(Type.getClass(FlxG.game._requestedState)) == "funkin.menus.TitleState") FlxG.game._requestedState = new ModState("BND/SplashScreen");
 
     FlxG.mouse.useSystemCursor = false;
     for (a in [colorMatrixFilterGLOBAL,colorMatrixFilterGLOBAL2])
@@ -276,7 +276,7 @@ function update(elapsed) {
 }
 
 public static function getVolume(initValue = 1, type = 'sfx') {
-    return initValue * switch (type) { case 'music': FlxG.save.data.options.musicVolume; case 'sfx': FlxG.save.data.options.sfxVolume; default: FlxG.save.data.options.voiceVolume;}/70;
+    return initValue * switch (type) { case 'music': FlxG.save.data.options.musicVolume; case 'sfx': FlxG.save.data.options.sfxVolume; default: FlxG.save.data.options.voiceVolume;};
 }
 
 public static function pushToClickables(obj) {

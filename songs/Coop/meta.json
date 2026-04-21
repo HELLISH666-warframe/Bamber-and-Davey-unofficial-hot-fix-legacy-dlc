@@ -24,7 +24,8 @@
 		},
 		"Code": ["Frakits", "Verwex"],
 		"offset":[10,15],
-		"title":"Coop"
+		"title":"Coop",
+		"background":"yard"
 	},
 	"freeplayShit": {
 		"album": 2.5,

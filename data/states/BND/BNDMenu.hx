@@ -594,7 +594,7 @@ var oldYLevel = 0;
 function update(elapsed) {
     if (controls.SWITCHMOD||FlxG.keys.justPressed.SEVEN) {
 		import funkin.menus.ModSwitchMenu; import funkin.editors.EditorPicker;
-		controls.SWITCHMOD ? openSubState(new ModSwitchMenu()) :openSubState(new EditorPicker());
+		controls.SWITCHMOD ? openSubState(new ModSubState('substates/ModSwitch')) :openSubState(new EditorPicker());
 		persistentUpdate = !persistentDraw;
 	}
     if (FlxG.keys.justPressed.F9) { //DEV, REMOVE ONCE DONE!
@@ -606,12 +606,8 @@ function update(elapsed) {
         menuGroupDrags = [-250, 250];
         FlxG.resetState();
     }
-    if (FlxG.keys.justPressed.G) { //DEV, REMOVE ONCE DONE!
-        FlxG.switchState(new ModState("medal_shit/MedalsState"));
-    }
-    if (FlxG.keys.justPressed.J) { //DEV, REMOVE ONCE DONE!
-        FlxG.switchState(new ModState("FirstTimeState"));
-    }
+    if (FlxG.keys.justPressed.G) FlxG.switchState(new ModState("medal_shit/MedalsState"));
+    if (FlxG.keys.justPressed.J) FlxG.switchState(new ModState("BND/FirstTimeState"));
 
     if (!initialized) {
         earth.scale.x = earth.scale.y += 0.04 * elapsed;

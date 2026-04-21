@@ -18,7 +18,8 @@
 		"Code": ["Frakits", "Verwex"],
 		"offset":[0,-10],
 		"delay":32,
-		"title":"Fortnite Duos"
+		"title":"Fortnite Duos",
+		"background":"romania outskirts"
 	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,

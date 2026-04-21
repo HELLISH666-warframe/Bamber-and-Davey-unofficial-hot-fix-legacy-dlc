@@ -12,7 +12,8 @@
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
 		"Music": ["Glitch.Smh"],
 		"Art": ["Glitch.Smh"],
-		"title":"Placeholder"
+		"title":"Placeholder",
+		"background":"paintvoid"
 	},
 	"coopAllowed": true,
 	"stepsPerBeat": 4,

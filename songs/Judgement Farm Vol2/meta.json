@@ -11,7 +11,8 @@
 		},
 		"Code": ["Frakits", "Verwex"],
 		"delay":32,
-		"title":"Judgement Farm"
+		"title":"Judgement Farm",
+		"background":"judgement hall"
 	},
 	"freeplayShit": {
 		"album": 2,

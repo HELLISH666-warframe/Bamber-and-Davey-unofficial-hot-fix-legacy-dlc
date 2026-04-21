@@ -15,10 +15,12 @@ if (SONG.meta.credits!=null&&FlxG.save.data.options.songCredits) {
                     "drawingz", "myoosick", "note stuff", "funny hacking"]; //Fields for ordering JSONs
 
     var songTitleOffsets = SONG.meta.credits.offset;
+    var songBackground = SONG.meta.credits.background;
+    songBackground??='null';
     songTitleOffsets ??= [0,0];
 
     function postCreate() {
-        songBG = new FlxSprite(0).loadGraphic(Assets.exists(Paths.image('credits/backgrounds/'+curSong.toLowerCase())) ? Paths.image('credits/backgrounds/'+curSong.toLowerCase()) : Paths.image('credits/backgrounds/'+SONG.stage.toLowerCase()));
+        songBG = new FlxSprite(0).loadGraphic(Paths.image('credits/backgrounds/'+songBackground.toLowerCase()));
         songTitle = new FlxSprite(0).loadGraphic(Paths.image('credits/titles/'+SONG.meta.credits.title));
         songBG.screenCenter();
         songBG.x += 2 * (isOnLeftSide ? -0.5 : 1); //Minor correction due to outlines

@@ -15,7 +15,8 @@
 		},
 		"Code": ["Frakits", "Verwex"],
 		"offset":[0,30],
-		"title":"Yard"
+		"title":"Yard",
+		"background":"yard"
 	},
 	"freeplayShit": {
 		"album": 2,

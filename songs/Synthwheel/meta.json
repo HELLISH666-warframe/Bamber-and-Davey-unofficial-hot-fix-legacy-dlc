@@ -25,7 +25,8 @@
 		},
 		"Code": ["Frakits", "Verwex"],
 		"offset":[70,45],
-		"title":"Synthwheel"
+		"title":"Synthwheel",
+		"background":"yard"
 	},
 	"freeplayShit": {
 		"album": 2.5,

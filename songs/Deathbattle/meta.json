@@ -23,7 +23,8 @@
 			"normal": ["Glitch.smh", "Stormy"]
 		},
 		"Art": ["Sibottle", "Verwex"],
-		"title":"Cornaholic"
+		"title":"Cornaholic",
+		"background":"battlegrounds"
 	},
 	"coopAllowed": true,
 	"stepsPerBeat": 4,

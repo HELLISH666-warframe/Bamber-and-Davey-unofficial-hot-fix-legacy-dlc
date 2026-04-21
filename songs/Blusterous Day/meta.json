@@ -14,7 +14,8 @@
 		"Code": ["Frakits", "Verwex", "Seezee"],
 		"offset":[0,20],
 		"delay":32,
-		"title":"Blusterous Day"
+		"title":"Blusterous Day",
+		"background":"blusterous day"
 	},
 	"freeplayShit": {
 		"album": 2,

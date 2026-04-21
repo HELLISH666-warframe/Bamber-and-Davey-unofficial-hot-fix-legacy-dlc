@@ -30,7 +30,8 @@
 		"Code": ["Frakits", "Verwex"],
 		"Music": ["Glitch.smh"],
 		"Art": ["Verwex"],
-		"title":"Yield"
+		"title":"Yield",
+		"background":"farm"
 	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,

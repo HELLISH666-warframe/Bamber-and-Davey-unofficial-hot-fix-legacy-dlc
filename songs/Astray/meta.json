@@ -32,7 +32,8 @@
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
 		"offset":[0,125],
 		"delay":32,
-		"title":"Astray"
+		"title":"Astray",
+		"background":"astray"
 	},
 	"freeplayShit": {
 		"album": 2,

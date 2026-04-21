@@ -4,7 +4,8 @@
 		"vip": true,
 		"hasCutscenes": true,
 		"album": 2,
-		"portrait": "bamber"
+		"portrait": "bamber",
+		"hasModchart":true
 	},
 	"color": "#00CC00",
 	"opponentModeAllowed": true,
@@ -18,16 +19,17 @@
 	"credits": {
 		"Chart": {
 			"easy": ["Glitch.smh"],
-			"vip": ["???"],
+			"normal": ["Glitch.smh"],
 			"hard": ["Glitch.smh", "Stormy"],
-			"normal": ["Glitch.smh"]
+			"vip": ["???"]
 		},
 		"Code": ["Frakits", "Verwex","Earframe"],
 		"Music": ["Glitch.smh"],
 		"Art": ["Verwex"],
 		"offset":[0,40],
 		"delay":30,
-		"title":"Cornaholic"
+		"title":"Cornaholic",
+		"background":"farm"
 	},
 	"coopAllowed": true,
 	"stepsPerBeat": 4,

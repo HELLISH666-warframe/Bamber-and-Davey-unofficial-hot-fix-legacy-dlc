@@ -8,8 +8,7 @@ function beatHit(curBeat:Int) {
         if(FlxG.save.data.options.modcharts!='Never'){
             for(b in strumLines)
                 for(c in b){
-                    aggro?
-                    c.y=100 : if(curBeat % 2 == 0)c.y=70;
+                    aggro? c.y=100 : if(curBeat % 2 == 0)c.y=70;
                     FlxTween.cancelTweensOf(c,['y']);
                     FlxTween.tween(c, {y: 50}, 0.5, {ease: FlxEase.circOut});
                 }

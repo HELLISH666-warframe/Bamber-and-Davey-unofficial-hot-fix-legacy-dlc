@@ -14,7 +14,8 @@
 		},
 		"Code": ["Frakits", "Verwex"],
 		"offset":[10,40],
-		"title":"Squeaky Clean"
+		"title":"Squeaky Clean",
+		"background":"Squeaky Clean"
 	},
 	"freeplayShit": {
 		"album": 2,

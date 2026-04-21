@@ -12,11 +12,12 @@
 		"Code": ["Frakits", "Verwex"],
 		"offset":[20,25],
 		"delay":32,
-		"title":"Swindled"
+		"title":"Swindled",
+		"background":"Swindled"
 	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
-	"displayName": "Swindled v1",
+	"displayName": "Swindled Vol2",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
 	"bpm": 210,

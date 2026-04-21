@@ -18,7 +18,8 @@
 		"placeholder": ["Glitch.smh"]
 		},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
-		"title":"Placeholder"
+		"title":"Placeholder",
+		"background":"paintvoid"
 	},
 	"freeplayShit": {
 		"album": 2,

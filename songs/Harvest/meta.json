@@ -28,7 +28,8 @@
 		"Code": ["Frakits", "Verwex"],
 		"offset":[0,30],
 		"delay":7,
-		"title":"Harvest"
+		"title":"Harvest",
+		"background":"farm"
 	},
 	"freeplayShit": {
 		"album": 2.5,

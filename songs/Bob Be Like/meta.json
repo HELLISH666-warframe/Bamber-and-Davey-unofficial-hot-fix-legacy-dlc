@@ -26,7 +26,8 @@
 		"Code": ["Frakits", "Verwex", "Glitch.smh"],
 		"offset":[0,30],
 		"delay":8,
-		"title":"Bob be like"
+		"title":"Bob be like",
+		"background":"romania outskirts"
 	},
 	"freeplayShit": {
 		"album": 2.5,

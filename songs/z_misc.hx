@@ -12,25 +12,9 @@ public static function executeFuncMultiple(funcName:String, ?args:Array<Any>, ?d
 }
 
 public var scoreText=[];
-import funkin.backend.system.FunkinRatioScaleMode;
 function create() {
     scoreText = [scoreTxt,accuracyTxt,missesTxt];
     inPlayState=true;
-}
-
-import openfl.system.Capabilities;
-public static function windowShit(newWidth:Int, newHeight:Int ){
-    FlxG.resizeWindow(1280/2, 720/2);
-    //FlxG.fullscreen = false;
-    //FlxG.scaleMode.fillScreen=true;
-    FlxG.resizeGame(newWidth, newHeight);
-    FlxG.scaleMode.width = FlxG.width = FlxG.initialWidth = newWidth;
-    FlxG.scaleMode.height = FlxG.height = FlxG.initialHeight = newHeight;
-    for(i in cameras){i.width=newWidth;
-        i.height=newHeight;
-    }
-    /*FlxG.scaleMode.updateGameSize(3543,144);
-    Main.scaleMode.updateGameSize(256,144);*/
 }
 
 function postCreate() {
@@ -44,7 +28,7 @@ function onGamePause(event) {
     persistentDraw = true;
     paused = true;
         
-    openSubState(new ModSubState("PauseSubState_DIE"));
+    openSubState(new ModSubState("substates/PauseSubState_DIE"));
 }
 
 function onSongEnd(e) inPlayState=false;

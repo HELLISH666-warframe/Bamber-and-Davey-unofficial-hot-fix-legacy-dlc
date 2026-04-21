@@ -25,7 +25,8 @@
 		"Code": ["Frakits", "Verwex"],
 		"offset":[50,-15],
 		"delay":16,
-		"title":"call bamber"
+		"title":"call bamber",
+		"background":"callstage"
 	},
 	"freeplayShit": {
 		"album": 2,

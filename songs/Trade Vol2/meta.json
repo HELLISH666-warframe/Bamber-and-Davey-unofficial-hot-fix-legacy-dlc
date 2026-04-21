@@ -11,7 +11,8 @@
 		},
 		"Code": ["Frakits", "Verwex", "Seezee"],
 		"offset":[0,5],
-		"title":"Trade"
+		"title":"Trade",
+		"background":"exchangetown"
 	},
 	"freeplayShit": {
 		"album": 2,

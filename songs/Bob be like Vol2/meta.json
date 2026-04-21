@@ -18,7 +18,8 @@
 		"Code": ["Frakits", "Verwex"],
 		"offset":[0,10],
 		"delay":8,
-		"title":"Bob be like"
+		"title":"Bob be like",
+		"background":"romania outskirts"
 	},
 	"coopAllowed": false,
 	"stepsPerBeat": 4,

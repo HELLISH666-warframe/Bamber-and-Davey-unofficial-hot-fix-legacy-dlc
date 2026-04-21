@@ -14,7 +14,8 @@
 		},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
 		"offset":[0,125],
-		"title":"Facsimile"
+		"title":"Facsimile",
+		"background":"facsimile"
 	},
 	"freeplayShit": {
 		"album": 2,
