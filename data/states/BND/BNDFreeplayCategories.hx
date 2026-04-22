@@ -207,7 +207,7 @@ function change(a) {
 	
 	if (!appear) {
 		appear = true;
-		FlxG.sound.play(Paths.sound("freeplay/cassetteAppear"));
+		FlxG.sound.play(Paths.sound("freeplay/cassetteAppear"), getVolume(1, 'sfx'));
 	}
 
 	songser = [];
@@ -245,10 +245,10 @@ function change(a) {
 		arrows[FlxMath.bound(a, 0, 1)].scale.set(0.1, 0.2);
 		FlxTween.tween(arrows[FlxMath.bound(a, 0, 1)], {"scale.x": 0.25, "scale.y": 0.25}, 0.5, {ease: FlxEase.circOut});
 		
-		FlxG.sound.play(Paths.sound("freeplay/cassetteScroll"));
+		FlxG.sound.play(Paths.sound("freeplay/cassetteScroll"), getVolume(1, 'sfx'));
 		moveTimer = new FlxTimer().start(0.7, ()->{
 			appear = false;
-			FlxG.sound.play(Paths.sound("freeplay/cassetteDisappear"));
+			FlxG.sound.play(Paths.sound("freeplay/cassetteDisappear"), getVolume(1, 'sfx'));
 			for (i in vinylGroup.members)
 				FlxTween.tween(i, {y: i.y + 128}, 0.5, {ease: FlxEase.quartOut});
 		});	

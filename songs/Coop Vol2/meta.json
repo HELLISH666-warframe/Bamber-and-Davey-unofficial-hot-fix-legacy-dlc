@@ -3,13 +3,13 @@
 	"opponentModeAllowed": false,
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
-	"bpm": 150,
+	"bpm": 180,
 	"difficulties": [
 		"EASY",
 		"NORMAL",
 		"HARD"
 	],
-	"needsVoices": false,
+	"needsVoices": true,
 	"parsedColor": -16751361,
 	"displayName": "Coop Vol2",
 	"icon": "Davey",
