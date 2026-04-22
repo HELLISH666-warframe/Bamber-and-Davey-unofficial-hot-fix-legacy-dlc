@@ -52,10 +52,15 @@ function onNoteHit(e){
 		case "strumLine3Sing"|"gf-sing":e.cancelAnim();
         strumLines.members[2].characters[0].playSingAnim(e.direction, e.animSuffix);
 		case "strumLine4Sing":e.cancelAnim();
-        strumLines.members[3].characters[0].playSingAnim(e.direction, e.animSuffix);	
+        strumLines.members[3].characters[0].playSingAnim(e.direction, e.animSuffix);
 		case "no-anim":e.cancelAnim();
 	}
 }
 
-function onPlayerMiss(e)
-	if(e.noteType == "special/shield") health /= 3;
+function onPlayerMiss(e){
+	switch(e.noteType){
+		case "strumLine3Sing"|"gf-sing"|"strumLine4Sing":e.cancelAnim();
+        strumLines.members[e.noteType=='strumLine4Sing'?3:2].characters[0].playSingAnim(e.direction, e.animSuffix);
+		case "special/shield":health /= 3;
+	}
+}
