@@ -1,0 +1,12 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/yard/" name="yard-math" zoom="0.6" noteSkin="bamber">
+	<sprite x="-300" scroll="0" sprite="Sky" y="-175" scale="1.5" name="sky"/>
+	<sprite x="-690" scroll="0.55" sprite="Hills" y="350" name="hill"/>
+	<sprite x="-975" scroll="0.91" sprite="Spruce" y="-100" name="leaves"/>
+	<sprite x="-1048" sprite="Grass_WithoutBamber" y="525" name="grass"/>
+	<sprite x="-1280" sprite="Foreground" y="-330" name="foreground"/>
+	<sprite x="1703" sprite="Boppers" y="568" type="beat" name="bopper"/>
+	<girlfriend x="600" y="240"/>
+	<dad x="224.866747061776" y="173.334438710817"/>
+	<boyfriend x="1046.21917397545" y="191.172545483542"/>
+</stage>

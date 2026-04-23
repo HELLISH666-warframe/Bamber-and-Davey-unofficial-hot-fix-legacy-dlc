@@ -20,28 +20,20 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["DaveysYard", "Week Davey", 0x0066FF],
 	["RomaniaOutskirts", "Week Ronnie & Boris", 0xFED73E],
 	["BonusWIP", "Bonus Songs", 0x00FFA6],
-	["RemoveLater", "Neverevers", 0xFFF600],
 	["Jokes", "Joke Songs", 0x038703],
 	["Collabs", "Collab Songs", 0xA5CEE3],
 	["Crossovers", "Crossover Songs", 0xFE3455],
 	["Remixes", "Remixes", 0xFF338A9C],
 	["Legacy", "Legacy/Old Content", 0x16AD01],
-	["Guh", "REMOVE_LATER", 0x16AD01],
-	/*["Guh", "Legacy-er Content", 0x16AD01],
-	["Vol 2", "Vol 2 Content", 0x16AD01],
-	["", "Vol 1 Content", 0x16AD01],
-	["", "V2 demo Content", 0x16AD01],
-	["Two dot four", "Two dot four Content", 0x16AD01],
-	["Custom", "Custom Content", 0xFFFFFF]*/
+	["Guh", "REMOVE_LATER", 0x16AD01]
 ];
 
 var songst = [	
 	["Yield", "Cornaholic", "Harvest"],
 	["Synthwheel", "Yard", "Coop"],
 	["Ron Be Like", "Bob Be Like", "Fortnite Duos"],
-	["Blusterous Day", "Slammed","Origins", "Swindled", "Trade", "Multiversus"],
-	['Too Slop','Mathemathon','Escape From Poland'],
-	["Generations","Memeing","Judgement Farm","Judgement Farm 2","Yeld"],
+	['Mathemathon',"Blusterous Day",'Escape From Poland', "Slammed","Origins", "Swindled", "Trade", "Multiversus"],
+	["Generations","Memeing","Judgement Farm","Judgement Farm 2",'Too Slop',"Yeld"],
 	["Call Bamber","Deathbattle","H2O"],
 	["Corn N Roll","Screencast"],
 	["Spookeez", "South", "Pico", "2Hot"],

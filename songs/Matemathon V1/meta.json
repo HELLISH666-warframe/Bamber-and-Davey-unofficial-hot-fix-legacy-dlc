@@ -1,7 +1,7 @@
 {
 	"displayName": "Matemathon V1",
 	"bpm": 160,
-	"icon": "coop",
+	"icon": "davey-coop",
 	"color": "#10F2FE",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
