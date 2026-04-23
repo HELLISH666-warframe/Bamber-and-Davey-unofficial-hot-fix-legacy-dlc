@@ -20,7 +20,7 @@ function beatHit(curBeat:Int) {
 }
 
 function update(elapsed:Float) {
-    strumLines.members[0].notes.forEach((note) -> {trace(note);});
+    //strumLines.members[0].notes.forEach((note) -> {trace(note);});
     return;
     for(b in 0...playerStrums.members.length){
         for (i in playerStrums.notes) {

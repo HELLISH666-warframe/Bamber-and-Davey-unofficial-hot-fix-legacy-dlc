@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="pibenis.png">
+<SubTexture name="PibbyGlitch idle0000" x="0" y="573" width="538" height="491" frameX="-365" frameY="-119" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch idle0001" x="1076" y="462" width="538" height="449" frameX="-365" frameY="-161" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch idle0002" x="608" y="1064" width="572" height="410" frameX="-331" frameY="-200" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch idle0003" x="1076" y="462" width="538" height="449" frameX="-365" frameY="-161" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch idle0004" x="0" y="573" width="538" height="491" frameX="-365" frameY="-119" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch singLEFT0000" x="1707" y="0" width="815" height="317" frameX="-88" frameY="-293" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch singLEFT0001" x="0" y="1496" width="878" height="251" frameX="-25" frameY="-359" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch singDOWN0000" x="1707" y="317" width="573" height="298" frameX="-365" frameY="-377" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch singDOWN0001" x="1707" y="615" width="538" height="293" frameX="-365" frameY="-377" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch singRIGHT0000" x="1076" y="0" width="631" height="462" frameX="-365" frameY="-148" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch singRIGHT0001" x="0" y="1064" width="608" height="432" frameX="-365" frameY="-178" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch singUP0000" x="0" y="0" width="538" height="573" frameX="-365" frameY="-37" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PibbyGlitch singUP0001" x="538" y="0" width="538" height="572" frameX="-365" frameY="-38" frameWidth="1024" frameHeight="768" />
+</TextureAtlas>

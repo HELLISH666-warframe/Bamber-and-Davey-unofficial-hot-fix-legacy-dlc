@@ -1,7 +1,7 @@
 {
 	"opponentModeAllowed": true,
 	"difficulties": [
-		"NORMAL"
+		"normal"
 	],
 	"icon": "Davey-coop",
 	"parsedColor": -16750849,
@@ -13,7 +13,6 @@
 	"needsVoices": true,
 	"beatsPerMeasure": 4,
 	"bpm": 180,
-	"composer":"Glitch.smh",
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],

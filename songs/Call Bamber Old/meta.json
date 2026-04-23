@@ -1,0 +1,34 @@
+{
+	"beatsPerMeasure": 4,
+	"opponentModeAllowed": true,
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"bpm": 195,
+	"difficulties": [
+		"normal"
+	],
+	"parsedColor": -2998005,
+	"displayName": "Call",
+	"icon": "elisocray",
+	"name": "call",
+	"color": "#D2410B",
+	"freeplayShit": {
+		"composer": "???",
+		"album": 2,
+		"portrait": "???"
+	},
+	"credits": {
+		"Chart": {
+			"normal": ["???"]
+		},
+		"Code": ["???"],
+		"Music": ["???"],
+		"Art": ["???"],
+		"offset":[0,40],
+		"title":"??",
+		"background":"???"
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "bamber"}
+}

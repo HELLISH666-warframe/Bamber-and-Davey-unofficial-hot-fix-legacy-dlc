@@ -12,9 +12,9 @@
 	"opponentModeAllowed": true,
 	"icon": "davey",
 	"difficulties": [
-		"Easy",
-		"Normal",
-		"Hard"
+		"easy",
+		"normal",
+		"hard"
 	],
 	"credits": {
 		"Art": ["Verwex"],

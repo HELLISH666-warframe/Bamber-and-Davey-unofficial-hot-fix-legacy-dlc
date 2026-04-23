@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="bamber-pibby.png">
+<SubTexture name="PeakBamber idle0000" x="506" y="0" width="523" height="581" frameX="-253" frameY="-80" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber idle0001" x="1425" y="0" width="554" height="547" frameX="-253" frameY="-114" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber idle0002" x="0" y="1231" width="583" height="489" frameX="-253" frameY="-172" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber idle0003" x="1425" y="0" width="554" height="547" frameX="-253" frameY="-114" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber idle0004" x="506" y="0" width="523" height="581" frameX="-253" frameY="-80" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singLFT0000" x="1029" y="0" width="396" height="581" frameX="-476" frameY="-81" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singLFT0001" x="0" y="650" width="471" height="581" frameX="-353" frameY="-81" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singLFT0002" x="471" y="650" width="524" height="581" frameX="-261" frameY="-81" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singDOWN0000" x="567" y="1720" width="566" height="237" frameX="-261" frameY="-426" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singDOWN0001" x="0" y="1720" width="567" height="327" frameX="-261" frameY="-336" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singDOWN0002" x="583" y="1231" width="525" height="487" frameX="-261" frameY="-175" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singRIGHT0000" x="995" y="650" width="339" height="487" frameX="-65" frameY="-175" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singRIGHT0001" x="1108" y="1231" width="255" height="487" frameX="-261" frameY="-175" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singRIGHT0002" x="1363" y="1231" width="554" height="487" frameX="-262" frameY="-175" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singUP0000" x="0" y="0" width="506" height="650" frameX="-339" frameY="-12" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singUP0001" x="1425" y="547" width="512" height="515" frameX="-339" frameY="-147" frameWidth="1024" frameHeight="768" />
+<SubTexture name="PeakBamber singUP0002" x="1979" y="0" width="495" height="432" frameX="-339" frameY="-230" frameWidth="1024" frameHeight="768" />
+</TextureAtlas>

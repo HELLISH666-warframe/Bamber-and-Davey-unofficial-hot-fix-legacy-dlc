@@ -1,0 +1,12 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/romania-outskirts/" name="romania-outskirts" zoom="0.7">
+	<sprite x="-947.000355900223" scroll="0.2" sprite="bobberSky" y="-290.627810070684" name="sky"/>
+	<sprite x="-820.826196397173" scroll="0.3" sprite="bobberClouds" y="-346.793390581241" name="clouds"/>
+	<sprite x="-326.599348533192" scroll="0.7" sprite="bobberMountains" y="-170.071644024152" name="mountains"/>
+	<sprite x="-121.904772129647" scroll="0.9" sprite="bobberBgGround" y="-7.61904486619392" name="backGround"/>
+	<sprite sprite="bobberGround" name="foreGround"/>
+	<girlfriend x="1200" y="400"/>
+	<dad x="850" y="324.239044067657"/>
+	<boyfriend x="1878.38156131889" y="362.680023072032"/>
+	<character name="boris" x="600" y="360"/>
+</stage>

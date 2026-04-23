@@ -1,0 +1,11 @@
+<!DOCTYPE codename-engine-character>
+<character icon="Glitch.smh" camx="-30" x="400" y="825" isGF="false" camy="-230" isPlayer="false" sprite="Glitch.smh" color="#FF2975" noteColors="#E12C63,#E12C63,#FFA300,#FFA300" noteskin="BND">
+	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Idle-Forward\" name="idle"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Idle-Stare\" name="idle-stare"/>
+	<anim x="0" loop="true" y="0" fps="24" anim="Anims/Idle-ForwardLoop" name="idle-loop"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Idle-StareLoop" name="idle-stare-loop"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Left-Sing" name="singLEFT"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Down-Sing" name="singDOWN"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Up-Sing" name="singUP"/>
+	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Right-Sing" name="singRIGHT"/>
+</character>

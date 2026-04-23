@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-stage>
+<stage folder="stages/fish/" noteSkin="bamber" name="fish" zoom="0.2">
+	<sprite x="-757" y="2000" type="none" zoomfactor="0.8" scale="6" scrollx="0.2" name="octopus" antialiasing="false" scrolly="0.1" sprite="octopus"/>
+	<sprite antialiasing="false" x="-1830.24637889946" sprite="bird" y="335.243148610294" type="none" scale="10" name="bird"/>
+	<girlfriend alpha="0"/>
+	<dad x="-578.822496838243" y="0"/>
+	<boyfriend x="1102.37265725289" y="110.000059400688"/>
+</stage>

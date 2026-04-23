@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character sprite="pibenis" scale="2" camx="-500" icon="pibenis" color="#000000" holdTime="6.1">
+	<anim name="idle" anim="PibbyGlitch idle" x="0" y="0" fps="24" loop="false"/>
+	<anim name="singUP" anim="PibbyGlitch singUP" x="0" y="0" fps="24" loop="false"/>
+	<anim name="singLEFT" anim="PibbyGlitch singLEFT" x="0" y="0" fps="24" loop="false"/>
+	<anim name="singRIGHT" anim="PibbyGlitch singRIGHT" x="0" y="0" fps="24" loop="false"/>
+	<anim name="singDOWN" anim="PibbyGlitch singDOWN" x="0" y="0" fps="24" loop="false"/>
+</character>

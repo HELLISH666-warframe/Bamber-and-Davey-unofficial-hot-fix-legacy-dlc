@@ -30,7 +30,7 @@ function onEvent(eventEvent)
                 strum.animation?.curAnim?.curFrame = oldAnimFrame;
             }
     }
-_______PACKSEP________{
+________PACKSEP________{
     "params": [
         {
             "name": "New Skin",

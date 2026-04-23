@@ -1,0 +1,7 @@
+<!DOCTYPE codename-engine-stage>
+<stage zoom="0.8" name="pibby" folder="stages/pibby/" startCamPosY="0" startCamPosX="0">
+	<sprite name="awesome"               x="0" y="0"   sprite="awesome"    scale="5"   scroll="1" />
+	<girlfriend />
+	<boyfriend x="-800" y="-200" />
+	<dad x="0" y="100" />
+</stage>

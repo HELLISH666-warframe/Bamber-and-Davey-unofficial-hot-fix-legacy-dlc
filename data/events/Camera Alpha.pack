@@ -1,0 +1,17 @@
+Camera Alpha.hx________PACKSEP________function onEvent(_) {
+	if (_.event.name == 'Camera Alpha') {
+		Reflect.field(state, _.event.params[0]).alpha = _.event.params[1];
+	}
+}________PACKSEP________{
+	"params": [
+		{
+			"name": "Camera",
+			"type": "DropDown('camGame', 'camHUD')",
+			"defaultValue": 0
+		}, {
+			"name": "Value",
+			"type": "Float(0, 1)",
+			"defaultValue": 1
+		}
+	]
+}________PACKSEP________iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAcklEQVQokc2R0Q2AIAxEW+MKxzxMwRCMRpfoZvjR2CAGIxoT39d99OB65VorzbBMTT8xrK5CCAAAqOqFgW0HZsaOO8/i8INTSnEtIsNIhqqmlPzhnHOX8PuWXtRqxBjb0CJi5QwNRNQu3U2T3+E+P2xpAyuYId/lOo+pAAAAAElFTkSuQmCC

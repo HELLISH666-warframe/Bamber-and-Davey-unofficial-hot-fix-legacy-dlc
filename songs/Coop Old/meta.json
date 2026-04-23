@@ -1,0 +1,30 @@
+{
+	"displayName": null,
+	"bpm": 150,
+	"difficulties": [
+		"normal"
+	],
+	"icon": "Davey",
+	"color": "#0066FF",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
+	"freeplayShit": {
+		"composer": "???",
+		"album": 2,
+		"portrait": "???"
+	},
+	"credits": {
+		"Chart": {
+			"normal": ["???"]
+		},
+		"Code": ["???"],
+		"Music": ["???"],
+		"Art": ["???"],
+		"offset":[0,40],
+		"title":"??",
+		"background":"???"
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "bamber"}
+}

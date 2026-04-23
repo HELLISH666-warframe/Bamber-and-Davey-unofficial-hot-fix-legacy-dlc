@@ -1,11 +1,4 @@
 {
-	"freeplayShit": {
-		"composer": "Glitch.smh",
-		"vip": true,
-		"hasCutscenes": true,
-		"album": 2,
-		"portrait": "bamber"
-	},
 	"color": "#00CC00",
 	"opponentModeAllowed": true,
 	"icon": "Bamber",
@@ -15,6 +8,19 @@
 		"HARD",
 		"VIP"
 	],
+	"coopAllowed": true,
+	"stepsPerBeat": 4,
+	"displayName": "Cornaholic",
+	"beatsPerMeasure": 4,
+	"needsVoices": true,
+	"bpm": 130,
+	"freeplayShit": {
+		"composer": "Glitch.smh",
+		"vip": true,
+		"hasCutscenes": true,
+		"album": 2,
+		"portrait": "bamber"
+	},
 	"credits": {
 		"Chart": {
 			"easy": ["Glitch.smh"],
@@ -29,12 +35,6 @@
 		"title":"Cornaholic",
 		"background":"farm"
 	},
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"displayName": "Cornaholic",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"bpm": 130,
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",
 	"countdownsound": "bamber"}

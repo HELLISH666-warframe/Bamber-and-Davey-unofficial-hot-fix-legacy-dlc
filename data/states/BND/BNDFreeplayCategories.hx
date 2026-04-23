@@ -20,6 +20,7 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["DaveysYard", "Week Davey", 0x0066FF],
 	["RomaniaOutskirts", "Week Ronnie & Boris", 0xFED73E],
 	["BonusWIP", "Bonus Songs", 0x00FFA6],
+	["RemoveLater", "Neverevers", 0xFFF600],
 	["Jokes", "Joke Songs", 0x038703],
 	["Collabs", "Collab Songs", 0xA5CEE3],
 	["Crossovers", "Crossover Songs", 0xFE3455],
@@ -39,11 +40,12 @@ var songst = [
 	["Synthwheel", "Yard", "Coop"],
 	["Ron Be Like", "Bob Be Like", "Fortnite Duos"],
 	["Blusterous Day", "Slammed","Origins", "Swindled", "Trade", "Multiversus"],
+	['Too Slop','Mathemathon','Escape From Poland'],
 	["Generations","Memeing","Judgement Farm","Judgement Farm 2","Yeld"],
 	["Call Bamber","Deathbattle","H2O"],
 	["Corn N Roll","Screencast"],
 	["Spookeez", "South", "Pico", "2Hot"],
-	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever",'Harvest Vol2','Synthwheel Vol2','Coop Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],
+	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever",'Coop Old','Fortnite Duos V1','Godzilla','Judgement Farm Old','Matemathon V1','Call Bamber Old','Harvest Vol2','Synthwheel Vol2','Coop Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],
 	["Astray", "Facsimile", "Placeholder", "Test Footage"]/*,
 	['Yield In-Dev','Cornaholic Demo','Harvest Demo','Coop Old','Fortnite Duos Old','Matemathon Old','Godzilla','Judgement Farm Old','Call Bamber Old','Astray Old','Astray Oldest']*///50 Songs.
 ];
