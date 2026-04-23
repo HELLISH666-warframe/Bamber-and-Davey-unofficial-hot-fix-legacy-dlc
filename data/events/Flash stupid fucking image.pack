@@ -1,4 +1,4 @@
-function onEvent(eventEvent) {
+Flash stupid fucking image.hx________PACKSEP________function onEvent(eventEvent) {
     var params:Array = eventEvent.event.params;
     if (eventEvent.event.name == "Flash stupid fucking image") {
         var sprite:FlxSprite = new FlxSprite().loadGraphic(Paths.image("gallery/" + params[0]));
@@ -11,4 +11,12 @@ function onEvent(eventEvent) {
             sprite.destroy();
         }});
     }
+}________PACKSEP________{
+    "params": [
+        {
+            "name": "The Image ('gallery/[THE PATH]')",
+            "type": "String",
+            "defaultValue": "official/Boris Refinements"
+        }
+    ]
 }

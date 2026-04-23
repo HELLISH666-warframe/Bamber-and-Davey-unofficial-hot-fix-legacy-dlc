@@ -1,24 +1,22 @@
 {
+	"freeplayShit": {
+		"album": 1
+	},
+	"customValues": {
+		"countdownsound": "funkin/",
+		"countdownPath": "funkin/",
+		"comboPath": ""
+	},
+	"color": "#16AD01",
 	"opponentModeAllowed": false,
 	"icon": "bamber-old",
 	"difficulties": [
 		"normal"
 	],
-	"color": -15291135,
-	"name": "Harvest V1",
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
 	"displayName": "Harvest V1",
 	"beatsPerMeasure": 4,
 	"needsVoices": true,
-	"metas": {},
-	"bpm": 180,
-	"instSuffix": "",
-	"vocalsSuffix": "",
-	"freeplayShit": {
-		"album": 1
-	},
-	"customValues": {"comboPath": "",
-	"countdownPath": "funkin/",
-	"countdownsound": "funkin/"}
+	"bpm": 180
 }

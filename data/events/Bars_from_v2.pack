@@ -1,3 +1,4 @@
+Bars_from_v2.hx________PACKSEP________
 var barSize:Float = 0;
 var bar1:FlxSprite = new FlxSprite(-600, -560 + (barSize * 10)).makeGraphic(1, 1, 0xFF000000);
 var bar2:FlxSprite = new FlxSprite(-600, 720 - (barSize * 10)).makeGraphic(1, 1, 0xFF000000);
@@ -8,7 +9,7 @@ bar1.scale.y = bar2.scale.y = 560;
 var curSong:String = PlayState.SONG.meta.name;
 bar1.updateHitbox(); bar2.updateHitbox(); 
 var customBarSize:Array<Dynamic> = [
-	['Synthwheel', 5],
+	['Synthwheel Vol2', 5],
 	['Astray', 36],
 	['Facsimile', -36],
 	['Placeholder', -36],
@@ -58,4 +59,20 @@ function onEvent(_) {
 function update(elapsed){
 	bar1.x = -bar1.width / 10;
 	bar2.x = -bar1.width / 10;
+}________PACKSEP________{
+	"params": [
+		{
+			"name": "Size",
+			"type": "String",
+			"defaultValue": 10
+		},{
+			"name": "Time",
+			"type": "String",
+			"defaultValue": 10
+		}, {
+			"name": "Tween",
+			"type": "String",
+			"defaultValue": null
+		}
+	]
 }

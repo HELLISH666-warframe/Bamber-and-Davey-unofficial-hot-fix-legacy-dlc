@@ -1,0 +1,16 @@
+camFlash_from_v2.hx________PACKSEP________
+function onEvent(_) if (_.event.name == 'camFlash_from_v2')
+	camGame.flash(Std.parseInt(_.event.params[0]), Std.parseFloat(_.event.params[1]));
+________PACKSEP________{
+	"params": [
+		{
+			"name": "Color",
+			"type": "String",
+			"defaultValue": 10
+		},{
+			"name": "Time",
+			"type": "String",
+			"defaultValue": 1
+		}
+	]
+}

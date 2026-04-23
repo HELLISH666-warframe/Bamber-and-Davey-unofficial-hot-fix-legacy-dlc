@@ -1,5 +1,4 @@
-//function tweenZoom(amount:Float, beats:Float, ease:String, ?affectHUD = 'true', ?doChangeDefaultZoom = 'false') {
-function onEvent(_) {
+tweenZoom_From_V2.hx________PACKSEP________function onEvent(_) {
 	if (_.event.name == 'tweenZoom_From_V2') {
 		var amount = Std.parseFloat(_.event.params[0]);
 		var beats = Std.parseFloat(_.event.params[1]);
@@ -9,5 +8,28 @@ function onEvent(_) {
 		});
 		if (_.event.params[3]) FlxTween.tween(camHUD, {zoom: camHUD.zoom + amount/3}, Conductor.stepCrochet / 250 * beats, {ease: CoolUtil.flxeaseFromString(_.event.params[2])});
 	}
+}________PACKSEP________{
+	"params": [
+		{
+			"name": "Zoom",
+			"type": "String",
+			"defaultValue": "1"
+		},{
+			"name": "Time(Beats)",
+			"type": "String",
+			"defaultValue": "1"
+		},{
+			"name": "Ease",
+			"type": "String",
+			"defaultValue": "1"
+		},{
+			"name": "affectHud?",
+			"type": "Bool",
+			"defaultValue": true
+		},{
+			"name": "doChangeDefaultZoom",
+			"type": "Bool",
+			"defaultValue": false
+		}
+	]
 }
-//CoolUtil.flxeaseFromString(_.event.params[2])

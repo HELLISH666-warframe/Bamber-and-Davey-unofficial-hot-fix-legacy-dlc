@@ -1,4 +1,4 @@
-var preloadedFrames:Map<String, Dynamic> = [];
+Change Strum Skin.hx________PACKSEP________var preloadedFrames:Map<String, Dynamic> = [];
 
 function create()
     for (event in PlayState.SONG.events) {
@@ -30,3 +30,12 @@ function onEvent(eventEvent)
                 strum.animation?.curAnim?.curFrame = oldAnimFrame;
             }
     }
+_______PACKSEP________{
+    "params": [
+        {
+            "name": "New Skin",
+            "type": "String",
+            "defaultValue": "default"
+        }
+    ]
+}
