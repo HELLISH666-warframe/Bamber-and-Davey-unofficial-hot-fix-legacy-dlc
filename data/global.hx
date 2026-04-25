@@ -309,6 +309,15 @@ public static function changeFpsFont(theFuckingFont:String) {
     Framerate.fpsCounter.fpsNum.defaultTextFormat = Framerate.fpsCounter.fpsLabel.defaultTextFormat = Framerate.memoryCounter.memoryText.defaultTextFormat = Framerate.memoryCounter.memoryPeakText.defaultTextFormat = Framerate.codenameBuildField.defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(theFuckingFont)));
 }
 
+function onDiscordPresenceUpdate(e) {
+	var data = e.presence;
+
+	if(data.button1Label == null)
+		data.button1Label = "Play the mod!";
+	if(data.button1Url == null)
+		data.button1Url = "https://github.com/HELLISH666-warframe/Bamber-and-Davey-unofficial-hot-fix-legacy-dlc";
+}
+
 public static function savetheshit() {
     // save it
     Options.framerate=FlxG.save.data.options.framerate;

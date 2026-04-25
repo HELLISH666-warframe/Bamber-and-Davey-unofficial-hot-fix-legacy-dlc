@@ -2,8 +2,7 @@
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.menus.ui.ClassicAlphabet;
 import funkin.options.Options;
-import freeplay.ComposerIcon;
-import freeplay.ComposerIcon2;
+import menus.freeplay.ComposerIcon2;
 
 var curSong=FlxG.save.data.Bamber_SONGSONG;//Lazy_way_of_getting_the_selected_song_and_it's_meta.
 var click_through:Bool = false;

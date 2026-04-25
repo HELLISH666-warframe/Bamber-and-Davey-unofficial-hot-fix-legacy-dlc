@@ -6,8 +6,7 @@ import funkin.menus.ui.ClassicAlphabet;
 import funkin.backend.FunkinText;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.backend.MusicBeatSubstate;
-import freeplaySongthingie;
-import freeplaySongthingie2;
+import menus.freeplay.freeplaySongthingie2;
 
 var backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'));
 
@@ -25,7 +24,8 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["Crossovers", "Crossover Songs", 0xFE3455],
 	["Remixes", "Remixes", 0xFF338A9C],
 	["Legacy", "Legacy/Old Content", 0x16AD01],
-	["Guh", "REMOVE_LATER", 0x16AD01]
+	["Guh", "REMOVE_LATER", 0x16AD01],
+	/*["Baller", "Custom_content.", 0x16AD01]*/
 ];
 
 var songst = [	
@@ -38,8 +38,7 @@ var songst = [
 	["Corn N Roll","Screencast"],
 	["Spookeez", "South", "Pico", "2Hot"],
 	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever",'Coop Old','Fortnite Duos V1','Godzilla','Judgement Farm Old','Matemathon V1','Call Bamber Old','Harvest Vol2','Synthwheel Vol2','Coop Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],
-	["Astray", "Facsimile", "Placeholder", "Test Footage"]/*,
-	['Yield In-Dev','Cornaholic Demo','Harvest Demo','Coop Old','Fortnite Duos Old','Matemathon Old','Godzilla','Judgement Farm Old','Call Bamber Old','Astray Old','Astray Oldest']*///50 Songs.
+	["Astray", "Facsimile", "Placeholder", "Test Footage"]
 ];
 
 var vinylGroup:FlxTypedGroup = new FlxTypedGroup();

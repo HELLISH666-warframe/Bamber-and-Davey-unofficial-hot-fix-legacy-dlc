@@ -5,7 +5,6 @@ import flixel.util.FlxGradient;
 import flixel.effects.particles.FlxTypedEmitter;
 import flixel.effects.particles.FlxParticle;
 import openfl.Assets;
-import flixel.util.FlxAxes;
 import flixel.group.FlxTypedSpriteGroup;
 import flixel.FlxCamera;
 import openfl.filters.BitmapFilter;
@@ -499,15 +498,10 @@ function menuRegen() {
 }
 
 function getIntroTextShit() {
-	var fullText:String = Assets.getText(Paths.txt('titlescreen/introText'));
-
-	var firstArray = fullText.split('\n');
+	var firstArray = Assets.getText(Paths.txt('config/introText')).split('\n');
 	var swagGoodArray = [];
 
-	for (i in firstArray)
-	{
-		swagGoodArray.push(i.split('--'));
-	}
+	for (i in firstArray) swagGoodArray.push(i.split('--'));
 
 	return swagGoodArray;
 }
