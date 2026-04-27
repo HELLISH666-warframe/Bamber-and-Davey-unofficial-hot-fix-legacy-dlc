@@ -2,7 +2,6 @@ import funkin.backend.chart.Chart;
 import funkin.menus.StoryMenuState.StoryWeeklist;
 import funkin.backend.utils.WindowUtils;
 import flixel.text.FlxTextBorderStyle;
-import funkin.menus.ui.ClassicAlphabet;
 import funkin.backend.FunkinText;
 import flixel.group.FlxTypedSpriteGroup;
 import menus.freeplay.Capsule;
@@ -31,7 +30,6 @@ var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
 var vinylNotVinylAssFucker = new FlxCamera();
 static var curSelected:Int = 0;
 var songser = [];
-var songL:FlxTypedGroup<FlxText> = [];
 var album;
 var timer = 0;
 var playall;
@@ -40,15 +38,12 @@ var scorText = new FlxText(24, 0);
 subCurSelected = 0;
 subCurSelectedLimit = songser.length - 1;
 
-var iconArray:Array<HealthIcon> = [];
-var siloTest:FlxTypedGroup = [];
+var kILLYOURSELF:FlxTypedGroup = new FlxTypedGroup();
 
 function create() {
 	if(!FlxG.save.data.unlocks.sc)data[4][2].remove('Squeaky Clean');
 	add(backGround).screenCenter();
 	
-	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/albums/"))) Paths.image("menus/freeplay/albums/" + i);
-	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/silhouettes/"))) Paths.image("menus/freeplay/silhouettes/" + i);
 	add(album = new FlxSprite(-140,-140).loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"))).angle=-3;
 	album.setGraphicSize(350,350);
 
@@ -64,10 +59,9 @@ function create() {
 	playall.y -= 116;
 	add(playall);
 	
-	play = new FlxText(FlxG.camera.width - 456, FlxG.camera.height - 672);
-	play.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "left", FlxTextBorderStyle.SHADOW, 0xFF000000);
-	play.text = "PLAY ALL";
-	add(play);
+	catName = new FlxText(FlxG.camera.width - 456, FlxG.camera.height - 672);
+	catName.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "left", FlxTextBorderStyle.SHADOW, 0xFF000000);
+	add(catName);
 	
     for (id=>i in data) {
 		cassetteImage= Assets.exists(Paths.image("menus/freeplay/cassettes/" + i[0]))? i[0]:'placeholder';
@@ -85,11 +79,11 @@ function create() {
 	vinylNotVinylAssFucker.bgColor = 0;
 	FlxG.cameras.add(vinylNotVinylAssFucker, false);
 	
-	play.cameras = vinylGroup.cameras = [vinylNotVinylAssFucker];
+	catName.cameras = vinylGroup.cameras = [vinylNotVinylAssFucker];
 	
     for (a in 0...2) {
         arrows.push(new FunkinSprite(0, 525));
-		arrows[a].scale.set(0.25, 0.25);
+		arrows[a].scale.set(0.2, 0.2);
         arrows[a].frames = Paths.getSparrowAtlas("menus/freeplay/selectArrows");
         for(z in ["hit", "idle"]) {
 			arrows[a].animation.addByPrefix(z, z + ["Left", "Right"][a], 4, false);
@@ -104,13 +98,12 @@ function create() {
 	change(0);
 	
 	changements(0);
+	insert(999,kILLYOURSELF);
 }
 function update(elapsed) {
 	timer += elapsed;
     if (controls.LEFT_P||controls.RIGHT_P) change(controls.LEFT_P ? -1 : 1);
-	
 	if (controls.UP_P||controls.DOWN_P) changements(controls.UP_P ? -1 : 1);
-	
 	if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
 		
 	if (controls.ACCEPT) {
@@ -135,15 +128,10 @@ function update(elapsed) {
     }
 	
 	arrows[0].angle = Math.sin(timer * 3) * 5;
-	for (i in songL){
-		i.targetY = i.ID - subCurSelected;
-		var scaledY = FlxMath.remapToRange(i.targetY, 0, 1, 0, 1.3);
-		i.y = CoolUtil.fpsLerp(i.y, (scaledY * 200) + (FlxG.height * 0.30), 0.16);
-	}
-	for (i=>testtt in siloTest) {testtt.siloSprite.y=songL[i].y-170;
-		if(testtt.newTag!=null)testtt.newTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);
-		if(testtt.vipTag!=null)testtt.vipTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-350,testtt.siloSprite.y+testtt.siloSprite.height-300);
-		if(testtt.updatedTag!=null)testtt.updatedTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);
+	for (i in kILLYOURSELF){
+		i.text.targetY = i.text.ID - subCurSelected;
+		var scaledY = FlxMath.remapToRange(i.text.targetY, 0, 1, 0, 1.3);
+		i.text.y = CoolUtil.fpsLerp(i.text.y, (scaledY * 250) + (FlxG.height * 0.30), 0.16);
 	}
 	if (FlxG.mouse.overlaps(scorText) && FlxG.mouse.pressed){
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
@@ -155,25 +143,20 @@ function changements(a) {
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, subCurSelectedLimit);
 	if (changements != 0) CoolUtil.playMenuSFX(0);
 	
-	for (i in 0...songL.length) songL[i].alpha = 0.5;
-	songL[subCurSelected].alpha = 1;
-	//for (i in 0...songL.length) {songL[i].x +=(songL[i].width-0)*1;}
+	//for (i in 0...kILLYOURSELF.length) kILLYOURSELF[i].alpha = 0.5;
 	var ver = songser[subCurSelected].freeplayShit.album==null?1:songser[subCurSelected].freeplayShit.album;
 	if (ver == null) ver = 2;
 	
 	album.loadGraphic(Paths.image("menus/freeplay/albums/vol"+ver));
-	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName);
+	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName+'| TEST STATE.');
 
 	backGround.color=data[curSelected][3];
 }
 
 function change(a) {
-	if(siloTest.length > 0) for(icon in siloTest) icon.destroy(); siloTest = [];
-	if(iconArray.length > 0) for(icon in iconArray) icon.destroy();
-			iconArray = [];
     curSelected = FlxMath.wrap(curSelected + a, 0, vinylGroup.length - 1);
 	
-	play.font=Paths.font(data[curSelected][4]==null?"vcr.ttf":data[curSelected][4]);
+	catName.font=Paths.font(data[curSelected][4]==null?"vcr.ttf":data[curSelected][4]);
 	moveTimer.cancel();
 	
 	if (!appear) {
@@ -182,13 +165,7 @@ function change(a) {
 	}
 
 	songser = [];
-	for(s in data[curSelected][2])
-		songser.push(Chart.loadChartMeta(s, "normal", true));
-
-	while(songL.length > data[curSelected][2].length) remove(songL.pop());
-
-	for(s in data[curSelected][2])
-		songser.push(Chart.loadChartMeta(s, "normal", true));
+	for(s in data[curSelected][2]) songser.push(Chart.loadChartMeta(s, "normal", true));
 	
 	for (i in vinylGroup.members) {
 		var relSel = Math.abs(curSelected - i.ID);
@@ -197,13 +174,11 @@ function change(a) {
 		FlxTween.tween(i, {y: targetNumber + relSel * 50}, 0.4, {ease: FlxEase.quartOut});
 	}
 		
-	if (a == 0)
-	{
+	if (a == 0) {
 		appear = false;
-		for (i in vinylGroup.members)
-		{
+		for (i in vinylGroup.members) {
 			FlxTween.globalManager.completeTweensOf(i);
-			new FlxTimer().start(0.01, ()->{i.y += 128;});
+			new FlxTimer().start(0.06, ()->{i.y += 128;});
 			i.x = -460 * (curSelected - i.ID);
 		}
 	}
@@ -225,54 +200,102 @@ function change(a) {
 		});	
 	}
 	
+	kILLYOURSELF.clear();
 	for (i in 0...data[curSelected][2].length) {
-		var kys = data[curSelected][0];
-		if (!Assets.exists(Paths.image("menus/freeplay/silhouettes/"+kys)))
-			kys = "placeholder";
-		if (Assets.exists(Paths.image("menus/freeplay/silhouettes/"+songser[i].displayName.toLowerCase())))
-			kys = songser[i].displayName.toLowerCase();
-
-		var testtt=new Capsule(830,200,kys,songser[i].freeplayShit.vip,songser[i].freeplayShit.new,songser[i].freeplayShit.updated);
-	    insert(4,testtt.siloSprite);
-		if(songser[i].freeplayShit.vip!=null)insert(5,testtt.vipTag);
-		if(songser[i].freeplayShit.new!=null)insert(5,testtt.newTag);
-		if(songser[i].freeplayShit.updated!=null)insert(5,testtt.updatedTag);
-		siloTest.push(testtt);
-
-		if (songL[i] != null) {
-			songL[i].text = songser[i].displayName;
-			songL[i].x=0;
-			songL[i].x=1240+(songL[i].x-songL[i].width);
-			var icon = new HealthIcon(songser[i].icon);
-			icon.sprTracker = songL[i];
-			icon.sprTrackerAlignment='left';
-			icon.scrollFactor.set(1, 1);
-			iconArray.push(icon);
-			add(icon);
-		} else {
-			var text = new Alphabet(0,(120 * i) + 30,null,true);
-			text.text=songser[i].displayName;
-			text.color = FlxColor.WHITE;
-			text.scale.set(0.9,0.9);
-			text.targetY = text.ID = i;
-			text.x=(text.x-text.width)+1240;
-			songL.push(text);
-			add(text);
-
-			var icon = new HealthIcon(songser[i].icon);
-			icon.scrollFactor.set(1, 1);
-			icon.sprTracker = text;
-			icon.sprTrackerAlignment='left';
-			iconArray.push(icon);
-			add(icon);
-		}
+		add(capsuleSpawn(i,songser[i]));
+		kILLYOURSELF.members[i].text.x=0;
+		kILLYOURSELF.members[i].text.x=1240+(kILLYOURSELF.members[i].text.x-kILLYOURSELF.members[i].text.width);
 	}
 	
 	subCurSelected = 0;
 	subCurSelectedLimit = data[curSelected][2].length - 1;
-	play.text = data[curSelected][1];
+	catName.text = data[curSelected][1];
 	changements(0);
 }
 function destroy() {
 	WindowUtils.set_suffix("");
+}
+class Capsule2 extends FlxSprite {
+	public var text:Dynamic;
+	public var silhouette:Dynamic;
+	public var icon:Dynamic;
+	public var newTag:Dynamic;
+	public var updatedTag:Dynamic;
+	public var vipTag:Dynamic;
+
+	override public function update(elapsed:Float) {
+		super.update(elapsed);
+		text.update(elapsed);
+		silhouette.update(elapsed);
+		silhouette.setPosition(text.x+text.width-600,text.y-280);
+		icon.update(elapsed);
+		//Tags.
+		if(vipTag!=null){
+		vipTag.update(elapsed);
+		vipTag.setPosition(silhouette.x+(silhouette.width -vipTag.width) / 2,silhouette.y+150);
+		}
+		if(updatedTag!=null){
+		updatedTag.update(elapsed);
+		updatedTag.setPosition(silhouette.x-updatedTag.width+200,text.y+70);
+		}
+		if(newTag!=null){
+		newTag.update(elapsed);
+		newTag.setPosition(silhouette.x+40,text.y-80);
+		}
+	}
+	override public function draw() {
+		silhouette.draw();
+		if(newTag!=null)newTag.draw();
+		if(updatedTag!=null)updatedTag.draw();
+		icon.draw();
+		text.draw();
+		if(vipTag!=null)vipTag.draw();
+	}
+	override public function destroy() {
+		silhouette.destroy();
+		text.destroy();
+		icon.destroy();
+		if(newTag!=null)newTag.destroy();
+		if(vipTag!=null)vipTag.destroy();
+		if(updatedTag!=null)updatedTag.destroy();
+	}
+}
+
+function capsuleSpawn(index,songData) {
+	//SongText(Alphabet).
+	var songItem = new Capsule2();
+	songItem.text = new Alphabet(500,300,songData.displayName,true);
+	songItem.text.scale.set(0.9,0.9);
+	songItem.text.targetY=songItem.text.ID=index;
+
+	//Silhouette(Image_behind_song_text);
+	songItem.silhouette = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/silhouettes/'+songData.freeplayShit.capsule));
+	songItem.silhouette.scale.set(0.6,0.6);
+
+	//Icon
+	songItem.icon = new HealthIcon(songData.icon);
+	songItem.icon.sprTracker = songItem.text;
+	songItem.icon.sprTrackerAlignment='left';
+	songItem.icon.flipX=songData.icon!='face';
+	songItem.icon.sprTrackerOffset.set(0,-50);
+
+	//Tags
+	if(songData.freeplayShit.new){
+	songItem.newTag = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/tags/new'));
+	songItem.newTag.scale.set(0.4,0.4);
+	songItem.newTag.updateHitbox();
+	}
+	if(songData.freeplayShit.vip){
+	songItem.vipTag = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/tags/vip'));
+	songItem.vipTag.scale.set(0.5,0.5);
+	songItem.vipTag.updateHitbox();
+	}
+    if(songData.freeplayShit.updated){
+    songItem.updatedTag = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/tags/updated'));
+	songItem.updatedTag.scale.set(0.4,0.4);
+	songItem.updatedTag.updateHitbox();
+    }
+	
+	kILLYOURSELF.add(songItem);
+	return songItem;
 }
