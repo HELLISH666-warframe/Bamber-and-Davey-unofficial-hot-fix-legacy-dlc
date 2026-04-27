@@ -23,6 +23,7 @@
 	"bpm": 210,
 	"freeplayShit": {
 		"album": 2,
+		"capsule":"swindled",
 		"portrait":"Swindler",
 		"composer":"Glitch.smh",
 		"hasModchart":true

@@ -19,8 +19,9 @@
 	},
 	"freeplayShit": {
 		"album": 2,
-		"portrait":"water",
+		"capsule":"placeholder",
 		"vip": true,
+		"portrait":"water",
 		"composer":"Glitch.smh,River09"
 	}
 }

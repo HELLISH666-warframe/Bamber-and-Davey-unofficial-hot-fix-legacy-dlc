@@ -16,7 +16,8 @@
 	"instSuffix": "",
 	"vocalsSuffix": "",
 	"freeplayShit": {
-		"album": 1
+		"album": 1,
+		"capsule":"BambersFarm"
 	},
 	"customValues": {"comboPath": "",
 	"countdownPath": "funkin/",

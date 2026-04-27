@@ -13,8 +13,9 @@
 	"freeplayShit": {
 		"font":"vcr_osd.ttf",
 		"album": 2,
-		"portrait":"thetest",
+		"capsule":"placeholder",
 		"vip": true,
+		"portrait":"thetest",
 		"composer":"Glitch.smh"
 	}
 }

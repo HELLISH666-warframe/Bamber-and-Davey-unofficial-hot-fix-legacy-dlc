@@ -30,6 +30,7 @@
 	"freeplayShit": {
 		"album": 2,
 		"portrait":"davey-coop",
+		"capsule":"DaveysYard",
 		"hasCutscenes": true,
 		"composer":"Glitch.smh"
 	},

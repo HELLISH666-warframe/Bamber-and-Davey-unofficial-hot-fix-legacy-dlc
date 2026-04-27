@@ -15,11 +15,12 @@
 	"needsVoices": true,
 	"bpm": 130,
 	"freeplayShit": {
-		"composer": "Glitch.smh",
-		"vip": true,
-		"hasCutscenes": true,
 		"album": 2,
-		"portrait": "bamber"
+		"capsule":"BambersFarm",
+		"vip": true,
+		"portrait": "bamber",
+		"composer": "Glitch.smh",
+		"hasCutscenes": true
 	},
 	"credits": {
 		"Chart": {

@@ -1,6 +1,7 @@
 {
 	"freeplayShit": {
-		"album": 1
+		"album": 1,
+		"capsule":"BambersFarm"
 	},
 	"customValues": {
 		"countdownsound": "funkin/",

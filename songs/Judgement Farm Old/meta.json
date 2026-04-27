@@ -9,9 +9,10 @@
 		"normal"
 	],
 	"freeplayShit": {
-		"composer": "???",
 		"album": 2,
-		"portrait": "???"
+		"capsule":"placeholder",
+		"portrait": "???",
+		"composer": "???"
 	},
 	"credits": {
 		"Chart": {

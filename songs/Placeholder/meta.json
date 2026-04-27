@@ -25,8 +25,9 @@
 	"freeplayShit": {
 		"font":"vcr_osd.ttf",
 		"album": 2.5,
-		"portrait":"PLACEHOLDER_new",
+		"capsule":"placeholder",
 		"updated": true,
+		"portrait":"PLACEHOLDER_new",
 		"composer":"Glitch.smh"
 	},
 	"customValues": {

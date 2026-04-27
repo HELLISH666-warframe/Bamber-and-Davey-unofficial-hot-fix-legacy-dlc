@@ -1,4 +1,12 @@
 {
+	"freeplayShit": {
+		"album": 2,
+		"capsule":"BambersFarm",
+		"vip": true,
+		"portrait": "bamber",
+		"composer": "Glitch.smh",
+		"hasCutscenes": true
+	},
 	"opponentModeAllowed": false,
 	"icon": "bamber",
 	"difficulties": [

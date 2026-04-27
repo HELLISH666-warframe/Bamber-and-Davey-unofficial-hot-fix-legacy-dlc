@@ -29,6 +29,7 @@
 	"bpm": 160,
 	"freeplayShit": {
 		"album": 2,
+		"capsule":"RomaniaOutskirts",
 		"portrait":"boris",
 		"composer":"Kasu",
 		"hasCutscenes":true

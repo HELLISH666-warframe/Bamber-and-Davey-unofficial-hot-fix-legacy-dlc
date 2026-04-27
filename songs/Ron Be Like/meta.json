@@ -20,9 +20,10 @@
 	},
 	"freeplayShit": {
 		"album": 2,
+		"capsule":"RomaniaOutskirts",
 		"portrait":"ronnie",
-		"hasCutscenes": true,
-		"composer":"Kasu"
+		"composer":"Kasu",
+		"hasCutscenes": true
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "romania outskirts/",

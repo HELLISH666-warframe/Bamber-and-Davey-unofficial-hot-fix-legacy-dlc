@@ -14,10 +14,11 @@
 	"needsVoices": false,
 	"bpm": 150,
 	"freeplayShit": {
-		"composer": "Glitch.smh",
-		"new": true,
 		"album": 2.5,
-		"portrait": "???"
+		"capsule":"placeholder",
+		"new": true,
+		"portrait": "???",
+		"composer": "Glitch.smh"
 	},
 	"credits": {
 		"Chart": {

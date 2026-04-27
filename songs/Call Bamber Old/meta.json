@@ -13,9 +13,10 @@
 	"name": "call",
 	"color": "#D2410B",
 	"freeplayShit": {
-		"composer": "???",
 		"album": 2,
-		"portrait": "???"
+		"capsule":"Call",
+		"portrait": "???",
+		"composer": "???"
 	},
 	"credits": {
 		"Chart": {

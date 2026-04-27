@@ -29,8 +29,9 @@
 	},
 	"freeplayShit": {
 		"album": 2.5,
-		"portrait":"Swindler",
+		"capsule":"swindled",
 		"updated": true,
+		"portrait":"Swindler",
 		"composer":"Glitch.smh,Stormy",
 		"hasModchart":true
 	},

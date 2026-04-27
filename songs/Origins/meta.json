@@ -16,8 +16,9 @@
 	"bpm": 140,
 	"freeplayShit": {
 		"album": 2.5,
-		"new": true,
+		"capsule":"placeholder",
 		"vip": true,
+		"new": true,
 		"composer":"Glitch.smh"
 	},
 	"credits": {

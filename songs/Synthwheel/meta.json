@@ -30,6 +30,7 @@
 	},
 	"freeplayShit": {
 		"album": 2.5,
+		"capsule":"DaveysYard",
 		"portrait":"davey",
 		"updated": true,
 		"hasCutscenes": true,

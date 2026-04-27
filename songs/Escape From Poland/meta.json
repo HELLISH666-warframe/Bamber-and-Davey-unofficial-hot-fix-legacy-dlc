@@ -25,8 +25,9 @@
 	},
 	"freeplayShit": {
 		"album": 2.5,
-		"portrait":"???",
+		"capsule":"placeholder",
 		"new":true,
+		"portrait":"???",
 		"composer":"Glitch.smh"
 	},
 	"customValues": {"comboPath": "default/",

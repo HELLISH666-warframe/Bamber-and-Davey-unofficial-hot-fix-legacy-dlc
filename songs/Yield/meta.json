@@ -1,10 +1,11 @@
 {
 	"freeplayShit": {
-		"composer": "Glitch.smh",
+		"album": 2,
+		"capsule":"BambersFarm",
 		"vip": true,
 		"portrait": "bamber",
-		"hasCutscenes": true,
-		"album": 2
+		"composer": "Glitch.smh",
+		"hasCutscenes": true
 	},
 	"customValues": {
 		"countdownsound": "bamber",

@@ -9,9 +9,10 @@
 		"normal"
 	],
 	"freeplayShit": {
-		"composer": "???",
 		"album": 2,
-		"portrait": "bamber"
+		"capsule":"BambersFarm",
+		"portrait": "bamber",
+		"composer": "???"
 	},
 	"credits": {
 		"Chart": {

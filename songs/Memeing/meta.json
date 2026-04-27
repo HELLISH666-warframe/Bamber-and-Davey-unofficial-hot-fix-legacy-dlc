@@ -17,8 +17,9 @@
 	},
 	"freeplayShit": {
 		"album": 2,
-		"portrait":"cheating-bambi",
+		"capsule":"placeholder",
 		"vip": true,
+		"portrait":"cheating-bambi",
 		"composer":"Itchgø",
 		"hasModchart":true
 	}

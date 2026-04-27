@@ -1,8 +1,9 @@
 {
 	"freeplayShit": {
-		"composer": "???",
+		"album": 2.5,
+		"capsule":"BambersFarm",
 		"new": true,
-		"album": 2.5
+		"composer": "???"
 	},
 	"customValues": {
 		"countdownsound": "bamber",

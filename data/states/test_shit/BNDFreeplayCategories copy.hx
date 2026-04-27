@@ -41,7 +41,6 @@ subCurSelected = 0;
 subCurSelectedLimit = songser.length - 1;
 
 var iconArray:Array<HealthIcon> = [];
-var siloTest:FlxTypedGroup = [];
 var kILLYOURSELF:FlxTypedGroup = new FlxTypedGroup();
 
 function create() {
@@ -111,9 +110,7 @@ function create() {
 function update(elapsed) {
 	timer += elapsed;
     if (controls.LEFT_P||controls.RIGHT_P) change(controls.LEFT_P ? -1 : 1);
-	
 	if (controls.UP_P||controls.DOWN_P) changements(controls.UP_P ? -1 : 1);
-	
 	if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
 		
 	if (controls.ACCEPT) {
@@ -143,18 +140,12 @@ function update(elapsed) {
 		var scaledY = FlxMath.remapToRange(i.targetY, 0, 1, 0, 1.3);
 		i.y = CoolUtil.fpsLerp(i.y, (scaledY * 250) + (FlxG.height * 0.30), 0.16);
 	}
-	for (i=>testtt in siloTest) {testtt.siloSprite.y=songL[i].y-170;
-		testtt.siloSprite.x=songL[i].x-170;
-		if(testtt.newTag!=null)testtt.newTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);
-		if(testtt.vipTag!=null)testtt.vipTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-350,testtt.siloSprite.y+testtt.siloSprite.height-300);
-		if(testtt.updatedTag!=null)testtt.updatedTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);
-	}
 	if (FlxG.mouse.overlaps(scorText) && FlxG.mouse.pressed){
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
 		persistentUpdate = !persistentDraw;
 		openSubState(new ModSubState("substates/stats-test"));
 	}
-	if (FlxG.keys.justPressed.J)add(testThing('Yield','bamber','BambersFarm',true,true,true));
+	if (FlxG.keys.justPressed.J)add(capsuleSpawn(songser[subCurSelected]));
 }
 function changements(a) {
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, subCurSelectedLimit);
@@ -162,7 +153,6 @@ function changements(a) {
 	
 	for (i in 0...songL.length) songL[i].alpha = 0.5;
 	songL[subCurSelected].alpha = 1;
-	//for (i in 0...songL.length) {songL[i].x +=(songL[i].width-0)*1;}
 	var ver = songser[subCurSelected].freeplayShit.album==null?1:songser[subCurSelected].freeplayShit.album;
 	if (ver == null) ver = 2;
 	
@@ -173,9 +163,8 @@ function changements(a) {
 }
 
 function change(a) {
-	if(siloTest.length > 0) for(icon in siloTest) icon.destroy(); siloTest = [];
 	if(iconArray.length > 0) for(icon in iconArray) icon.destroy();
-			iconArray = [];
+	iconArray = [];
     curSelected = FlxMath.wrap(curSelected + a, 0, vinylGroup.length - 1);
 	
 	play.font=Paths.font(data[curSelected][4]==null?"vcr.ttf":data[curSelected][4]);
@@ -191,8 +180,6 @@ function change(a) {
 		songser.push(Chart.loadChartMeta(s, "normal", true));
 
 	while(songL.length > data[curSelected][2].length) remove(songL.pop());
-
-	for(s in data[curSelected][2]) songser.push(Chart.loadChartMeta(s, "normal", true));
 	
 	for (i in vinylGroup.members) {
 		var relSel = Math.abs(curSelected - i.ID);
@@ -234,18 +221,12 @@ function change(a) {
 		if (Assets.exists(Paths.image("menus/freeplay/silhouettes/"+songser[i].displayName.toLowerCase())))
 			kys = songser[i].displayName.toLowerCase();
 
-		var testtt=new Capsule(830,200,kys,songser[i].freeplayShit.vip,songser[i].freeplayShit.new,songser[i].freeplayShit.updated);
-	    insert(4,testtt.siloSprite);
-		if(songser[i].freeplayShit.vip!=null)insert(5,testtt.vipTag);
-		if(songser[i].freeplayShit.new!=null)insert(5,testtt.newTag);
-		if(songser[i].freeplayShit.updated!=null)insert(5,testtt.updatedTag);
-		siloTest.push(testtt);
 		//kILLYOURSELF
 
 		if (songL[i] != null) {
 			songL[i].text = songser[i].displayName;
 			songL[i].x=0;
-			songL[i].x=1240+(songL[i].x-songL[i].width);
+			songL[i].x=1200+(songL[i].x-songL[i].width);
 			var icon = new HealthIcon(songser[i].icon);
 			icon.sprTracker = songL[i];
 			icon.sprTrackerAlignment='left';
@@ -256,7 +237,7 @@ function change(a) {
 			var text = new Alphabet(0,(120 * i) + 30,null,true);
 			text.text=songser[i].displayName;
 			text.color = FlxColor.WHITE;
-			text.scale.set(0.9,0.9);
+			text.scale.set(0.8,0.8);
 			text.targetY = text.ID = i;
 			text.x=(text.x-text.width)+1240;
 			songL.push(text);
@@ -282,6 +263,7 @@ function destroy() {
 class Capsule2 extends FlxSprite {
 	public var text:Dynamic;
 	public var silhouette:Dynamic;
+	public var icon:Dynamic;
 	public var newTag:Dynamic;
 	public var updatedTag:Dynamic;
 	public var vipTag:Dynamic;
@@ -290,28 +272,74 @@ class Capsule2 extends FlxSprite {
 		super.update(elapsed);
 		text.update(elapsed);
 		silhouette.update(elapsed);
-		silhouette.setPosition(text.width-100,text.y-280);
+		silhouette.setPosition(text.x+text.width-600,text.y-280);
+		icon.update(elapsed);
+		//Tags.
+		if(vipTag!=null){
+		vipTag.update(elapsed);
+		vipTag.setPosition(silhouette.x+(silhouette.width -vipTag.width) / 2,silhouette.y+150);
+		}
+		if(updatedTag!=null){
+		updatedTag.update(elapsed);
+		updatedTag.setPosition(silhouette.x-updatedTag.width+200,text.y+70);
+		}
+		if(newTag!=null){
 		newTag.update(elapsed);
-		newTag.setPosition(silhouette.x-190,text.y-10);
+		newTag.setPosition(silhouette.x+40,text.y-80);
+		}
 	}
 	override public function draw() {
 		silhouette.draw();
+		if(newTag!=null)newTag.draw();
+		if(updatedTag!=null)updatedTag.draw();
+		icon.draw();
 		text.draw();
-		newTag.draw();
+		if(vipTag!=null)vipTag.draw();
+	}
+	override public function destroy() {
+		silhouette.destroy();
+		text.destroy();
+		icon.destroy();
+		if(newTag!=null)newTag.destroy();
+		if(vipTag!=null)vipTag.destroy();
+		if(updatedTag!=null)updatedTag.destroy();
 	}
 }
 
-function testThing(songText,icon,casule,?vip,?updated,?isNew) {
+function capsuleSpawn(songData) {
+	categoryGroup.clear();
+	//SongText(Alphabet).
 	var songItem = new Capsule2();
-	songItem.text = new Alphabet(500,30,songText,true);
+	songItem.text = new Alphabet(500,300,songData.displayName,true);
+	songItem.text.scale.set(0.9,0.9);
+
 	//Silhouette(Image_behind_song_text);
-	songItem.silhouette = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/silhouettes/'+casule));
+	songItem.silhouette = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/silhouettes/'+songData.freeplayShit.capsule));
 	songItem.silhouette.scale.set(0.6,0.6);
 
+	//Icon
+	songItem.icon = new HealthIcon(songData.icon);
+	songItem.icon.sprTracker = songItem.text;
+	songItem.icon.sprTrackerAlignment='left';
+	songItem.icon.flipX=songData.icon!='face';
+	songItem.icon.sprTrackerOffset.set(0,-50);
+
 	//Tags
+	if(songData.freeplayShit.new){
 	songItem.newTag = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/tags/new'));
 	songItem.newTag.scale.set(0.4,0.4);
 	songItem.newTag.updateHitbox();
+	}
+	if(songData.freeplayShit.vip){
+	songItem.vipTag = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/tags/vip'));
+	songItem.vipTag.scale.set(0.5,0.5);
+	songItem.vipTag.updateHitbox();
+	}
+    if(songData.freeplayShit.updated){
+    songItem.updatedTag = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/tags/updated'));
+	songItem.updatedTag.scale.set(0.4,0.4);
+	songItem.updatedTag.updateHitbox();
+    }
 	
 	categoryGroup.add(songItem);
 	return songItem;

@@ -30,6 +30,7 @@
 	},
 	"freeplayShit": {
 		"album": 2,
+		"capsule":"BambersFarm",
 		"portrait":"bamber",
 		"composer":"Glitch.smh",
 		"hasCutscenes": true,

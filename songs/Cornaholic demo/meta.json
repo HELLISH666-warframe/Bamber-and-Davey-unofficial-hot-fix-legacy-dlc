@@ -5,8 +5,9 @@
 	"icon": "bamber-old",
 	"bpm": 130,
 	"freeplayShit": {
-		"composer": "Glitch.smh",
-		"album": 2
+		"album": 2,
+		"capsule":"BambersFarm",
+		"composer": "Glitch.smh"
 	},
 	"credits": {
 		"Chart": {

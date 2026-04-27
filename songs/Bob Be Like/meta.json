@@ -4,10 +4,7 @@
 	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"bpm": 180,
-	"difficulties": [
-		"NORMAL",
-		"HARD"
-	],
+	"difficulties": ["normal","hard"],
 	"needsVoices": false,
 	"parsedColor": -1,
 	"displayName": "Bob Be Like",
@@ -31,11 +28,12 @@
 	},
 	"freeplayShit": {
 		"album": 2.5,
-		"portrait":"boris",
+		"capsule":"RomaniaOutskirts",
 		"updated": true,
+		"portrait":"boris",
+		"composer":"Glitch.smh",
 		"hasModchart":true,
-		"hasCutscenes":true,
-		"composer":"Glitch.smh"
+		"hasCutscenes":true
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "romania outskirts/",

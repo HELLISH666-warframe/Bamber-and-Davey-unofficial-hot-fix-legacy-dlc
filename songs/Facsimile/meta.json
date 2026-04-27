@@ -20,6 +20,7 @@
 	"freeplayShit": {
 		"font":"vcr_osd.ttf",
 		"album": 2,
+		"capsule":"placeholder",
 		"portrait":"joke_davey_obj",
 		"composer":"Glitch.smh"
 	},

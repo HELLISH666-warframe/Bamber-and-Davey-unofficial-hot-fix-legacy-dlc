@@ -1,9 +1,10 @@
 {
 	"freeplayShit": {
-		"composer": "Glitch.smh",
+		"album": 2,
+		"capsule":"DaveysYard",
 		"portrait": "davey",
-		"hasCutscenes": true,
-		"album": 2
+		"composer": "Glitch.smh",
+		"hasCutscenes": true
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",
@@ -11,11 +12,7 @@
 	"color": "#0066FF",
 	"opponentModeAllowed": true,
 	"icon": "davey",
-	"difficulties": [
-		"easy",
-		"normal",
-		"hard"
-	],
+	"difficulties": ["easy","normal","hard"],
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],

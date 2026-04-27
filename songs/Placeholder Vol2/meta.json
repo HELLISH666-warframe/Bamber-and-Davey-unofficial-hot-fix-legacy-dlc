@@ -24,6 +24,7 @@
 	"freeplayShit": {
 		"font":"vcr_osd.ttf",
 		"album": 2,
+		"capsule":"placeholder",
 		"portrait":"PLACEHOLDER",
 		"composer":"Glitch.smh"
 	}

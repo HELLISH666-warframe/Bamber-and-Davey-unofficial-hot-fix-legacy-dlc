@@ -26,8 +26,9 @@
 	},
 	"freeplayShit": {
 		"album": 2.5,
-		"portrait":"trade-davey",
+		"capsule":"placeholder",
 		"updated": true,
+		"portrait":"trade-davey",
 		"composer":"Glitch.smh"
 	},
 	"customValues": {"comboPath": "exchangetown/",

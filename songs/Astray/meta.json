@@ -38,8 +38,9 @@
 	"freeplayShit": {
 		"font":"vcr_osd.ttf",
 		"album": 2,
-		"portrait":"joke_model_obj",
+		"capsule":"placeholder",
 		"vip": true,
+		"portrait":"joke_model_obj",
 		"composer":"Glitch.smh"
 	}
 }

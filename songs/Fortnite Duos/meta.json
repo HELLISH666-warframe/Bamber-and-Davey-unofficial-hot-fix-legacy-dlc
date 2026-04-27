@@ -29,8 +29,9 @@
 	"bpm": 170,
 	"freeplayShit": {
 		"album": 2.5,
-		"portrait":"ronnieandboris",
+		"capsule":"RomaniaOutskirts",
 		"updated": true,
+		"portrait":"ronnieandboris",
 		"composer":"Glitch.smh",
 		"hasCutscenes":true
 	},

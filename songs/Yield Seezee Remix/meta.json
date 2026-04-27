@@ -17,6 +17,7 @@
 	"vocalsSuffix": "",
 	"freeplayShit": {
 		"album": 1,
+		"capsule":"BambersFarm",
 		"hasCutscenes": true
 	},
 	"customValues": {"comboPath": "",

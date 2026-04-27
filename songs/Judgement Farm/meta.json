@@ -27,8 +27,9 @@
 	},
 	"freeplayShit": {
 		"album": 2.5,
-		"portrait":"bamber-sans",
+		"capsule":"placeholder",
 		"updated": true,
+		"portrait":"bamber-sans",
 		"composer":"Glitch.smh"
 	},
 	"customValues": {"comboPath": "undertale/",

@@ -5,6 +5,13 @@
 		"Normal",
 		"VIP"
 	],
+	"freeplayShit": {
+		"album": 2.5,
+		"capsule":"placeholder",
+		"vip": true,
+		"new": true,
+		"composer":"Glitch.smh"
+	},
 	"parsedColor": -88243,
 	"color": "#FEA74D",
 	"name": "Origins",
