@@ -212,9 +212,7 @@ function change(a) {
 	catName.text = data[curSelected][1];
 	changements(0);
 }
-function destroy() {
-	WindowUtils.set_suffix("");
-}
+function destroy() WindowUtils.set_suffix("");
 class Capsule2 extends FlxSprite {
 	public var text:Dynamic;
 	public var silhouette:Dynamic;
@@ -264,12 +262,14 @@ class Capsule2 extends FlxSprite {
 function capsuleSpawn(index,songData) {
 	//SongText(Alphabet).
 	var songItem = new Capsule2();
-	songItem.text = new Alphabet(500,300,songData.displayName,true);
+	songItem.text = new Alphabet(0,0,songData.displayName,true);
 	songItem.text.scale.set(0.9,0.9);
 	songItem.text.targetY=songItem.text.ID=index;
 
 	//Silhouette(Image_behind_song_text);
-	songItem.silhouette = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/silhouettes/'+songData.freeplayShit.capsule));
+	capsuleImage=songData.freeplayShit.capsule;
+	if(songData.freeplayShit.capsule.length<=3) capsuleImage=songData.freeplayShit.capsule[FlxG.random.int(0, songData.freeplayShit.capsule.length-1)];
+	songItem.silhouette = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/silhouettes/'+capsuleImage));
 	songItem.silhouette.scale.set(0.6,0.6);
 
 	//Icon

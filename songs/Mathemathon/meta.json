@@ -27,7 +27,7 @@
 		"album": 2.5,
 		"portrait":"davey-coop",
 		"new":true,
-		"capsule":"DaveysYard",
+		"capsule":["DaveysYard","BambersFarm"],
 		"composer":"Glitch.smh"
 	},
 	"customValues": {"comboPath": "default/",

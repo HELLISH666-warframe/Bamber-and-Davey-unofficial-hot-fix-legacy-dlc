@@ -11,7 +11,7 @@
 	"freeplayShit": {
 		"composer": "???",
 		"album": 2,
-		"capsule":"DaveysYard",
+		"capsule":["DaveysYard","BambersFarm"],
 		"portrait": "???"
 	},
 	"credits": {
