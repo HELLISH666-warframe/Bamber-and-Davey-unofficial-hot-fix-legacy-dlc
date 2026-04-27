@@ -36,6 +36,7 @@
 		"background":"astray"
 	},
 	"freeplayShit": {
+		"font":"vcr_osd.ttf",
 		"album": 2,
 		"portrait":"joke_model_obj",
 		"vip": true,

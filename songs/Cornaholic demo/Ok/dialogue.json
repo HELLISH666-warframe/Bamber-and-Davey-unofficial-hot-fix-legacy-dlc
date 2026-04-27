@@ -1,0 +1,60 @@
+{
+	"dialogue": [
+		{
+			"expression": "excited",
+			"text": "oh that song wasn't as bad as i thought it'd be",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "yeah that was cool can you get the fuck out of my farm now",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bamber"
+		},
+		{
+			"expression": "confused",
+			"text": "no we need to sing at least 3 songs",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "flabbergasted",
+			"text": "are you fucking joking",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bamber"
+		},
+		{
+			"expression": "confused",
+			"text": "no not really we need to sing 3 songs or else i can't get teleported back because my girls bitch of a father said so",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "fine i'll sing the other 2 songs with you \\nbut then get the fuck out of my farm\\ncuz i got better shit to do",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bamber"
+		},
+		{
+			"expression": "talk",
+			"text": "smh ok",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf"
+		}
+	]
+}

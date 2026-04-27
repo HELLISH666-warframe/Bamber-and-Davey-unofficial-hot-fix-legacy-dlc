@@ -5,8 +5,7 @@ import flixel.text.FlxTextBorderStyle;
 import funkin.menus.ui.ClassicAlphabet;
 import funkin.backend.FunkinText;
 import flixel.group.FlxTypedSpriteGroup;
-import funkin.backend.MusicBeatSubstate;
-import menus.freeplay.freeplaySongthingie2;
+import menus.freeplay.Capsule;
 
 var backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'));
 
@@ -15,35 +14,21 @@ var moveTimer:FlxTimer = new FlxTimer();
 var appear = true;
 
 var data = [ // Image, Title, [Song1, Song2, etc], color, font
-	["BambersFarm", "Week Bamber", 0xB6FF00],
-	["DaveysYard", "Week Davey", 0x0066FF],
-	["RomaniaOutskirts", "Week Ronnie & Boris", 0xFED73E],
-	["BonusWIP", "Bonus Songs", 0x00FFA6],
-	["Jokes", "Joke Songs", 0x038703],
-	["Collabs", "Collab Songs", 0xA5CEE3],
-	["Crossovers", "Crossover Songs", 0xFE3455],
-	["Remixes", "Remixes", 0xFF338A9C],
-	["Legacy", "Legacy/Old Content", 0x16AD01],
-	["Guh", "REMOVE_LATER", 0x16AD01],
+	["BambersFarm","Week Bamber",['Yield','Cornaholic','Harvest'],0xB6FF00],//3
+	["DaveysYard","Week Davey",['Synthwheel','Yard','Coop'],0x0066FF],//6
+	["RomaniaOutskirts","Week Ronnie & Boris",['Ron Be Like','Bob Be Like','Fortnite Duos'],0xFED73E],//9
+	["BonusWIP","Bonus Songs",['Mathemathon','Blusterous Day','Escape From Poland','Slammed','Origins','Swindled','Trade','Multiversus'],0x00FFA6],//17
+	["Jokes","Joke Songs",['Generations','Memeing',"Judgement Farm","Judgement Farm 2",'Too Slop',"Yeld",'Squeaky Clean'],0x038703],//24
+	["Collabs","Collab Songs",["Call Bamber","Deathbattle","H2O"],0xA5CEE3],//27
+	["Crossovers","Crossover Songs",["Corn N Roll","Screencast"],0xFE3455],//29
+	["Remixes","Remixes",['Spookeez','South','Pico','2Hot'],0xFF338A9C],//33
+	["Legacy","Legacy/Old Content",['Yield V1','Cornaholic V1','Harvest V1','Yield Seezee Remix','Cornaholic Erect Remix V1','Harvest Chill Remix','Yield demo','Cornaholic demo','Harvest demo','Synthwheel demo','Yard demo','Best-Farmers-Forever','Coop Old','Fortnite Duos V1','Godzilla','Judgement Farm Old','Matemathon V1','Call Bamber Old','Harvest Vol2','Synthwheel Vol2','Coop Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],0x16AD01],//60
+	["PLACEHOLDER","REMOVE_LATER",['Astray','Facsimile','Placeholder','Test Footage'],0x000000,'vcr_osd.ttf'],//64
 	/*["Baller", "Custom_content.", 0x16AD01]*/
-];
-
-var songst = [	
-	["Yield", "Cornaholic", "Harvest"],
-	["Synthwheel", "Yard", "Coop"],
-	["Ron Be Like", "Bob Be Like", "Fortnite Duos"],
-	['Mathemathon',"Blusterous Day",'Escape From Poland', "Slammed","Origins", "Swindled", "Trade", "Multiversus"],
-	["Generations","Memeing","Judgement Farm","Judgement Farm 2",'Too Slop',"Yeld"],
-	["Call Bamber","Deathbattle","H2O"],
-	["Corn N Roll","Screencast"],
-	["Spookeez", "South", "Pico", "2Hot"],
-	["Yield V1", "Cornaholic V1", "Harvest V1", "Yield Seezee Remix", "Cornaholic Erect Remix V1", "Harvest Chill Remix","Best-Farmers-Forever",'Coop Old','Fortnite Duos V1','Godzilla','Judgement Farm Old','Matemathon V1','Call Bamber Old','Harvest Vol2','Synthwheel Vol2','Coop Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],
-	["Astray", "Facsimile", "Placeholder", "Test Footage"]
 ];
 
 var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
 var vinylNotVinylAssFucker = new FlxCamera();
-var textCam = new FlxCamera();
 static var curSelected:Int = 0;
 var songser = [];
 var songL:FlxTypedGroup<FlxText> = [];
@@ -59,8 +44,8 @@ var iconArray:Array<HealthIcon> = [];
 var siloTest:FlxTypedGroup = [];
 
 function create() {
+	if(!FlxG.save.data.unlocks.sc)data[4][2].remove('Squeaky Clean');
 	add(backGround).screenCenter();
-	//FlxG.camera.zoom=0.3;
 	
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/albums/"))) Paths.image("menus/freeplay/albums/" + i);
 	for (i in Paths.getFolderContent(Paths.image("menus/freeplay/silhouettes/"))) Paths.image("menus/freeplay/silhouettes/" + i);
@@ -85,9 +70,8 @@ function create() {
 	add(play);
 	
     for (id=>i in data) {
-        var sprite = new FlxSprite(0, 300).loadGraphic(Paths.image("menus/freeplay/cassettes/placeholder"));
-		if (Assets.exists(Paths.image("menus/freeplay/cassettes/" + i[0])))
-			sprite.loadGraphic(Paths.image("menus/freeplay/cassettes/" + i[0]));
+		cassetteImage= Assets.exists(Paths.image("menus/freeplay/cassettes/" + i[0]))? i[0]:'placeholder';
+        var sprite = new FlxSprite(0, 300).loadGraphic(Paths.image("menus/freeplay/cassettes/"+cassetteImage));
 		
         sprite.ID = id;
         sprite.scale.set(0.4, 0.4);
@@ -100,10 +84,6 @@ function create() {
 	vinylNotVinylAssFucker = new FlxCamera();
 	vinylNotVinylAssFucker.bgColor = 0;
 	FlxG.cameras.add(vinylNotVinylAssFucker, false);
-	
-	textCam = new FlxCamera();
-	textCam.bgColor = 0;
-	FlxG.cameras.add(textCam, false);
 	
 	play.cameras = vinylGroup.cameras = [vinylNotVinylAssFucker];
 	
@@ -124,7 +104,6 @@ function create() {
 	change(0);
 	
 	changements(0);
-	textCam.zoom=0.9;
 }
 function update(elapsed) {
 	timer += elapsed;
@@ -135,10 +114,9 @@ function update(elapsed) {
 	if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
 		
 	if (controls.ACCEPT) {
-		openSubState(new MusicBeatSubstate(true,"substates/Freeplay_substate"));
+		openSubState(new ModSubState("substates/Freeplay_substate"));
 		persistentUpdate = !persistentDraw;
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
-		FlxG.save.data.Bamber_song_diff = songser[subCurSelected].difficulties;
 	}
 	if (FlxG.mouse.overlaps(playall) && FlxG.mouse.pressed && curSelected<3) {
 		weeks = StoryWeeklist.get(true, false).weeks;
@@ -147,8 +125,7 @@ function update(elapsed) {
     }
 
 	if (FlxG.keys.justPressed.SEVEN) {
-		persistentUpdate = false;
-		persistentDraw = true;
+		persistentUpdate = !persistentDraw;
 		import funkin.editors.EditorPicker;
 		openSubState(new EditorPicker());
 	}
@@ -169,10 +146,9 @@ function update(elapsed) {
 		if(testtt.updatedTag!=null)testtt.updatedTag.setPosition(testtt.siloSprite.x+testtt.siloSprite.width-700,testtt.siloSprite.y+testtt.siloSprite.height-200);
 	}
 	if (FlxG.mouse.overlaps(scorText) && FlxG.mouse.pressed){
-		FlxG.save.data.Bamber_song_diff = songser[subCurSelected].difficulties;
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
 		persistentUpdate = !persistentDraw;
-		openSubState(new MusicBeatSubstate(true,"substates/stats-test"));
+		openSubState(new ModSubState("substates/stats-test"));
 	}
 }
 function changements(a) {
@@ -188,7 +164,7 @@ function changements(a) {
 	album.loadGraphic(Paths.image("menus/freeplay/albums/vol"+ver));
 	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName);
 
-	backGround.color=data[curSelected][2];
+	backGround.color=data[curSelected][3];
 }
 
 function change(a) {
@@ -196,6 +172,8 @@ function change(a) {
 	if(iconArray.length > 0) for(icon in iconArray) icon.destroy();
 			iconArray = [];
     curSelected = FlxMath.wrap(curSelected + a, 0, vinylGroup.length - 1);
+	
+	play.font=Paths.font(data[curSelected][4]==null?"vcr.ttf":data[curSelected][4]);
 	moveTimer.cancel();
 	
 	if (!appear) {
@@ -204,12 +182,12 @@ function change(a) {
 	}
 
 	songser = [];
-	for(s in songst[curSelected])
+	for(s in data[curSelected][2])
 		songser.push(Chart.loadChartMeta(s, "normal", true));
 
-	while(songL.length > songst[curSelected].length) remove(songL.pop());
+	while(songL.length > data[curSelected][2].length) remove(songL.pop());
 
-	for(s in songst[curSelected])
+	for(s in data[curSelected][2])
 		songser.push(Chart.loadChartMeta(s, "normal", true));
 	
 	for (i in vinylGroup.members) {
@@ -247,14 +225,14 @@ function change(a) {
 		});	
 	}
 	
-	for (i in 0...songst[curSelected].length) {
+	for (i in 0...data[curSelected][2].length) {
 		var kys = data[curSelected][0];
 		if (!Assets.exists(Paths.image("menus/freeplay/silhouettes/"+kys)))
 			kys = "placeholder";
 		if (Assets.exists(Paths.image("menus/freeplay/silhouettes/"+songser[i].displayName.toLowerCase())))
 			kys = songser[i].displayName.toLowerCase();
 
-		var testtt=new freeplaySongthingie2(830,200,kys,songser[i].freeplayShit.vip,songser[i].freeplayShit.new,songser[i].freeplayShit.updated);
+		var testtt=new Capsule(830,200,kys,songser[i].freeplayShit.vip,songser[i].freeplayShit.new,songser[i].freeplayShit.updated);
 	    insert(4,testtt.siloSprite);
 		if(songser[i].freeplayShit.vip!=null)insert(5,testtt.vipTag);
 		if(songser[i].freeplayShit.new!=null)insert(5,testtt.newTag);
@@ -291,7 +269,7 @@ function change(a) {
 	}
 	
 	subCurSelected = 0;
-	subCurSelectedLimit = songst[curSelected].length - 1;
+	subCurSelectedLimit = data[curSelected][2].length - 1;
 	play.text = data[curSelected][1];
 	changements(0);
 }

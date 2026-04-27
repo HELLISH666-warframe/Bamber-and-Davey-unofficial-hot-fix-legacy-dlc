@@ -2,7 +2,7 @@
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.menus.ui.ClassicAlphabet;
 import funkin.options.Options;
-import menus.freeplay.ComposerIcon2;
+import menus.freeplay.ComposerIcon;
 
 var curSong=FlxG.save.data.Bamber_SONGSONG;//Lazy_way_of_getting_the_selected_song_and_it's_meta.
 var click_through:Bool = false;
@@ -66,7 +66,7 @@ function create() {
 	composer.scale.set(0.5,0.5);
 	composer.screenCenter(FlxAxes.X);
 	add(composer).x +=songName.width-songName.width/1.5;
-	var testtt2=new ComposerIcon2(songName.x+songName.width+10,200,curSong.freeplayShit.composer);
+	var testtt2=new ComposerIcon(songName.x+songName.width+10,200,curSong.freeplayShit.composer);
 	add(testtt2.lines).camera=coolCam;
     }
 
@@ -183,8 +183,8 @@ function update(elapsed:Float) {
 var __oldDiffName = null;
 function changeDiff(e) {
 	arrows[FlxMath.bound(e, 0, 1)].animation.play("hit");
-	curDifficulty = FlxMath.wrap(curDifficulty + e, 0, FlxG.save.data.Bamber_SONGSONG.difficulties.length - 1);
-	if (__oldDiffName != (__oldDiffName = FlxG.save.data.Bamber_song_diff[curDifficulty].toLowerCase())) {
+	curDifficulty = FlxMath.wrap(curDifficulty + e, 0, curSong.difficulties.length - 1);
+	if (__oldDiffName != (__oldDiffName = curSong.difficulties[curDifficulty].toLowerCase())) {
 		for(e in difficultySprites) e.alpha = 0.001;
 
 		var diffSprite = difficultySprites[__oldDiffName];

@@ -154,6 +154,7 @@ function new() {
     FlxG.save.data.options.songCredits ??= true;
     FlxG.save.data.options.stampKeybinds ??= false;
     FlxG.save.data.options.autoPause ??= true;
+    FlxG.save.data.options.splashScreen ??= true;
 
     //Notes Options
     FlxG.save.data.options.noteskin ??= 'Arrows';
@@ -208,6 +209,10 @@ function new() {
     FlxG.save.data.gameStats.achievements ??= [];
     FlxG.save.data.gameStats.deaths ??= 0;
 
+    //Unlocks?
+    FlxG.save.data.unlocks ??= {};
+    FlxG.save.data.unlocks.sc??=false;
+
     //Tags?
     FlxG.save.data.freeplayShit ??= {};
     FlxG.save.data.freeplayShit.favourites ??= [];
@@ -260,7 +265,7 @@ function preStateCreate() {
 }
 
 function preStateSwitch() { //Switch to where it was meant to be
-    if (Type.getClassName(Type.getClass(FlxG.game._requestedState)) == "funkin.menus.TitleState") FlxG.game._requestedState = new ModState("BND/SplashScreen");
+    if (Type.getClassName(Type.getClass(FlxG.game._requestedState)) == "funkin.menus.TitleState"&&FlxG.save.data.options.splashScreen) FlxG.game._requestedState = new ModState("BND/SplashScreen");
 
     FlxG.mouse.useSystemCursor = false;
     for (a in [colorMatrixFilterGLOBAL,colorMatrixFilterGLOBAL2])

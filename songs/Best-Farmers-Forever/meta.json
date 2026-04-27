@@ -2,9 +2,9 @@
 	"color": "#9271FD",
 	"opponentModeAllowed": false,
 	"difficulties": [
-		"NORMAL"
+		"normal"
 	],
-	"icon": "bamber",
+	"icon": "bamber-old",
 	"coopAllowed": false,
 	"stepsPerBeat": 4,
 	"displayName": "Best-Farmers-Forever",
@@ -12,7 +12,7 @@
 	"needsVoices": true,
 	"bpm": 180,
 	"freeplayShit": {
-		"album": 1,
+		"album": 2,
 		"composer":"Glitch.Smh"
 	}
 }

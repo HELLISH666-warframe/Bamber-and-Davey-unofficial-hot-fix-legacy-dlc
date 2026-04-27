@@ -5,14 +5,19 @@ Freeplay-substate;
 -  Composer text.
 - Make EVERYTHING more accurate to the consept.
 - Placeholder sprite for diffuculties or just use text?
+Achievements-state(Port the YCE one?);
+Credits-state(Port the YCE one?);
 
 Freeplay;
 - NEAR EVERYTHING.
 - Tag system.
+- Custom song support.
 - Siloettetess under the song text.
 - Song text being right instead.
+- Song text tweening in from the right of the screen and vice-verse.
 - Stats button???/ stats SCREEN.
 - Song icons.
+- Favourites Playlist.
 Charts;
  Bob-be-like-v2;
   -Easy chart.

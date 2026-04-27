@@ -88,7 +88,7 @@ function update(){
 	if(FlxG.keys.justPressed.Q || FlxG.keys.justPressed.E)
 		changeOption(FlxG.keys.justPressed.Q ? -1 : 1);
     if (controls.UP_P||controls.DOWN_P) changeCurSelected(controls.UP_P?-1:1);
-    optionsCam.scroll.y = CoolUtil.fpsLerp(optionsCam.scroll.y, curSelect * 60, 0.2);
+    optionsCam.scroll.y = CoolUtil.fpsLerp(optionsCam.scroll.y, curSelect * 80, 0.2);
     if ((controls.LEFT_P||controls.RIGHT_P)&&optionsFile[curMenu][curSelect][4]!='Bool'){
         switch(optionsFile[curMenu][curSelect][4]){
             case 'Float':changeSelected(controls.LEFT_P?-0.1:0.1);

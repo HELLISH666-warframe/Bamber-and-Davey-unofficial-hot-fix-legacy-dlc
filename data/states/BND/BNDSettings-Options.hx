@@ -39,7 +39,8 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Health Icons", "Toggles health bar icons", [], 'healthIcons','Bool'],
         ["Song Credits", "Toggles the credits popup at the beginning of a song", [], 'songCredits','Bool'],
         ["Stamp Keybinds", "Shows keybinds under the your strum.(???)", [], 'stampKeybinds','Bool'],
-        ["Auto pause", "If checked, switching windows will pause the game.", [], 'autoPause','Bool']
+        ["Auto pause", "If checked, switching windows will pause the game.", [], 'autoPause','Bool'],
+        ["Splash-Screen", "...", [], 'splashScreen','Bool']
     ],
     [ // NOTE OPTIONS
         ["Noteskin", "What the notes appear as", ['Default','Arrows','3dcheater','awesome','bfdi','davey_obj','deathbattle','facsimile','funkin','joke_model_obj','night','test footage','trade','undertale'], 'noteskin','Choice'],

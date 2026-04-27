@@ -22,6 +22,7 @@
 		"background":"paintvoid"
 	},
 	"freeplayShit": {
+		"font":"vcr_osd.ttf",
 		"album": 2,
 		"portrait":"PLACEHOLDER",
 		"composer":"Glitch.smh"

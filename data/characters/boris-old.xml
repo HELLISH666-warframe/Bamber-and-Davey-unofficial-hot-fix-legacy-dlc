@@ -1,0 +1,8 @@
+<!DOCTYPE codename-engine-character>
+<character x="300" y="400" sprite="boris-old" icon="boris-old" color="#FFFFFF">
+	<anim name="idle" anim="boris_idle" x="0" y="0" fps="24" loop="false"/>
+	<anim name="singRIGHT" anim="boris_right" x="-13" y="-55" fps="24" loop="false"/>
+	<anim name="singDOWN" anim="boris_down" x="26" y="-118" fps="24" loop="false"/>
+	<anim name="singUP" anim="boris_up" x="76" y="52" fps="24" loop="false"/>
+	<anim name="singLEFT" anim="boris_left" x="78" y="-38" fps="24" loop="false"/>
+</character>

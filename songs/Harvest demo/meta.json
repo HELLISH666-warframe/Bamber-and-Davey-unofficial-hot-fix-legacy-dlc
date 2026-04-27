@@ -1,0 +1,25 @@
+{
+	"difficulties": [
+		"normal"
+	],
+	"icon": "bamber-old",
+	"bpm": 180,
+	"freeplayShit": {
+		"composer": "Glitch.smh",
+		"album": 2
+	},
+	"credits": {
+		"Chart": {
+			"normal": ["???"]
+		},
+		"Code": ["???"],
+		"Music": ["???"],
+		"Art": ["???"],
+		"offset":[0,0],
+		"title":"???",
+		"background":"???"
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "bamber"}
+}

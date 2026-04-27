@@ -46,7 +46,7 @@ function create() {
 		basicScoreShit.add(item);
 	}
 	changeDiff(0);
-	FunkinSave.setSongHighscore(curSong.name,FlxG.save.data.Bamber_song_diff[curDifficulty_CUNT],null,{
+	FunkinSave.setSongHighscore(curSong.name,curSong.difficulties[curDifficulty_CUNT],null,{
 		score: 0,
 		misses: 0,
 		accuracy: 0,
@@ -73,11 +73,11 @@ public static function floorDecimal(value:Float, decimals:Int):Float{
 }
 
 function changeDiff(e) {
-	curDifficulty_CUNT = FlxMath.wrap(curDifficulty_CUNT + e, 0, FlxG.save.data.Bamber_SONGSONG.difficulties.length - 1);
+	curDifficulty_CUNT = FlxMath.wrap(curDifficulty_CUNT + e, 0, curSong.difficulties.length - 1);
 	basicScoreShit.members[0].text = "Score: "+getTheThingie('score');
 	basicScoreShit.members[1].text = "Accuracy: "+getTheThingie('accuracy');
 	basicScoreShit.members[2].text = "Misses: "+getTheThingie('misses');
-	diff_Text.text=FlxG.save.data.Bamber_song_diff[curDifficulty_CUNT].toUpperCase();
+	diff_Text.text=curSong.difficulties[curDifficulty_CUNT].toUpperCase();
 	
 	remove(ratingsAndShit);
 	ratingsAndShit.text=getTheThingie('hits');
@@ -94,12 +94,12 @@ function changeDiff(e) {
 }
 
 function getTheThingie(scoreThingie:String) {
-	if(FunkinSave.getSongHighscore(curSong.name, FlxG.save.data.Bamber_song_diff[curDifficulty_CUNT]).score!=0){
+	if(FunkinSave.getSongHighscore(curSong.name, curSong.difficulties[curDifficulty_CUNT]).score!=0){
 		switch(scoreThingie){
-			case 'score': return FunkinSave.getSongHighscore(curSong.name, FlxG.save.data.Bamber_song_diff[curDifficulty_CUNT]).score;
-			case 'misses': return FunkinSave.getSongHighscore(curSong.name, FlxG.save.data.Bamber_song_diff[curDifficulty_CUNT]).misses;
-			case 'accuracy': return Std.string(floorDecimal(FunkinSave.getSongHighscore(curSong.name, FlxG.save.data.Bamber_song_diff[curDifficulty_CUNT]).accuracy * 100, 2)).split('.').join('.')+ '%';
-			case 'hits': return FunkinSave.getSongHighscore(curSong.name, FlxG.save.data.Bamber_song_diff[curDifficulty_CUNT]).hits;
+			case 'score': return FunkinSave.getSongHighscore(curSong.name, curSong.difficulties[curDifficulty_CUNT]).score;
+			case 'misses': return FunkinSave.getSongHighscore(curSong.name, curSong.difficulties[curDifficulty_CUNT]).misses;
+			case 'accuracy': return Std.string(floorDecimal(FunkinSave.getSongHighscore(curSong.name, curSong.difficulties[curDifficulty_CUNT]).accuracy * 100, 2)).split('.').join('.')+ '%';
+			case 'hits': return FunkinSave.getSongHighscore(curSong.name, curSong.difficulties[curDifficulty_CUNT]).hits;
 		}
 	} else {
 		switch(scoreThingie){

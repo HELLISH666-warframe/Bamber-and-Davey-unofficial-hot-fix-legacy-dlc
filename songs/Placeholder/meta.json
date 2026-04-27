@@ -23,6 +23,7 @@
 	"needsVoices": true,
 	"bpm": 200,
 	"freeplayShit": {
+		"font":"vcr_osd.ttf",
 		"album": 2.5,
 		"portrait":"PLACEHOLDER_new",
 		"updated": true,

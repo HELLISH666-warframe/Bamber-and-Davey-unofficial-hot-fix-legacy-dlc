@@ -1,7 +1,7 @@
 import flixel.group.FlxTypedGroup;
 import flixel.FlxState;
 
-class freeplaySongthingie2 {
+class Capsule {
     public var x = 0;
 	public var y = 0;
     public var siloSprite:FlxSprite;

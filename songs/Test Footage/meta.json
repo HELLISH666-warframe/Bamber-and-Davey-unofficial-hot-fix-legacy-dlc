@@ -11,6 +11,7 @@
 	],
 	"needsVoices": false,
 	"freeplayShit": {
+		"font":"vcr_osd.ttf",
 		"album": 2,
 		"portrait":"thetest",
 		"vip": true,

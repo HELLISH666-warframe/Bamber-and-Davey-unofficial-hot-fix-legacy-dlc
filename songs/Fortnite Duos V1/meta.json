@@ -1,8 +1,6 @@
 {
 	"opponentModeAllowed": true,
-	"difficulties": [
-		"Normal"
-	],
+	"difficulties": ["normal"],
 	"icon": "face",
 	"color": "#FFD780",
 	"coopAllowed": true,
@@ -12,14 +10,12 @@
 	"needsVoices": true,
 	"bpm": 180,
 	"credits": {
-		"Chart": {
-			"normal": ["???"]
-		},
+		"Chart": {"normal": ["???"]},
 		"Art": ["Seezee"],
 		"Music": ["Glitch.smh"],
-		"Code": ["???"],
+		"Code": ["Frakits", "Verwex"],
 		"offset":[0,-10],
-		"delay":32,
+		"delay":64,
 		"title":"Fortnite Duos",
 		"background":"romania outskirts"
 	},

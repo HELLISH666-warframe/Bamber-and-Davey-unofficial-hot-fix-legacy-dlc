@@ -1,0 +1,156 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "who the fuck are you and what the fuck are you doing in my fucking farm",
+			"boxState": "normal",
+			"portrait": "bamber",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "excited",
+			"text": "holy shit is that bambi from dave and bambi",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "who in the fuck is bambi, my name is bamber",
+			"boxState": "normal",
+			"portrait": "bamber",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "the sign says \"BAMBIs farm though..."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bamber",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "as odd as it seems, i misspelled my own name, coincidentally to the name you talk of..."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "wait if you are the bambi equivalent of this universe, does a dave exist too?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bamber",
+			"boxState": "normal",
+			"expression": "laugh",
+			"text": "yeah! Davey! He's my best friend!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "so Dave and Bambi don't exist here you say?"
+		},
+		{
+			"sound": "",
+			"speed": 0.07,
+			"portrait": "bamber",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "...no"
+		},
+		{
+			"expression": "confused",
+			"text": "god fucking damn it, that purple fuckward teleported us to the wrong universe",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "confused",
+			"text": "wait is there more of me than just Dave and Bambi?",
+			"boxState": "normal",
+			"portrait": "bamber",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "yea basically",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "confused",
+			"text": "i think im having an existential crisis rn",
+			"boxState": "normal",
+			"portrait": "bamber",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "don't worry you're the only one who doesn't make microwave sounds",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "talk",
+			"text": "is that good..?",
+			"boxState": "normal",
+			"portrait": "bamber",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "confused",
+			"text": "well at least you're not raping my ears which is definitely a step in the right direction",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "laugh",
+			"text": "so what, you wanna\\nscream vowels or something?",
+			"boxState": "normal",
+			"portrait": "bamber",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "pissed",
+			"text": "exactly",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05,
+			"sound": ""
+		},
+		{
+			"expression": "flabbergasted",
+			"text": "WAIT NO I WAS FUCKING JOKING \\nWHAT THE FUCK",
+			"boxState": "angry",
+			"portrait": "bamber",
+			"speed": 0.02,
+			"sound": ""
+		}
+	]
+}
