@@ -601,7 +601,7 @@ function update(elapsed) {
         FlxG.resetState();
     }
     if (FlxG.keys.justPressed.G) FlxG.switchState(new ModState("medal_shit/MedalsState"));
-    if (FlxG.keys.justPressed.J) FlxG.switchState(new ModState("BND/FirstTimeState"));
+    if (FlxG.keys.justPressed.J) FlxG.switchState(new ModState("test_shit/BNDFreeplayCategories copy"));
 
     if (!initialized) {
         earth.scale.x = earth.scale.y += 0.04 * elapsed;

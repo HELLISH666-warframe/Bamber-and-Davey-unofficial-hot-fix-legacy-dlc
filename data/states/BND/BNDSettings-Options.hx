@@ -43,7 +43,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Splash-Screen", "...", [], 'splashScreen','Bool']
     ],
     [ // NOTE OPTIONS
-        ["Noteskin", "What the notes appear as", ['Default','Arrows','3dcheater','awesome','bfdi','davey_obj','deathbattle','facsimile','funkin','joke_model_obj','night','test footage','trade','undertale'], 'noteskin','Choice'],
+        ["Noteskin", "What the notes appear as", ['Default','bobber','ron','Arrows','3dcheater','awesome','bfdi','davey_obj','deathbattle','facsimile','funkin','joke_model_obj','night','test footage','trade','undertale'], 'noteskin','Choice'],
         ["Note Scale", "How big the notes appear in-game (Default is \"1\")", [0.1,10], 'noteScale','Float'], //#
         ["Note Colors", "What color notes appear as", ["Placeholder","placeholder but not captialised."], 'noteColors','Wip']//Have_a_substate_for_it?
     ],

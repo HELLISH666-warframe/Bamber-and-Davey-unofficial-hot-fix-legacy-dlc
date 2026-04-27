@@ -3,9 +3,11 @@ public var noteShaders = [];
 var defaultNoteColors = [FlxColor.fromString('#C24B99'), FlxColor.fromString('#00FFFF'), FlxColor.fromString('#12FA05'), FlxColor.fromString('#F9393F')];
 function postCreate() {
     for (i=>strum in strumLines.members) {
+        if(strum.characters[0].xml.get("noteColors")==null)break;
         changeStrumLineColors(strum);
     }
     for (i=>strum in strumLines.members) {
+        if(strum.characters[0].xml.get("noteColors")==null)break;
         for (j=>receptor in strum.members) {
             receptor.shader = noteShaders[i][j];
         }
@@ -22,6 +24,7 @@ function postCreate() {
             if (note.noteType == 'strumLine3Sing') changeStrumLineColors(strumLines.members[2]);
         }
     }
+    if(StringTools.startsWith(curSong.toLowerCase(),'judgement'))importScript("data/scripts/huds/undertale");
 }
 
 public function changeStrumLineColors(strumLine, ?char) {

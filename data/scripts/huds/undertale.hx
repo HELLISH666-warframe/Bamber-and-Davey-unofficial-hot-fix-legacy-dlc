@@ -30,6 +30,25 @@ function postCreate() {
 	healthBar.cameras = nametexter.cameras = leveltexter.cameras = hptexter.cameras = hepertexter.cameras = [camHUD];
 	hptexter.font = Paths.font("8bit_wonder.ttf");
 	add(hptexter);
+
+	if (FlxG.save.data.options.timeBar) {
+		timerBar.visible = timerBG.visible = false;
+		timerText.size = 30;
+
+		timerBG.y = hptexter.y + 3;
+		timerBG.x += 100;
+
+		for (i in [timerText, timerNow, timerFinal]) {
+			i.size = 30;
+			i.antialiasing = false;
+		}
+	}
+}
+
+function onTimerUpdate(elapsed) {
+	timerNow.x = timerBG.x + timerBG.width + 5;
+	timerText.x = timerNow.x + timerNow.width + 5;
+	timerFinal.x = timerText.x + timerText.width + 5;
 }
 
 function update(elapsed:Float) {

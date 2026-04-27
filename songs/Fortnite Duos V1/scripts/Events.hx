@@ -6,33 +6,35 @@ var startPostiosnesfgre = [-104,8,120,232];
 
 function postCreate(){
 	FlxG.camera.addShader(pixel);
+    for (i in members) 
+		if (i != null && Std.isOfType(i, Character)) {
+            i.color=0xF7CD9F;
+            //197,164,127?//0xC5A47F
+            //247,205,159?//#F7CD9F
+			/*i.colorTransform.redMultiplier = 0.65*0.8;
+			i.colorTransform.greenMultiplier = 0.4*0.8;
+			i.colorTransform.blueMultiplier = 0.8;
+			i.colorTransform.blueOffset -= 10;*/
+	    }
 
-    pixelSize=0.1;
-    camZooming=true;
-}
-function fadePixels(time:Float, size:Float)
-{
-	FlxTween.num(pixelSize, size, time, {ease: FlxEase.quartInOut}, function(v) {pixelSize = v;});
-}
-
-function update(elapsed:Float)  pixel.pixel_size = pixelSize;
-
-function onStartCountdown(){
     for (i in 0...4) { 
         for (guh in [strumLines.members[3], cpuStrums]) {
-        FlxTween.completeTweensOf(guh.members[i]);
         guh.members[i].scrollFactor.set(1,1);
-        guh.members[i].setPosition(startPostiosnesfgre[i],430);
+        guh.members[i].setPosition(startPostiosnesfgre[i],460);
         }
     }
     for (i in cpuStrums.members) {i.camera = camGame;
-        i.x += 1050;
+        i.x += 1010;
     }
     for (i in strumLines.members[3]) {i.camera = camGame;
-        i.x += 1050;
+        i.x += 1010;
         i.visible=false;
     }
 }
+function fadePixels(time:Float, size:Float)
+	FlxTween.num(pixelSize, size, time, {ease: FlxEase.quartInOut}, function(v) {pixelSize = v;});
+
+function update(elapsed:Float)  pixel.pixel_size = pixelSize;
 
 function onStrumCreation(e) if(!e.player) e.__doAnimation=false;//So_the_y_isnt_fucked_up.
 //for(num => a in [iconP1, iconP2]) a.setIcon(["bf-fortniteduos", "ronnieandboris"][num]);
@@ -43,9 +45,7 @@ function onCameraMove(e)
     }
 
 function giveBirthToThe3rd() {
-	for (i in strumLines) {
-		FlxTween.cancelTweensOf(i);
-	}
+	for (i in strumLines) FlxTween.cancelTweensOf(i);
 	for (i in 0...cpuStrums.length) {
 		cpuStrums.members[i].camera = camGame;
     	FlxTween.tween(cpuStrums.members[i], {x: cpuStrums.members[0].x + (270 + Note.swagWidth * (i * 0.9)), 'scale.x': cpuStrums.members[i].scale.x * 0.9,'scale.y': cpuStrums.members[i].scale.y * 0.9}, Conductor.crochet / 1000, {ease: FlxEase.backOut});

@@ -32,8 +32,6 @@ function onStartCountdown(){
     }
 }
 
-function onStrumCreation(e) if(!e.player) e.__doAnimation=false;//So_the_y_isnt_fucked_up.
-
 function giveBirthToThe3rd() {
 	for (i in strumLines) {
 		FlxTween.cancelTweensOf(i);

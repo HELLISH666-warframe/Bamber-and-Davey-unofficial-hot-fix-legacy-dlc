@@ -21,7 +21,7 @@ function beatHit(curBeat:Int) {
 
 function update(elapsed:Float) {
     //strumLines.members[0].notes.forEach((note) -> {trace(note);});
-    return;
+    //return;
     for(b in 0...playerStrums.members.length){
         for (i in playerStrums.notes) {
             if(i.noteData==b&&i.strumTime-Conductor.songPosition<=900)

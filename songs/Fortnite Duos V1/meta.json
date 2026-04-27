@@ -1,9 +1,9 @@
 {
-	"opponentModeAllowed": true,
+	"opponentModeAllowed": false,
+	"coopAllowed": false,
 	"difficulties": ["normal"],
 	"icon": "face",
 	"color": "#FFD780",
-	"coopAllowed": true,
 	"stepsPerBeat": 4,
 	"displayName": "Fortnite Duos V1",
 	"beatsPerMeasure": 4,
