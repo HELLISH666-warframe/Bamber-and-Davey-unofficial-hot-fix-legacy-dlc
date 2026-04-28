@@ -1,29 +1,24 @@
 {
-	"opponentModeAllowed": false,
-	"coopAllowed": false,
+	"displayName": "Fortnite Duos V1",
 	"difficulties": ["normal"],
+	"bpm": 180,
 	"icon": "face",
 	"color": "#FFD780",
-	"stepsPerBeat": 4,
-	"displayName": "Fortnite Duos V1",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"bpm": 180,
+	"coopAllowed": false,
+	"opponentModeAllowed": false,
 	"credits": {
 		"Chart": {"normal": ["???"]},
 		"Art": ["Seezee"],
 		"Music": ["Glitch.smh"],
 		"Code": ["Frakits", "Verwex"],
-		"offset":[0,-10],
-		"delay":64,
-		"title":"Fortnite Duos",
-		"background":"romania outskirts"
+		"offset":[0,-10],"delay":64,"title":"Fortnite Duos","background":"romania outskirts"
 	},
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"RomaniaOutskirts",
 		"portrait":"ronnie-and-boris",
-		"composer":"Glitch.smh"
+		"composer":"Glitch.smh",
+		"sound":"romania outskirts"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "romania outskirts/",

@@ -1,35 +1,26 @@
 {
-	"opponentModeAllowed": true,
-	"icon": "bamber-exe",
-	"difficulties": [
-		"Normal"
-	],
-	"parsedColor": -8330166,
-	"color": "#80E44A",
-	"name": "Too Slop",
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
 	"displayName": "Too Slop",
-	"beatsPerMeasure": 4,
-	"needsVoices": false,
+	"name": "Too Slop",
+	"difficulties": ["normal"],
 	"bpm": 150,
+	"needsVoices": false,
+	"icon": "bamber-exe",
+	"color": "#80E44A",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
+	"credits": {
+		"Art": ["Glitch.smh"],
+		"Music": ["Glitch.smh"],
+		"Chart": {"normal": ["Glitch.smh"]},
+		"Code": ["Seezee", "Verwex","Terionic"],
+		"title":"???","background":"???"
+	},
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"placeholder",
 		"new": true,
 		"portrait": "???",
 		"composer": "Glitch.smh"
-	},
-	"credits": {
-		"Chart": {
-			"normal": ["Glitch.smh"]
-		},
-		"Code": ["Seezee", "Verwex","Terionic"],
-		"Music": ["Glitch.smh"],
-		"Art": ["Glitch.smh"],
-		"offset":[0,40],
-		"title":"???",
-		"background":"???"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

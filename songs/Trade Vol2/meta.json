@@ -1,18 +1,15 @@
 {
-	"displayName": "Trade v1",
+	"displayName": "Trade Vol2",
+	"difficulties": ["normal"],
 	"bpm": 150.0,
 	"icon": "trade-davey",
 	"color": "#EFE91F",
 	"credits": {
 		"Art": ["Cosmic", "Glitch.smh", "Verwex"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Frakits", "Verwex", "Seezee"],
-		"offset":[0,5],
-		"title":"Trade",
-		"background":"exchangetown"
+		"offset":[0,5],"title":"Trade","background":"exchangetown"
 	},
 	"freeplayShit": {
 		"album": 2,

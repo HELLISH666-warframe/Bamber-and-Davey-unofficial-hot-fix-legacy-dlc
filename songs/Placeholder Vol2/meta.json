@@ -1,29 +1,22 @@
 {
-	"color": "#242323",
-	"opponentModeAllowed": false,
-	"icon": "PLACEHOLDER",
-	"difficulties": [
-		"placeholder"
-	],
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
-	"displayName": "Placeholder v1",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
+	"displayName": "Placeholder Vol2",
+	"difficulties": ["placeholder"],
 	"bpm": 200,
+	"needsVoices": true,
+	"icon": "PLACEHOLDER",
+	"color": "#242323",
+	"coopAllowed": false,
+	"opponentModeAllowed": false,
 	"credits": {
 		"Art": ["Glitch.Smh"],
 		"Music": ["Glitch.Smh"],
-		"Chart": {
-		"placeholder": ["Glitch.smh"]
-		},
+		"Chart": {"placeholder": ["Glitch.smh"]},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
-		"title":"Placeholder",
-		"background":"paintvoid"
+		"title":"Placeholder","background":"paintvoid"
 	},
 	"freeplayShit": {
-		"font":"vcr_osd.ttf",
 		"album": 2,
+		"font":"vcr_osd.ttf",
 		"capsule":"placeholder",
 		"portrait":"PLACEHOLDER",
 		"composer":"Glitch.smh"

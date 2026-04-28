@@ -1,29 +1,24 @@
 {
-	"displayName": null,
+	"displayName": "Coop Old",
+	"difficulties": ["normal"],
 	"bpm": 150,
-	"difficulties": [
-		"normal"
-	],
 	"icon": "Davey",
 	"color": "#0066FF",
-	"coopAllowed": true,
-	"opponentModeAllowed": true,
-	"freeplayShit": {
-		"composer": "???",
-		"album": 2,
-		"capsule":"DaveysYard",
-		"portrait": "???"
-	},
+	"coopAllowed": false,
+	"opponentModeAllowed": false,
 	"credits": {
-		"Chart": {
-			"normal": ["???"]
-		},
+		"Chart": {"normal": ["???"]},
 		"Code": ["???"],
 		"Music": ["???"],
 		"Art": ["???"],
-		"offset":[0,40],
-		"title":"??",
-		"background":"???"
+		"offset":[0,40],"title":"??","background":"???"
+	},
+	"freeplayShit": {
+		"album": 2,
+		"capsule":"DaveysYard",
+		"portrait": "davey-coop",
+		"composer": "???",
+		"sound":["bamber","davey"]
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

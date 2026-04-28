@@ -1,28 +1,19 @@
 {
-	"opponentModeAllowed": true,
-	"difficulties": [
-		"NORMAL"
-	],
-	"icon": "Trade-Davey",
-	"parsedColor": -1054433,
-	"name": "Trade",
-	"coopAllowed": true,
-	"color": "#EFE91F",
-	"stepsPerBeat": 4,
 	"displayName": "Trade",
-	"needsVoices": true,
-	"beatsPerMeasure": 4,
+	"name": "Trade",
+	"difficulties": ["normal"],
 	"bpm": 180,
+	"needsVoices": true,
+	"icon": "Trade-Davey",
+	"color": "#EFE91F",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
 		"Art": ["Cosmic", "Glitch.smh", "Verwex"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Frakits", "Verwex"],
-		"offset":[0,5],
-		"title":"Trade",
-		"background":"exchangetown"
+		"offset":[0,5],"title":"Trade","background":"exchangetown"
 	},
 	"freeplayShit": {
 		"album": 2.5,

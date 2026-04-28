@@ -35,7 +35,7 @@ function create() {
 		constellation.alpha = 0.0001;
 		add(constellation);
 
-		constellationSound = FlxG.sound.load(Paths.sound('titleScreen/MonolithTeaser'), getVolume(1, 'sfx'), false);
+		constellationSound = FlxG.sound.load(Paths.sound('menu/titleScreen/MonolithTeaser'), getVolume(1, 'sfx'), false);
 	}
 }
 

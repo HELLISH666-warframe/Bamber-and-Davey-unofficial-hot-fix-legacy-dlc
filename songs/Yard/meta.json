@@ -1,5 +1,6 @@
 {
 	"displayName": null,
+	"difficulties": ["easy","normal","hard"],
 	"bpm": 150,
 	"icon": "Davey",
 	"color": "#0066FF",
@@ -8,22 +9,17 @@
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"easy": ["Glitch.smh"],
-		"normal": ["Glitch.smh"],
-		"hard": ["Glitch.smh", "Stormy"]
-		},
+		"Chart": {"easy": ["Glitch.smh"],"normal": ["Glitch.smh"],"hard": ["Glitch.smh", "Stormy"]},
 		"Code": ["Frakits", "Verwex"],
-		"offset":[0,30],
-		"title":"Yard",
-		"background":"yard"
+		"offset":[0,30],"title":"Yard","background":"yard"
 	},
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"DaveysYard",
 		"portrait":"davey",
+		"composer":"Glitch.smh",
 		"hasCutscenes": true,
-		"composer":"Glitch.smh"
+		"sound":"davey"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

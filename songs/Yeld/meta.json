@@ -1,19 +1,15 @@
 {
 	"displayName": "Yield - OST",
+	"difficulties": ["normal"],
 	"bpm": 140,
 	"icon": "Bomber",
-	"difficulties": [
-		"normal"
-	],
 	"color": "#76E137",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
 	"credits": {
 		"Art": ["Glitch.smh", "Verwex"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Glitch.smh"]
 	},
 	"freeplayShit": {

@@ -1,29 +1,24 @@
 {
 	"displayName": null,
+	"difficulties": ["normal"],
 	"bpm": 150,
 	"icon": "Bamber-old",
 	"color": "#339933",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"difficulties": [
-		"normal"
-	],
+	"credits": {
+		"Chart": {"normal": ["???"]},
+		"Code": ["???"],
+		"Music": ["???"],
+		"Art": ["???"],
+		"title":"??","background":"???"
+	},
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"BambersFarm",
 		"portrait": "bamber",
-		"composer": "???"
-	},
-	"credits": {
-		"Chart": {
-			"normal": ["???"]
-		},
-		"Code": ["???"],
-		"Music": ["???"],
-		"Art": ["???"],
-		"offset":[0,40],
-		"title":"??",
-		"background":"???"
+		"composer": "???",
+		"sound":"bamber"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

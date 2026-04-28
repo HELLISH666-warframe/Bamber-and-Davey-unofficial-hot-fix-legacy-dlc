@@ -1,25 +1,22 @@
 {
+	"displayName": "Slammed",
+	"difficulties": ["normal"],
+	"bpm": 200,
+	"needsVoices": true,
+	"icon": "bamber",
+	"color": "#E2FF00",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"BambersFarm",
 		"new": true,
-		"composer": "???"
+		"composer": "???",
+		"sound":"bamber"
 	},
 	"customValues": {
 		"countdownsound": "bamber",
 		"countdownPath": "default/",
 		"comboPath": "default/"
-	},
-	"color": "#E2FF00",
-	"opponentModeAllowed": true,
-	"difficulties": [
-		"Normal"
-	],
-	"icon": "bamber",
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"displayName": "Slammed",
-	"needsVoices": true,
-	"beatsPerMeasure": 4,
-	"bpm": 200
+	}
 }

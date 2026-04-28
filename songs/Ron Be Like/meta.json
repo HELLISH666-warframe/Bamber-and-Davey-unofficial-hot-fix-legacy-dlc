@@ -1,5 +1,6 @@
 {
 	"displayName": null,
+	"difficulties": ["easy","normal","hard"],
 	"bpm": 178,
 	"icon": "Ronnie",
 	"color": "#FED73E",
@@ -8,22 +9,17 @@
 	"credits": {
 		"Art": ["Seezee"],
 		"Music": ["Kasu"],
-		"Chart": {
-		"easy": ["Luminous"],
-		"normal": ["Glitch.smh"],
-		"hard": ["Luminous"]
-		},
+		"Chart": {"easy": ["Luminous"],"normal": ["Glitch.smh"],"hard": ["Luminous"]},
 		"Code": ["Frakits", "Verwex"],
-		"offset":[0,10],
-		"title":"Ron be like",
-		"background":"romania outskirts"
+		"offset":[0,10],"title":"Ron be like","background":"romania outskirts"
 	},
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"RomaniaOutskirts",
 		"portrait":"ronnie",
 		"composer":"Kasu",
-		"hasCutscenes": true
+		"hasCutscenes": true,
+		"sound":"romania outskirts"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "romania outskirts/",

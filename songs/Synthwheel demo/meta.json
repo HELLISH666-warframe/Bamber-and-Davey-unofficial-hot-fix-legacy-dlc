@@ -1,24 +1,21 @@
 {
-	"difficulties": [
-		"normal"
-	],
-	"icon": "davey",
+	"difficulties": ["normal"],
 	"bpm": 160,
-	"freeplayShit": {
-		"composer": "Glitch.smh",
-		"album": 2,
-		"capsule":"DaveysYard"
-	},
+	"icon": "davey",
+	"color": "#0066FF",
 	"credits": {
-		"Chart": {
-			"normal": ["???"]
-		},
+		"Chart": {"normal": ["???"]},
 		"Code": ["???"],
 		"Music": ["???"],
 		"Art": ["???"],
-		"offset":[0,0],
-		"title":"???",
-		"background":"???"
+		"title":"???","background":"???"
+	},
+	"freeplayShit": {
+		"album": 2,
+		"capsule":"DaveysYard",
+		"portrait":"davey",
+		"composer": "Glitch.smh",
+		"sound":"davey"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

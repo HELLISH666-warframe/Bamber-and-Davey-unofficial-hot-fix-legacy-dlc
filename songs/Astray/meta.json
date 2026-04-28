@@ -1,34 +1,27 @@
 {
-	"opponentModeAllowed": true,
-	"difficulties": [
-		"NORMAL",
-		"VIP"
-	],
+	"displayName": "Astray",
+	"name": "Astray",
+	"difficulties": ["NORMAL","VIP"],
+	"bpm": 160,
+	"beatsPerMeasure": 4,
+	"stepsPerBeat": 4,
 	"icon": "joke_model_obj",
-	"color": -15656943,
+	"color": "#111811",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
+	"needsVoices": false,
+	"instSuffix": "",
+	"vocalsSuffix": "",
+	"metas": {},
 	"customValues": {
 		"countdownsound": "joke_model_obj",
 		"countdownPath": "paintvoid/astray/",
 		"comboPath": "paintvoid/astray/"
 	},
-	"coopAllowed": true,
-	"name": "Astray",
-	"stepsPerBeat": 4,
-	"displayName": "Astray",
-	"metas": {},
-	"needsVoices": false,
-	"beatsPerMeasure": 4,
-	"countdownsound": "joke_model_obj",
-	"instSuffix": "",
-	"vocalsSuffix": "",
-	"bpm": 160,
 	"credits": {
 		"3D Model": ["Glitch.Smh"],
 		"Music": ["Glitch.Smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"],
-		"vip": ["???"]
-		},
+		"Chart": {"normal": ["Glitch.smh"],"vip": ["???"]},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
 		"offset":[0,125],
 		"delay":32,

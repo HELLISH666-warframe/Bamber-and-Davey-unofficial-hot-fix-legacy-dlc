@@ -1,5 +1,6 @@
 {
-	"displayName": null,
+	"displayName": "Multiversus",
+	"difficulties": ["normal","vip"],
 	"bpm": 170,
 	"icon": "Bambi",
 	"color": "#16AD01",
@@ -8,9 +9,7 @@
 	"credits": {
 		"Art": ["Vs Dave and Bambi Team", "Verwex"],
 		"Music": ["Stormy", "Lolzeny", "Glitch.smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Frakits", "Verwex"],
 		"delay":32
 	},

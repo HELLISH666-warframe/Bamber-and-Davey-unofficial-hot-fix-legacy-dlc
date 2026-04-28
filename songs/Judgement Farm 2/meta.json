@@ -1,23 +1,21 @@
 {
 	"displayName": "No More Mercy",
+	"difficulties": ["normal"],
 	"bpm": 140,
 	"icon": "Bamber-Sans",
 	"color": "#59DEF7",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"countdownsound": "undertale",
 	"credits": {
 		"Art": ["Glitch.smh", "Verwex", "Toby Fox"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Glitch.smh"],
-		"title":"Judgement Farm 2",
-		"background":"undertalestage"
+		"title":"Judgement Farm 2","background":"undertalestage"
 	},
 	"freeplayShit": {
 		"album": 2.5,
+		"font":"Mars_Needs_Cunnilingus.ttf",
 		"capsule":"placeholder",
 		"updated": true,
 		"portrait":"bamber-sans-undertale",

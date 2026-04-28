@@ -1,43 +1,31 @@
 {
+	"displayName": "Yield",
+	"difficulties": ["easy","normal","hard","vip"],
+	"bpm": 180,
+	"needsVoices": true,
+	"icon": "bamber",
+	"color": "#00CC00",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {"easy": ["Luminous"],"normal": ["Glitch.smh"],"hard": ["Luminous"],"vip": ["???"]},
+		"Code": ["Frakits", "Verwex"],
+		"title":"Yield","background":"farm"
+	},
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"BambersFarm",
 		"vip": true,
 		"portrait": "bamber",
 		"composer": "Glitch.smh",
-		"hasCutscenes": true
+		"hasCutscenes": true,
+		"sound":"bamber"
 	},
 	"customValues": {
 		"countdownsound": "bamber",
 		"countdownPath": "default/",
 		"comboPath": "default/"
-	},
-	"color": "#9271FD",
-	"opponentModeAllowed": false,
-	"icon": "bamber",
-	"difficulties": [
-		"Easy",
-		"Normal",
-		"Hard",
-		"VIP"
-	],
-	"credits": {
-		"Chart": {
-			"easy": ["Luminous"],
-			"normal": ["Glitch.smh"],
-			"hard": ["Luminous"],
-			"vip": ["???"]
-		},
-		"Code": ["Frakits", "Verwex"],
-		"Music": ["Glitch.smh"],
-		"Art": ["Verwex"],
-		"title":"Yield",
-		"background":"farm"
-	},
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
-	"displayName": "Yield",
-	"needsVoices": true,
-	"beatsPerMeasure": 4,
-	"bpm": 180
+	}
 }

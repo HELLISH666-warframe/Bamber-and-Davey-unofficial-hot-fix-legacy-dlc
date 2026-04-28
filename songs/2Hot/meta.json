@@ -1,17 +1,15 @@
 {
+	"displayName": "2Hot (Bamber Mix)",
+	"name": "2Hot",
+	"bpm": 182,
 	"beatsPerMeasure": 4,
+	"stepsPerBeat": 4,
+	"icon": "darnell",
+	"color": "#A05FFF",
+	"parsedColor": -6266881,
 	"opponentModeAllowed": true,
 	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"bpm": 182,
-	"difficulties": [
-		"Normal"
-	],
-	"parsedColor": -6266881,
-	"displayName": "2Hot (Bamber Mix)",
-	"icon": "darnell",
-	"name": "2Hot",
-	"color": "#A05FFF",
+	"difficulties": ["Normal"],
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"placeholder",

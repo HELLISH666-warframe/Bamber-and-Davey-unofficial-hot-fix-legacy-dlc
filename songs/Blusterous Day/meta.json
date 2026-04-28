@@ -8,9 +8,7 @@
 	"credits": {
 		"Art": ["Seezee"],
 		"Music": ["Seezee"],
-		"Chart": {
-		"normal": ["Glitch.smh", "Seezee"]
-		},
+		"Chart": {"normal": ["Glitch.smh", "Seezee"]},
 		"Code": ["Frakits", "Verwex", "Seezee"],
 		"offset":[0,20],
 		"delay":32,
@@ -21,7 +19,8 @@
 		"album": 2,
 		"capsule":"Blusterous Day",
 		"portrait":"ronnieandboris",
-		"composer":"Seezee"
+		"composer":"Seezee",
+		"sound":"romania outskirts"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "romania outskirts/",

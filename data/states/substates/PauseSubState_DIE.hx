@@ -224,7 +224,7 @@ override function destroy() {
 
 function changeSelection(a:Int) {
 	curSelected_Pause = FlxMath.wrap(curSelected_Pause + a, 0, menuItems.length-1);
-	trace(curSelected_Pause+a);
+	if(a!=0)CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
 
 	for (i=>item in grpMenuShit.members) {
 		item.targetY = i - curSelected_Pause;

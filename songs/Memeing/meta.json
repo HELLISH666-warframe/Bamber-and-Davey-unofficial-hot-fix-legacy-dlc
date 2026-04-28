@@ -1,5 +1,6 @@
 {
 	"displayName": null,
+	"difficulties": ["normal","vip"],
 	"bpm": 250,
 	"icon": "Cheating-Bambi",
 	"color": "#038703",
@@ -8,10 +9,7 @@
 	"credits": {
 		"My (Art)": ["Vs Dave and Bambi Team", "Verwex"],
 		"Asshole (Music)": ["Itchgø"],
-		"Burns (Chart)": {
-		"normal": ["Stormy"],
-		"vip": ["???"]
-		},
+		"Burns (Chart)": {"normal": ["Stormy"],"vip": ["???"]},
 		"Bruh (Code)": ["Frakits", "Verwex"],
 		"title":"Memeing"
 	},

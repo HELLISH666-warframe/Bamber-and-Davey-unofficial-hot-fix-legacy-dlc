@@ -1,28 +1,21 @@
 {
-	"color": "#59DEF7",
-	"opponentModeAllowed": false,
-	"icon": "bamber-sans-undertale",
-	"difficulties": [
-		"normal"
-	],
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
-	"displayName": "Judgement Farm 2 V1",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
+	"displayName": "Judgement Farm 2 Vol2",
+	"difficulties": ["normal"],
 	"bpm": 140,
+	"icon": "bamber-sans-undertale",
+	"color": "#59DEF7",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
 		"Art": ["Glitch.smh", "Verwex", "Toby Fox"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Glitch.smh", "Seezee"],
-		"title":"Judgement Farm 2",
-		"background":"undertalestage"
+		"title":"Judgement Farm 2","background":"undertalestage"
 	},
 	"freeplayShit": {
 		"album": 2,
+		"font":"Mars_Needs_Cunnilingus.ttf",
 		"capsule":"placeholder",
 		"portrait":"bamber-sans-undertale",
 		"composer":"Glitch.smh"

@@ -105,7 +105,7 @@ function create() {
             centerBackground();
         }, onComplete: function(tween) {generatePage();}});
 
-        FlxG.sound.play(Paths.sound('firstTime/background'), getVolume(0.6, 'sfx'));
+        FlxG.sound.play(Paths.sound('menu/firstTime/background'), getVolume(0.6, 'sfx'));
     
         gradient.alpha = marqueeText.alpha = textObj.alpha = header.alpha = walkProgress.alpha = 0.001;
         FlxTween.tween(gradient, {alpha: 0.7}, 1, {ease: FlxEase.quartInOut});
@@ -153,7 +153,7 @@ function create() {
 }
 
 function processSelection() {
-    FlxG.sound.play(Paths.sound('firstTime/'+(curPageNum+1 != pages.length ? 'firstTimeAccept' : 'firstTimeFinalPage')), getVolume(1, 'sfx'));
+    FlxG.sound.play(Paths.sound('menu/firstTime/'+(curPageNum+1 != pages.length ? 'firstTimeAccept' : 'firstTimeFinalPage')), getVolume(1, 'sfx'));
 
     if (curPage[4] != null) Reflect.setField(FlxG.save.data.options, curPage[4], curPage[3][curSelected]);
 
@@ -165,7 +165,7 @@ function processSelection() {
 function update(elapsed) {
     if (canMove) {
         if ((controls.LEFT_P || controls.RIGHT_P) && curPage[2].length != 1) {
-            FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
+            FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
             changeSelection(controls.LEFT_P ? -1 : 1);
         }
 
@@ -180,7 +180,7 @@ function postUpdate(elapsed) {
 
         if (canMove && FlxG.mouse.visible && FlxG.mouse.overlaps(button.animateAtlas)) {
             if (curSelected != button.ID) {
-                FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
+                FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
                 changeSelection(button.ID - curSelected);
             }
 
@@ -260,7 +260,7 @@ function transitionPage() {
         FlxG.save.flush();
 
         new FlxTimer().start(0.5, function(timer) {
-            FlxG.sound.play(Paths.sound('firstTime/backgroundR'), getVolume(0.6, 'sfx'));
+            FlxG.sound.play(Paths.sound('menu/firstTime/backgroundR'), getVolume(0.6, 'sfx'));
 
             FlxTween.tween(background, {bWidth: 70}, 0.5, {ease: FlxEase.backIn});
             FlxTween.tween(background, {bHeight: 70}, 0.4, {ease: FlxEase.backIn, onUpdate: function(tween) {

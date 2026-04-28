@@ -124,7 +124,7 @@ function acceptThingieAndNotDie(){
 
 function changeOption(a:Int){
 	curMenu = FlxMath.wrap(curMenu + a, 0, buttons.length - 1);
-	FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
+	FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
 	for(z in buttons){
 		FlxTween.cancelTweensOf(z);
 		//z.animateAtlas.anim.finished = true;
@@ -155,6 +155,7 @@ function getTheFuckingValue(){
 }
 
 function changeCurSelected(a:Int){
+    if(a!=0)CoolUtil.playMenuSFX('scroll', getVolume(0.8, 'sfx'));
     curSelect = FlxMath.wrap(curSelect + a, 0, optionsFile[curMenu].length-1);
     if(optionsFile[curMenu][curSelect][2].length>=0){curParam=optionsFile[curMenu][curSelect][2];
     }

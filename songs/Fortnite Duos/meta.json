@@ -1,39 +1,29 @@
 {
-	"color": "#FEE46C",
-	"opponentModeAllowed": true,
-	"difficulties": [
-		"EASY",
-		"NORMAL",
-		"HARD"
-	],
+	"displayName": "Fortnite Duos",
+	"difficulties": ["easy","normal","hard"],
+	"bpm": 170,
+	"beatsPerMeasure": 4,
+	"stepsPerBeat": 4,
+	"needsVoices": false,
 	"icon": "ronnieandboris",
+	"color": "#FEE46C",
+	"coopAllowed": false,
+	"opponentModeAllowed": false,
 	"credits": {
-		"Chart": {
-			"easy": ["Luminous"],
-			"normal": ["Glitch.smh"],
-			"hard": ["Luminous"]
-		},
+		"Chart": {"easy": ["Luminous"],"normal": ["Glitch.smh"],"hard": ["Luminous"]},
 		"Art": ["Seezee"],
 		"Music": ["Glitch.smh"],
 		"Code": ["Frakits", "Verwex"],
-		"offset":[0,-10],
-		"delay":32,
-		"title":"Fortnite Duos",
-		"background":"romania outskirts"
+		"offset":[0,-10],"delay":32,"title":"Fortnite Duos","background":"romania outskirts"
 	},
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
-	"displayName": "Fortnite Duos",
-	"needsVoices": false,
-	"beatsPerMeasure": 4,
-	"bpm": 170,
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"RomaniaOutskirts",
 		"updated": true,
 		"portrait":"ronnieandboris",
 		"composer":"Glitch.smh",
-		"hasCutscenes":true
+		"hasCutscenes":true,
+		"sound":"romania outskirts"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "romania outskirts/",

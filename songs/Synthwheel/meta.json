@@ -1,40 +1,28 @@
 {
-	"beatsPerMeasure": 4,
-	"opponentModeAllowed": true,
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"bpm": 180,
-	"difficulties": [
-		"EASY",
-		"NORMAL",
-		"HARD"
-	],
-	"needsVoices": false,
-	"parsedColor": -16751361,
 	"displayName": "Synthwheel",
-	"icon": "Davey",
 	"name": "Synthwheel",
+	"difficulties": ["easy","normal","hard"],
+	"bpm": 180,
+	"needsVoices": false,
+	"icon": "Davey",
 	"color": "#0064FF",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"easy": ["Glitch.smh"],
-		"normal": ["Glitch.smh"],
-		"hard": ["Luminous"]
-		},
+		"Chart": {"easy": ["Glitch.smh"],"normal": ["Glitch.smh"],"hard": ["Luminous"]},
 		"Code": ["Frakits", "Verwex"],
-		"offset":[70,45],
-		"title":"Synthwheel",
-		"background":"yard"
+		"offset":[70,45],"title":"Synthwheel","background":"yard"
 	},
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"DaveysYard",
-		"portrait":"davey",
 		"updated": true,
+		"portrait":"davey",
+		"composer":"Glitch.smh",
 		"hasCutscenes": true,
-		"composer":"Glitch.smh"
+		"sound":"davey"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

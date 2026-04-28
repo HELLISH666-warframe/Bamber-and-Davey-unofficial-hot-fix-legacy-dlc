@@ -1,6 +1,25 @@
 {
+	"displayName": "Deathbattle",
+	"difficulties": ["normal"],
+	"bpm": 250,
+	"beatsPerMeasure": 4,
+	"stepsPerBeat": 4,
+	"needsVoices": true,
+	"icon": "grug",
+	"color": "#DF1207",
+	"coopAllowed": false,
+	"opponentModeAllowed": false,
+	"credits": {
+		"Code": ["Frakits", "Verwex"],
+		"Remix": ["Glitch.smh"],
+		"OG Music": ["Sibottle"],
+		"Chart": {"normal": ["Glitch.smh", "Stormy"]},
+		"Art": ["Sibottle", "Verwex"],
+		"title":"Cornaholic","background":"battlegrounds"
+	},
 	"freeplayShit": {
 		"album": 2,
+		"font":"Impact.ttf",
 		"capsule":"placeholder",
 		"portrait": "manny",
 		"composer": "Glitch.smh,Sibottle"
@@ -9,29 +28,5 @@
 		"countdownPath": "battlegrounds/",
 		"countdownsound": "manny",
 		"comboPath": "battlegrounds/"
-	},
-	"color": "#DF1207",
-	"opponentModeAllowed": true,
-	"difficulties": [
-		"normal"
-	],
-	"icon": "grug",
-	"credits": {
-		"Code": ["Frakits", "Verwex"],
-		"Remix": ["Glitch.smh"],
-		"OG Music": ["Sibottle"],
-		"Chart": {
-			"normal": ["Glitch.smh", "Stormy"]
-		},
-		"Art": ["Sibottle", "Verwex"],
-		"title":"Cornaholic",
-		"background":"battlegrounds"
-	},
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"displayName": "Deathbattle",
-	"countdownsound": "manny",
-	"needsVoices": true,
-	"beatsPerMeasure": 4,
-	"bpm": 250
+	}
 }

@@ -1,35 +1,26 @@
 {
-	"beatsPerMeasure": 4,
-	"opponentModeAllowed": true,
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
-	"bpm": 150,
-	"difficulties": [
-		"Normal"
-	],
-	"needsVoices": true,
-	"parsedColor": -6645094,
 	"displayName": "Pibenis",
-	"icon": "pibenis",
 	"name": "Pibenis",
+	"difficulties": ["normal"],
+	"bpm": 150,
+	"needsVoices": true,
+	"icon": "pibenis",
 	"color": "#9A9A9A",
+	"coopAllowed": false,
+	"opponentModeAllowed": true,
+	"credits": {
+		"Chart": {"normal": ["Techy Harcvuk"]},
+		"Code": ["Techy Harcvuk"],
+		"Music": ["Techy Harcvuk"],
+		"Art": ["Techy Harcvuk"],
+		"title":"???","background":"???"
+	},
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"placeholder",
 		"new": true,
 		"portrait": "???",
 		"composer": "Techy Harcvuk"
-	},
-	"credits": {
-		"Chart": {
-			"normal": ["Techy Harcvuk"]
-		},
-		"Code": ["Techy Harcvuk"],
-		"Music": ["Techy Harcvuk"],
-		"Art": ["Techy Harcvuk"],
-		"offset":[0,40],
-		"title":"???",
-		"background":"???"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

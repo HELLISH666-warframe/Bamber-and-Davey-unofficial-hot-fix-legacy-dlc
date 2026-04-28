@@ -1,35 +1,28 @@
 {
+	"displayName": "Synthwheel Vol2",
+	"difficulties": ["easy","normal","hard"],
+	"bpm": 150,
+	"needsVoices": true,
+	"icon": "davey",
+	"color": "#0066FF",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
+	"credits": {
+		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {"easy": ["Glitch.smh"],"normal": ["Glitch.smh"],"hard": ["Luminous"]},
+		"Code": ["Frakits", "Verwex"],
+		"offset":[70,45],"title":"Synthwheel","background":"yard"
+	},
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"DaveysYard",
 		"portrait": "davey",
 		"composer": "Glitch.smh",
-		"hasCutscenes": true
+		"hasCutscenes": true,
+		"sound":"davey"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",
-	"countdownsound": "davey"},
-	"color": "#0066FF",
-	"opponentModeAllowed": true,
-	"icon": "davey",
-	"difficulties": ["easy","normal","hard"],
-	"credits": {
-		"Art": ["Verwex"],
-		"Music": ["Glitch.smh"],
-		"Chart": {
-			"easy": ["Glitch.smh"],
-			"normal": ["Glitch.smh"],
-			"hard": ["Luminous"]
-		},
-		"Code": ["Frakits", "Verwex"],
-		"offset":[70,45],
-		"title":"Synthwheel",
-		"background":"yard"
-	},
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"displayName": "Synthwheel Vol1",
-	"needsVoices": true,
-	"beatsPerMeasure": 4,
-	"bpm": 150
+	"countdownsound": "davey"}
 }

@@ -1,26 +1,18 @@
 {
-	"color": "#8E0108",
-	"opponentModeAllowed": false,
+	"displayName": "Swindled Vol2",
+	"difficulties": ["ABSOLUTELY FUCKING FUCKED"],
+	"bpm": 210,
+	"needsVoices": true,
 	"icon": "Swindler",
-	"difficulties": [
-		"ABSOLUTELY FUCKING FUCKED"
-	],
+	"color": "#8E0108",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
-		"Chart": {"absolutely fucking fucked": ["Stormy", "Glitch.smh"]},
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
-		"Code": ["Frakits", "Verwex"],
-		"offset":[20,25],
-		"delay":32,
-		"title":"Swindled",
-		"background":"Swindled"
+		"Chart": {"absolutely fucking fucked": ["Stormy", "Glitch.smh"]},
+		"offset":[20,25],"delay":32,"title":"Swindled","background":"Swindled"
 	},
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
-	"displayName": "Swindled Vol2",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"bpm": 210,
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"swindled",

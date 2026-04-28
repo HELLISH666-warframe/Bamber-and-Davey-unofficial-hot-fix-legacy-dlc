@@ -2,8 +2,6 @@ import funkin.backend.chart.Chart;
 import funkin.menus.StoryMenuState.StoryWeeklist;
 import funkin.backend.utils.WindowUtils;
 import flixel.text.FlxTextBorderStyle;
-import funkin.backend.FunkinText;
-import flixel.group.FlxTypedSpriteGroup;
 import menus.freeplay.Capsule;
 
 var backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'));
@@ -23,6 +21,7 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["Remixes","Remixes",['Spookeez','South','Pico','2Hot'],0xFF338A9C],//33
 	["Legacy","Legacy/Old Content",['Yield V1','Cornaholic V1','Harvest V1','Yield Seezee Remix','Cornaholic Erect Remix V1','Harvest Chill Remix','Yield demo','Cornaholic demo','Harvest demo','Synthwheel demo','Yard demo','Best-Farmers-Forever','Coop Old','Fortnite Duos V1','Godzilla','Judgement Farm Old','Matemathon V1','Call Bamber Old','Harvest Vol2','Synthwheel Vol2','Coop Vol2','Bob be like Vol2','Swindled Vol2','Trade Vol2','Judgement Farm Vol2','Judgement Farm 2 Vol2','Placeholder Vol2'],0x16AD01],//60
 	["PLACEHOLDER","REMOVE_LATER",['Astray','Facsimile','Placeholder','Test Footage'],0x000000,'vcr_osd.ttf'],//64
+	['Favourites','Favourites',FlxG.save.data.freeplayShit.favourites,0xFE3455],
 	/*["Baller", "Custom_content.", 0x16AD01]*/
 ];
 
@@ -107,6 +106,7 @@ function update(elapsed) {
 	if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
 		
 	if (controls.ACCEPT) {
+		FlxG.sound.play(Paths.sound('menu/accept/Default'), getVolume(1, 'sfx'));
 		openSubState(new ModSubState("substates/Freeplay_substate"));
 		persistentUpdate = !persistentDraw;
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
@@ -117,15 +117,20 @@ function update(elapsed) {
 		FlxG.switchState(new PlayState());
     }
 
+	if (FlxG.keys.justPressed.F) {
+		FlxG.save.data.freeplayShit.favourites.contains(songser[subCurSelected].name)?
+		FlxG.save.data.freeplayShit.favourites.remove(songser[subCurSelected].name):
+		FlxG.save.data.freeplayShit.favourites.push(songser[subCurSelected].name);
+		FlxG.save.flush();
+	}
+
 	if (FlxG.keys.justPressed.SEVEN) {
 		persistentUpdate = !persistentDraw;
 		import funkin.editors.EditorPicker;
 		openSubState(new EditorPicker());
 	}
 	
-    for (i in vinylGroup.members) {
-        i.x = lerp(i.x, -460 * (curSelected - i.ID), 0.2);
-    }
+    for (i in vinylGroup.members) i.x = lerp(i.x, -460 * (curSelected - i.ID), 0.2);
 	
 	arrows[0].angle = Math.sin(timer * 3) * 5;
 	for (i in kILLYOURSELF){
@@ -133,6 +138,14 @@ function update(elapsed) {
 		var scaledY = FlxMath.remapToRange(i.text.targetY, 0, 1, 0, 1.3);
 		i.text.y = CoolUtil.fpsLerp(i.text.y, (scaledY * 250) + (FlxG.height * 0.30), 0.16);
 	}
+	for (i in 0...kILLYOURSELF.members.length) {
+		kILLYOURSELF.members[i].text.x=CoolUtil.fpsLerp(kILLYOURSELF.members[i].text.x,switch(subCurSelected-i){
+			case 0:targetX = 1240;
+			case -1:targetX = 1350;
+			default:targetX = 1700;
+		}-kILLYOURSELF.members[i].text.width, 0.2);
+	}
+
 	if (FlxG.mouse.overlaps(scorText) && FlxG.mouse.pressed){
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
 		persistentUpdate = !persistentDraw;
@@ -141,7 +154,7 @@ function update(elapsed) {
 }
 function changements(a) {
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, subCurSelectedLimit);
-	if (changements != 0) CoolUtil.playMenuSFX(0);
+	if(a!=0)CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
 	
 	//for (i in 0...kILLYOURSELF.length) kILLYOURSELF[i].alpha = 0.5;
 	var ver = songser[subCurSelected].freeplayShit.album==null?1:songser[subCurSelected].freeplayShit.album;
@@ -154,14 +167,16 @@ function changements(a) {
 }
 
 function change(a) {
-    curSelected = FlxMath.wrap(curSelected + a, 0, vinylGroup.length - 1);
+	mult=1;
+	if(FlxG.save.data.freeplayShit.favourites.length==0)mult=curSelected==10?1:2;
+    curSelected = FlxMath.wrap(curSelected + a, 0, vinylGroup.length - mult);
 	
 	catName.font=Paths.font(data[curSelected][4]==null?"vcr.ttf":data[curSelected][4]);
 	moveTimer.cancel();
 	
 	if (!appear) {
 		appear = true;
-		FlxG.sound.play(Paths.sound("freeplay/cassetteAppear"), getVolume(1, 'sfx'));
+		FlxG.sound.play(Paths.sound("menu/freeplay/cassetteAppear"), getVolume(1, 'sfx'));
 	}
 
 	songser = [];
@@ -191,10 +206,10 @@ function change(a) {
 		arrows[FlxMath.bound(a, 0, 1)].scale.set(0.1, 0.2);
 		FlxTween.tween(arrows[FlxMath.bound(a, 0, 1)], {"scale.x": 0.25, "scale.y": 0.25}, 0.5, {ease: FlxEase.circOut});
 		
-		FlxG.sound.play(Paths.sound("freeplay/cassetteScroll"), getVolume(1, 'sfx'));
+		FlxG.sound.play(Paths.sound("menu/freeplay/cassetteScroll"), getVolume(1, 'sfx'));
 		moveTimer = new FlxTimer().start(0.7, ()->{
 			appear = false;
-			FlxG.sound.play(Paths.sound("freeplay/cassetteDisappear"), getVolume(1, 'sfx'));
+			FlxG.sound.play(Paths.sound("menu/freeplay/cassetteDisappear"), getVolume(1, 'sfx'));
 			for (i in vinylGroup.members)
 				FlxTween.tween(i, {y: i.y + 128}, 0.5, {ease: FlxEase.quartOut});
 		});	

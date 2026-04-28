@@ -1,20 +1,13 @@
 {
-	"opponentModeAllowed": true,
-	"icon": "Gen-Bamber",
-	"difficulties": [
-		"normal"
-	],
-	"color": -197380,
-	"coopAllowed": true,
-	"name": "Generations",
-	"stepsPerBeat": 4,
 	"displayName": "Generations",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"metas": {},
+	"name": "Generations",
+	"difficulties": ["normal"],
 	"bpm": 140,
-	"instSuffix": "",
-	"vocalsSuffix": "",
+	"needsVoices": true,
+	"icon": "Gen-Bamber",
+	"color": "#FCFCFC",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
 		"drawingz": ["Glitch.smh", "Verwex"],
 		"myoosick": ["PK Cool Guy"],

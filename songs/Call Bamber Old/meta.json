@@ -1,33 +1,26 @@
 {
-	"beatsPerMeasure": 4,
-	"opponentModeAllowed": true,
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"bpm": 195,
-	"difficulties": [
-		"normal"
-	],
-	"parsedColor": -2998005,
 	"displayName": "Call",
-	"icon": "elisocray",
 	"name": "call",
+	"difficulties": ["normal"],
+	"bpm": 195,
+	"beatsPerMeasure": 4,
+	"stepsPerBeat": 4,
+	"icon": "elisocray",
 	"color": "#D2410B",
-	"freeplayShit": {
-		"album": 2,
-		"capsule":"Call",
-		"portrait": "???",
-		"composer": "???"
-	},
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
-		"Chart": {
-			"normal": ["???"]
-		},
+		"Chart": {"normal": ["???"]},
 		"Code": ["???"],
 		"Music": ["???"],
 		"Art": ["???"],
-		"offset":[0,40],
-		"title":"??",
-		"background":"???"
+		"offset":[0,40],"title":"??","background":"???"
+	},
+	"freeplayShit": {
+		"album": 2,
+		"capsule":"Call",
+		"portrait": "elisocray-old",
+		"composer": "???"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

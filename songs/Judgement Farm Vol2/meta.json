@@ -1,21 +1,18 @@
 {
-	"displayName": "Judgement Farm V1",
+	"displayName": "Judgement Farm Vol2",
 	"bpm": 120.0,
-	"icon": "bamber-sans",
+	"icon": "bamber-sans-undertale",
 	"color": "#10F2FE",
 	"credits": {
 		"Art": ["Verwex", "Glitch.smh"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Frakits", "Verwex"],
-		"delay":32,
-		"title":"Judgement Farm",
-		"background":"judgement hall"
+		"delay":32,"title":"Judgement Farm","background":"judgement hall"
 	},
 	"freeplayShit": {
 		"album": 2,
+		"font":"Mars_Needs_Cunnilingus.ttf",
 		"capsule":"placeholder",
 		"portrait":"bamber-sans",
 		"composer":"Glitch.smh"

@@ -3,20 +3,18 @@
 	"bpm": 160,
 	"icon": "bfdi-bnd",
 	"color": "#2FFE80",
-	"coopAllowed": true,
-	"opponentModeAllowed": true,
+	"coopAllowed": false,
+	"opponentModeAllowed": false,
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh", "Walto"],
-		"Chart": {
-		"bfdi": ["Glitch.smh"]
-		},
+		"Chart": {"bfdi": ["Glitch.smh"]},
 		"Code": ["Frakits", "Verwex"],
-		"title":"Corn N Roll",
-		"background":"Corn N Roll"
+		"title":"Corn N Roll","background":"Corn N Roll"
 	},
 	"freeplayShit": {
 		"album": 2,
+		"font":"adelon-serial-bold.ttf",
 		"capsule":"placeholder",
 		"portrait":"bfdi-bamber",
 		"composer":"Glitch.smh,Walto"

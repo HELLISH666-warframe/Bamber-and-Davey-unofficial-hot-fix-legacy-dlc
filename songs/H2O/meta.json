@@ -1,5 +1,6 @@
 {
 	"displayName": null,
+	"difficulties": ["normal","vip"],
 	"bpm": 150,
 	"icon": "Water",
 	"color": "#A5CEE3",
@@ -9,13 +10,9 @@
 		"Art": ["Verwex", "H2O Showdown Team"],
 		"Remix": ["Glitch.smh"],
 		"OG Music": ["River09"],
-		"Chart": {
-		"normal": ["Glitch.smh"],
-		"vip": ["???"]
-		},
+		"Chart": {"normal": ["Glitch.smh"],"vip": ["???"]},
 		"Code": ["Frakits", "Verwex"],
-		"title":"H2O",
-		"background":"H2O"
+		"title":"H2O","background":"H2O"
 	},
 	"freeplayShit": {
 		"album": 2,

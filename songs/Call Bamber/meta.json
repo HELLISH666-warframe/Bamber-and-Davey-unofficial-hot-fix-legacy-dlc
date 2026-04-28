@@ -1,32 +1,22 @@
 {
-	"beatsPerMeasure": 4,
-	"opponentModeAllowed": true,
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"bpm": 150,
-	"album": 2,
-	"difficulties": [
-		"normal"
-	],
-	"needsVoices": false,
-	"parsedColor": -6724045,
 	"displayName": "Call (Bamber Mix)",
-	"icon": "elisocray",
 	"name": "Call Bamber",
+	"difficulties": ["normal"],
+	"bpm": 150,
+	"beatsPerMeasure": 4,
+	"stepsPerBeat": 4,
+	"icon": "elisocray",
 	"color": "#996633",
-	"composer": "Glitch.smh",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
+	"needsVoices": false,
 	"credits": {
 		"Art": ["Verwex", "Cosmic", "Micro"],
 		"Remix": ["Glitch.smh"],
 		"OG Music": ["coolgirl(cool)"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Frakits", "Verwex"],
-		"offset":[50,-15],
-		"delay":16,
-		"title":"call bamber",
-		"background":"callstage"
+		"offset":[50,-15],"delay":16,"title":"call bamber","background":"callstage"
 	},
 	"freeplayShit": {
 		"album": 2,

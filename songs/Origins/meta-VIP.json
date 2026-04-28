@@ -1,10 +1,19 @@
 {
+	"displayName": "Origins",
+	"name": "Origins",
+	"difficulties": ["normal","vip"],
+	"bpm": 120,
+	"needsVoices": false,
+	"color": "#FEA74D",
+	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"icon": "Icon",
-	"difficulties": [
-		"Normal",
-		"VIP"
-	],
+	"credits": {
+		"Art": ["???"],
+		"Music": ["Glitch.smh","Suzuku"],
+		"Chart": {"hard": ["???"],"VIP":["???"]},
+		"Code": ["???"],
+		"title":"???","background":"???"
+	},
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"placeholder",
@@ -12,26 +21,7 @@
 		"new": true,
 		"composer":"Glitch.smh"
 	},
-	"parsedColor": -88243,
-	"color": "#FEA74D",
-	"name": "Origins",
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"displayName": "Origins",
-	"beatsPerMeasure": 4,
-	"needsVoices": false,
-	"bpm": 120,
-	"credits": {
-		"Art": ["???"],
-		"Music": ["Glitch.smh","Suzuku"],
-		"Chart": {
-		"hard": ["???"],
-		"VIP":["???"]
-		},
-		"Code": ["???"],
-		"offset":[20,25],
-		"delay":0,
-		"title":"???",
-		"background":"???"
-	}
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "funkin"}
 }

@@ -1,32 +1,23 @@
 {
-	"opponentModeAllowed": true,
-	"icon": "Bamber-Sans",
-	"difficulties": [
-		"NORMAL"
-	],
-	"parsedColor": -15666434,
-	"color": "#10F2FE",
-	"name": "Judgement Farm",
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
 	"displayName": "Megalofarmer",
-	"beatsPerMeasure": 4,
-	"needsVoices": false,
+	"name": "Judgement Farm",
+	"difficulties": ["normal"],
 	"bpm": 125,
-	"countdownsound": "undertale",
+	"needsVoices": false,
+	"icon": "Bamber-Sans",
+	"color": "#10F2FE",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
 		"Art": ["Verwex", "Glitch.smh"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Frakits", "Verwex"],
-		"delay":32,
-		"title":"Judgement Farm",
-		"background":"judgement hall"
+		"delay":32,"title":"Judgement Farm","background":"judgement hall"
 	},
 	"freeplayShit": {
 		"album": 2.5,
+		"font":"Mars_Needs_Cunnilingus.ttf",
 		"capsule":"placeholder",
 		"updated": true,
 		"portrait":"bamber-sans",

@@ -1,23 +1,19 @@
 {
+	"displayName": "Harvest V1",
+	"difficulties": ["normal"],
+	"bpm": 180,
+	"icon": "bamber-old",
+	"color": "#16AD01",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"freeplayShit": {
 		"album": 1,
-		"capsule":"BambersFarm"
+		"capsule":"BambersFarm",
+		"sound":"bamber"
 	},
 	"customValues": {
 		"countdownsound": "funkin/",
 		"countdownPath": "funkin/",
 		"comboPath": ""
-	},
-	"color": "#16AD01",
-	"opponentModeAllowed": false,
-	"icon": "bamber-old",
-	"difficulties": [
-		"normal"
-	],
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
-	"displayName": "Harvest V1",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"bpm": 180
+	}
 }

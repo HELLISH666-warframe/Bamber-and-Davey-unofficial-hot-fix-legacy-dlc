@@ -1,35 +1,19 @@
 {
-	"opponentModeAllowed": true,
-	"difficulties": [
-		"EASY",
-		"NORMAL",
-		"HARD"
-	],
-	"icon": "Bamber",
-	"parsedColor": -16724992,
-	"name": "Harvest",
-	"coopAllowed": true,
-	"color": "#00CC00",
-	"stepsPerBeat": 4,
 	"displayName": "Harvest",
-	"beatsPerMesure": 4,
-	"beatsPerMeasure": 4,
-	"needsVoices": false,
+	"name": "Harvest",
+	"difficulties": ["easy","normal","hard"],
 	"bpm": 115,
-	"countdownsound": "bamber",
+	"needsVoices": false,
+	"icon": "Bamber",
+	"color": "#00CC00",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"easy": ["Glitch.smh"],
-		"normal": ["Glitch.smh"],
-		"hard": ["Luminous"]
-		},
+		"Chart": {"easy": ["Glitch.smh"],"normal": ["Glitch.smh"],"hard": ["Luminous"]},
 		"Code": ["Frakits", "Verwex"],
-		"offset":[0,30],
-		"delay":7,
-		"title":"Harvest",
-		"background":"farm"
+		"offset":[0,30],"delay":7,"title":"Harvest","background":"farm"
 	},
 	"freeplayShit": {
 		"album": 2.5,
@@ -37,7 +21,8 @@
 		"updated": true,
 		"portrait":"bamber",
 		"composer":"Glitch.smh",
-		"hasCutscenes":true
+		"hasCutscenes":true,
+		"sound":"bamber"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

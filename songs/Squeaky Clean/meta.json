@@ -1,5 +1,6 @@
 {
 	"displayName": null,
+	"difficulties": ["fortnite"],
 	"bpm": 128,
 	"icon": "Davey",
 	"color": "#FE3455",
@@ -9,18 +10,17 @@
 		"Art": ["Verwex"],
 		"Instrumental": ["Epic Games"],
 		"Vocals": ["Glitch.smh"],
-		"Chart": {
-		"fortnite": ["Glitch.smh"]
-		},
+		"Chart": {"fortnite": ["Glitch.smh"]},
 		"Code": ["Frakits", "Verwex"],
-		"offset":[10,40],
-		"title":"Squeaky Clean",
-		"background":"Squeaky Clean"
+		"offset":[10,40],"title":"Squeaky Clean","background":"Squeaky Clean"
 	},
 	"freeplayShit": {
 		"album": 2,
-		"portrait":"davey",
 		"capsule":"DaveysYard",
+		"portrait":"davey",
 		"composer":"Glitch.smh"
-	}
+	},
+	"customValues": {"comboPath": "default/",
+	"countdownPath": "default/",
+	"countdownsound": "davey"}
 }

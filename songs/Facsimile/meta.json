@@ -5,17 +5,12 @@
 	"color": "#0F161F",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"countdownsound": "joke_model_obj",
 	"credits": {
 		"3D Model": ["Glitch.Smh", "Verwex"],
 		"Music": ["Glitch.Smh"],
-		"Chart": {
-		"normal": ["Glitch.smh"]
-		},
+		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
-		"offset":[0,125],
-		"title":"Facsimile",
-		"background":"facsimile"
+		"offset":[0,125],"title":"Facsimile","background":"facsimile"
 	},
 	"freeplayShit": {
 		"font":"vcr_osd.ttf",

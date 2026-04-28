@@ -1,24 +1,20 @@
 {
-	"difficulties": [
-		"NORMAL"
-	],
-	"icon": "bamber-old",
+	"difficulties": ["normal"],
 	"bpm": 180,
+	"icon": "bamber-old",
+	"color": "#00CC00",
+	"credits": {
+		"Art": ["???"],
+		"Music": ["???"],
+		"Chart": {"normal": ["???"]},
+		"Code": ["???"],
+		"title":"???","background":"???"
+	},
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"BambersFarm",
-		"composer": "Glitch.smh"
-	},
-	"credits": {
-		"Chart": {
-			"normal": ["???"]
-		},
-		"Code": ["???"],
-		"Music": ["???"],
-		"Art": ["???"],
-		"offset":[0,0],
-		"title":"???",
-		"background":"???"
+		"composer": "Glitch.smh",
+		"sound":"bamber"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

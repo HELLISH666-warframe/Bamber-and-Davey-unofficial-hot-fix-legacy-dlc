@@ -1,27 +1,14 @@
 {
-	"color": "#00CC00",
-	"opponentModeAllowed": true,
-	"icon": "Bamber",
-	"difficulties": [
-		"EASY",
-		"NORMAL",
-		"HARD",
-		"VIP"
-	],
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
 	"displayName": "Cornaholic",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
+	"difficulties": ["easy","normal","hard","vip"],
 	"bpm": 130,
-	"freeplayShit": {
-		"album": 2,
-		"capsule":"BambersFarm",
-		"vip": true,
-		"portrait": "bamber",
-		"composer": "Glitch.smh",
-		"hasCutscenes": true
-	},
+	"beatsPerMeasure": 4,
+	"stepsPerBeat": 4,
+	"needsVoices": true,
+	"icon": "Bamber",
+	"color": "#00CC00",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
 		"Chart": {
 			"easy": ["Glitch.smh"],
@@ -32,9 +19,16 @@
 		"Code": ["Frakits", "Verwex"],
 		"Music": ["Glitch.smh"],
 		"Art": ["Verwex"],
-		"offset":[0,40],
-		"title":"Cornaholic",
-		"background":"farm"
+		"offset":[0,40],"title":"Cornaholic","background":"farm"
+	},
+	"freeplayShit": {
+		"album": 2,
+		"capsule":"BambersFarm",
+		"vip": true,
+		"portrait": "bamber",
+		"composer": "Glitch.smh",
+		"hasCutscenes": true,
+		"sound":"bamber"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

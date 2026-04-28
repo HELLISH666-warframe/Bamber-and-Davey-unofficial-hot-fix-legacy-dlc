@@ -169,15 +169,13 @@ function update(elapsed:Float) {
 	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==3) changeDiff(controls.RIGHT_P ? 1 : -1);
 	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==2) changeScroll(controls.RIGHT_P ? 0.1 : -0.1);
 	if (controls.BACK){
-		Options.save();
+		FlxG.save.flush();
 		FlxG.sound.music.fadeOut(9,0,1);
+		CoolUtil.playMenuSFX(2, getVolume(0.9, 'sfx'));
 		close();
 	}
 	if (controls.ACCEPT) toggle();
-	if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed){
-		playsong();
-		click_through=false;
-	}
+	if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed)playsong();
 	if (controls.UP_P||controls.DOWN_P) changeOption(controls.UP_P ? -1 : 1);
 }
 var __oldDiffName = null;
@@ -198,11 +196,11 @@ function changeDiff(e) {
 	}
 }
 function changeOption(p) {
+	if(p!=0)CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
 	curOption = FlxMath.wrap(curOption + p, 0,  3);
-	if(click_through && curOption!=0){
+	if(curOption!=0)
 	FlxTween.tween(bulletoptionREAL, {y: bulletoptionREAL.height/10 + optionSprites.members[(curOption/4) * 11].y}, 0.4,{ease: FlxEase.quartInOut});
-	}
-	if(click_through && curOption==0) FlxTween.tween(bulletoptionREAL, {y: 8}, 0.5,{ease: FlxEase.quartInOut});
+	if(curOption==0) FlxTween.tween(bulletoptionREAL, {y: 8}, 0.5,{ease: FlxEase.quartInOut});
 }
 function toggle() {
 	switch(curOption){
@@ -217,22 +215,13 @@ function changeScroll(s) {
 	scroll_speed.text ="<"+FlxG.save.data.options.scrollSpeed_Speed+">";
 }
 function playsong() {
-	//if (FlxG.save.data.options.scrollSpeed) scrollSpeed = FlxG.save.data.options.scrollSpeed_Speed;
 	PlayState.loadSong(curSong.name, curSong.difficulties[curDifficulty].toLowerCase());
+
+	acceptSound=curSong.freeplayShit.sound!=null?curSong.freeplayShit.sound:'default';
+	if(curSong.freeplayShit.sound.length<=3) acceptSound=curSong.freeplayShit.sound[FlxG.random.int(0, curSong.freeplayShit.sound.length-1)];
+	FlxG.sound.play(Paths.sound('menu/accept/'+acceptSound), getVolume(1, 'sfx')).persist=true;
 	FlxG.switchState(new PlayState());
 	curPlayingInst="fuck";
+	click_through=false;
 }
-function destroy() {
-	//Destroy_the_other_stuff_later.
-	FlxG.cameras.remove(coolCam);
-}
-
-function doesIconExist(name) {
-	for (cate in ['devs', 'contributors', 'specialthanks']) {
-		if (Assets.exists(Paths.image('credits/'+cate+'/'+name.toLowerCase()))) {
-			iconpath= Paths.image('credits/'+cate+'/'+name.toLowerCase());
-            break;
-		}
-	}
-	return iconpath;
-}
+function destroy() FlxG.cameras.remove(coolCam);

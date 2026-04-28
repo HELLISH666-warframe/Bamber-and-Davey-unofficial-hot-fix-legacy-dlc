@@ -1,27 +1,20 @@
 {
-	"beatsPerMeasure": 4,
-	"opponentModeAllowed": true,
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"bpm": 194,
-	"difficulties": [
-		"Normal"
-	],
-	"parsedColor": -55180,
 	"displayName": "Escape From Poland",
-	"icon": "glitch.smh",
 	"name": "Escape From Poland",
+	"difficulties": ["normal"],
+	"bpm": 194,
+	"beatsPerMeasure": 4,
+	"stepsPerBeat": 4,
+	"icon": "glitch.smh",
 	"color": "#FF2874",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
 		"Art": ["???"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"normal": ["???"]
-		},
+		"Chart": {"normal": ["???"]},
 		"Code": ["???"],
-		"offset":[10,15],
-		"title":"???",
-		"background":"???"
+		"title":"???","background":"???"
 	},
 	"freeplayShit": {
 		"album": 2.5,

@@ -1,18 +1,15 @@
 {
 	"displayName": null,
+	"difficulties": ["null","vip"],
 	"bpm": 15,
+	"needsVoices": false,
 	"icon": null,
 	"color": "#000000",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"difficulties": [
-		"null",
-		"VIP"
-	],
-	"needsVoices": false,
 	"freeplayShit": {
-		"font":"vcr_osd.ttf",
 		"album": 2,
+		"font":"vcr_osd.ttf",
 		"capsule":"placeholder",
 		"vip": true,
 		"portrait":"thetest",

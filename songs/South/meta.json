@@ -1,17 +1,12 @@
 {
-	"beatsPerMeasure": 4,
-	"opponentModeAllowed": true,
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"bpm": 180,
-	"difficulties": [
-		"Normal"
-	],
-	"parsedColor": -5019839,
 	"displayName": "South (Bamber Mix)",
-	"icon": "spooky",
 	"name": "South",
+	"difficulties": ["normal"],
+	"bpm": 180,
+	"icon": "spooky",
 	"color": "#B36741",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"placeholder",

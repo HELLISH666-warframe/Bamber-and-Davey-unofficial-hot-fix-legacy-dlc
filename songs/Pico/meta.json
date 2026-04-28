@@ -1,17 +1,12 @@
 {
-	"beatsPerMeasure": 4,
-	"opponentModeAllowed": true,
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"bpm": 170,
-	"difficulties": [
-		"Normal"
-	],
-	"parsedColor": -4849804,
 	"displayName": "Pico (Bamber Mix)",
-	"icon": "pico",
 	"name": "Pico",
+	"difficulties": ["normal"],
+	"bpm": 170,
+	"icon": "pico",
 	"color": "#B5FF74",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"placeholder",

@@ -1,17 +1,12 @@
 {
-	"beatsPerMeasure": 4,
-	"opponentModeAllowed": true,
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"bpm": 150,
-	"difficulties": [
-		"Normal"
-	],
-	"parsedColor": -27612,
 	"displayName": "Spookeez (Bamber Mix)",
-	"icon": "spooky",
 	"name": "Spookeez",
+	"difficulties": ["normal"],
+	"bpm": 150,
+	"icon": "spooky",
 	"color": "#FF9424",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"freeplayShit": {
 		"album": 2.5,
 		"capsule":"placeholder",

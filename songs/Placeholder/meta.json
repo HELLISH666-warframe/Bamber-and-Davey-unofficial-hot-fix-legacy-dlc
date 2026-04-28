@@ -1,30 +1,22 @@
 {
-	"color": "#242323",
-	"opponentModeAllowed": true,
-	"difficulties": [
-		"Placeholder"
-	],
+	"displayName": "Placeholder",
+	"difficulties": ["placeholder"],
+	"bpm": 200,
+	"needsVoices": true,
 	"icon": "face",
+	"color": "#242323",
+	"coopAllowed": false,
+	"opponentModeAllowed": false,
 	"credits": {
-		"Chart": {
-			"placeholder": ["Glitch.smh"]
-		},
+		"Chart": {"placeholder": ["Glitch.smh"]},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
 		"Music": ["Glitch.Smh"],
 		"Art": ["Glitch.Smh"],
-		"title":"Placeholder",
-		"background":"paintvoid"
+		"title":"Placeholder","background":"paintvoid"
 	},
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"displayName": "Placeholder",
-	"countdownsound": "joke_model_obj",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"bpm": 200,
 	"freeplayShit": {
-		"font":"vcr_osd.ttf",
 		"album": 2.5,
+		"font":"vcr_osd.ttf",
 		"capsule":"placeholder",
 		"updated": true,
 		"portrait":"PLACEHOLDER_new",

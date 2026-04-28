@@ -245,7 +245,7 @@ function setupPreTitleStuff() {
     windEmitter.makeParticles(2, 230, 0xFFFFFFFF, 100);
     add(windEmitter);
 
-    windAmbience = FlxG.sound.play(Paths.sound('titleScreen/WindAmbience'), getVolume(0.25, 'sfx'));
+    windAmbience = FlxG.sound.play(Paths.sound('menu/titleScreen/WindAmbience'), getVolume(0.25, 'sfx'));
 
     parachute = new FlxSprite(); parachute.antialiasing = true; add(parachute); parachute.alpha = 0.001;
 
@@ -279,7 +279,7 @@ function setupTitleStuff() {
         clouds.screenCenter(); add(clouds);
         clouds.shader = new CustomShader('smoothRotate');
 
-        vinylSound = FlxG.sound.load(Paths.sound('titleScreen/vinyl'), getVolume(0.5, 'sfx'), true); vinylSound.pitch = 0;
+        vinylSound = FlxG.sound.load(Paths.sound('menu/titleScreen/vinyl'), getVolume(0.5, 'sfx'), true); vinylSound.pitch = 0;
         
         background = new FlxSprite(0, 0).loadGraphic(Paths.image('menus/titleScreen/Background')); background.screenCenter(); background.y = FlxG.height + 20;
         background.antialiasing = true; add(background); background.scale.x = background.scale.y = 1.1;
@@ -564,7 +564,7 @@ function removeText() {
 function spawnParachute(whichLine) {
     parachute.loadGraphic(Paths.image('menus/titleScreen/Parachute'+FlxG.random.int(1,13))); parachute.alpha = 1;
 
-    FlxG.sound.play(Paths.sound('titleScreen/ParachuteOpen'), getVolume(0.25, 'sfx'));
+    FlxG.sound.play(Paths.sound('menu/titleScreen/ParachuteOpen'), getVolume(0.25, 'sfx'));
 
     parachute.x = titleTextGroup.members[whichLine].x;
     parachute.y = titleTextGroup.members[whichLine].y - parachute.height/2 + 50;
@@ -660,7 +660,7 @@ function update(elapsed) {
                         }});
                         FlxTween.tween(foreground, {y: 190+150}, 1, {ease: FlxEase.elasticOut});
 
-                        FlxG.sound.play(Paths.sound('titleScreen/RustlingLeaves'), getVolume(1, 'sfx'));
+                        FlxG.sound.play(Paths.sound('menu/titleScreen/RustlingLeaves'), getVolume(1, 'sfx'));
                     }
                 case characterGroup:
                     if (occupiedObject == null) {
@@ -675,7 +675,7 @@ function update(elapsed) {
                         });
                     }
                 case logo:
-                    if (occupiedObject == null) FlxG.sound.play(Paths.sound('titleScreen/zoom'), getVolume(1, 'sfx'));
+                    if (occupiedObject == null) FlxG.sound.play(Paths.sound('menu/titleScreen/zoom'), getVolume(1, 'sfx'));
 
                     logo.scale.x = logo.scale.y = CoolUtil.fpsLerp(logo.scale.y, logoLerping[2] * 1.1, 0.2);
                     logo.x = CoolUtil.fpsLerp(logo.x, logoLerping[0] + 6 * logoLerping[2], 0.2); //Offset's fucked up which is why
@@ -693,7 +693,7 @@ function update(elapsed) {
                             selectedObject.scale.y = Math.abs(value);
                         });
 
-                        FlxG.sound.play(Paths.sound('titleScreen/WhipWoosh'), getVolume(1, 'sfx'));
+                        FlxG.sound.play(Paths.sound('menu/titleScreen/WhipWoosh'), getVolume(1, 'sfx'));
                     }
                 case startText:
                     if (!isInMenu) progressForwards();
@@ -705,7 +705,7 @@ function update(elapsed) {
 
                     if (yLevel != oldYLevel) { 
                         oldYLevel = yLevel;
-                        FlxG.sound.play(Paths.sound('titleScreen/barProgress'), getVolume(1, 'sfx'));
+                        FlxG.sound.play(Paths.sound('menu/titleScreen/barProgress'), getVolume(1, 'sfx'));
                     }
 
                 case bottomBar:
@@ -716,14 +716,14 @@ function update(elapsed) {
 
                     if (yLevel != oldYLevel) { 
                         oldYLevel = yLevel;
-                        FlxG.sound.play(Paths.sound('titleScreen/barProgress'), getVolume(1, 'sfx'));
+                        FlxG.sound.play(Paths.sound('menu/titleScreen/barProgress'), getVolume(1, 'sfx'));
                     }
                 case buttonTextGroup:
                     if (occupiedObject == null) {
                         var selected = buttonTextGroup.members[menuSelection];
 
                         new FlxTimer().start(0.065, function(timer) {
-                            var scroll = FlxG.sound.play(Paths.sound('titleScreen/xylophone'), getVolume(0.5, 'sfx'));
+                            var scroll = FlxG.sound.play(Paths.sound('menu/titleScreen/xylophone'), getVolume(0.5, 'sfx'));
                             scroll.pitch = 1 + (0.5 * (timer.elapsedLoops / selected.members.length));
 
                             selected.members[timer.elapsedLoops-1].colorTransform.redMultiplier = selected.members[timer.elapsedLoops-1].colorTransform.greenMultiplier = selected.members[timer.elapsedLoops-1].colorTransform.blueMultiplier = 2;
@@ -767,13 +767,13 @@ function update(elapsed) {
 
     if (isInMenu&&submenuNum==1) {
         if ((controls.LEFT_P || controls.RIGHT_P)) {
-            FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
+            FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
             changeSelection(controls.LEFT_P ? -1 : 1);
         }
     }
     else if(isInMenu&&submenuNum==2) {
         if ((controls.LEFT_P || controls.RIGHT_P)) {
-            FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
+            FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
             changeSelectionSUBMENU(controls.LEFT_P ? -1 : 1);
         }
         if(controls.ACCEPT){acceptSUBMENU();
@@ -860,7 +860,7 @@ function progressForwards() {
         logoLerping = [870, null, 0.6];
     } else if (isInMenu && submenuNum==1 &&menuSelection!=0){
 		if (goigne) return;
-		CoolUtil.playMenuSFX(1);
+        FlxG.sound.play(Paths.sound('menu/accept/Default'), getVolume(1, 'sfx'));
 		goigne = true;
         FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
         FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
@@ -894,7 +894,7 @@ function progressForwards() {
 		});
     }else if (isInMenu && submenuNum==2){
 		if (goigne) return;
-		CoolUtil.playMenuSFX(1);
+        FlxG.sound.play(Paths.sound('menu/accept/Default'), getVolume(1, 'sfx'));
 		goigne = true;
         FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
         FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
@@ -983,11 +983,11 @@ function postUpdate(elapsed) {
 				hoveringOverButton = true;
 				trace("hovering");
                 if (menuSubmenuSelection != button.ID && submenuNum==2) {
-                    FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
+                    FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
                     changeSelectionSUBMENU(button.ID - menuSubmenuSelection);
                 }
                 if (menuSelection != button.ID && submenuNum!=2) {
-                    FlxG.sound.play(Paths.sound('firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
+                    FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
                     changeSelection(button.ID - menuSelection);
                 }
     

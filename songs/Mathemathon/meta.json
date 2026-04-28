@@ -1,34 +1,26 @@
 {
-	"beatsPerMeasure": 4,
-	"opponentModeAllowed": true,
-	"coopAllowed": true,
-	"stepsPerBeat": 4,
-	"bpm": 180,
-	"difficulties": [
-		"Normal"
-	],
-	"parsedColor": -11491841,
 	"displayName": "Mathemathon",
-	"icon": "davey-coop",
 	"name": "Mathemathon",
+	"difficulties": ["normal"],
+	"bpm": 180,
+	"icon": "davey-coop",
 	"color": "#50A5FF",
+	"coopAllowed": false,
+	"opponentModeAllowed": false,
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"normal": ["???"]
-		},
+		"Chart": {"normal": ["???"]},
 		"Code": ["???"],
-		"offset":[10,15],
-		"title":"???",
-		"background":"yard"
+		"title":"???","background":"yard"
 	},
 	"freeplayShit": {
 		"album": 2.5,
 		"portrait":"davey-coop",
 		"new":true,
 		"capsule":["DaveysYard","BambersFarm"],
-		"composer":"Glitch.smh"
+		"composer":"Glitch.smh",
+		"sound":["bamber","davey"]
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

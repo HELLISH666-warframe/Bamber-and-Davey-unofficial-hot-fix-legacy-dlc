@@ -1,32 +1,17 @@
 {
-	"color": "#00CC00",
-	"opponentModeAllowed": false,
-	"icon": "bamber",
-	"difficulties": [
-		"easy",
-		"normal",
-		"hard"
-	],
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
-	"displayName": "Harvest v2",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
-	"album": 2,
+	"displayName": "Harvest Vol2",
+	"difficulties": ["easy","normal","hard"],
 	"bpm": 180,
+	"icon": "bamber",
+	"color": "#00CC00",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"credits": {
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
-		"Chart": {
-		"easy": ["Glitch.smh"],
-		"normal": ["Glitch.smh"],
-		"hard": ["Luminous"]
-		},
+		"Chart": {"easy": ["Glitch.smh"],"normal": ["Glitch.smh"],"hard": ["Luminous"]},
 		"Code": ["Frakits", "Verwex"],
-		"offset":[0,30],
-		"delay":64,
-		"title":"Harvest",
-		"background":"farm"
+		"offset":[0,30],"delay":64,"title":"Harvest","background":"farm"
 	},
 	"freeplayShit": {
 		"album": 2,
@@ -34,7 +19,8 @@
 		"portrait":"bamber",
 		"composer":"Glitch.smh",
 		"hasCutscenes": true,
-		"hasModchart":true
+		"hasModchart":true,
+		"sound":"bamber"
 	},
 	"customValues": {"comboPath": "default/",
 	"countdownPath": "default/",

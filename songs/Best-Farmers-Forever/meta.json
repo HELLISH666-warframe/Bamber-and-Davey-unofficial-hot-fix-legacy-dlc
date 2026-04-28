@@ -1,19 +1,17 @@
 {
-	"color": "#9271FD",
-	"opponentModeAllowed": false,
-	"difficulties": [
-		"normal"
-	],
-	"icon": "bamber-old",
-	"coopAllowed": false,
-	"stepsPerBeat": 4,
 	"displayName": "Best-Farmers-Forever",
-	"beatsPerMeasure": 4,
-	"needsVoices": true,
+	"difficulties": ["normal"],
 	"bpm": 180,
+	"stepsPerBeat": 4,
+	"beatsPerMeasure": 4,
+	"icon": "bamber-old",
+	"color": "#00CC00",
+	"coopAllowed": true,
+	"opponentModeAllowed": true,
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"BambersFarm",
-		"composer":"Glitch.Smh"
+		"composer":"Glitch.Smh",
+		"sound":"bamber"
 	}
 }
