@@ -161,7 +161,7 @@ function changements(a) {
 	if (ver == null) ver = 2;
 	
 	album.loadGraphic(Paths.image("menus/freeplay/albums/vol"+ver));
-	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName+'| TEST STATE.');
+	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName);
 
 	backGround.color=data[curSelected][3];
 }
@@ -228,55 +228,10 @@ function change(a) {
 	changements(0);
 }
 function destroy() WindowUtils.set_suffix("");
-class Capsule2 extends FlxSprite {
-	public var text:Dynamic;
-	public var silhouette:Dynamic;
-	public var icon:Dynamic;
-	public var newTag:Dynamic;
-	public var updatedTag:Dynamic;
-	public var vipTag:Dynamic;
-
-	override public function update(elapsed:Float) {
-		super.update(elapsed);
-		text.update(elapsed);
-		silhouette.update(elapsed);
-		silhouette.setPosition(text.x+text.width-600,text.y-280);
-		icon.update(elapsed);
-		//Tags.
-		if(vipTag!=null){
-		vipTag.update(elapsed);
-		vipTag.setPosition(silhouette.x+(silhouette.width -vipTag.width) / 2,silhouette.y+150);
-		}
-		if(updatedTag!=null){
-		updatedTag.update(elapsed);
-		updatedTag.setPosition(silhouette.x-updatedTag.width+200,text.y+70);
-		}
-		if(newTag!=null){
-		newTag.update(elapsed);
-		newTag.setPosition(silhouette.x+40,text.y-80);
-		}
-	}
-	override public function draw() {
-		silhouette.draw();
-		if(newTag!=null)newTag.draw();
-		if(updatedTag!=null)updatedTag.draw();
-		icon.draw();
-		text.draw();
-		if(vipTag!=null)vipTag.draw();
-	}
-	override public function destroy() {
-		silhouette.destroy();
-		text.destroy();
-		icon.destroy();
-		if(newTag!=null)newTag.destroy();
-		if(vipTag!=null)vipTag.destroy();
-		if(updatedTag!=null)updatedTag.destroy();
-	}
-}
 
 function capsuleSpawn(index,songData) {
 	//SongText(Alphabet).
-	var songItem = new Capsule2();
+	var songItem = new Capsule();
 	songItem.text = new Alphabet(0,0,songData.displayName,true);
 	songItem.text.scale.set(0.9,0.9);
 	songItem.text.targetY=songItem.text.ID=index;

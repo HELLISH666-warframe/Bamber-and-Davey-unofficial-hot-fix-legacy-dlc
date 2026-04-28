@@ -1,49 +1,45 @@
-import flixel.group.FlxTypedGroup;
-import flixel.FlxState;
+class Capsule extends FlxSprite {
+	public var text:Dynamic;
+	public var silhouette:Dynamic;
+	public var icon:Dynamic;
+	public var newTag:Dynamic;
+	public var updatedTag:Dynamic;
+	public var vipTag:Dynamic;
 
-class Capsule {
-    public var x = 0;
-	public var y = 0;
-    public var siloSprite:FlxSprite;
-    public var newTag:FlxSprite;
-	public var vipTag:FlxSprite;
-    public var updatedTag:FlxSprite;
-
-    public var siloname:String = "placeholder";
-    public var theSiloGroup:FlxTypedGroup<FlxSprite> = new FlxTypedGroup<FlxSprite>();
-    public function new(xPos,yPos,silo,?vip:Bool,?isnew:Bool,?updated:Bool) {
-        siloname=silo;
-        siloSprite = new FlxSprite(xPos,yPos).loadGraphic(Paths.image('menus/freeplay/silhouettes/'+siloname));
-		siloSprite.scale.set(0.6,0.6);
-		siloSprite.updateHitbox();
-
-        if(isnew){
-        newTag = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/tags/new'));
-		newTag.scale.set(0.4,0.4);
-		newTag.updateHitbox();
-        }
-        if(vip){
-        vipTag = new FlxSprite(siloSprite.x+siloSprite.width-350,siloSprite.y+siloSprite.height-400).loadGraphic(Paths.image('menus/freeplay/tags/vip'));
-		vipTag.scale.set(0.5,0.5);
-		vipTag.updateHitbox();
-        }
-        if(updated){
-        updatedTag = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/tags/updated'));
-		updatedTag.scale.set(0.4,0.4);
-		updatedTag.updateHitbox();
-        }
-    }
-    public function update(elapsed:Float){
-        siloSprite.setPosition(x,y);
-        newTag.setPosition(siloSprite.x+siloSprite.width-700,siloSprite.y+siloSprite.height-300);
-        vipTag.setPosition(siloSprite.x+siloSprite.width-350,siloSprite.y+siloSprite.height-400);
-        updatedTag.setPosition(siloSprite.x+siloSprite.width-700,siloSprite.y+siloSprite.height-200);
-    }
-    
-    override public function destroy() {
-        siloSprite.destroy();
-        if(newTag!=null) newTag.destroy();
-        if(vipTag!=null) vipTag.destroy();
-        if(updatedTag!=null) updatedTag.destroy();
+	override public function update(elapsed:Float) {
+		super.update(elapsed);
+		text.update(elapsed);
+		silhouette.update(elapsed);
+		silhouette.setPosition(text.x+text.width-600,text.y-280);
+		icon.update(elapsed);
+		//Tags.
+		if(vipTag!=null){
+		vipTag.update(elapsed);
+		vipTag.setPosition(silhouette.x+(silhouette.width -vipTag.width) / 2,silhouette.y+150);
+		}
+		if(updatedTag!=null){
+		updatedTag.update(elapsed);
+		updatedTag.setPosition(silhouette.x-updatedTag.width+200,text.y+70);
+		}
+		if(newTag!=null){
+		newTag.update(elapsed);
+		newTag.setPosition(silhouette.x+40,text.y-80);
+		}
+	}
+	override public function draw() {
+		silhouette.draw();
+		if(newTag!=null)newTag.draw();
+		if(updatedTag!=null)updatedTag.draw();
+		icon.draw();
+		text.draw();
+		if(vipTag!=null)vipTag.draw();
+	}
+	override public function destroy() {
+		silhouette.destroy();
+		text.destroy();
+		icon.destroy();
+		if(newTag!=null)newTag.destroy();
+		if(vipTag!=null)vipTag.destroy();
+		if(updatedTag!=null)updatedTag.destroy();
 	}
 }

@@ -218,7 +218,8 @@ function playsong() {
 	PlayState.loadSong(curSong.name, curSong.difficulties[curDifficulty].toLowerCase());
 
 	acceptSound=curSong.freeplayShit.sound!=null?curSong.freeplayShit.sound:'default';
-	if(curSong.freeplayShit.sound.length<=3) acceptSound=curSong.freeplayShit.sound[FlxG.random.int(0, curSong.freeplayShit.sound.length-1)];
+	if(acceptSound.length<=3)
+		 acceptSound=curSong.freeplayShit.sound[FlxG.random.int(0, curSong.freeplayShit.sound.length-1)];
 	FlxG.sound.play(Paths.sound('menu/accept/'+acceptSound), getVolume(1, 'sfx')).persist=true;
 	FlxG.switchState(new PlayState());
 	curPlayingInst="fuck";
