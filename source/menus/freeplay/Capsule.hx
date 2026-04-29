@@ -10,16 +10,16 @@ class Capsule extends FlxSprite {
 		super.update(elapsed);
 		text.update(elapsed);
 		silhouette.update(elapsed);
-		silhouette.setPosition(text.x+text.width-600,text.y-280);
+		silhouette.setPosition(text.x+text.width-440,text.y-160);
 		icon.update(elapsed);
 		//Tags.
 		if(vipTag!=null){
 		vipTag.update(elapsed);
-		vipTag.setPosition(silhouette.x+(silhouette.width -vipTag.width) / 2,silhouette.y+150);
+		vipTag.setPosition(silhouette.x+(silhouette.width -vipTag.width) / 2+20,silhouette.y+30);
 		}
 		if(updatedTag!=null){
 		updatedTag.update(elapsed);
-		updatedTag.setPosition(silhouette.x-updatedTag.width+200,text.y+70);
+		updatedTag.setPosition(silhouette.x-updatedTag.width+70,text.y+70);
 		}
 		if(newTag!=null){
 		newTag.update(elapsed);

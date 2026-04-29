@@ -1,16 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="350" y="825" flipX="true" camy="-110" isPlayer="true" color="#08CFFB" noteskin="BND" isGF="false">
-	<anim name="idle" anim="Anims/Idle"/>
-	<anim name="singDOWN-alt" anim="Anims/Beatbox_Down"/>
-	<anim name="singUP-alt" anim="Anims/Beatbox_Up"/>
-	<anim name="singDOWN" anim="Anims/Sing_Down"/>
-	<anim name="singDOWNmiss" anim="Anims/Miss_Down"/>
-	<anim name="singRIGHTmiss" anim="Anims/Miss_Right"/>
-	<anim name="singLEFTmiss" anim="Anims/Miss_Left"/>
-	<anim name="singLEFT" anim="Anims/Sing_Left"/>
-	<anim name="singUP" anim="Anims/Sing_Up"/>
-	<anim name="singLEFT-alt" anim="Anims/Beatbox_Left"/>
-	<anim name="singRIGHT" anim="Anims/Sing_Right"/>
-	<anim name="singUPmiss" anim="Anims/Miss_Up"/>
-	<anim name="singRIGHT-alt" anim="Anims/Beatbox_Right"/>
-</character>
+<!DOCTYPE codename-engine-character><character x="350" y="825" sprite="Isaac" flipX="true" camy="-110" isPlayer="true" color="#08CFFB" noteskin="BND" isGF="false"><anim name="idle" anim="Anims/Idle"/><anim name="singDOWN-alt" anim="Anims/Beatbox_Down"/><anim name="singUP-alt" anim="Anims/Beatbox_Up"/><anim name="singDOWN" anim="Anims/Sing_Down"/><anim name="singDOWNmiss" anim="Anims/Miss_Down"/><anim name="singRIGHTmiss" anim="Anims/Miss_Right"/><anim name="singLEFTmiss" anim="Anims/Miss_Left"/><anim name="singLEFT" anim="Anims/Sing_Left"/><anim name="singUP" anim="Anims/Sing_Up"/><anim name="singLEFT-alt" anim="Anims/Beatbox_Left"/><anim name="singRIGHT" anim="Anims/Sing_Right"/><anim name="singUPmiss" anim="Anims/Miss_Up"/><anim name="singRIGHT-alt" anim="Anims/Beatbox_Right"/></character>

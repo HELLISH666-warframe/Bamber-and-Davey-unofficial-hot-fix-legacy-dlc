@@ -103,3 +103,4 @@ function update(elapsed:Float) {
 		scripts.call("onTimerUpdate", [elapsed]);
 	}
 }
+if(StringTools.contains(curSong.toLowerCase(),'judgement'))importScript("data/scripts/huds/undertale");

@@ -4,8 +4,6 @@ import funkin.backend.utils.WindowUtils;
 import flixel.text.FlxTextBorderStyle;
 import menus.freeplay.Capsule;
 
-var backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'));
-
 var arrows:Array<FunkinSprite> = [];
 var moveTimer:FlxTimer = new FlxTimer();
 var appear = true;
@@ -37,14 +35,13 @@ var scorText = new FlxText(24, 0);
 subCurSelected = 0;
 subCurSelectedLimit = songser.length - 1;
 
-var kILLYOURSELF:FlxTypedGroup = new FlxTypedGroup();
+var capsules = new FlxTypedGroup();
 
 function create() {
 	if(!FlxG.save.data.unlocks.sc)data[4][2].remove('Squeaky Clean');
-	add(backGround).screenCenter();
+	add(backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'))).screenCenter();
 	
-	add(album = new FlxSprite(-140,-140).loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"))).angle=-3;
-	album.setGraphicSize(350,350);
+	add(album = new FlxSprite(40,45).loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"))).angle=-3;
 
 	//Make this a whole FlxGroup that gets tweened on screen showing the songs statstitcs later.
 	scorText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "right", FlxTextBorderStyle.SHADOW, 0xFF000000);
@@ -52,6 +49,7 @@ function create() {
 	scorText.shadowOffset.set(2, 2);
 	add(scorText).angle=-3;
 	
+	add(capsules);
 	playall = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/silhouettes/playall"));
 	playall.scale.set(0.33, 0.33);
 	playall.x += 96;
@@ -97,7 +95,6 @@ function create() {
 	change(0);
 	
 	changements(0);
-	insert(999,kILLYOURSELF);
 }
 function update(elapsed) {
 	timer += elapsed;
@@ -133,17 +130,17 @@ function update(elapsed) {
     for (i in vinylGroup.members) i.x = lerp(i.x, -460 * (curSelected - i.ID), 0.2);
 	
 	arrows[0].angle = Math.sin(timer * 3) * 5;
-	for (i in kILLYOURSELF){
+	for (i in capsules){
 		i.text.targetY = i.text.ID - subCurSelected;
 		var scaledY = FlxMath.remapToRange(i.text.targetY, 0, 1, 0, 1.3);
-		i.text.y = CoolUtil.fpsLerp(i.text.y, (scaledY * 250) + (FlxG.height * 0.30), 0.16);
+		i.text.y = CoolUtil.fpsLerp(i.text.y, (scaledY * 250) + (FlxG.height * 0.37), 0.16);
 	}
-	for (i in 0...kILLYOURSELF.members.length) {
-		kILLYOURSELF.members[i].text.x=CoolUtil.fpsLerp(kILLYOURSELF.members[i].text.x,switch(subCurSelected-i){
-			case 0:targetX = 1240;
-			case -1:targetX = 1350;
-			default:targetX = 1700;
-		}-kILLYOURSELF.members[i].text.width, 0.2);
+	for (i in 0...capsules.members.length) {
+		capsules.members[i].text.x=CoolUtil.fpsLerp(capsules.members[i].text.x,switch(subCurSelected-i){
+			case 0:targetX = 1240; case -1:targetX = 1350 ;default:targetX = 2700;
+		}-capsules.members[i].text.width, switch(subCurSelected-i){
+			case 0|-1:0.16; default:0.06;
+		});
 	}
 
 	if (FlxG.mouse.overlaps(scorText) && FlxG.mouse.pressed){
@@ -156,7 +153,7 @@ function changements(a) {
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, subCurSelectedLimit);
 	if(a!=0)CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
 	
-	//for (i in 0...kILLYOURSELF.length) kILLYOURSELF[i].alpha = 0.5;
+	//for (i in 0...capsules.length) capsules[i].alpha = 0.5;
 	var ver = songser[subCurSelected].freeplayShit.album==null?1:songser[subCurSelected].freeplayShit.album;
 	if (ver == null) ver = 2;
 	
@@ -215,11 +212,11 @@ function change(a) {
 		});	
 	}
 	
-	kILLYOURSELF.clear();
+	capsules.clear();
 	for (i in 0...data[curSelected][2].length) {
 		add(capsuleSpawn(i,songser[i]));
-		kILLYOURSELF.members[i].text.x=0;
-		kILLYOURSELF.members[i].text.x=1240+(kILLYOURSELF.members[i].text.x-kILLYOURSELF.members[i].text.width);
+		capsules.members[i].text.x=0;
+		capsules.members[i].text.x=1240+(capsules.members[i].text.x-capsules.members[i].text.width);
 	}
 	
 	subCurSelected = 0;
@@ -240,7 +237,6 @@ function capsuleSpawn(index,songData) {
 	capsuleImage=songData.freeplayShit.capsule;
 	if(songData.freeplayShit.capsule.length<=3) capsuleImage=songData.freeplayShit.capsule[FlxG.random.int(0, songData.freeplayShit.capsule.length-1)];
 	songItem.silhouette = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/silhouettes/'+capsuleImage));
-	songItem.silhouette.scale.set(0.6,0.6);
 
 	//Icon
 	songItem.icon = new HealthIcon(songData.icon);
@@ -257,7 +253,7 @@ function capsuleSpawn(index,songData) {
 	}
 	if(songData.freeplayShit.vip){
 	songItem.vipTag = new FlxSprite().loadGraphic(Paths.image('menus/freeplay/tags/vip'));
-	songItem.vipTag.scale.set(0.5,0.5);
+	songItem.vipTag.scale.set(0.45,0.45);
 	songItem.vipTag.updateHitbox();
 	}
     if(songData.freeplayShit.updated){
@@ -266,6 +262,6 @@ function capsuleSpawn(index,songData) {
 	songItem.updatedTag.updateHitbox();
     }
 	
-	kILLYOURSELF.add(songItem);
+	capsules.add(songItem);
 	return songItem;
 }
