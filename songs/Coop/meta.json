@@ -14,7 +14,8 @@
 		"Art": ["Verwex"],
 		"Music": ["Glitch.smh"],
 		"Chart": {"easy": ["Glitch.smh"],"normal": ["Glitch.smh"],"hard": ["Glitch.smh"]},
-		"Code": ["Frakits", "Verwex"],"offset":[10,15],"title":"Coop","background":"yard"
+		"Code": ["Frakits", "Verwex"],
+		"offset":[10,15],"title":"Coop","background":"yard"
 	},
 	"freeplayShit": {
 		"album": 2.5,

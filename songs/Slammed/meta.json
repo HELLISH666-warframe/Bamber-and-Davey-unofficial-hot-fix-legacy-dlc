@@ -15,8 +15,8 @@
 		"sound":"bamber"
 	},
 	"customValues": {
-		"countdownsound": "bamber",
+		"comboPath": "default/",
 		"countdownPath": "default/",
-		"comboPath": "default/"
+		"countdownsound": "bamber"
 	}
 }

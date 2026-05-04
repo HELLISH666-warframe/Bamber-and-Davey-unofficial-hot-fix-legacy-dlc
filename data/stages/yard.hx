@@ -1,7 +1,14 @@
 import flixel.addons.display.FlxBackdrop;
 
+if (curSong != 'Squeaky Clean' && FlxG.random.int(1, 100) == 1 && PlayState.isStoryMode&&!PlayState.chartingMode) {
+	if(!FlxG.save.data.gameStats.achievements.contains('sc'))
+		FlxG.save.data.gameStats.achievements.push('sc');
+	PlayState.loadSong('Squeaky Clean', 'fortnite');
+	FlxG.switchState(new PlayState());
+}
+
 function create(){
-	if (curSong.toLowerCase() == "coop"||curSong.toLowerCase()=='coop vol2'){
+	if(StringTools.contains(curSong.toLowerCase(),'coop')){
 		grass.loadGraphic(Paths.image("stages/yard/Grass_WithBamber"));
 		boyfriend.x+=100;
 		boyfriend.y+=30;
@@ -27,4 +34,3 @@ function onCameraMove(e){
 	e.position.y -= (strumLines.members[curCameraTarget].characters[0].idleSuffix == "-alt" ? 200 : 0);
 	defaultCamZoom = (strumLines.members[curCameraTarget].characters[0].idleSuffix == "-alt" ? 0.45 : 0.6);
 }
-

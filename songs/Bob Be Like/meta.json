@@ -5,21 +5,17 @@
 	"bpm": 180,
 	"beatsPerMeasure": 4,
 	"stepsPerBeat": 4,
+	"needsVoices": false,
 	"icon": "Boris",
 	"color": "#FFFFFF",
-	"parsedColor": -1,
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"needsVoices": false,
 	"credits": {
 		"Art": ["Seezee"],
 		"Music": ["Glitch.smh"],
 		"Chart": {"easy": ["Luminous"],"normal": ["Glitch.smh"],"hard": ["Luminous"]},
 		"Code": ["Frakits", "Verwex", "Glitch.smh"],
-		"offset":[0,30],
-		"delay":8,
-		"title":"Bob be like",
-		"background":"romania outskirts"
+		"offset":[0,30],"delay":8,"title":"Bob be like","background":"romania outskirts"
 	},
 	"freeplayShit": {
 		"album": 2.5,

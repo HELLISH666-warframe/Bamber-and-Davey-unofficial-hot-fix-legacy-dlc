@@ -1,6 +1,6 @@
 import funkin.backend.assets.ModsFolder;
 
-var mods:Array<String> = ModsFolder.getModsList();
+var mods = CoolUtil.sortAlphabetically(ModsFolder.getModsList(), true);
 var alphabets = new FlxTypedGroup<Alphabet>();
 var curSelected_ms:Int = 0;
 
@@ -18,7 +18,6 @@ function create() {
 	FlxTween.tween(bg, {alpha: 0.5}, 0.25, {ease: FlxEase.cubeOut});
 
 	mods.push(null);
-	CoolUtil.sortAlphabetically(mods,true);//Only_windows_orders_it_alphabeticalrdyl_by_default.
 
 	for(mod in mods) {
 		var a = new Alphabet(0, 0, mod ==null ?"disableMods": mod, "bold");
@@ -33,12 +32,10 @@ function create() {
 function update(elapsed:Float) {
 	changeSelection((controls.DOWN_P ? 1 : 0) + (controls.UP_P ? -1 : 0) - FlxG.mouse.wheel);
 
-	if (controls.ACCEPT) {
-		ModsFolder.switchMod(mods[curSelected_ms]);
+	if (controls.ACCEPT||controls.BACK) {
+		if(controls.ACCEPT) ModsFolder.switchMod(mods[curSelected_ms]);
 		close();
 	}
-
-	if (controls.BACK) close();
 }
 
 function changeSelection(change:Int, force:Bool = false) {

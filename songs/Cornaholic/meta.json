@@ -10,15 +10,10 @@
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
 	"credits": {
-		"Chart": {
-			"easy": ["Glitch.smh"],
-			"normal": ["Glitch.smh"],
-			"hard": ["Glitch.smh", "Stormy"],
-			"vip": ["???"]
-		},
-		"Code": ["Frakits", "Verwex"],
-		"Music": ["Glitch.smh"],
 		"Art": ["Verwex"],
+		"Music": ["Glitch.smh"],
+		"Chart": {"easy": ["Glitch.smh"],"normal": ["Glitch.smh"],"hard": ["Glitch.smh", "Stormy"],"vip": ["???"]},
+		"Code": ["Frakits", "Verwex"],
 		"offset":[0,40],"title":"Cornaholic","background":"farm"
 	},
 	"freeplayShit": {

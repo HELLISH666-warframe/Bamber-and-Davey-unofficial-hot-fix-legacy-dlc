@@ -1,32 +1,24 @@
 {
 	"displayName": "Astray",
 	"name": "Astray",
-	"difficulties": ["NORMAL","VIP"],
+	"difficulties": ["normal","vip"],
 	"bpm": 160,
 	"beatsPerMeasure": 4,
 	"stepsPerBeat": 4,
+	"needsVoices": false,
+	"instSuffix": "",
+	"vocalsSuffix": "",
 	"icon": "joke_model_obj",
 	"color": "#111811",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"needsVoices": false,
-	"instSuffix": "",
-	"vocalsSuffix": "",
 	"metas": {},
-	"customValues": {
-		"countdownsound": "joke_model_obj",
-		"countdownPath": "paintvoid/astray/",
-		"comboPath": "paintvoid/astray/"
-	},
 	"credits": {
 		"3D Model": ["Glitch.Smh"],
 		"Music": ["Glitch.Smh"],
 		"Chart": {"normal": ["Glitch.smh"],"vip": ["???"]},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
-		"offset":[0,125],
-		"delay":32,
-		"title":"Astray",
-		"background":"astray"
+		"offset":[0,125],"delay":32,"title":"Astray","background":"astray"
 	},
 	"freeplayShit": {
 		"font":"vcr_osd.ttf",
@@ -35,5 +27,10 @@
 		"vip": true,
 		"portrait":"joke_model_obj",
 		"composer":"Glitch.smh"
+	},
+	"customValues": {
+		"comboPath": "paintvoid/astray/",
+		"countdownPath": "paintvoid/astray/",
+		"countdownsound": "joke_model_obj"
 	}
 }

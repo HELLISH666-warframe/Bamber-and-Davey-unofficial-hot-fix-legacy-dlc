@@ -5,11 +5,11 @@
 	"bpm": 150,
 	"beatsPerMeasure": 4,
 	"stepsPerBeat": 4,
+	"needsVoices": false,
 	"icon": "elisocray",
 	"color": "#996633",
 	"coopAllowed": true,
 	"opponentModeAllowed": true,
-	"needsVoices": false,
 	"credits": {
 		"Art": ["Verwex", "Cosmic", "Micro"],
 		"Remix": ["Glitch.smh"],

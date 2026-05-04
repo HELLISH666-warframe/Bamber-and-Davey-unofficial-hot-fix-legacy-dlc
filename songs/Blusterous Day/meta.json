@@ -10,10 +10,7 @@
 		"Music": ["Seezee"],
 		"Chart": {"normal": ["Glitch.smh", "Seezee"]},
 		"Code": ["Frakits", "Verwex", "Seezee"],
-		"offset":[0,20],
-		"delay":32,
-		"title":"Blusterous Day",
-		"background":"blusterous day"
+		"offset":[0,20],"delay":32,"title":"Blusterous Day","background":"blusterous day"
 	},
 	"freeplayShit": {
 		"album": 2,

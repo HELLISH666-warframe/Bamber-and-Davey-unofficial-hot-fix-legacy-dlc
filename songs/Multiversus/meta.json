@@ -1,6 +1,6 @@
 {
 	"displayName": "Multiversus",
-	"difficulties": ["normal","vip"],
+	"difficulties": ["normal"],
 	"bpm": 170,
 	"icon": "Bambi",
 	"color": "#16AD01",

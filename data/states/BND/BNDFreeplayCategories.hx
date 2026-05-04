@@ -1,5 +1,4 @@
 import funkin.backend.chart.Chart;
-import funkin.menus.StoryMenuState.StoryWeeklist;
 import funkin.backend.utils.WindowUtils;
 import flixel.text.FlxTextBorderStyle;
 import menus.freeplay.Capsule;
@@ -33,12 +32,11 @@ var playall;
 var scorText = new FlxText(24, 0);
 
 subCurSelected = 0;
-subCurSelectedLimit = songser.length - 1;
 
 var capsules = new FlxTypedGroup();
 
 function create() {
-	if(!FlxG.save.data.unlocks.sc)data[4][2].remove('Squeaky Clean');
+	if(!FlxG.save.data.gameStats.achievements.contains('sc')) data[4][2].remove('Squeaky Clean');
 	add(backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'))).screenCenter();
 	
 	add(album = new FlxSprite(40,45).loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"))).angle=-3;
@@ -93,13 +91,12 @@ function create() {
     }
 	
 	change(0);
-	
-	changements(0);
 }
 function update(elapsed) {
 	timer += elapsed;
     if (controls.LEFT_P||controls.RIGHT_P) change(controls.LEFT_P ? -1 : 1);
-	if (controls.UP_P||controls.DOWN_P) changements(controls.UP_P ? -1 : 1);
+	if (controls.UP_P||controls.DOWN_P||FlxG.mouse.wheel!=0) 
+		changements((controls.UP_P ? -1 : 0) + (controls.DOWN_P ? 1 : 0) - FlxG.mouse.wheel);
 	if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
 		
 	if (controls.ACCEPT) {
@@ -108,11 +105,6 @@ function update(elapsed) {
 		persistentUpdate = !persistentDraw;
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
 	}
-	if (FlxG.mouse.overlaps(playall) && FlxG.mouse.pressed && curSelected<3) {
-		weeks = StoryWeeklist.get(true, false).weeks;
-		PlayState.loadWeek(weeks[curSelected], "hard");
-		FlxG.switchState(new PlayState());
-    }
 
 	if (FlxG.keys.justPressed.F) {
 		FlxG.save.data.freeplayShit.favourites.contains(songser[subCurSelected].name)?
@@ -150,17 +142,14 @@ function update(elapsed) {
 	}
 }
 function changements(a) {
-	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, subCurSelectedLimit);
+	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, data[curSelected][2].length - 1);
 	if(a!=0)CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
 	
-	//for (i in 0...capsules.length) capsules[i].alpha = 0.5;
+	for(i in 0...capsules.length)capsules.members[i].text.alpha=capsules.members[i].text.ID==subCurSelected?1:0.5;
 	var ver = songser[subCurSelected].freeplayShit.album==null?1:songser[subCurSelected].freeplayShit.album;
-	if (ver == null) ver = 2;
 	
 	album.loadGraphic(Paths.image("menus/freeplay/albums/vol"+ver));
 	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName);
-
-	backGround.color=data[curSelected][3];
 }
 
 function change(a) {
@@ -220,8 +209,8 @@ function change(a) {
 	}
 	
 	subCurSelected = 0;
-	subCurSelectedLimit = data[curSelected][2].length - 1;
 	catName.text = data[curSelected][1];
+	backGround.color=data[curSelected][3];
 	changements(0);
 }
 function destroy() WindowUtils.set_suffix("");

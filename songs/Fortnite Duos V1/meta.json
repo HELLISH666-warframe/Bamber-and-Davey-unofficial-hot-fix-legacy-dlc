@@ -7,9 +7,9 @@
 	"coopAllowed": false,
 	"opponentModeAllowed": false,
 	"credits": {
-		"Chart": {"normal": ["???"]},
 		"Art": ["Seezee"],
 		"Music": ["Glitch.smh"],
+		"Chart": {"normal": ["???"]},
 		"Code": ["Frakits", "Verwex"],
 		"offset":[0,-10],"delay":64,"title":"Fortnite Duos","background":"romania outskirts"
 	},

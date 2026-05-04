@@ -1,5 +1,6 @@
 {
 	"displayName": null,
+	"difficulties": ["normal"],
 	"bpm": 220,
 	"icon": "Joke_Davey_OBJ",
 	"color": "#0F161F",
@@ -19,9 +20,8 @@
 		"portrait":"joke_davey_obj",
 		"composer":"Glitch.smh"
 	},
-	"customValues": {
-		"countdownsound": "joke_model_obj",
+	"customValues": {"comboPath": "paintvoid/facsimile/",
 		"countdownPath": "paintvoid/facsimile/",
-		"comboPath": "paintvoid/facsimile/"
+		"countdownsound": "joke_model_obj"
 	}
 }

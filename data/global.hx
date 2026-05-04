@@ -120,7 +120,7 @@ function new() {
     FlxG.save.data.options.framerate ??= 120; // is 120 a good default idk
     FlxG.save.data.options.antialiasing ??= true;
     FlxG.save.data.options.pixelperfect ??= true;
-    FlxG.save.data.options.resolution ??= [1280, 720];
+    FlxG.save.data.options.resolution ??= ['1280x720'];
     FlxG.save.data.options.fullscreen ??= false; 
     FlxG.save.data.options.borderless ??= false;
     FlxG.save.data.options.brightness ??= 0;
@@ -208,10 +208,6 @@ function new() {
     FlxG.save.data.gameStats.clearedSongs ??= [];
     FlxG.save.data.gameStats.achievements ??= [];
     FlxG.save.data.gameStats.deaths ??= 0;
-
-    //Unlocks?
-    FlxG.save.data.unlocks ??= {};
-    FlxG.save.data.unlocks.sc??=false;
 
     //Tags?
     FlxG.save.data.freeplayShit ??= {};

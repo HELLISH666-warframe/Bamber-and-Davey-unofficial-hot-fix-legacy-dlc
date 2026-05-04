@@ -1,1 +1,2 @@
-function postCreate() adobevoid.setGraphicSize(1080,720);//Funny_1_by_1_asset.
+function create() FlxG.camera.bgColor = 0xFF404040;
+function destroy()FlxG.camera.bgColor = FlxColor.BLACK;

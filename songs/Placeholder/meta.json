@@ -8,10 +8,10 @@
 	"coopAllowed": false,
 	"opponentModeAllowed": false,
 	"credits": {
+		"Art": ["Glitch.Smh"],
+		"Music": ["Glitch.Smh"],
 		"Chart": {"placeholder": ["Glitch.smh"]},
 		"Code": ["Glitch.smh", "Frakits", "Verwex"],
-		"Music": ["Glitch.Smh"],
-		"Art": ["Glitch.Smh"],
 		"title":"Placeholder","background":"paintvoid"
 	},
 	"freeplayShit": {
@@ -23,8 +23,8 @@
 		"composer":"Glitch.smh"
 	},
 	"customValues": {
-		"countdownsound": "theplaceholder",
+		"comboPath": "paintvoid/",
 		"countdownPath": "paintvoid/",
-		"comboPath": "paintvoid/"
+		"countdownsound": "theplaceholder"
 	}
 }

@@ -7,11 +7,11 @@
 	"coopAllowed": false,
 	"opponentModeAllowed": false,
 	"credits": {
+		"Art": ["???"],
+		"Music": ["???"],
 		"Chart": {"normal": ["???"]},
 		"Code": ["???"],
-		"Music": ["???"],
-		"Art": ["???"],
-		"offset":[0,40],"title":"??","background":"???"
+		"title":"???","background":"???"
 	},
 	"freeplayShit": {
 		"album": 2,

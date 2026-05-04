@@ -211,7 +211,7 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.options.framerate ??= 120; // is 120 a good default idk
         FlxG.save.data.options.antialiasing ??= true;
         FlxG.save.data.options.pixelperfect ??= true;
-        FlxG.save.data.options.resolution ??= [1280, 720];
+        FlxG.save.data.options.resolution ??= ['1280x720'];
         FlxG.save.data.options.fullscreen ??= false; 
         FlxG.save.data.options.borderless ??= false;
         FlxG.save.data.options.brightness ??= 0;
@@ -242,6 +242,7 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.options.songCredits ??= true;
         FlxG.save.data.options.stampKeybinds ??= false;
         FlxG.save.data.options.autoPause ??= true;
+        FlxG.save.data.options.splashScreen ??= true;
 
         FlxG.save.data.options.noteskin ??= 'Arrows';
         FlxG.save.data.options.noteScale ??= 1;
@@ -261,14 +262,10 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.options.freeplayDialogue ??= true;
         FlxG.save.data.options.ghostTapping??=true;
         FlxG.save.data.options.songOffset??=0;
-
-        savetheshit();
         case 'Misc':
         FlxG.save.data.gameStats ??= {};
         FlxG.save.data.gameStats.discoveries ??= [
-            "Bamber's Farm"=> false,
-            "Davey's Yard"=> false,
-            "Romania Outskirts"=> false
+            "Bamber's Farm"=> false, "Davey's Yard"=> false, "Romania Outskirts"=> false
         ];
 
         FlxG.save.data.gameStats.playtime ??= 0;
@@ -280,6 +277,6 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.freeplayShit.favourites ??= [];
     }
 
-    FlxG.save.flush();
+    savetheshit();
     FlxG.resetState();
 }

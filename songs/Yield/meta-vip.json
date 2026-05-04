@@ -23,9 +23,8 @@
 		"hasCutscenes": true,
 		"sound":"bamber"
 	},
-	"customValues": {
-		"countdownsound": "bamber",
+	"customValues": {"comboPath": "default/",
 		"countdownPath": "default/",
-		"comboPath": "default/"
+		"countdownsound": "bamber"
 	}
 }
