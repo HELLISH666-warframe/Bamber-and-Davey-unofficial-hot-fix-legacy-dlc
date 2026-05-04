@@ -10,6 +10,7 @@ var stateQuotes:Map<String, String> = [
     "BND/SplashScreen" => "Team Reimagination Splash Screen",
     "BND/FirstTimeState" => "First Time Setup",
     "BND/BNDMenu" => "In The Menus",
+    "BND/achievementsState" => "AchievementsState Menu",
     "BND/BNDSettings" => "Options Menu",
     "BND/BNDFreeplayCategories" => "Freeplay Menu"
 ];

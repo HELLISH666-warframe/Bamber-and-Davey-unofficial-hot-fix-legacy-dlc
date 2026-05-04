@@ -600,7 +600,7 @@ function update(elapsed) {
         menuGroupDrags = [-250, 250];
         FlxG.resetState();
     }
-    if (FlxG.keys.justPressed.G) FlxG.switchState(new ModState("medal_shit/MedalsState"));
+    if (FlxG.keys.justPressed.G) FlxG.switchState(new ModState("BND/achievementsState"));
     if (FlxG.keys.justPressed.J) FlxG.switchState(new ModState("test_shit/BNDFreeplayCategories copy"));
 
     if (!initialized) {
