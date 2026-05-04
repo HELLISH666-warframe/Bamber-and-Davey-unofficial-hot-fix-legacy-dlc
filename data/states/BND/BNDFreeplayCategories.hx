@@ -23,7 +23,6 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 ];
 
 var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
-var vinylNotVinylAssFucker = new FlxCamera();
 static var curSelected:Int = 0;
 var songser = [];
 var album;
@@ -70,12 +69,6 @@ function create() {
 	if(FlxG.sound.music!=null) FlxG.sound.music.fadeOut(2,0);
 	//Why_:(
 	
-	vinylNotVinylAssFucker = new FlxCamera();
-	vinylNotVinylAssFucker.bgColor = 0;
-	FlxG.cameras.add(vinylNotVinylAssFucker, false);
-	
-	catName.cameras = vinylGroup.cameras = [vinylNotVinylAssFucker];
-	
     for (a in 0...2) {
         arrows.push(new FunkinSprite(0, 525));
 		arrows[a].scale.set(0.2, 0.2);
@@ -87,7 +80,6 @@ function create() {
         add(arrows[a]).antialiasing = Options.antialiasing;
 		arrows[a].y -= 128;
 		arrows[a].x = (a + 1) * 128 + a * 408;
-		arrows[a].cameras = [vinylNotVinylAssFucker];
     }
 	
 	change(0);
@@ -100,7 +92,7 @@ function update(elapsed) {
 	if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
 		
 	if (controls.ACCEPT) {
-		FlxG.sound.play(Paths.sound('menu/accept/Default'), getVolume(1, 'sfx'));
+		CoolUtil.playMenuSFX(1, getVolume(1, 'sfx'));
 		openSubState(new ModSubState("substates/Freeplay_substate"));
 		persistentUpdate = !persistentDraw;
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
@@ -185,12 +177,10 @@ function change(a) {
 	}
 	else
 	{
-		trace("boi");
-		//arrows[FlxMath.bound(a, 0, 1)].y += 100;
 		arrows[FlxMath.bound(a, 0, 1)].animation.play("hit");
 		FlxTween.globalManager.cancelTweensOf(arrows[FlxMath.bound(a, 0, 1)]);
 		arrows[FlxMath.bound(a, 0, 1)].scale.set(0.1, 0.2);
-		FlxTween.tween(arrows[FlxMath.bound(a, 0, 1)], {"scale.x": 0.25, "scale.y": 0.25}, 0.5, {ease: FlxEase.circOut});
+		FlxTween.tween(arrows[FlxMath.bound(a, 0, 1)].scale, {x: 0.25, y: 0.25}, 0.5, {ease: FlxEase.circOut});
 		
 		FlxG.sound.play(Paths.sound("menu/freeplay/cassetteScroll"), getVolume(1, 'sfx'));
 		moveTimer = new FlxTimer().start(0.7, ()->{

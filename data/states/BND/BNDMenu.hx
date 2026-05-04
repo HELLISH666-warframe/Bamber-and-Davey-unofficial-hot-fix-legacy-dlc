@@ -860,7 +860,7 @@ function progressForwards() {
         logoLerping = [870, null, 0.6];
     } else if (isInMenu && submenuNum==1 &&menuSelection!=0){
 		if (goigne) return;
-        FlxG.sound.play(Paths.sound('menu/accept/Default'), getVolume(1, 'sfx'));
+        CoolUtil.playMenuSFX(1, getVolume(1, 'sfx'));
 		goigne = true;
         FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
         FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
@@ -894,7 +894,7 @@ function progressForwards() {
 		});
     }else if (isInMenu && submenuNum==2){
 		if (goigne) return;
-        FlxG.sound.play(Paths.sound('menu/accept/Default'), getVolume(1, 'sfx'));
+        CoolUtil.playMenuSFX(1, getVolume(1, 'sfx'));
 		goigne = true;
         FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
         FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
