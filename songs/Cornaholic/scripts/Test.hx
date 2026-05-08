@@ -1,4 +1,4 @@
-if(!PlayState.difficulty.toLowerCase() == "vip")return;
+if(PlayState.difficulty.toLowerCase() != "vip")return;
 var feck_it = false;
 var aggro = false;
 

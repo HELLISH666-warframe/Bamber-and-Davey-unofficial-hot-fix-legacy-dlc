@@ -10,7 +10,7 @@ var stateQuotes:Map<String, String> = [
     "BND/SplashScreen" => "Team Reimagination Splash Screen",
     "BND/FirstTimeState" => "First Time Setup",
     "BND/BNDMenu" => "In The Menus",
-    "BND/achievementsState" => "AchievementsState Menu",
+    "YCE/MedalsState" => " Medals Menu",
     "BND/BNDSettings" => "Options Menu",
     "BND/BNDFreeplayCategories" => "Freeplay Menu"
 ];
@@ -31,6 +31,7 @@ function destroy(){
     FlxG.mouse.useSystemCursor = true;
     FlxG.mouse.visible = false;
     changeFpsFont(Framerate.fontName);
+    savetheshit();
     if(!window.fullscreen)window.borderless=false;
     FlxG.game.removeShader(colorMatrixFilterGLOBAL);
     FlxG.game.removeShader(colorMatrixFilterGLOBAL2);
@@ -254,6 +255,12 @@ function postUpdate(elapsed) {
             switched = false;
         }
     }
+    FlxG.save.data.gameStats.playtime+=elapsed;
+    second=Std.int(FlxG.save.data.gameStats.playtime) % 60;
+    minute=Std.int(FlxG.save.data.gameStats.playtime/60)%60;
+    hour=Std.int(Math.floor(FlxG.save.data.gameStats.playtime/3600)%60);
+    day=Std.int(Math.floor(FlxG.save.data.gameStats.playtime/86400)%60);
+    trace('Playtime: D:'+day+' H:'+hour+' Min:'+minute+' Sec:'+second);
 }
 
 function preStateCreate() {

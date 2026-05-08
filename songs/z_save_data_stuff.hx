@@ -40,13 +40,17 @@ if (FlxG.save.data.options.freeplayDialogue&&!PlayState.seenCutscene){
     playCutscenes=true;
 }
 
+var acheveweeks = [['w1','w2','w3'],['harvest','coop','fortnite duos']];
 function onSongEnd(){
 	if(!FlxG.save.data.gameStats.clearedSongs.contains(curSong))
 		FlxG.save.data.gameStats.clearedSongs.push(curSong);
-	if(PlayState.isStoryMode)
+	if(!PlayState.isStoryMode)return;
 	switch(curSong.toLowerCase()){
 		case'harvest':FlxG.save.data.gameStats.discoveries["Bamber's Farm"]=true;
+		if(!FlxG.save.data.gameStats.achievements.contains('w1')) FlxG.save.data.gameStats.achievements.push('w1');
 		case'coop':FlxG.save.data.gameStats.discoveries["Davey's Yard"]=true;
+		if(!FlxG.save.data.gameStats.achievements.contains('w2')) FlxG.save.data.gameStats.achievements.push('w2');
 		case'fortnite duos':FlxG.save.data.gameStats.discoveries["Romania Outskirts"]=true;
+		if(!FlxG.save.data.gameStats.achievements.contains('w3')) FlxG.save.data.gameStats.achievements.push('w3');
 	}
 }

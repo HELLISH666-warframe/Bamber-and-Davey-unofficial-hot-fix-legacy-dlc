@@ -3,7 +3,7 @@
 	"difficulties": ["placeholder"],
 	"bpm": 200,
 	"needsVoices": true,
-	"icon": "PLACEHOLDER",
+	"icon": "face",
 	"color": "#242323",
 	"coopAllowed": false,
 	"opponentModeAllowed": false,

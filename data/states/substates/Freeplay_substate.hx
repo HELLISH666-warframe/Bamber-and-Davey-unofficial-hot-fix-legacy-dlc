@@ -1,7 +1,6 @@
 //VERY_wip.
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.menus.ui.ClassicAlphabet;
-import funkin.options.Options;
 import menus.freeplay.ComposerIcon;
 
 var curSong=FlxG.save.data.Bamber_SONGSONG;//Lazy_way_of_getting_the_selected_song_and_it's_meta.
@@ -77,14 +76,13 @@ function create() {
 	//Difficulty sprite setup.
 	for (e in curSong.difficulties) {
 		var le = e.toLowerCase();
-		if (difficultySprites[le] == null) {
-			var diffSprite = CoolUtil.loadAnimatedGraphic(new FlxSprite(90,458),Paths.image('menus/freeplay/modes/'+le));
-			diffSprite.camera = coolCam;
-			diffSprite.antialiasing = true;
-			add(diffSprite).scale.set(0.3,0.3);
+		diffImage= Assets.exists(Paths.image("menus/freeplay/modes/" + le))? le:'placeholder';
+		diffSprite = CoolUtil.loadAnimatedGraphic(new FlxSprite(90,458),Paths.image('menus/freeplay/modes/'+diffImage));
+		diffSprite.camera = coolCam;
+		diffSprite.antialiasing = true;
+		add(diffSprite).scale.set(0.3,0.3);
 
-			difficultySprites[le] = diffSprite;
-		}
+		difficultySprites[le] = diffSprite;
 	}
 	for (a in 0...2) {
         arrows.push(new FunkinSprite(0, 415));
@@ -177,6 +175,8 @@ function update(elapsed:Float) {
 	if (controls.ACCEPT) toggle();
 	if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed)playsong();
 	if (controls.UP_P||controls.DOWN_P) changeOption(controls.UP_P ? -1 : 1);
+	bulletoptionREAL.y=lerp(bulletoptionREAL.y,switch(curOption){
+		case 0:8;case 1:151;case 2:288;case 3:426;},0.25);
 }
 var __oldDiffName = null;
 function changeDiff(e) {
@@ -198,9 +198,6 @@ function changeDiff(e) {
 function changeOption(p) {
 	if(p!=0)CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
 	curOption = FlxMath.wrap(curOption + p, 0,  3);
-	if(curOption!=0)
-	FlxTween.tween(bulletoptionREAL, {y: bulletoptionREAL.height/10 + optionSprites.members[(curOption/4) * 11].y}, 0.4,{ease: FlxEase.quartInOut});
-	if(curOption==0) FlxTween.tween(bulletoptionREAL, {y: 8}, 0.5,{ease: FlxEase.quartInOut});
 }
 function toggle() {
 	switch(curOption){

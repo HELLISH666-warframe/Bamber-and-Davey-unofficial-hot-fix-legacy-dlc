@@ -36,6 +36,8 @@ var capsules = new FlxTypedGroup();
 
 function create() {
 	if(!FlxG.save.data.gameStats.achievements.contains('sc')) data[4][2].remove('Squeaky Clean');
+	if(!FlxG.save.data.gameStats.achievements.contains('nightmare')) data[8][2].remove('Placeholder Vol2');
+	if(!FlxG.save.data.gameStats.achievements.contains('TF')) data[9][2].remove('Test Footage');
 	add(backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'))).screenCenter();
 	
 	add(album = new FlxSprite(40,45).loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"))).angle=-3;

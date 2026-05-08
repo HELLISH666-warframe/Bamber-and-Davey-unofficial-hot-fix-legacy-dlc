@@ -600,7 +600,6 @@ function update(elapsed) {
         menuGroupDrags = [-250, 250];
         FlxG.resetState();
     }
-    if (FlxG.keys.justPressed.G) FlxG.switchState(new ModState("BND/achievementsState"));
     if (FlxG.keys.justPressed.J) FlxG.switchState(new ModState("test_shit/BNDFreeplayCategories copy"));
 
     if (!initialized) {
@@ -884,9 +883,8 @@ function progressForwards() {
 				case 0: //Note , don't forget to code the sub options.
                     FlxG.switchState(new ModState("BNDFreeplayCategories"));
 				case 1: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("GalleryState"));
-				case 2: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("AchievementsState"));
-				case 3: 
-                    FlxG.switchState(new ModState("BND/BNDSettings"));
+				case 2:FlxG.switchState(new ModState("YCE/MedalsState"));
+				case 3:FlxG.switchState(new ModState("BND/BNDSettings"));
 				case 4:
 					import funkin.menus.credits.CreditsMain;
 					FlxG.switchState(new CreditsMain());
