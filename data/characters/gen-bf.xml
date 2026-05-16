@@ -1,12 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="gen bf" scale="0.8" flipX="true" camx="-300" camy="-200" isPlayer="true" color="#00CBFF" gameOverChar="gen-bf-dead" noteskin="awesome" isGF="false">
-	<anim name="idle" anim="Anims/Phase 1/Idle" fps="30"/>
-	<anim name="singDOWN" anim="Anims/Phase 1/Down" fps="30"/>
-	<anim name="singDOWNmiss" anim="Anims/Phase 1/Miss Down" fps="30"/>
-	<anim name="singRIGHTmiss" anim="Anims/Phase 1/Miss Right" fps="30"/>
-	<anim name="singLEFTmiss" anim="Anims/Phase 1/Miss Left" fps="30"/>
-	<anim name="singLEFT" anim="Anims/Phase 1/Left" fps="30"/>
-	<anim name="singUP" anim="Anims/Phase 1/Up" fps="30"/>
-	<anim name="singRIGHT" anim="Anims/Phase 1/Right" fps="30"/>
-	<anim name="singUPmiss" anim="Anims/Phase 1/Miss Up" fps="30"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="gen bf" scale="0.8" flipX="true" camx="-300" camy="-200" isPlayer="true" color="#00CBFF" gameOverChar="gen-bf-dead" noteskin="awesome" isGF="false"><anim name="idle" anim="Anims/Phase 1/Idle" fps="30"/><anim name="singDOWN" anim="Anims/Phase 1/Down" fps="30"/><anim name="singDOWNmiss" anim="Anims/Phase 1/Miss Down" fps="30"/><anim name="singRIGHTmiss" anim="Anims/Phase 1/Miss Right" fps="30"/><anim name="singLEFTmiss" anim="Anims/Phase 1/Miss Left" fps="30"/><anim name="singLEFT" anim="Anims/Phase 1/Left" fps="30"/><anim name="singUP" anim="Anims/Phase 1/Up" fps="30"/><anim name="singRIGHT" anim="Anims/Phase 1/Right" fps="30"/><anim name="singUPmiss" anim="Anims/Phase 1/Miss Up" fps="30"/></character>

@@ -1,9 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="opposition-bambi" camx="320" y="0" isGF="false" scale="13" camy="170" color="#FFFFFF" isPlayer="false" antialiasing="false" gameOverChar="opposition-bambi" sprite="opposition-bambi">
-	<anim x="0" loop="false" y="0" fps="24" anim="Idle" indices="15,16,17,18,19,20,21,22,23,24,25,26,27,28" name="danceLeft"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Idle" indices="1,2,3,4,5,6,7,8,9,10,11,12,13,14" name="danceRight"/>
-	<anim x="-295" loop="false" y="-244" fps="24" anim="Down" name="singDOWN"/>
-	<anim x="16" loop="false" y="-38" fps="24" anim="Left" name="singLEFT"/>
-	<anim x="-91" loop="false" y="87" fps="24" anim="Up" name="singUP"/>
-	<anim x="-376" loop="false" y="-41" fps="24" anim="Right" name="singRIGHT"/>
-</character>
+<!DOCTYPE codename-engine-character><character icon="opposition-bambi" camx="320" isGF="false" scale="13" camy="170" color="#FFFFFF" antialiasing="false" sprite="opposition-bambi"><anim name="danceLeft" anim="Idle" indices="15..28"/><anim name="danceRight" anim="Idle" indices="1..14"/><anim name="singDOWN" anim="Down" x="-295" y="-244"/><anim name="singLEFT" anim="Left" x="16" y="-38"/><anim name="singUP" anim="Up" x="-91" y="87"/><anim name="singRIGHT" anim="Right" x="-376" y="-41"/></character>

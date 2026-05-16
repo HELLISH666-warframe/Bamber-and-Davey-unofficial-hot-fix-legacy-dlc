@@ -1,12 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="joke_model_obj" scale="1.5" camx="-205" camy="40" color="#000000" gameOverChar="joke_model_obj-dead" noteskin="joke_model_obj" isGF="false" noteColors="#B9CEB9,#B9CEB9,#B9CEB9,#B9CEB9">
-	<anim name="idle" anim="idle" fps="30"/>
-	<anim name="singUP" anim="up" x="-15" y="40" fps="30"/>
-	<anim name="singDOWN" anim="down" x="-22" y="-18" fps="30"/>
-	<anim name="singLEFT" anim="left" x="73" y="18" fps="30"/>
-	<anim name="singRIGHT" anim="right" x="-34" y="18" fps="30"/>
-	<anim name="singLEFT-ALT" anim="Lalt" x="53" y="1" fps="30"/>
-	<anim name="singDOWN-ALT" anim="Dalt" x="-20" y="-29" fps="30"/>
-	<anim name="singUP-ALT" anim="Ualt" x="-25" y="17" fps="30"/>
-	<anim name="singRIGHT-ALT" anim="Ralt" x="-26" y="1" fps="30"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="joke_model_obj" scale="1.5" camx="-205" camy="40" color="#000000" isGF="false" noteskin="joke_model_obj" noteColors="#B9CEB9,#B9CEB9,#B9CEB9,#B9CEB9"><anim name="idle" anim="idle" fps="30"/><anim name="singUP" anim="up" x="-15" y="40" fps="30"/><anim name="singDOWN" anim="down" x="-22" y="-18" fps="30"/><anim name="singLEFT" anim="left" x="73" y="18" fps="30"/><anim name="singRIGHT" anim="right" x="-34" y="18" fps="30"/><anim name="singLEFT-ALT" anim="Lalt" x="53" y="1" fps="30"/><anim name="singDOWN-ALT" anim="Dalt" x="-20" y="-29" fps="30"/><anim name="singUP-ALT" anim="Ualt" x="-25" y="17" fps="30"/><anim name="singRIGHT-ALT" anim="Ralt" x="-26" y="1" fps="30"/></character>

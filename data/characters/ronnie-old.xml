@@ -1,8 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="ronnie-old" camx="-70" y="-90" isGF="false" camy="220" isPlayer="false" sprite="ronnie-old" color="#ffea00" noteskin="ron">
-	<anim name="idle" anim="idle alt"/>
-	<anim name="singRIGHT" anim="right alt" x="112" y="27"/>
-	<anim name="singDOWN" anim="down alt" x="34" y="-158"/>
-	<anim name="singUP" anim="up alt" x="110" y="5"/>
-	<anim name="singLEFT" anim="left alt" x="50" y="-6"/>
-</character>
+<!DOCTYPE codename-engine-character><character icon="ronnie-old" camx="-70" y="-90" isGF="false" camy="220" sprite="ronnie-old" color="#ffea00" noteskin="ron"><anim name="idle" anim="idle alt"/><anim name="singRIGHT" anim="right alt" x="112" y="27"/><anim name="singDOWN" anim="down alt" x="34" y="-158"/><anim name="singUP" anim="up alt" x="110" y="5"/><anim name="singLEFT" anim="left alt" x="50" y="-6"/></character>

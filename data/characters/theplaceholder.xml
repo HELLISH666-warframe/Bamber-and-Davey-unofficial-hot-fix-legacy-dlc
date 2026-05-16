@@ -1,9 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="placeholder" color="#000000" gameOverChar="placeholder_new" noteskin="facsimile" isGF="false" noteColors="#404040,#404040,#404040,#404040">
-	<anim name="idle" anim="Idle"/>
-	<anim name="idleLOOP" anim="Loop" loop="true"/>
-	<anim name="singRIGHT" anim="Right" x="-83" y="-28"/>
-	<anim name="singDOWN" anim="Down" x="-14" y="20"/>
-	<anim name="singUP" anim="Up" x="-36" y="-2"/>
-	<anim name="singLEFT" anim="Left" x="31" y="-25"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="placeholder" color="#000000" isGF="false" noteskin="facsimile" noteColors="#404040,#404040,#404040,#404040"><anim name="idle" anim="Idle"/><anim name="idleLOOP" anim="Loop" loop="true"/><anim name="singRIGHT" anim="Right" x="-83" y="-28"/><anim name="singDOWN" anim="Down" x="-14" y="20"/><anim name="singUP" anim="Up" x="-36" y="-2"/><anim name="singLEFT" anim="Left" x="31" y="-25"/></character>

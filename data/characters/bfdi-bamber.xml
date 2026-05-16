@@ -1,13 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="bfdi bamber" camx="-10" camy="-200" icon="cnr-dad" color="#24A26A" gameOverChar="bfdi-bamber" noteskin="bfdi" isGF="false" noteColors="#00AF09,#00AF0B,#00AF0B,#00AF0B">
-	<anim name="idle" anim="Characters/Bamber/Corny-Idle"/>
-	<anim name="singLEFT" anim="Characters/Bamber/Corny-Left" indices="0..2"/>
-	<anim name="singUP" anim="Characters/Bamber/Corny-Up" indices="0..2"/>
-	<anim name="singDOWN" anim="Characters/Bamber/Corny-Down" indices="0..2"/>
-	<anim name="singRIGHT" anim="Characters/Bamber/Corny-Right" indices="0..2"/>
-	<anim name="singLEFT-end" anim="Characters/Bamber/Corny-Left" indices="3..8"/>
-	<anim name="singUP-end" anim="Characters/Bamber/Corny-Up" indices="3..8"/>
-	<anim name="singDOWN-end" anim="Characters/Bamber/Corny-Down" indices="3..8"/>
-	<anim name="singRIGHT-end" anim="Characters/Bamber/Corny-Right" indices="3..8"/>
-	<anim name="gasp" anim="Characters/Bamber/Corny-Gasp"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="bfdi bamber" camx="-10" camy="-200" icon="cnr-dad" color="#24A26A" gameOverChar="bfdi-bamber" isGF="false" noteskin="bfdi" noteColors="#00AF09,#00AF0B,#00AF0B,#00AF0B"><anim name="idle" anim="Characters/Bamber/Corny-Idle"/><anim name="singLEFT" anim="Characters/Bamber/Corny-Left" indices="0..2"/><anim name="singUP" anim="Characters/Bamber/Corny-Up" indices="0..2"/><anim name="singDOWN" anim="Characters/Bamber/Corny-Down" indices="0..2"/><anim name="singRIGHT" anim="Characters/Bamber/Corny-Right" indices="0..2"/><anim name="singLEFT-end" anim="Characters/Bamber/Corny-Left" indices="3..8"/><anim name="singUP-end" anim="Characters/Bamber/Corny-Up" indices="3..8"/><anim name="singDOWN-end" anim="Characters/Bamber/Corny-Down" indices="3..8"/><anim name="singRIGHT-end" anim="Characters/Bamber/Corny-Right" indices="3..8"/><anim name="gasp" anim="Characters/Bamber/Corny-Gasp"/></character>

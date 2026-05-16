@@ -1,12 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="yr" camx="-400" y="0" isGF="false" camy="170" color="#37878A" isPlayer="false" gameOverChar="yr-davey" sprite="yr-davey">
-	<anim x="0" loop="false" y="0" fps="24" anim="DIdle" name="idle"/>
-	<anim x="-94" loop="false" y="-163" fps="24" anim="DDown" name="singDOWN"/>
-	<anim x="18" loop="false" y="-51" fps="24" anim="DLeft" name="singLEFT"/>
-	<anim x="-161" loop="false" y="361" fps="24" anim="DUp" name="singUP"/>
-	<anim x="-193" loop="false" y="-130" fps="24" anim="DRight" name="singRIGHT"/>
-	<anim x="-95" loop="false" y="-184" fps="24" anim="DMDown" name="singDOWNmiss"/>
-	<anim x="104" loop="false" y="-57" fps="24" anim="DMLeft" name="singLEFTmiss"/>
-	<anim x="-48" loop="false" y="361" fps="24" anim="DMUp" name="singUPmiss"/>
-	<anim x="-90" loop="false" y="-142" fps="24" anim="DMRight" name="singRIGHTmiss"/>
-</character>
+<!DOCTYPE codename-engine-character><character icon="yr" camx="-400" isGF="false" camy="170" color="#37878A" sprite="yr-davey"><anim name="idle" anim="DIdle"/><anim name="singDOWN" anim="DDown" x="-94" y="-163"/><anim name="singLEFT" anim="DLeft" x="18" y="-51"/><anim name="singUP" anim="DUp" x="-161" y="361"/><anim name="singRIGHT" anim="DRight" x="-193" y="-130"/><anim name="singDOWNmiss" anim="DMDown" x="-95" y="-184"/><anim name="singLEFTmiss" anim="DMLeft" x="104" y="-57"/><anim name="singUPmiss" anim="DMUp" x="-48" y="361"/><anim name="singRIGHTmiss" anim="DMRight" x="-90" y="-142"/></character>

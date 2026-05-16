@@ -1,17 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="300" y="825" camx="40" camy="-275" color="#0066CC" gameOverChar="davey-dead" noteskin="BND" isGF="false" noteColors="#00A1FF,#00A1FF,#00A1FF,#00A1FF">
-	<anim name="danceRight" anim="Davey/Non-Shred/Davey_Idle" indices="0..13"/>
-	<anim name="danceLeft" anim="Davey/Non-Shred/Davey_Idle" indices="14..27"/>
-	<anim name="singLEFT" anim="Davey/Non-Shred/Davey_Left"/>
-	<anim name="singUP" anim="Davey/Non-Shred/Davey_Up"/>
-	<anim name="shred" anim="Davey/Non-Shred/PREPARE THE SHRED!!!!!!!!!!"/>
-	<anim name="singDOWN" anim="Davey/Non-Shred/Davey_Down"/>
-	<anim name="singRIGHT" anim="Davey/Non-Shred/Davey_Right"/>
-	<anim name="danceLeft-alt" anim="Davey/Shred/Shred_Idle" indices="0..14"/>
-	<anim name="danceRight-alt" anim="Davey/Shred/Shred_Idle" indices="15..30"/>
-	<anim name="singLEFT-alt" anim="Davey/Shred/Shred_Left"/>
-	<anim name="singUP-alt" anim="Davey/Shred/Shred_Up"/>
-	<anim name="singDOWN-alt" anim="Davey/Shred/Shred_Down"/>
-	<anim name="singRIGHT-alt" anim="Davey/Shred/Shred_Right"/>
-	<anim name="unshred" anim="Davey/Shred/Undo the shred (sad)"/>
-</character>
+<!DOCTYPE codename-engine-character><character x="300" y="825" camx="40" camy="-275" color="#0066CC" gameOverChar="davey-dead" isGF="false" noteskin="BND" noteColors="#00A1FF,#00A1FF,#00A1FF,#00A1FF"><anim name="danceRight" anim="Davey/Non-Shred/Davey_Idle" indices="0..13"/><anim name="danceLeft" anim="Davey/Non-Shred/Davey_Idle" indices="14..27"/><anim name="singLEFT" anim="Davey/Non-Shred/Davey_Left"/><anim name="singUP" anim="Davey/Non-Shred/Davey_Up"/><anim name="shred" anim="Davey/Non-Shred/PREPARE THE SHRED!!!!!!!!!!"/><anim name="singDOWN" anim="Davey/Non-Shred/Davey_Down"/><anim name="singRIGHT" anim="Davey/Non-Shred/Davey_Right"/><anim name="danceLeft-alt" anim="Davey/Shred/Shred_Idle" indices="0..14"/><anim name="danceRight-alt" anim="Davey/Shred/Shred_Idle" indices="15..30"/><anim name="singLEFT-alt" anim="Davey/Shred/Shred_Left"/><anim name="singUP-alt" anim="Davey/Shred/Shred_Up"/><anim name="singDOWN-alt" anim="Davey/Shred/Shred_Down"/><anim name="singRIGHT-alt" anim="Davey/Shred/Shred_Right"/><anim name="unshred" anim="Davey/Shred/Undo the shred (sad)"/></character>

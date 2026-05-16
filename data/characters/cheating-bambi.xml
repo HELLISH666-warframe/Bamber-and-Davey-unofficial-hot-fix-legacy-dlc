@@ -1,8 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="-4000" scale="13" antialiasing="false" camx="-375" camy="170" color="#0E9816" gameOverChar="cheating-bambi" noteskin="3dcheater" isGF="false" noteColors="#00AF08,#00AF08,#00AF08,#00AF08">
-	<anim name="idle" anim="Idle"/>
-	<anim name="singDOWN" anim="Down" x="-10" y="-60"/>
-	<anim name="singLEFT" anim="Left" x="96" y="-38"/>
-	<anim name="singUP" anim="Up" x="-4" y="10"/>
-	<anim name="singRIGHT" anim="Right" x="-63" y="-24"/>
-</character>
+<!DOCTYPE codename-engine-character><character x="-4000" scale="13" antialiasing="false" camx="-375" camy="170" color="#0E9816" isGF="false" noteskin="3dcheater" noteColors="#00AF08,#00AF08,#00AF08,#00AF08"><anim name="idle" anim="Idle"/><anim name="singDOWN" anim="Down" x="-10" y="-60"/><anim name="singLEFT" anim="Left" x="96" y="-38"/><anim name="singUP" anim="Up" x="-4" y="10"/><anim name="singRIGHT" anim="Right" x="-63" y="-24"/></character>

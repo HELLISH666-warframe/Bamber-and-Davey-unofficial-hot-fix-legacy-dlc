@@ -1,8 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character y="-140" camx="320" camy="170" color="#D38B4D" gameOverChar="grug" noteskin="deathbattle" isGF="false" noteColors="#FF6100,#FF6100,#FF6100,#FF6100">
-	<anim name="idle" anim="idle"/>
-	<anim name="singDOWN" anim="down" x="-141" y="-310"/>
-	<anim name="singLEFT" anim="left" x="-44" y="-226"/>
-	<anim name="singUP" anim="up" x="-165" y="6"/>
-	<anim name="singRIGHT" anim="right" x="-172" y="-249"/>
-</character>
+<!DOCTYPE codename-engine-character><character y="-140" camx="320" camy="170" color="#D38B4D" isGF="false" noteskin="deathbattle" noteColors="#FF6100,#FF6100,#FF6100,#FF6100"><anim name="idle" anim="idle"/><anim name="singDOWN" anim="down" x="-141" y="-310"/><anim name="singLEFT" anim="left" x="-44" y="-226"/><anim name="singUP" anim="up" x="-165" y="6"/><anim name="singRIGHT" anim="right" x="-172" y="-249"/></character>

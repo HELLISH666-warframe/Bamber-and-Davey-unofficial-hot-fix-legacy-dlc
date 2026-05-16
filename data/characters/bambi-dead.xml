@@ -1,6 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="bambi" camx="-70" y="0" isGF="false" camy="40" isPlayer="false" sprite="bambi dead" color="#25bf37">
-	<anim x="0" loop="false" y="0" fps="24" anim="(EVDIAL) REGULAR BAMBI/Anims/bambi die" name="firstDeath"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(EVDIAL) REGULAR BAMBI/Anims/die loop" name="deathLoop"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(EVDIAL) REGULAR BAMBI/Anims/die end" name="deathConfirm"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="bambi dead" camx="-70" camy="40" icon="bambi" color="#25bf37" isGF="false"><anim name="firstDeath" anim="(EVDIAL) REGULAR BAMBI/Anims/bambi die"/><anim name="deathLoop" anim="(EVDIAL) REGULAR BAMBI/Anims/die loop"/><anim name="deathConfirm" anim="(EVDIAL) REGULAR BAMBI/Anims/die end"/></character>

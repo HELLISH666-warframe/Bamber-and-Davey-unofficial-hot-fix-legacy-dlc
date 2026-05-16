@@ -1,13 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="bamber sovl" antialiasing="false" flipX="true" camx="200" camy="-100" icon="face" color="#71C418" noteskin="undertale" isGF="false">
-	<anim name="idle" anim="Soul Bamber Animations/BamberIdle"/>
-	<anim name="singLEFT" anim="Soul Bamber Animations/BamberLeft"/>
-	<anim name="singDOWN" anim="Soul Bamber Animations/BamberDown"/>
-	<anim name="singUP" anim="Soul Bamber Animations/BamberUp"/>
-	<anim name="singRIGHT" anim="Soul Bamber Animations/BamberRight"/>
-	<anim name="singLEFTmiss" anim="Soul Bamber Animations/BamFuckLeft"/>
-	<anim name="singDOWNmiss" anim="Soul Bamber Animations/BamFuckDown"/>
-	<anim name="singUPmiss" anim="Soul Bamber Animations/BamFuckUp"/>
-	<anim name="singRIGHTmiss" anim="Soul Bamber Animations/BamFuckRight"/>
-	<anim name="ziiuvanPaun?" anim="Soul Bamber Animations/BamberPhone"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="bamber sovl" antialiasing="false" flipX="true" camx="200" camy="-100" icon="face" color="#71C418" isGF="false" noteskin="undertale"><anim name="idle" anim="Soul Bamber Animations/BamberIdle"/><anim name="singLEFT" anim="Soul Bamber Animations/BamberLeft"/><anim name="singDOWN" anim="Soul Bamber Animations/BamberDown"/><anim name="singUP" anim="Soul Bamber Animations/BamberUp"/><anim name="singRIGHT" anim="Soul Bamber Animations/BamberRight"/><anim name="singLEFTmiss" anim="Soul Bamber Animations/BamFuckLeft"/><anim name="singDOWNmiss" anim="Soul Bamber Animations/BamFuckDown"/><anim name="singUPmiss" anim="Soul Bamber Animations/BamFuckUp"/><anim name="singRIGHTmiss" anim="Soul Bamber Animations/BamFuckRight"/><anim name="ziiuvanPaun?" anim="Soul Bamber Animations/BamberPhone"/></character>

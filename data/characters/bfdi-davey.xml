@@ -1,14 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="bfdi davey" camx="40" icon="cnr-dad" color="#D89500" gameOverChar="bfdi-davey" noteskin="bfdi" isGF="false" noteColors="#00A1FF,#00A1FF,#00A1FF,#00A1FF">
-	<anim name="danceRight" anim="Characters/Davey/Davey-Idle" indices="0..14"/>
-	<anim name="danceLeft" anim="Characters/Davey/Davey-Idle" indices="15..29"/>
-	<anim name="singLEFT" anim="Characters/Davey/Davey-Left" indices="0..2"/>
-	<anim name="singUP" anim="Characters/Davey/Davey-Up" indices="0..2"/>
-	<anim name="singDOWN" anim="Characters/Davey/Davey-Down" indices="0..2"/>
-	<anim name="singRIGHT" anim="Characters/Davey/Davey-Right" indices="0..2"/>
-	<anim name="singLEFT-end" anim="Characters/Davey/Davey-Left" indices="3..8"/>
-	<anim name="singUP-end" anim="Characters/Davey/Davey-Up" indices="3..8"/>
-	<anim name="singDOWN-end" anim="Characters/Davey/Davey-Down" indices="3..8"/>
-	<anim name="singRIGHT-end" anim="Characters/Davey/Davey-Right" indices="3..8"/>
-	<anim name="gasp" anim="Characters/Davey/Davey-Gasp"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="bfdi davey" camx="40" icon="cnr-dad" color="#D89500" gameOverChar="bfdi-davey" isGF="false" noteskin="bfdi" noteColors="#00A1FF,#00A1FF,#00A1FF,#00A1FF"><anim name="danceRight" anim="Characters/Davey/Davey-Idle" indices="0..14"/><anim name="danceLeft" anim="Characters/Davey/Davey-Idle" indices="15..29"/><anim name="singLEFT" anim="Characters/Davey/Davey-Left" indices="0..2"/><anim name="singUP" anim="Characters/Davey/Davey-Up" indices="0..2"/><anim name="singDOWN" anim="Characters/Davey/Davey-Down" indices="0..2"/><anim name="singRIGHT" anim="Characters/Davey/Davey-Right" indices="0..2"/><anim name="singLEFT-end" anim="Characters/Davey/Davey-Left" indices="3..8"/><anim name="singUP-end" anim="Characters/Davey/Davey-Up" indices="3..8"/><anim name="singDOWN-end" anim="Characters/Davey/Davey-Down" indices="3..8"/><anim name="singRIGHT-end" anim="Characters/Davey/Davey-Right" indices="3..8"/><anim name="gasp" anim="Characters/Davey/Davey-Gasp"/></character>

@@ -1,8 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="bamber-pibby" scale="1" flipX="true" camx="500" camy="5" isPlayer="true" icon="bamber-pibby" holdTime="6.1">
-	<anim name="idle" anim="PeakBamber idle" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singUP" anim="PeakBamber singUP" x="-37" y="5" fps="24" loop="false"/>
-	<anim name="singLEFT" anim="PeakBamber singLFT" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singRIGHT" anim="PeakBamber singRIGHT" x="-15" y="7" fps="24" loop="false"/>
-	<anim name="singDOWN" anim="PeakBamber singDOWN" x="0" y="0" fps="24" loop="false"/>
-</character>
+<!DOCTYPE codename-engine-character><character flipX="true" sprite="bamber-pibby" camx="500" camy="5" isPlayer="true" holdTime="6.1"><anim name="idle" anim="PeakBamber idle"/><anim name="singUP" anim="PeakBamber singUP" x="-37" y="5"/><anim name="singLEFT" anim="PeakBamber singLFT"/><anim name="singRIGHT" anim="PeakBamber singRIGHT" x="-15" y="7"/><anim name="singDOWN" anim="PeakBamber singDOWN"/></character>

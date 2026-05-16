@@ -1,9 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="400" y="825" camy="-100" color="#FF0000" noteskin="BND" isGF="false" noteColors="#00AF0B,#00AF0B,#00AF0B,#00AF0B">
-	<anim name="idle" anim="Swindled Bamber/Swindled-Idle"/>
-	<anim name="singDOWN" anim="Swindled Bamber/Swindled-Down-Sing"/>
-	<anim name="singRIGHT" anim="Swindled Bamber/Swindled-Right-Sing"/>
-	<anim name="singLEFT" anim="Swindled Bamber/Swindled-Left-Sing"/>
-	<anim name="singUP" anim="Swindled Bamber/Swindled-Up-Sing"/>
-	<anim name="break" anim="Swindled Bamber/Phone"/>
-</character>
+<!DOCTYPE codename-engine-character><character x="400" y="825" camy="-100" color="#FF0000" isGF="false" noteskin="BND" noteColors="#00AF0B,#00AF0B,#00AF0B,#00AF0B"><anim name="idle" anim="Swindled Bamber/Swindled-Idle"/><anim name="singDOWN" anim="Swindled Bamber/Swindled-Down-Sing"/><anim name="singRIGHT" anim="Swindled Bamber/Swindled-Right-Sing"/><anim name="singLEFT" anim="Swindled Bamber/Swindled-Left-Sing"/><anim name="singUP" anim="Swindled Bamber/Swindled-Up-Sing"/><anim name="break" anim="Swindled Bamber/Phone"/></character>

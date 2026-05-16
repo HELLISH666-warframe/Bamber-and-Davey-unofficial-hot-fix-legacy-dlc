@@ -1,13 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="410" y="840" sprite="bamberexereal" camx="-40" camy="-110" icon="Bamber-exe" gameOverChar="bamber-dead" isGF="false">
-	<anim name="idle" anim="Animations/Bamber Idle" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singLEFT" anim="Animations/Bamber Sing Left" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singDOWN" anim="Animations/Bamber Sing Down" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singUP" anim="Animations/Bamber Sing Up" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singRIGHT" anim="Animations/Bamber Sing Right" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singLEFTmiss" anim="Animations/Bamber Miss Left" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singDOWNmiss" anim="Animations/Bamber Miss Down" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singUPmiss" anim="Animations/Bamber Miss Up" x="0" y="0" fps="24" loop="false"/>
-	<anim name="singRIGHTmiss" anim="Animations/Bamber Miss Right" x="0" y="0" fps="24" loop="false"/>
-	<anim name="break" anim="Animations/Bamber Phone Break" x="0" y="0" fps="24" loop="false"/>
-</character>
+<!DOCTYPE codename-engine-character><character x="410" y="840" sprite="bamberexereal" camx="-40" camy="-110" icon="Bamber-exe" gameOverChar="bamber-dead" isGF="false"><anim name="idle" anim="Animations/Bamber Idle"/><anim name="singLEFT" anim="Animations/Bamber Sing Left"/><anim name="singDOWN" anim="Animations/Bamber Sing Down"/><anim name="singUP" anim="Animations/Bamber Sing Up"/><anim name="singRIGHT" anim="Animations/Bamber Sing Right"/><anim name="singLEFTmiss" anim="Animations/Bamber Miss Left"/><anim name="singDOWNmiss" anim="Animations/Bamber Miss Down"/><anim name="singUPmiss" anim="Animations/Bamber Miss Up"/><anim name="singRIGHTmiss" anim="Animations/Bamber Miss Right"/><anim name="break" anim="Animations/Bamber Phone Break"/></character>

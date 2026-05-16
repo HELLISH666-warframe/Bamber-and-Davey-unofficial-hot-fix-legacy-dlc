@@ -1,13 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="gf playable" icon="gf" camx="-340" camy="-220" color="#9A1652" noteskin="BND" isGF="true" noteColors="#A5004D,#A5004D,#A5004D,#A5004D">
-	<anim name="danceLeft" anim="Anims/Playable/Dancing" indices="0..13"/>
-	<anim name="danceRight" anim="Anims/Playable/Dancing" indices="14..27"/>
-	<anim name="singDOWN" anim="Anims/Playable/Down Note"/>
-	<anim name="singDOWNmiss" anim="Anims/Playable/Miss Down"/>
-	<anim name="singRIGHTmiss" anim="Anims/Playable/Miss Right"/>
-	<anim name="singLEFTmiss" anim="Anims/Playable/Miss Left"/>
-	<anim name="singLEFT" anim="Anims/Playable/Left Note"/>
-	<anim name="singUP" anim="Anims/Playable/Up Note"/>
-	<anim name="singRIGHT" anim="Anims/Playable/Right Note"/>
-	<anim name="singUPmiss" anim="Anims/Playable/Miss Up"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="gf playable" icon="gf" camx="-340" camy="-220" color="#9A1652" isGF="true" noteskin="BND" noteColors="#A5004D,#A5004D,#A5004D,#A5004D"><anim name="danceLeft" anim="Anims/Playable/Dancing" indices="0..13"/><anim name="danceRight" anim="Anims/Playable/Dancing" indices="14..27"/><anim name="singDOWN" anim="Anims/Playable/Down Note"/><anim name="singDOWNmiss" anim="Anims/Playable/Miss Down"/><anim name="singRIGHTmiss" anim="Anims/Playable/Miss Right"/><anim name="singLEFTmiss" anim="Anims/Playable/Miss Left"/><anim name="singLEFT" anim="Anims/Playable/Left Note"/><anim name="singUP" anim="Anims/Playable/Up Note"/><anim name="singRIGHT" anim="Anims/Playable/Right Note"/><anim name="singUPmiss" anim="Anims/Playable/Miss Up"/></character>

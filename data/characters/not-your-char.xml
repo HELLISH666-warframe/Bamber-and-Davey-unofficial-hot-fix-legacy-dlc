@@ -1,11 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="not-your-char" y="0" isGF="true" color="#04966D" isPlayer="false" sprite="not-your-char">
-	<anim x="0" loop="false" y="0" fps="24" anim="danceLeft" name="danceLeft"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="danceRight" name="danceRight"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="down" name="singDOWN"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="left" name="singLEFT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="up" name="singUP"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="right" name="singRIGHT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="hey" name="hey"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="cry" name="sad"/>
-</character>
+<!DOCTYPE codename-engine-character><character icon="not-your-char" isGF="true" color="#04966D" sprite="not-your-char"><anim name="danceLeft" anim="danceLeft"/><anim name="danceRight" anim="danceRight"/><anim name="singDOWN" anim="down"/><anim name="singLEFT" anim="left"/><anim name="singUP" anim="up"/><anim name="singRIGHT" anim="right"/><anim name="hey" anim="hey"/><anim name="sad" anim="cry"/></character>

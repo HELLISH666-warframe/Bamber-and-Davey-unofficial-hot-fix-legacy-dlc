@@ -1,12 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="80" y="320" flipX="true" camx="-240" isPlayer="true" icon="bamber-old" color="#339933" noteskin="default" noteColors="#00AF0B,#00AF0B,#00AF0B,#00AF0B">
-	<anim name="idle" anim="Bamber_Idle" x="91" y="86"/>
-	<anim name="singDOWN" anim="Bamber_Down" x="85" y="30"/>
-	<anim name="singRIGHT" anim="Bamber_Right" x="8" y="87"/>
-	<anim name="singLEFT" anim="Bamber_Left" x="161" y="85"/>
-	<anim name="singUP" anim="Bamber_Up" x="56" y="144"/>
-	<anim name="Miss_Bamber_Up" anim="Miss_Bamber_Up" x="77" y="168"/>
-	<anim name="Miss_Bamber_Down" anim="Miss_Bamber_Down" x="77" y="17"/>
-	<anim name="Miss_Bamber_Left" anim="Miss_Bamber_Left" x="162" y="93"/>
-	<anim name="Miss_Bamber_Right" anim="Miss_Bamber_Right" x="7" y="82"/>
-</character>
+<!DOCTYPE codename-engine-character><character x="80" y="320" flipX="true" camx="-240" isPlayer="true" icon="bamber-old" color="#339933" noteskin="default" noteColors="#00AF0B,#00AF0B,#00AF0B,#00AF0B"><anim name="idle" anim="Bamber_Idle" x="91" y="86"/><anim name="singDOWN" anim="Bamber_Down" x="85" y="30"/><anim name="singRIGHT" anim="Bamber_Right" x="8" y="87"/><anim name="singLEFT" anim="Bamber_Left" x="161" y="85"/><anim name="singUP" anim="Bamber_Up" x="56" y="144"/><anim name="Miss_Bamber_Up" anim="Miss_Bamber_Up" x="77" y="168"/><anim name="Miss_Bamber_Down" anim="Miss_Bamber_Down" x="77" y="17"/><anim name="Miss_Bamber_Left" anim="Miss_Bamber_Left" x="162" y="93"/><anim name="Miss_Bamber_Right" anim="Miss_Bamber_Right" x="7" y="82"/></character>

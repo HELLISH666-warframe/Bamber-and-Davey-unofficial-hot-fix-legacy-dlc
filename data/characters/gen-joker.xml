@@ -1,8 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="-270" y="140" sprite="joker" camx="320" camy="170" color="#0CB500" gameOverChar="gen-joker-dead" noteskin="awesome" isGF="false" noteColors="#00FF1D,#00FF1D,#00FF1D,#00FF1D">
-	<anim name="idle" anim="Idle" fps="30"/>
-	<anim name="singDOWN" anim="Down" x="-28" y="-26" fps="30"/>
-	<anim name="singLEFT" anim="Left" x="188" y="9" fps="30"/>
-	<anim name="singUP" anim="Up" x="47" y="145" fps="30"/>
-	<anim name="singRIGHT" anim="Right" x="-98" y="-22" fps="30"/>
-</character>
+<!DOCTYPE codename-engine-character><character x="-270" y="140" sprite="joker" camx="320" camy="170" color="#0CB500" isGF="false" noteskin="awesome" noteColors="#00FF1D,#00FF1D,#00FF1D,#00FF1D"><anim name="idle" anim="Idle" fps="30"/><anim name="singDOWN" anim="Down" x="-28" y="-26" fps="30"/><anim name="singLEFT" anim="Left" x="188" y="9" fps="30"/><anim name="singUP" anim="Up" x="47" y="145" fps="30"/><anim name="singRIGHT" anim="Right" x="-98" y="-22" fps="30"/></character>

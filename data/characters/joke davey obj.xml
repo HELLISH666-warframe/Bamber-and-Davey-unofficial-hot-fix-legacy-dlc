@@ -1,13 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="joke_davey_obj" scale="1.9" camx="-180" camy="30" icon="joke_davey_obj" color="#000000" gameOverChar="joke_davey_obj-dead" noteskin="davey_obj" isGF="false" noteColors="#98C1D7,#AFCBD9,#BFD2D9,#AAC6D4">
-	<anim name="danceRight" anim="idle" fps="30" indices="9..11"/>
-	<anim name="singUP" anim="up" x="61" y="14" fps="30"/>
-	<anim name="singDOWN" anim="down" x="7" y="-50" fps="30"/>
-	<anim name="singLEFT" anim="left" x="77" y="-25" fps="30"/>
-	<anim name="singRIGHT" anim="right" x="17" y="-7" fps="30"/>
-	<anim name="singLEFT-ALT" anim="lalt" x="77" y="-25" fps="30"/>
-	<anim name="singDOWN-ALT" anim="dalt" x="7" y="-50" fps="30"/>
-	<anim name="singUP-ALT" anim="ualt" x="61" y="14" fps="30"/>
-	<anim name="singRIGHT-ALT" anim="ralt" x="17" y="-7" fps="30"/>
-	<anim name="danceLeft" anim="idle" indices="1,2"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="joke_davey_obj" scale="1.9" camx="-180" camy="30" icon="joke_davey_obj" color="#000000" isGF="false" noteskin="davey_obj" noteColors="#98C1D7,#AFCBD9,#BFD2D9,#AAC6D4"><anim name="danceRight" anim="idle" fps="30" indices="9..11"/><anim name="singUP" anim="up" x="61" y="14" fps="30"/><anim name="singDOWN" anim="down" x="7" y="-50" fps="30"/><anim name="singLEFT" anim="left" x="77" y="-25" fps="30"/><anim name="singRIGHT" anim="right" x="17" y="-7" fps="30"/><anim name="singLEFT-ALT" anim="lalt" x="77" y="-25" fps="30"/><anim name="singDOWN-ALT" anim="dalt" x="7" y="-50" fps="30"/><anim name="singUP-ALT" anim="ualt" x="61" y="14" fps="30"/><anim name="singRIGHT-ALT" anim="ralt" x="17" y="-7" fps="30"/><anim name="danceLeft" anim="idle" indices="1,2"/></character>

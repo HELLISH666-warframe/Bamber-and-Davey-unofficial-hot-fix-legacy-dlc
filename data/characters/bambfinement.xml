@@ -1,14 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="bambi" camx="-70" y="0" isGF="false" camy="40" isPlayer="false" sprite="bambfinement" color="#25bf37" gameOverChar="bambfinement-dead">
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi idle" name="idle"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi up" name="singUP"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi left" name="singLEFT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi throw" name="fuckYou"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi phone" name="ziiuvanPaun?"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi right" name="singRIGHT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi alt left" name="singLEFT-ALT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi alt right" name="singRIGHT-ALT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi alt up" name="singUP-ALT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi alt down" name="singDOWN-ALT"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi down" name="singDOWN"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="bambfinement" camx="-70" camy="40" icon="bambi" color="#25bf37" gameOverChar="bambfinement-dead" isGF="false"><anim name="idle" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi idle"/><anim name="singUP" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi up"/><anim name="singLEFT" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi left"/><anim name="fuckYou" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi throw"/><anim name="ziiuvanPaun?" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi phone"/><anim name="singRIGHT" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi right"/><anim name="singLEFT-ALT" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi alt left"/><anim name="singRIGHT-ALT" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi alt right"/><anim name="singUP-ALT" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi alt up"/><anim name="singDOWN-ALT" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi alt down"/><anim name="singDOWN" anim="(VERWEX) BAMBERED BAMBI/Anims/bambi down"/></character>

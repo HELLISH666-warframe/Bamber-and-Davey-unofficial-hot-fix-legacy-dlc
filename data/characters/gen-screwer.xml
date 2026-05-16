@@ -1,8 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="screwer" camx="320" camy="170" color="#0CB500" gameOverChar="gen-screwer-dead" noteskin="awesome" isGF="false" noteColors="#00FF1D,#00FF1D,#00FF1D,#00FF1D">
-	<anim name="idle" anim="Screwer/Phase 1/Anims/Idle" fps="30"/>
-	<anim name="singDOWN" anim="Screwer/Phase 1/Anims/Down" fps="30"/>
-	<anim name="singLEFT" anim="Screwer/Phase 1/Anims/Left" fps="30"/>
-	<anim name="singUP" anim="Screwer/Phase 1/Anims/Up" fps="30"/>
-	<anim name="singRIGHT" anim="Screwer/Phase 1/Anims/Right" fps="30"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="screwer" camx="320" camy="170" color="#0CB500" isGF="false" noteskin="awesome" noteColors="#00FF1D,#00FF1D,#00FF1D,#00FF1D"><anim name="idle" anim="Screwer/Phase 1/Anims/Idle" fps="30"/><anim name="singDOWN" anim="Screwer/Phase 1/Anims/Down" fps="30"/><anim name="singLEFT" anim="Screwer/Phase 1/Anims/Left" fps="30"/><anim name="singUP" anim="Screwer/Phase 1/Anims/Up" fps="30"/><anim name="singRIGHT" anim="Screwer/Phase 1/Anims/Right" fps="30"/></character>

@@ -1,8 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="20" antialiasing="false" camx="100" camy="200" icon="bamber-sans" color="#08CFFB" holdTime="6.1" noteskin="undertale" isGF="false">
-	<anim name="idle" anim="0" x="25" y="-130" fps="12" indices="0..3"/>
-	<anim name="singLEFT" anim="0" x="25" y="-130" fps="12" indices="8,9"/>
-	<anim name="singDOWN" anim="0" x="25" y="-130" fps="12" indices="10,11"/>
-	<anim name="singUP" anim="00" x="25" y="-130" fps="12" indices="6,7"/>
-	<anim name="singRIGHT" anim="00" x="25" y="-130" fps="12" indices="4,5"/>
-</character>
+<!DOCTYPE codename-engine-character><character x="20" antialiasing="false" camx="100" camy="200" icon="bamber-sans" color="#08CFFB" holdTime="6.1" isGF="false" noteskin="undertale"><anim name="idle" anim="0" x="25" y="-130" fps="12" indices="0..3"/><anim name="singLEFT" anim="0" x="25" y="-130" fps="12" indices="8,9"/><anim name="singDOWN" anim="0" x="25" y="-130" fps="12" indices="10,11"/><anim name="singUP" anim="00" x="25" y="-130" fps="12" indices="6,7"/><anim name="singRIGHT" anim="00" x="25" y="-130" fps="12" indices="4,5"/></character>

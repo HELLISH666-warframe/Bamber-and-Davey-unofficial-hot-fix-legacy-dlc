@@ -1,12 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character flipX="true" camx="-200" camy="-110" isPlayer="true" color="#FF672C" noteskin="BND" isGF="false">
-	<anim name="idle" anim="Idle"/>
-	<anim name="singDOWN" anim="Down" x="222" y="-20"/>
-	<anim name="singDOWNmiss" anim="MissDown" x="216" y="-20"/>
-	<anim name="singRIGHTmiss" anim="MissRight" x="59" y="11"/>
-	<anim name="singLEFTmiss" anim="MissLeft" x="150" y="16"/>
-	<anim name="singLEFT" anim="Left" x="148" y="16"/>
-	<anim name="singUP" anim="Up" x="95" y="66"/>
-	<anim name="singRIGHT" anim="Right" x="60" y="10"/>
-	<anim name="singUPmiss" anim="MissUp" x="89" y="67"/>
-</character>
+<!DOCTYPE codename-engine-character><character flipX="true" camx="-200" camy="-110" isPlayer="true" color="#FF672C" isGF="false" noteskin="BND"><anim name="idle" anim="Idle"/><anim name="singDOWN" anim="Down" x="222" y="-20"/><anim name="singDOWNmiss" anim="MissDown" x="216" y="-20"/><anim name="singRIGHTmiss" anim="MissRight" x="59" y="11"/><anim name="singLEFTmiss" anim="MissLeft" x="150" y="16"/><anim name="singLEFT" anim="Left" x="148" y="16"/><anim name="singUP" anim="Up" x="95" y="66"/><anim name="singRIGHT" anim="Right" x="60" y="10"/><anim name="singUPmiss" anim="MissUp" x="89" y="67"/></character>

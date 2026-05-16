@@ -1,9 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="bamber sans undertale" camx="-100" camy="60" icon="bamber-sans" color="#08CFFB" gameOverChar="bamber-sans-undertale-dead" noteskin="undertale" isGF="false" noteColors="#39DEFE,#16E5FE,#00FFFF,#00FFF2">
-	<anim name="danceLeft" anim="Bamber Sans Animations/SansIdle" indices="1..15"/>
-	<anim name="danceRight" anim="Bamber Sans Animations/SansIdle" indices="15..30"/>
-	<anim name="singLEFT" anim="Bamber Sans Animations/SansLeft"/>
-	<anim name="singDOWN" anim="Bamber Sans Animations/SansDown"/>
-	<anim name="singUP" anim="Bamber Sans Animations/SansUp"/>
-	<anim name="singRIGHT" anim="Bamber Sans Animations/SansRight"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="bamber sans undertale" camx="-100" camy="60" icon="bamber-sans" color="#08CFFB" gameOverChar="bamber-sans-undertale-dead" isGF="false" noteskin="undertale" noteColors="#39DEFE,#16E5FE,#00FFFF,#00FFF2"><anim name="danceLeft" anim="Bamber Sans Animations/SansIdle" indices="1..15"/><anim name="danceRight" anim="Bamber Sans Animations/SansIdle" indices="15..30"/><anim name="singLEFT" anim="Bamber Sans Animations/SansLeft"/><anim name="singDOWN" anim="Bamber Sans Animations/SansDown"/><anim name="singUP" anim="Bamber Sans Animations/SansUp"/><anim name="singRIGHT" anim="Bamber Sans Animations/SansRight"/></character>

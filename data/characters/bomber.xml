@@ -1,8 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character camx="320" camy="170" color="#00FF4E" gameOverChar="bomber-dead" isGF="false" noteskin="awesome" noteColors="#00FF50,#00FF50,#00FF50,#00FF50">
-	<anim name="idle" anim="Bomber/Idle"/>
-	<anim name="singDOWN" anim="Bomber/Down"/>
-	<anim name="singLEFT" anim="Bomber/Left"/>
-	<anim name="singUP" anim="Bomber/Up"/>
-	<anim name="singRIGHT" anim="Bomber/Right"/>
-</character>
+<!DOCTYPE codename-engine-character><character camx="320" camy="170" color="#00FF4E" gameOverChar="bomber-dead" isGF="false" noteskin="awesome" noteColors="#00FF50,#00FF50,#00FF50,#00FF50"><anim name="idle" anim="Bomber/Idle"/><anim name="singDOWN" anim="Bomber/Down"/><anim name="singLEFT" anim="Bomber/Left"/><anim name="singUP" anim="Bomber/Up"/><anim name="singRIGHT" anim="Bomber/Right"/></character>

@@ -1,17 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="20" y="230" sprite="Trade-Davey" scale="1.4" flipX="true" camx="-230" camy="-10" isPlayer="true" icon="Trade-Davey" color="#4087CE" gameOverChar="trade davey" noteskin="trade" isGF="false" noteColors="#00A1FF,#00A1FF,#00A1FF,#00A1FF">
-	<anim name="danceRight" anim="Idle" indices="14..30"/>
-	<anim name="danceLeft" anim="Idle" indices="1..13"/>
-	<anim name="singDOWN" anim="Down" x="8" y="-65"/>
-	<anim name="singDOWNmiss" anim="singDOWNmissed" x="5" y="-55"/>
-	<anim name="singLEFT" anim="Left" x="15.71" y="-24"/>
-	<anim name="singLEFTmiss" anim="singLEFTmissed" x="160" y="-12"/>
-	<anim name="singRIGHT" anim="Right" x="20" y="-50"/>
-	<anim name="singRIGHTmiss" anim="singRIGHTmissed" x="15" y="-30"/>
-	<anim name="singUP" anim="Up" x="-3" y="-17"/>
-	<anim name="singUPmiss" anim="singUPmissed" x="23" y="-3"/>
-	<anim name="idle-alt" anim="IdleGundance" x="106" y="-20"/>
-	<anim name="singLEFT-alt" anim="singLEFTgun" x="224" y="-31"/>
-	<anim name="singRIGHT-alt" anim="singRIGHTgun" x="240" y="-35"/>
-	<anim name="firstDeath" anim="Death" x="-1" y="-24"/>
-</character>
+<!DOCTYPE codename-engine-character><character x="20" y="230" sprite="Trade-Davey" scale="1.4" flipX="true" camx="-230" camy="-10" isPlayer="true" icon="Trade-Davey" color="#4087CE" gameOverChar="trade davey" isGF="false" noteskin="trade" noteColors="#00A1FF,#00A1FF,#00A1FF,#00A1FF"><anim name="danceRight" anim="Idle" indices="14..30"/><anim name="danceLeft" anim="Idle" indices="1..13"/><anim name="singDOWN" anim="Down" x="8" y="-65"/><anim name="singDOWNmiss" anim="singDOWNmissed" x="5" y="-55"/><anim name="singLEFT" anim="Left" x="15.71" y="-24"/><anim name="singLEFTmiss" anim="singLEFTmissed" x="160" y="-12"/><anim name="singRIGHT" anim="Right" x="20" y="-50"/><anim name="singRIGHTmiss" anim="singRIGHTmissed" x="15" y="-30"/><anim name="singUP" anim="Up" x="-3" y="-17"/><anim name="singUPmiss" anim="singUPmissed" x="23" y="-3"/><anim name="idle-alt" anim="IdleGundance" x="106" y="-20"/><anim name="singLEFT-alt" anim="singLEFTgun" x="224" y="-31"/><anim name="singRIGHT-alt" anim="singRIGHTgun" x="240" y="-35"/><anim name="firstDeath" anim="Death" x="-1" y="-24"/></character>

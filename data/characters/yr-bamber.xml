@@ -1,12 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character flipX="true" camx="70" camy="40" isPlayer="true" icon="yr" color="#1EEBC9" gameOverChar="yr-bamber" noteskin="deathbattle" isGF="false" noteColors="#00AF08,#00AF08,#00AF08,#00AF08">
-	<anim name="idle" anim="BIdle"/>
-	<anim name="singDOWN" anim="BDown" x="-193" y="-94"/>
-	<anim name="singLEFT" anim="BLeft" x="107" y="-61"/>
-	<anim name="singUP" anim="BUp" x="-207" y="114"/>
-	<anim name="singRIGHT" anim="BRight" x="-242" y="-70"/>
-	<anim name="singDOWNmiss" anim="BMDown" x="94" y="-97"/>
-	<anim name="singLEFTmiss" anim="BMLeft" x="107" y="-65"/>
-	<anim name="singUPmiss" anim="BMUp" x="-221" y="114"/>
-	<anim name="singRIGHTmiss" anim="BMRight" x="-210" y="33"/>
-</character>
+<!DOCTYPE codename-engine-character><character flipX="true" camx="70" camy="40" isPlayer="true" icon="yr" color="#1EEBC9" isGF="false" noteskin="deathbattle" noteColors="#00AF08,#00AF08,#00AF08,#00AF08"><anim name="idle" anim="BIdle"/><anim name="singDOWN" anim="BDown" x="-193" y="-94"/><anim name="singLEFT" anim="BLeft" x="107" y="-61"/><anim name="singUP" anim="BUp" x="-207" y="114"/><anim name="singRIGHT" anim="BRight" x="-242" y="-70"/><anim name="singDOWNmiss" anim="BMDown" x="94" y="-97"/><anim name="singLEFTmiss" anim="BMLeft" x="107" y="-65"/><anim name="singUPmiss" anim="BMUp" x="-221" y="114"/><anim name="singRIGHTmiss" anim="BMRight" x="-210" y="33"/></character>

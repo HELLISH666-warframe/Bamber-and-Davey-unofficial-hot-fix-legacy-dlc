@@ -1,16 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="call of bamber" flipX="true" camx="400" camy="-600" isPlayer="true" icon="bamber-call" color="#71C418" gameOverChar="the-calling-of-bamber" noteskin="BND" isGF="false">
-	<anim name="idle" anim="Bamber/Anims/Idle"/>
-	<anim name="singLEFT" anim="Bamber/Anims/Left"/>
-	<anim name="singDOWN" anim="Bamber/Anims/Down"/>
-	<anim name="singUP" anim="Bamber/Anims/Up"/>
-	<anim name="singRIGHT" anim="Bamber/Anims/Right"/>
-	<anim name="singLEFTmiss" anim="Bamber/Anims/LMiss"/>
-	<anim name="singDOWNmiss" anim="Bamber/Anims/DMiss"/>
-	<anim name="singUPmiss" anim="Bamber/Anims/UMiss"/>
-	<anim name="singRIGHTmiss" anim="Bamber/Anims/RMiss"/>
-	<anim name="firstDeath" anim="Bamber/Anims/Death_Start"/>
-	<anim name="deathLoop" anim="Bamber/Anims/Death_Continue"/>
-	<anim name="idledeathLoop" anim="Bamber/Anims/Death_Continue"/>
-	<anim name="deathConfirm" anim="Bamber/Anims/Death_End"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="call of bamber" flipX="true" camx="400" camy="-600" isPlayer="true" icon="bamber-call" color="#71C418" gameOverChar="the-calling-of-bamber" isGF="false" noteskin="BND"><anim name="idle" anim="Bamber/Anims/Idle"/><anim name="singLEFT" anim="Bamber/Anims/Left"/><anim name="singDOWN" anim="Bamber/Anims/Down"/><anim name="singUP" anim="Bamber/Anims/Up"/><anim name="singRIGHT" anim="Bamber/Anims/Right"/><anim name="singLEFTmiss" anim="Bamber/Anims/LMiss"/><anim name="singDOWNmiss" anim="Bamber/Anims/DMiss"/><anim name="singUPmiss" anim="Bamber/Anims/UMiss"/><anim name="singRIGHTmiss" anim="Bamber/Anims/RMiss"/><anim name="firstDeath" anim="Bamber/Anims/Death_Start"/><anim name="deathLoop" anim="Bamber/Anims/Death_Continue"/><anim name="idledeathLoop" anim="Bamber/Anims/Death_Continue"/><anim name="deathConfirm" anim="Bamber/Anims/Death_End"/></character>

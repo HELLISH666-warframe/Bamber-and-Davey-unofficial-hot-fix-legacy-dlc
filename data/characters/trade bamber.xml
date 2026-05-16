@@ -1,9 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character sprite="Trade-Bamber" camx="330" icon="Trade-Bamber" color="#71C419" gameOverChar="death-bamber" noteskin="trade" isGF="false" noteColors="#71C419,#71C419,#71C419,#71C419">
-	<anim name="idle" anim="idle" fps="30"/>
-	<anim name="singRIGHT" anim="right" x="-43" y="-3" fps="30"/>
-	<anim name="singDOWN" anim="down" x="-27" y="16" fps="30"/>
-	<anim name="singRIGHT" anim="right" x="-43" y="-3" fps="30"/>
-	<anim name="singUP" anim="up" x="3" y="2" fps="30"/>
-	<anim name="singLEFT" anim="left" x="49" y="-15" fps="30"/>
-</character>
+<!DOCTYPE codename-engine-character><character sprite="Trade-Bamber" camx="330" icon="Trade-Bamber" color="#71C419" isGF="false" noteskin="trade" noteColors="#71C419,#71C419,#71C419,#71C419"><anim name="idle" anim="idle" fps="30"/><anim name="singRIGHT" anim="right" x="-43" y="-3" fps="30"/><anim name="singDOWN" anim="down" x="-27" y="16" fps="30"/><anim name="singRIGHT" anim="right" x="-43" y="-3" fps="30"/><anim name="singUP" anim="up" x="3" y="2" fps="30"/><anim name="singLEFT" anim="left" x="49" y="-15" fps="30"/></character>

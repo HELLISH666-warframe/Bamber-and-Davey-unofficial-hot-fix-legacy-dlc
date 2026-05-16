@@ -1,8 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character camx="-600" camy="-500" color="#B15640" gameOverChar="elisocray" noteskin="BND" isGF="false" noteColors="#FF7200,#FF7200,#FF7200,#FF7200">
-	<anim name="idle" anim="Elisocray/Anims/idle"/>
-	<anim name="singLEFT" anim="Elisocray/Anims/left"/>
-	<anim name="singUP" anim="Elisocray/Anims/up"/>
-	<anim name="singDOWN" anim="Elisocray/Anims/down"/>
-	<anim name="singRIGHT" anim="Elisocray/Anims/right"/>
-</character>
+<!DOCTYPE codename-engine-character><character camx="-600" camy="-500" color="#B15640" isGF="false" noteskin="BND" noteColors="#FF7200,#FF7200,#FF7200,#FF7200"><anim name="idle" anim="Elisocray/Anims/idle"/><anim name="singLEFT" anim="Elisocray/Anims/left"/><anim name="singUP" anim="Elisocray/Anims/up"/><anim name="singDOWN" anim="Elisocray/Anims/down"/><anim name="singRIGHT" anim="Elisocray/Anims/right"/></character>

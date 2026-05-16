@@ -1,6 +1,1 @@
-<!DOCTYPE codename-engine-character>
-<character x="0" icon="bf" camx="0" y="0" isGF="false" camy="-110" flipX="true" isPlayer="true" sprite="Isaac dead" color="#00CCFF">
-	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Death/Death_Start" name="firstDeath"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Death/Death_Loop" name="deathLoop"/>
-	<anim x="0" loop="false" y="0" fps="24" anim="Anims/Death/Death_End" name="deathConfirm"/>
-</character>
+<!DOCTYPE codename-engine-character><character isGF="false" camy="-110" flipX="true" isPlayer="true" sprite="Isaac dead" color="#00CCFF"><anim name="firstDeath" anim="Anims/Death/Death_Start"/><anim name="deathLoop" anim="Anims/Death/Death_Loop"/><anim name="deathConfirm" anim="Anims/Death/Death_End"/></character>
