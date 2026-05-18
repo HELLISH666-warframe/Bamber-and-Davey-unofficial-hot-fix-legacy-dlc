@@ -28,7 +28,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Low Memory Mode", "Won't load things that could take up a lot of memory.", [], 'lowMemory','Bool'],
         ["VRAM Only Sprites", "VRAM-Only Sprites.", [], 'vramSprites','Bool'],
         ["Flashing Lights", "Toggles flashes on the screen", [], 'flashingLights','Bool'],
-        ["Shaders", "What shaders should be shown", ["all", "Some", "None"], 'shaders','Choice'],
+        ["Shaders", "What shaders should be shown", ["all", "some", "none"], 'shaders','Choice'],
         ["Botplay UI", "Rather or not the botplay text will be visible.", [], 'botplayUI','Bool'],
         ["Background Blur", "Applys Osu! like blur to stage objects.", [], 'bgBlur','Bool'],
         ["Background Dim", "Applys Osu! like dim to stage objects.", [], 'bgDim','Bool'],

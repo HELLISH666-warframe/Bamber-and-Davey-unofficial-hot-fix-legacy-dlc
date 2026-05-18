@@ -12,7 +12,7 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 	["DaveysYard","Week Davey",['Synthwheel','Yard','Coop'],0x0066FF],//6
 	["RomaniaOutskirts","Week Ronnie & Boris",['Ron Be Like','Bob Be Like','Fortnite Duos'],0xFED73E],//9
 	["BonusWIP","Bonus Songs",['Mathemathon','Blusterous Day','Escape From Poland','Slammed','Swindled','Trade','Multiversus'],0x00FFA6],//16
-	["Jokes","Joke Songs",['Generations','Memeing',"Judgement Farm","Judgement Farm 2",'Too Slop',"Yeld",'Squeaky Clean'],0x038703],//23
+	["Jokes","Joke Songs",['Generations','Memeing',"Judgement Farm","Judgement Farm 2",'Too Slop','Pibenis',"Yeld",'Squeaky Clean'],0x038703],//23
 	["Collabs","Collab Songs",["Call Bamber","Deathbattle","H2O"],0xA5CEE3],//26
 	["Crossovers","Crossover Songs",["Corn N Roll","Screencast"],0xFE3455],//28
 	["Remixes","Remixes",['Spookeez','South','Pico','2Hot'],0xFF338A9C],//32
@@ -35,6 +35,7 @@ subCurSelected = 0;
 var capsules = new FlxTypedGroup();
 
 function create() {
+	if(!FlxG.save.data.gameStats.achievements.contains('pibby')) data[4][2].remove('Pibenis');
 	if(!FlxG.save.data.gameStats.achievements.contains('sc')) data[4][2].remove('Squeaky Clean');
 	if(!FlxG.save.data.gameStats.achievements.contains('nightmare')) data[8][2].remove('Placeholder Vol2');
 	if(!FlxG.save.data.gameStats.achievements.contains('TF')) data[9][2].remove('Test Footage');

@@ -7,7 +7,7 @@ import menus.freeplay.FreeplayOptions;
 var curSong=FlxG.save.data.Bamber_SONGSONG;//Lazy_way_of_getting_the_selected_song_and_it's_meta.
 var click_through:Bool = false;
 var coolCam = new FlxCamera();//Cam_for_the_substate.
-var portrait = new FlxSprite(700);
+var portrait = new FlxSprite(700).loadGraphic(Paths.image('menus/freeplay/Portraits/PLACEHOLDER'));
 
 var play_Text = new Alphabet(1055, 665, 'PLAY', true);
 var hitbox:FlxSprite;//Scaling_the_text_up_fucks_up_the_hitbox_so_this.
@@ -15,12 +15,15 @@ var hitbox:FlxSprite;//Scaling_the_text_up_fucks_up_the_hitbox_so_this.
 var songName = new Alphabet(285.25, 70, 0, true);
 var composer = new Alphabet(0, 130, 0, true);
 
+var scroll_speed = new Alphabet(540, 505, "<"+ FlxG.save.data.options.scrollSpeed_Speed+">", true);
+
 var difficultySprites:Map<String, FlxSprite> = [];
 var arrows:Array<FunkinSprite> = [];
 
-var selectSprites = new FlxTypedSpriteGroup();
-var options:Array<String> = [['Cutscenes','Mod charts','Scroll Speed','Mode'],
-	['checkbox','string','string'],['freeplayDialogue','modcharts','scrollSpeed_Speed']];
+var optionSprites = new FlxTypedSpriteGroup();
+var checkboxes = new FlxTypedSpriteGroup();
+var optionText = new FlxTypedGroup();
+var options:Array<String> = ['Cutscenes','Mod charts','Scroll Speed','Mode'];
 var bulletoptionREAL = new FlxSprite(-170,8);
 
 static var curDifficulty:Int = 0;
@@ -29,7 +32,7 @@ var curOption:Int = 0;
 static var curPlayingInst = Paths.inst(curSong.name, curSong.difficulties[curDifficulty]);
 static var prevSong:String = "";
 
-var optionSprites = new FlxTypedGroup();
+//Idea , have the option greyed out if mod-charts are set to always, same with scroll-speed.
 function create() {
 	new FlxTimer().start(0.2, ()->{click_through = true;});//Anti_fuckup_thing.
 	prevchar = curPlayingInst;
@@ -67,12 +70,9 @@ function create() {
 	add(testtt2.lines).camera=coolCam;
     }
 
-	add(optionSprites).camera=coolCam;
-
-	for (i in 0...options[0].length) {
-		add(optionSpawn(i,options[0][i],options[1][i],options[2][i]));
-		optionSprites.members[i].change();
-	}
+	//Scroll_speed_modifier.
+	add(scroll_speed).camera = coolCam;
+	scroll_speed.scale.set(0.8,0.8);
 
 	//Difficulty sprite setup.
 	for (e in curSong.difficulties) {
@@ -111,17 +111,49 @@ function create() {
             bulletOption.animation.play('dot');
         }
 		bulletOption.scale.set(0.3,0.3);
-        selectSprites.add(bulletOption);
+        optionSprites.add(bulletOption);
 
         manY += bulletOption.height * (i % 4 == 0 ? 0.09 : 0.46 * (i % 4 == 2 ? 0.2 : 0.2));
         bulletOption.antialiasing = true;
 		bulletOption.camera=coolCam;
     }
-	add(selectSprites).y +=10;
+	add(optionSprites).y +=10;
+
+	var namX = 444;
+	for (i in 0...2) {
+        checkbox_real = new FlxSprite(namX, manY);
+        checkbox_real.frames = Paths.getFrames('menus/options/checkbox');
+
+		checkbox_real.animation.addByIndices("false", "Checkbox0", [9,8,7,6,5,4,3,2,1,0], '',24, false);
+		checkbox_real.animation.addByPrefix('true', "Checkbox0", 24,false);
+		checkbox_real.animation.play([FlxG.save.data.options.freeplayDialogue,FlxG.save.data.options.modcharts][i]);
+        checkboxes.add(checkbox_real);
+
+        manY += checkbox_real.height * (i % 2 == 0 ? 1.3 : 3);
+		namX += (i % 2 == 0 ? 70 : 500);
+        checkbox_real.antialiasing = true;
+		checkbox_real.camera=coolCam;
+    }
+	add(checkboxes).y= -245;
+
+	add(optionText);
+	for (i in 0...options.length) {
+		var item = new Alphabet(120, (i * 80), options[i], 0,true);
+		item.scale.set(0.9,0.9);
+		item.y = ((i * optionSprites.members[4].y*0.8) * item.scale.y)+240;
+		item.updateHitbox();
+		item.camera=coolCam;
+		optionText.add(item).width = item.width*item.scale.y;
+	}
 
 	changeDiff(0);
 	changeOption(0);
 	changeScroll(0);
+
+	if(curSong.freeplayShit.hasCutscenes==null)optionText.members[0].alpha=0.3;
+	if(!FlxG.save.data.options.scrollSpeed)optionText.members[2].alpha=scroll_speed.alpha=0.3;
+	if(FlxG.save.data.options.modcharts=='Always'||curSong.freeplayShit.hasModchart==null)optionText.members[1].alpha=0.3;
+	//Add something to make it skip grayed out ones dynamically.
 
 	bulletoptionREAL.frames = Paths.getFrames('menus/freeplay/bulletOption');
 	bulletoptionREAL.animation.addByPrefix('idle', "appear", 10, false);
@@ -133,19 +165,15 @@ function create() {
 }
 function update(elapsed:Float) {
 	if(!click_through)return;
-	if (controls.ACCEPT && curOption==0) toggle();
-	if(controls.RIGHT_P||controls.LEFT_P){
-		switch(curOption){
-			case 2:changeScroll(controls.RIGHT_P ? 0.1 : -0.1);
-			case 3:changeDiff(controls.RIGHT_P ? 1 : -1);
-		}
-	}
+	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==3) changeDiff(controls.RIGHT_P ? 1 : -1);
+	if ((controls.RIGHT_P||controls.LEFT_P) && curOption==2) changeScroll(controls.RIGHT_P ? 0.1 : -0.1);
 	if (controls.BACK){
 		FlxG.save.flush();
 		FlxG.sound.music.fadeOut(9,0,1);
 		CoolUtil.playMenuSFX(2, getVolume(0.9, 'sfx'));
 		close();
 	}
+	if (controls.ACCEPT) toggle();
 	if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed)playsong();
 	if (controls.UP_P||controls.DOWN_P) changeOption(controls.UP_P ? -1 : 1);
 	bulletoptionREAL.y=lerp(bulletoptionREAL.y,switch(curOption){
@@ -173,16 +201,16 @@ function changeOption(p) {
 	curOption = FlxMath.wrap(curOption + p, 0,  3);
 }
 function toggle() {
-	Reflect.setField(FlxG.save.data.options, optionSprites.members[curOption].option, !Reflect.field(FlxG.save.data.options, optionSprites.members[curOption].option));
-	optionSprites.members[curOption].checkBox.animation.play
-	(Reflect.field(FlxG.save.data.options,optionSprites.members[curOption].option));
-	for(i in 0...optionSprites.members.length)
-		optionSprites.members[i].change();
+	switch(curOption){
+		case 0:FlxG.save.data.options.freeplayDialogue=!FlxG.save.data.options.freeplayDialogue;
+		case 1:FlxG.save.data.options.modcharts=!FlxG.save.data.options.modcharts;
+	}
+	checkboxes.members[curOption].animation.play([FlxG.save.data.options.freeplayDialogue,FlxG.save.data.options.modcharts][curOption]);
 }
 function changeScroll(s) {
 	if (FlxG.save.data.options.scrollSpeed)
 		FlxG.save.data.options.scrollSpeed_Speed=FlxMath.bound(FlxG.save.data.options.scrollSpeed_Speed + s, 1, 10);
-	//scroll_speed.text ="<"+FlxG.save.data.options.scrollSpeed_Speed+">";
+	scroll_speed.text ="<"+FlxG.save.data.options.scrollSpeed_Speed+">";
 }
 function playsong() {
 	PlayState.loadSong(curSong.name, curSong.difficulties[curDifficulty].toLowerCase());
@@ -195,21 +223,14 @@ function playsong() {
 	curPlayingInst="fuck";
 	click_through=false;
 }
-function destroy() {FlxG.cameras.remove(coolCam);
-	FlxG.save.flush();
-}
+function destroy() FlxG.cameras.remove(coolCam);
 
-function optionSpawn(index,name,type,?save=null) {
+function capsuleSpawn(index,name,type) {
 	//OptionText(Alphabet).
 	var optionItem = new FreeplayOptions();
-	if(save!=null)optionItem.option=save;
-	optionItem.text = new Alphabet(100,0,name,true);
+	optionItem.text = new Alphabet(0,0,name,true);
 	optionItem.text.scale.set(0.9,0.9);
-	if(name=='Cutscenes'&&curSong.freeplayShit.hasCutscenes==null)optionItem.text.alpha=0.3;
-	if(name=='Mod charts'&&curSong.freeplayShit.hasModchart==null)optionItem.text.alpha=0.3;
-	if(name=='Scroll Speed'&&!FlxG.save.data.options.scrollSpeed)optionItem.text.alpha=0.3;
-	//optionItem.text.targetY=optionItem.text.ID=index;
-	optionItem.text.y=250+(index * 135);
+	//optionItem.text.targetY=songItem.text.ID=index;
 	switch(type){
 		case 'checkbox':
 		optionItem.checkBox = new FlxSprite();
@@ -217,12 +238,10 @@ function optionSpawn(index,name,type,?save=null) {
 		optionItem.checkBox.animation.addByIndices("false", "Checkbox0", [9,8,7,6,5,4,3,2,1,0], '',24, false);
 		optionItem.checkBox.animation.addByPrefix('true', "Checkbox0", 24,false);
 		optionItem.checkBox.updateHitbox();
-		optionItem.checkBox.animation.play(Reflect.field(FlxG.save.data.options,save));
-		case 'string':optionItem.text2 = new ClassicAlphabet(0,0,"123",true);
-		optionItem.text2.scale.set(0.7,0.7);
-		if(!FlxG.save.data.options.scrollSpeed)optionItem.text2.alpha=0.3;
+		case 'string':optionItem.text2 = new Alphabet(0,0,"<_idk_>",true);
+		optionItem.text2.scale.set(0.8,0.8);
 	}
 	
-	optionSprites.add(optionItem);
+	capsules.add(optionItem);
 	return optionItem;
 }

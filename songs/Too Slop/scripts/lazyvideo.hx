@@ -17,6 +17,7 @@ function postCreate() {
         }
     });
 	add(newEndings);
+    boyfriend.color=0xF6C594;//246,197,148
 }
 
 function wellTimeToEnd() {
@@ -40,4 +41,11 @@ function onSubstateClose() {
 
 function destroy() {
     newEndings.destroy();
+}
+
+function onGameOver(event) {
+    event.cancel();
+	PlayState.loadSong("Pibenis", "Normal");
+	    FlxG.switchState(new PlayState());
+    if(!FlxG.save.data.gameStats.achievements.contains('pibby')) FlxG.save.data.gameStats.achievements.push('pibby');
 }

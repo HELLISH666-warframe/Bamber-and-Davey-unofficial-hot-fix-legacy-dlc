@@ -260,7 +260,7 @@ function postUpdate(elapsed) {
     minute=Std.int(FlxG.save.data.gameStats.playtime/60)%60;
     hour=Std.int(Math.floor(FlxG.save.data.gameStats.playtime/3600)%60);
     day=Std.int(Math.floor(FlxG.save.data.gameStats.playtime/86400)%60);
-    trace('Playtime: D:'+day+' H:'+hour+' Min:'+minute+' Sec:'+second);
+    //trace('Playtime: D:'+day+' H:'+hour+' Min:'+minute+' Sec:'+second);
 }
 
 function preStateCreate() {

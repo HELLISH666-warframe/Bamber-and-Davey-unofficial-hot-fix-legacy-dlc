@@ -186,6 +186,7 @@ function onGameOver(e){
 		PlayState.loadSong("Test Footage", "null");
 		FlxG.switchState(new PlayState());
 	}
+	if(!FlxG.save.data.gameStats.achievements.contains('TF')) FlxG.save.data.gameStats.achievements.push('TF');
 }
 function onNoteHit(e){
 	switch(curSong){
