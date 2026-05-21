@@ -380,8 +380,20 @@ function setupMenuStuff() {
     buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
     }
 
-    for (i in ['Play','Extra','Achievements','Options','Credits','Story Mode','Freeplay','Gallery','DLC']) {
-        
+    for (i in ['Play','Extra','Achievements','Options','Credits',
+        'Story Mode','Freeplay','Gallery','DLC','Adventure Mode']) {
+        //TITLE TEXT
+        var coolText = new ClassicAlphabet(0, 0, i.toUpperCase(), true, false);
+        coolText.scale.set(0.65, 0.65);
+
+        for (t in 0...coolText.members.length) {
+            coolText.members[t].updateHitbox();
+            if (t > 0) coolText.members[t].x = coolText.members[t-1].x + coolText.members[t-1].width + 2 + (coolText.members[t-1].visible ? 0 : 25);
+        }
+
+        coolText.x -= coolText.width;
+        buttonTextGroup.add(coolText);
+        coolText.alpha = 0;
     }
 
     for (i in 0...menuOptions.length) {
@@ -399,19 +411,6 @@ function setupMenuStuff() {
         buttonSpr.width = buttonSpr.height = 161 * buttonSpr.scale.x;
         buttonSpr.x = (i == 0 ? 20 : (buttonGroup.members[i - 1].x + buttonGroup.members[i - 1].width) + 10);
         buttonSpr.y = bottomBar.y + 20 - buttonSpr.height;
-
-        //TITLE TEXT
-        var coolText = new ClassicAlphabet(0, 0, menuOptions[i].toUpperCase(), true, false);
-        coolText.scale.set(0.65, 0.65);
-
-        for (t in 0...coolText.members.length) {
-            coolText.members[t].updateHitbox();
-            if (t > 0) coolText.members[t].x = coolText.members[t-1].x + coolText.members[t-1].width + 2 + (coolText.members[t-1].visible ? 0 : 25);
-        }
-
-        coolText.x -= coolText.width;
-        buttonTextGroup.add(coolText);
-        coolText.alpha = 0;
     }
 
     bottomMenuGroup.add(buttonTextGroup);
@@ -424,7 +423,6 @@ function setupSubMenuStuff() {
     isSubMenu=true;
     submenuNum=0;
     buttonSubgroup.clear();
-    buttonTextGroup.clear();
     for (i in buttonGroup.members) {
         buttonesGone=FlxTween.tween(i, {y: 800}, 0.4, {ease: FlxEase.quartOut,onComplete: function(tween) {buttonGroup.clear();}});
     }
@@ -443,22 +441,7 @@ function setupSubMenuStuff() {
         buttonSpr.width = buttonSpr.height = 161 * buttonSpr.scale.x;
         buttonSpr.x = (i == 0 ? 20 : (buttonSubgroup.members[i - 1].x + buttonSubgroup.members[i - 1].width) + 10);
         buttonSpr.y = bottomBar.y + 20 - buttonSpr.height;
-
-        if(!submenuOptions[0].contains("Adventure Mode"))submenuOptions[0].push("Adventure Mode");
-        var coolText = new ClassicAlphabet(0, 0, submenuOptions[menuSelection][i].toUpperCase(), true, false);
-        coolText.scale.set(0.65, 0.65);
-
-        for (t in 0...coolText.members.length) {
-            coolText.members[t].updateHitbox();
-            if (t > 0) coolText.members[t].x = coolText.members[t-1].x + coolText.members[t-1].width + 2 + (coolText.members[t-1].visible ? 0 : 25);
-        }
-
-        coolText.x -= coolText.width;
-        buttonTextGroup.add(coolText);
-        coolText.alpha = 0;
     }
-
-    bottomMenuGroup.add(buttonTextGroup);
     changeSelection();
 }
 
@@ -734,15 +717,16 @@ function update(elapsed) {
 }
 
 function changeSelection(change = 0) {
-    for(i in 0...buttonTextGroup.length) {buttonTextGroup.members[i].alpha = 0;
-    trace(buttonTextGroup.members[i].text);
-    }
+    for(i in 0...buttonTextGroup.length) buttonTextGroup.members[i].alpha = 0;
     if(isSubMenu){
-        menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions[submenuNum].length - 1);
-        if (buttonTextGroup.members[menuSubmenuSelection].text.toLowerCase()=="story mode"&&FlxG.random.int(1,100) == 1)
-            buttonTextGroup.members[2].alpha = 1;
-        else
-        buttonTextGroup.members[menuSubmenuSelection].alpha = 1;
+        menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions[menuSelection].length - 1);
+        for(i in 0...buttonTextGroup.length) {
+            if(buttonTextGroup.members[i].text.toUpperCase()==submenuOptions[menuSelection][menuSubmenuSelection].toUpperCase())
+                buttonTextGroup.members[i].alpha=1;
+        }
+        if (buttonTextGroup.members[5].alpha==1&&FlxG.random.int(1,100) == 1){
+            buttonTextGroup.members[5].alpha=0; buttonTextGroup.members[9].alpha=1;
+        }
         for (i in buttonSubgroup.members) {
         if (menuSubmenuSelection == i.ID) {
 			i.offset.y = 0;
@@ -850,9 +834,9 @@ function progressBackwards() {
     if(isSubMenu){
         buttonSubgroup.clear();
         setupMenuStuff();
-        if(submenuOptions[0][2]!=null)submenuOptions[0].remove("Adventure Mode");
         processClickables();
         isSubMenu=false;
+        changeSelection(0);
         return;
     }
     isInMenu = false;

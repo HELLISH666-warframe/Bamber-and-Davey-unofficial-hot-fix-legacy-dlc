@@ -1,6 +1,5 @@
 //FREE_ME_FROM_THIS_HELL.
 import funkin.editors.ui.UISliceSprite;
-import funkin.options.Options;
 import hxvlc.flixel.FlxVideoSprite;
 import flixel.group.FlxTypedSpriteGroup;
 import funkin.menus.ui.ClassicAlphabet;
@@ -30,13 +29,7 @@ var curMenu:Int = 0;
 var curSelect:Int = 0;
 var curParam:Int = 0;
 
-var theFuckingIMPORTANTbar = new FlxSprite(240, 130).loadGraphic(Paths.image('menus/options/backGround'));
-
 function create() {
-    /*FlxG.resizeWindow(1280, 720);
-    FlxG.resizeGame(1280, 1280);
-    FlxG.scaleMode.width = FlxG.width = FlxG.initialWidth = 1280;
-    FlxG.scaleMode.height = FlxG.height = FlxG.initialHeight = 720;*/
     // Initialisation
     WindowUtils.set_winTitle("Options Menu");
     CoolUtil.playMenuSong();
@@ -73,8 +66,6 @@ function create() {
 	    if([2, 7].contains(num)) b.alpha = 0.5;
         //if(num != 0 || num != 2) b.antialiasing = Options.antialiasing;
     }
-    theFuckingIMPORTANTbar.camera=optionsCam;
-    insert(3,theFuckingIMPORTANTbar).scale.set(1.8,1.8);
 	
 	changeOption(0);
     FlxG.cameras.add(optionsCam2 = new FlxCamera(), false);
@@ -165,7 +156,6 @@ function changeCurSelected(a:Int){
     }
     explainText.text=optionsFile[curMenu][curSelect][1];
     explainText.screenCenter(FlxAxes.X);
-    theFuckingIMPORTANTbar.y=daOptions.members[curSelect].y+40;
 }
 
 function regenMenu(){
@@ -174,10 +164,10 @@ function regenMenu(){
     for(num => a in optionsFile[curMenu]){
 
         //trace("Name: " + b[0] + " | Desc: " + b[1], " | Params: " + b[2]);
-        daOptions.add(new ClassicAlphabet(25, (90 * num), a[0], true));
+        daOptions.add(new ClassicAlphabet(25, (100 * num), a[0], true));
         daOptions.members[num].color = (StringTools.startsWith(daOptions.members[num].text, "Reset") ? FlxColor.fromRGB(225, 225/7.5, 225/7.5) : FlxColor.WHITE);
         if(a[2].length != 0){
-            daParams.add(new ClassicAlphabet(0, (90 * num), '<'+Reflect.field(FlxG.save.data.options, a[3])+'>', true));
+            daParams.add(new ClassicAlphabet(0, (100 * num), '<'+Reflect.field(FlxG.save.data.options, a[3])+'>', true));
             laText = daParams.members[daParams.length - 1];
 
             laText.camera = optionsCam;
@@ -185,7 +175,7 @@ function regenMenu(){
             if(a[2].length != 1) // options with only one parameter don't have the arrows
                 laText.members[0].color = laText.members[laText.text.length - 1].color = FlxColor.fromRGB(255, 100, 19);
         } else {
-            var checkbox = new FlxSprite(0, 90 * num);
+            var checkbox = new FlxSprite(0, 100 * num);
             checkbox.frames = Paths.getSparrowAtlas("menus/options/checkbox");
             checkbox.animation.addByPrefix("ya", "Checkbox", 24, false);
             checkbox.animation.addByIndices("nah", "Checkbox", [9,8,7,6,5,4,3,2,1,0], '',24, false);

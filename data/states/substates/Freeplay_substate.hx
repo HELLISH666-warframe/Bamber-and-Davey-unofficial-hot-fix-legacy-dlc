@@ -86,14 +86,10 @@ function create() {
 		difficultySprites[le] = diffSprite;
 	}
 	for (a in 0...2) {
-        arrows.push(new FunkinSprite(0, 415));
-		arrows[a].scale.set(0.25, 0.25);
-        arrows[a].frames = Paths.getSparrowAtlas("menus/freeplay/selectArrows");
-        for(z in ["hit", "idle"])
-			arrows[a].animation.addByPrefix(z, z + ["Left", "Right"][a], 10, false);
-        arrows[a].animation.play("idle");
+        arrows.push(new Alphabet(0,650,["<", ">"][a],true));
         add(arrows[a]).antialiasing = Options.antialiasing;
-		arrows[a].x = (a + 1) * 100 + a * 180;
+		arrows[a].scale.set(1.2,1.2);
+		arrows[a].x = (a + 1) * 100 + a * 180+230;
 		arrows[a].cameras = [coolCam];
     }
 
@@ -151,16 +147,42 @@ function update(elapsed:Float) {
 	bulletoptionREAL.y=lerp(bulletoptionREAL.y,switch(curOption){
 		case 0:8;case 1:151;case 2:288;case 3:426;},0.25);
 }
+var testDiff:String;
+var testDiff2:String;
+function postUpdate(elapsed:Float) {
+	difficultySprites[__oldDiffName].x = CoolUtil.fpsLerp(difficultySprites[__oldDiffName].x, 90, 0.16);
+	difficultySprites[__oldDiffName].y = CoolUtil.fpsLerp(difficultySprites[__oldDiffName].y, 458, 0.16);
+
+	if(curSong.difficulties.length>1){
+		testDiff=curSong.difficulties[FlxMath.wrap(curDifficulty-1, 0, curSong.difficulties.length - 1)].toLowerCase();
+	difficultySprites[testDiff].x = CoolUtil.fpsLerp(difficultySprites[testDiff].x, 20, 0.16);
+	difficultySprites[testDiff].y = CoolUtil.fpsLerp(difficultySprites[testDiff].y, 510, 0.16);
+	}
+	if(curSong.difficulties.length>2){
+		testDiff2=curSong.difficulties[FlxMath.wrap(curDifficulty+1, 0, curSong.difficulties.length - 1)].toLowerCase();
+	difficultySprites[testDiff2].x = CoolUtil.fpsLerp(difficultySprites[testDiff2].x, 160, 0.16);
+	difficultySprites[testDiff2].y = CoolUtil.fpsLerp(difficultySprites[testDiff2].y, 510, 0.16);
+	}
+	for(b in [0,1]) {arrows[b].color=FlxColor.WHITE;
+		if (FlxG.mouse.overlaps(arrows[b]) && FlxG.mouse.pressed){
+			arrows[FlxG.mouse.overlaps(arrows[0])?0:1].color=FlxColor.fromRGB(255, 100, 19);
+			if(FlxG.mouse.justPressed) changeDiff(FlxG.mouse.overlaps(arrows[0])?-1:1);
+		}
+	}
+	if ((controls.LEFT||controls.RIGHT)&&curOption==3)arrows[controls.LEFT?0:1].color=FlxColor.fromRGB(255, 100, 19);
+}
 var __oldDiffName = null;
 function changeDiff(e) {
-	arrows[FlxMath.bound(e, 0, 1)].animation.play("hit");
+	//arrows[FlxMath.bound(e, 0, 1)].animation.play("hit");
 	curDifficulty = FlxMath.wrap(curDifficulty + e, 0, curSong.difficulties.length - 1);
 	if (__oldDiffName != (__oldDiffName = curSong.difficulties[curDifficulty].toLowerCase())) {
-		for(e in difficultySprites) e.alpha = 0.001;
+		for(e in difficultySprites) {e.alpha = 0.5; e.scale.set(0.1,0.1);}
 
 		var diffSprite = difficultySprites[__oldDiffName];
 
-		if (diffSprite != null)  diffSprite.alpha = !diffSprite.alpha;
+		if (diffSprite != null)  {diffSprite.alpha = !diffSprite.alpha;
+			diffSprite.scale.set(0.3,0.3);
+		}
 	}
 	curPlayingInst = Paths.inst(curSong.name, curSong.difficulties[curDifficulty]);
 	if(curPlayingInst!=prevSong){

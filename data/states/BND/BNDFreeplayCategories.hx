@@ -93,13 +93,7 @@ function update(elapsed) {
 	if (controls.UP_P||controls.DOWN_P||FlxG.mouse.wheel!=0) 
 		changements((controls.UP_P ? -1 : 0) + (controls.DOWN_P ? 1 : 0) - FlxG.mouse.wheel);
 	if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
-		
-	if (controls.ACCEPT) {
-		CoolUtil.playMenuSFX(1, getVolume(1, 'sfx'));
-		openSubState(new ModSubState("substates/Freeplay_substate"));
-		persistentUpdate = !persistentDraw;
-		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
-	}
+	if (controls.ACCEPT) enterSong();
 
 	if (FlxG.keys.justPressed.F) {
 		FlxG.save.data.freeplayShit.favourites.contains(songser[subCurSelected].name)?
@@ -129,6 +123,15 @@ function update(elapsed) {
 			case 0|-1:0.16; default:0.06;
 		});
 	}
+	capsules.forEach(function (silo) {
+        if (FlxG.mouse.overlaps(silo.text) && FlxG.mouse.justPressed) if (silo.text.ID != subCurSelected) {
+			subCurSelected = silo.text.ID;
+			changements(0,true);
+		} else enterSong();
+		if (FlxG.mouse.overlaps(silo.text)||silo.text.ID==subCurSelected) silo.text.alpha=1;
+		else {silo.text.alpha=silo.icon.alpha=0.5;
+		}
+    });
 
 	if (FlxG.mouse.overlaps(scorText) && FlxG.mouse.pressed){
 		FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
@@ -136,15 +139,14 @@ function update(elapsed) {
 		openSubState(new ModSubState("substates/stats-test"));
 	}
 }
-function changements(a) {
+function changements(a,?sound) {
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, data[curSelected][2].length - 1);
-	if(a!=0)CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
-	
-	for(i in 0...capsules.length)capsules.members[i].text.alpha=capsules.members[i].text.ID==subCurSelected?1:0.5;
 	var ver = songser[subCurSelected].freeplayShit.album==null?1:songser[subCurSelected].freeplayShit.album;
 	
 	album.loadGraphic(Paths.image("menus/freeplay/albums/vol"+ver));
 	WindowUtils.set_suffix(" | Currently Selecting: "+songser[subCurSelected].displayName);
+
+	if (a == 0 && !sound) return; CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
 }
 
 function change(a) {
@@ -205,6 +207,12 @@ function change(a) {
 	catName.text = data[curSelected][1];
 	backGround.color=data[curSelected][3];
 	changements(0);
+}
+function enterSong() {
+	CoolUtil.playMenuSFX(1, getVolume(1, 'sfx'));
+	openSubState(new ModSubState("substates/Freeplay_substate"));
+	persistentUpdate = !persistentDraw;
+	FlxG.save.data.Bamber_SONGSONG = songser[subCurSelected];
 }
 function destroy() WindowUtils.set_suffix("");
 
