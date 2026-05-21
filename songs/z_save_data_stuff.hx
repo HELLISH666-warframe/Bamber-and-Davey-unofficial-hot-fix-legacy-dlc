@@ -36,8 +36,10 @@ function onGameOver(e) {
 		FlxG.resetState();
 	}
 }
-if (FlxG.save.data.options.freeplayDialogue&&!PlayState.seenCutscene){
-    playCutscenes=true;
+//Gameplay Options
+if (!PlayState.seenCutscene){
+	if(PlayState.isStoryMode && !FlxG.save.data.options.dialogue[0]) playCutscenes=false;
+	else playCutscenes=FlxG.save.data.options.dialogue[2];
 }
 
 var acheveweeks = [['w1','w2','w3'],['harvest','coop','fortnite duos']];

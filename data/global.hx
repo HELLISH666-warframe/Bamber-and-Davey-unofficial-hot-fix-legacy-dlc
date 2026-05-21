@@ -181,7 +181,7 @@ function new() {
     FlxG.save.data.options.scrollMode ??= 'Top';
     FlxG.save.data.options.middleScroll ??= false;
     FlxG.save.data.options.storyDialogue ??= true;
-    FlxG.save.data.options.freeplayDialogue ??= true;
+    FlxG.save.data.options.playlistDialogue ??= true;
     FlxG.save.data.options.ghostTapping??=true;
     FlxG.save.data.options.songOffset??=0;
 
@@ -355,6 +355,10 @@ public static function savetheshit() {
     Options.save();
     if (FlxG.updateFramerate < Options.framerate) FlxG.drawFramerate = FlxG.updateFramerate = Options.framerate;
 	else FlxG.updateFramerate = FlxG.drawFramerate = Options.framerate;
+
+    //Gameplay_options
+    FlxG.save.data.options.dialogue[0]=FlxG.save.data.options.storyDialogue;
+    FlxG.save.data.options.dialogue[1]=FlxG.save.data.options.playlistDialogue;
 
     //Window_shit.
     if(!window.fullscreen) window.borderless=FlxG.save.data.options.borderless;

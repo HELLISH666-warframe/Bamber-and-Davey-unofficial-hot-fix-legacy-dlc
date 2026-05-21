@@ -78,7 +78,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Middle Scroll", "Toggles your strum being centered", [], 'middleScroll','Bool'],
         ["Ghost Tapping", "Toggles ghost tapping", [], 'ghostTapping','Bool'],
         ["Story Mode Dialogue", "Toggles story mode dialogue", [], 'storyDialogue','Bool'],
-        ["Freeplay Dialogue", "Toggles freeplay dialogue", [], 'freeplayDialogue','Bool'],
+        ["Playlist Dialogue", "Toggles playlist dialogue", [], 'playlistDialogue','Bool'],
         ["Song Offset", "Changes the offset that songs should start with.", [-5000,5000], 'songOffset','Int'],
     ],
     [ // MISC

@@ -173,9 +173,8 @@ function changeOption(p) {
 	curOption = FlxMath.wrap(curOption + p, 0,  3);
 }
 function toggle() {
-	Reflect.setField(FlxG.save.data.options, optionSprites.members[curOption].option, !Reflect.field(FlxG.save.data.options, optionSprites.members[curOption].option));
-	optionSprites.members[curOption].checkBox.animation.play
-	(Reflect.field(FlxG.save.data.options,optionSprites.members[curOption].option));
+	FlxG.save.data.options.dialogue[2]=!FlxG.save.data.options.dialogue[2];
+	optionSprites.members[curOption].checkBox.animation.play(FlxG.save.data.options.dialogue[2]);
 	for(i in 0...optionSprites.members.length)
 		optionSprites.members[i].change();
 }
@@ -217,7 +216,7 @@ function optionSpawn(index,name,type,?save=null) {
 		optionItem.checkBox.animation.addByIndices("false", "Checkbox0", [9,8,7,6,5,4,3,2,1,0], '',24, false);
 		optionItem.checkBox.animation.addByPrefix('true', "Checkbox0", 24,false);
 		optionItem.checkBox.updateHitbox();
-		optionItem.checkBox.animation.play(Reflect.field(FlxG.save.data.options,save));
+		optionItem.checkBox.animation.play(FlxG.save.data.options.dialogue[2]);
 		case 'string':optionItem.text2 = new ClassicAlphabet(0,0,"123",true);
 		optionItem.text2.scale.set(0.7,0.7);
 		if(!FlxG.save.data.options.scrollSpeed)optionItem.text2.alpha=0.3;

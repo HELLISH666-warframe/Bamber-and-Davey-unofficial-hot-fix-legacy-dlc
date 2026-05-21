@@ -259,7 +259,7 @@ function resetTheModSave(howBad:String) {
         FlxG.save.data.options.scrollMode ??= 'Top';
         FlxG.save.data.options.middleScroll ??= false;
         FlxG.save.data.options.storyDialogue ??= true;
-        FlxG.save.data.options.freeplayDialogue ??= true;
+        FlxG.save.data.options.playlistDialogue ??= true;
         FlxG.save.data.options.ghostTapping??=true;
         FlxG.save.data.options.songOffset??=0;
         case 'Misc':

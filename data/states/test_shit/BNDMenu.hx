@@ -13,7 +13,7 @@ import Date;
 
 public static var initialized = false; //post-intro sequence check
 public static var isInMenu = false; //if the player is on the main menu or the title screen
-public static var isSubMenu = false; //if the player is on the main menu or the title screen
+var isSubMenu = false; //if the player is on the main menu or the title screen
 
 var skippableTweens = []; //Tweens that will be stored here will be skipped when you restart the state, or if you go into it from somewhere else
 
@@ -30,7 +30,7 @@ var buttonTextGroup;
 var goigne = false;
 var hoveringOverButton = false;
 
-var menuOptions = ['Play', 'Gallery', 'Achievements', 'Options', 'Credits'];
+var menuOptions = ['Play', 'Extra', 'Achievements', 'Options', 'Credits'];
 var submenuOptions = [['Story Mode', 'Freeplay'], ['Gallery', 'DLC']];
 
 public static var menuSelection = 0;
@@ -355,50 +355,8 @@ function setupTitleStuff() {
     logo.offset.y = -logo.height/2;
 }
 
-//var submenuOptions = [['Story Mode', 'Freeplay'], ['Gallery', 'DLC']];
-var buttonesGone:FlxTween;
-function setupSubMenuStuff() {
-    isSubMenu=true;
-    submenuNum=0;
-    buttonSubgroup.clear();
-    buttonTextGroup.clear();
-    for (i in buttonGroup.members) {
-        buttonesGone=FlxTween.tween(i, {y: 800}, 0.4, {ease: FlxEase.quartOut,onComplete: function(tween) {buttonGroup.clear();}});
-    }
-    for (i in 0...submenuOptions[menuSelection].length) {
-        var buttonSpr = new AnimatedFunkinSprite().loadSprite(Paths.image('menus/mainMenu/buttons'));
-
-        buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+submenuOptions[menuSelection][i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
-        buttonSpr.animateAtlas.anim.play("Button", true, true);
-
-		buttonSpr.ID = i;
-        buttonSpr.antialiasing = true;
-
-        buttonSpr.scale.x = buttonSpr.scale.y = (i == 0 ? 1 : 0.6); 
-        buttonSubgroup.add(buttonSpr);
-
-        buttonSpr.width = buttonSpr.height = 161 * buttonSpr.scale.x;
-        buttonSpr.x = (i == 0 ? 20 : (buttonSubgroup.members[i - 1].x + buttonSubgroup.members[i - 1].width) + 10);
-        buttonSpr.y = bottomBar.y + 20 - buttonSpr.height;
-
-        var coolText = new ClassicAlphabet(0, 0, submenuOptions[menuSelection][i].toUpperCase(), true, false);
-        coolText.scale.set(0.65, 0.65);
-
-        for (t in 0...coolText.members.length) {
-            coolText.members[t].updateHitbox();
-            if (t > 0) coolText.members[t].x = coolText.members[t-1].x + coolText.members[t-1].width + 2 + (coolText.members[t-1].visible ? 0 : 25);
-        }
-
-        coolText.x -= coolText.width;
-        buttonTextGroup.add(coolText);
-        coolText.alpha = 0;
-    }
-
-    bottomMenuGroup.add(buttonTextGroup);
-    changeSelection();
-}
-
 function setupMenuStuff() {
+    if(buttonTextGroup!=null)buttonTextGroup.clear();
     if(!isSubMenu){
     topMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[0]);
     bottomMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]);
@@ -453,6 +411,50 @@ function setupMenuStuff() {
     }
 
     bottomMenuGroup.add(buttonTextGroup);
+    changeSelection(0);
+}
+
+//var submenuOptions = [['Story Mode', 'Freeplay'], ['Gallery', 'DLC']];
+var buttonesGone:FlxTween;
+function setupSubMenuStuff() {
+    isSubMenu=true;
+    submenuNum=0;
+    buttonSubgroup.clear();
+    buttonTextGroup.clear();
+    for (i in buttonGroup.members) {
+        buttonesGone=FlxTween.tween(i, {y: 800}, 0.4, {ease: FlxEase.quartOut,onComplete: function(tween) {buttonGroup.clear();}});
+    }
+    for (i in 0...submenuOptions[menuSelection].length) {
+        var buttonSpr = new AnimatedFunkinSprite().loadSprite(Paths.image('menus/mainMenu/buttons'));
+
+        buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+submenuOptions[menuSelection][i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
+        buttonSpr.animateAtlas.anim.play("Button", true, true);
+
+		buttonSpr.ID = i;
+        buttonSpr.antialiasing = true;
+
+        buttonSpr.scale.x = buttonSpr.scale.y = (i == 0 ? 1 : 0.6); 
+        buttonSubgroup.add(buttonSpr);
+
+        buttonSpr.width = buttonSpr.height = 161 * buttonSpr.scale.x;
+        buttonSpr.x = (i == 0 ? 20 : (buttonSubgroup.members[i - 1].x + buttonSubgroup.members[i - 1].width) + 10);
+        buttonSpr.y = bottomBar.y + 20 - buttonSpr.height;
+
+        var coolText = new ClassicAlphabet(0, 0, submenuOptions[menuSelection][i].toUpperCase(), true, false);
+        coolText.scale.set(0.65, 0.65);
+
+        for (t in 0...coolText.members.length) {
+            coolText.members[t].updateHitbox();
+            if (t > 0) coolText.members[t].x = coolText.members[t-1].x + coolText.members[t-1].width + 2 + (coolText.members[t-1].visible ? 0 : 25);
+        }
+
+        coolText.x -= coolText.width;
+        buttonTextGroup.add(coolText);
+        coolText.alpha = 0;
+    }
+
+    bottomMenuGroup.add(buttonTextGroup);
+    changeSelection();
 }
 
 function getIntroTextShit() {
@@ -727,10 +729,18 @@ function update(elapsed) {
 }
 
 function changeSelection(change = 0) {
-    buttonTextGroup.members[menuSelection].alpha = 0;
+    for(i in 0...buttonTextGroup.length) buttonTextGroup.members[i].alpha = 0;
     if(isSubMenu){
         menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions[submenuNum].length - 1);
-        buttonTextGroup.members[menuSelection].alpha = 1;
+        buttonTextGroup.members[menuSubmenuSelection].alpha = 1;
+        for (i in buttonSubgroup.members) {
+        if (menuSubmenuSelection == i.ID) {
+			i.offset.y = 0;
+			FlxTween.globalManager.completeTweensOf(i);
+			FlxTween.tween(i.offset, {y: 20}, 0.2, {ease: FlxEase.quadOut, onComplete: function() {FlxTween.tween(i.offset, {y: 0}, 0.2, {ease: FlxEase.quadIn});}});
+		}
+        i.animateAtlas.anim.play("Button", true, menuSubmenuSelection == i.ID ? false : true, menuSubmenuSelection == i.ID ? i.animateAtlas.anim.curFrame - i.animateAtlas.anim.length : i.animateAtlas.anim.curFrame + i.animateAtlas.anim.length );
+    }
         return;
     }
     menuSelection = FlxMath.wrap(menuSelection+change, 0, menuOptions.length - 1);
@@ -776,7 +786,7 @@ function progressForwards() {
     } else {
 		if (goigne) return;
         CoolUtil.playMenuSFX(1, getVolume(1, 'sfx'));
-        if(menuSelection<=2&&!isSubMenu){
+        if(menuSelection<=1&&!isSubMenu){
             setupSubMenuStuff();
             return;
         }

@@ -37,7 +37,7 @@ var buttonTextGroup;
 var goigne = false;
 var hoveringOverButton = false;
 
-var menuOptions = ['Play', 'Gallery', 'Achievements', 'Options', 'Credits'];
+var menuOptions = ['Play', 'Extra', 'Achievements', 'Options', 'Credits'];
 var submenuOptions = ['Story Mode', 'Freeplay'];
 
 public static var menuSelection = 0;
@@ -431,7 +431,7 @@ function setupMenuStuff() {
 }
 
 function setupSubMenuStuff() {
-    for(i in buttonTextGroup.members) i.destroy();
+    buttonTextGroup.clear();
     buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
     for(i in buttonGroup.members)i.alpha=0;
     buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); insert(4,buttonTextGroup).camera = menuCamera;
@@ -467,6 +467,7 @@ function setupSubMenuStuff() {
     }
     bottomMenuGroup.add(buttonTextGroup);
     test_thing=buttonSubgroup;
+    processClickables();
 }
 
 function menuRegen() {
@@ -770,7 +771,7 @@ function update(elapsed) {
         }
     }
     else if(isInMenu&&submenuNum==2) {
-        if ((controls.LEFT_P || controls.RIGHT_P)) {
+        if (controls.LEFT_P || controls.RIGHT_P) {
             FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
             changeSelectionSUBMENU(controls.LEFT_P ? -1 : 1);
         }
@@ -804,6 +805,8 @@ function changeSelectionSUBMENU(change = 0) {
     }
     buttonTextGroup.members[oldSubMenuSelection].alpha = 0;
     buttonTextGroup.members[menuSubmenuSelection].alpha = 1;
+    if (buttonTextGroup.members[menuSubmenuSelection].text.toLowerCase()=="story mode"&&FlxG.random.int(1,100) == 1)
+        buttonTextGroup.members[menuSubmenuSelection].text = "Adventure Mode";
 }
 
 function acceptSUBMENU(){
@@ -829,6 +832,8 @@ function changeSelection(change = 0) {
 
     buttonTextGroup.members[oldMenuSelection].alpha = 0;
     buttonTextGroup.members[menuSelection].alpha = 1;
+    if (buttonTextGroup.members[menuSelection].text=="Story Mode"&&FlxG.random.int(1,100) == 1)
+        buttonTextGroup.members[menuSelection].text = "Adventure Mode";
 }
 
 function processClickables() {
