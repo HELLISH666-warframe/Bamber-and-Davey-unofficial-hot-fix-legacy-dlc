@@ -1,26 +1,19 @@
-import funkin.backend.FunkinSprite;
-import funkin.backend.system.Conductor;
-import flixel.sound.FlxSound;
-import flixel.util.FlxGradient;
 import flixel.effects.particles.FlxTypedEmitter;
 import flixel.effects.particles.FlxParticle;
-import openfl.Assets;
-import flixel.group.FlxTypedSpriteGroup;
-import flixel.FlxCamera;
-import openfl.filters.BitmapFilter;
-import openfl.filters.BlurFilter;
-import openfl.geom.Matrix;
-import funkin.savedata.FunkinSave;
-import flixel.FlxObject;
-import Date;
-import flixel.text.FlxText;
-import flixel.text.FlxTextBorderStyle;
 import flixel.addons.display.FlxBackdrop;
+import flixel.group.FlxTypedSpriteGroup;
 import funkin.menus.ui.ClassicAlphabet;
+import flixel.text.FlxTextBorderStyle;
+import openfl.filters.BitmapFilter;
+import funkin.savedata.FunkinSave;
+import openfl.filters.BlurFilter;
+import flixel.util.FlxGradient;
 import AnimatedFunkinSprite;
+import Date;
 
 public static var initialized = false; //post-intro sequence check
 public static var isInMenu = false; //if the player is on the main menu or the title screen
+var isSubMenu = false; //if the player is on the sub menu or the main screen
 
 var skippableTweens = []; //Tweens that will be stored here will be skipped when you restart the state, or if you go into it from somewhere else
 
@@ -38,12 +31,11 @@ var goigne = false;
 var hoveringOverButton = false;
 
 var menuOptions = ['Play', 'Extra', 'Achievements', 'Options', 'Credits'];
-var submenuOptions = ['Story Mode', 'Freeplay'];
+var submenuOptions = [['Story Mode', 'Freeplay'], ['Gallery', 'DLC']];
 
 public static var menuSelection = 0;
 public static var menuSubmenuSelection = 0;
-public var submenuNum:Int = 1; //there are two submenus in vol.3, for play and for extras
-public var subMenuBool:Bool = false;
+public static var submenuNum = -1; //there are two submenus in vol.3, for play and for extras
 
 //SFX
 var windAmbience, vinylSound;
@@ -66,26 +58,19 @@ var conditionProcess = false; //When you can progress
 var currentlyUsedObjects = []; //For clickable objects, where they are going through a something
 
 //Week Score Checker Per Character
-import funkin.menus.StoryMenuState.StoryWeeklist;
 function checkDifficultyDiscover(weekName, ?doCheckDifficulty = true) {
-    var found = null;
-
     if (FlxG.save.data.gameStats.discoveries[weekName]) {
         found = (doCheckDifficulty == true ? 'Easy' : true);
 
         if (doCheckDifficulty) {
             for (diff in ['Hard', 'Normal']) {if (FunkinSave.getWeekHighscore(weekName, diff).score != 0) {found = diff; break;}}
         }
-    } else {
-        found = (doCheckDifficulty == true ? 'Locked' : false);
-    }
+    } else found = (doCheckDifficulty == true ? 'Locked' : false);
 
     return found;
 }
 
-function getName(char, index) {
-    return char + '_' + mainCharacterDiffs[index];
-}
+function getName(char, index) return char + '_' + mainCharacterDiffs[index];
 
 var easterEggs = [FlxG.random.int(1,100) == 50, FlxG.random.int(1,10) == 5, FlxG.random.int(1,50) == 25]; //Replace Screen With Hole, Fire In The Hole, Isaac Alt Animations
 
@@ -178,7 +163,7 @@ function create() {
         FlxG.camera._filters.push(blurFilter);
     }
 
-    skybox.antialiasing = true; add(skybox);
+    add(skybox).antialiasing = true;
 
     if (!initialized) setupPreTitleStuff();
 
@@ -189,13 +174,11 @@ function create() {
 
     beatHit(0);
 
-    if ((initialized) || (hasseen)) skipIntro();
-    test_thing=buttonGroup;
+    if (initialized || hasseen) skipIntro();
 }
 
 function setupPreTitleStuff() {
-    earth = new FlxSprite(0, FlxG.height - 250).loadGraphic(Paths.image('menus/titleScreen/Earth')); earth.antialiasing = true; add(earth);
-    earth.velocity.y = -21;
+    earth = new FlxSprite(0, FlxG.height - 250).loadGraphic(Paths.image('menus/titleScreen/Earth')); earth.antialiasing = true; add(earth).velocity.y = -21;
 
     //Background Birds
     birdFlock = new FunkinSprite().loadSprite(Paths.image('menus/titleScreen/BirdFlock'));
@@ -274,8 +257,7 @@ function setupTitleStuff() {
         clouds = new FlxSprite().loadGraphic(Paths.image('menus/titleScreen/SpinningClouds'));
         clouds.antialiasing = true;
         clouds.alpha = 0.001; clouds.scale.x = clouds.scale.y = 3*5.6;
-        clouds.screenCenter(); add(clouds);
-        clouds.shader = new CustomShader('smoothRotate');
+        clouds.screenCenter(); add(clouds).shader = new CustomShader('smoothRotate');
 
         vinylSound = FlxG.sound.load(Paths.sound('menu/titleScreen/vinyl'), getVolume(0.5, 'sfx'), true); vinylSound.pitch = 0;
         
@@ -374,7 +356,8 @@ function setupTitleStuff() {
 }
 
 function setupMenuStuff() {
-    if(buttonGroup!=null)buttonGroup.destroy();
+    if(buttonTextGroup!=null)buttonTextGroup.clear();
+    if(!isSubMenu){
     topMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[0]);
     bottomMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]);
     topMenuGroup.cameras = bottomMenuGroup.cameras = [menuCamera];
@@ -389,15 +372,20 @@ function setupMenuStuff() {
     bottomBar.angle = 17; bottomBar.updateHitbox();
     bottomBar.x -= 130; bottomBar.y = FlxG.height - 50;
     bottomMenuGroup.add(bottomBar);
+    
 
     buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
     buttonGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonGroup.cameras = [menuCamera]; add(buttonGroup);
 
     buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
+    }
+
+    for (i in ['Play','Extra','Achievements','Options','Credits','Story Mode','Freeplay','Gallery','DLC']) {
+        
+    }
 
     for (i in 0...menuOptions.length) {
-        var buttonSpr = new AnimatedFunkinSprite();
-        buttonSpr.loadSprite(Paths.image('menus/mainMenu/buttons'));
+        var buttonSpr = new AnimatedFunkinSprite().loadSprite(Paths.image('menus/mainMenu/buttons'));
 
         buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+menuOptions[i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
         buttonSpr.animateAtlas.anim.play("Button", true, true);
@@ -413,7 +401,7 @@ function setupMenuStuff() {
         buttonSpr.y = bottomBar.y + 20 - buttonSpr.height;
 
         //TITLE TEXT
-        var coolText:ClassicAlphabet = new ClassicAlphabet(0, 0, menuOptions[i].toUpperCase(), true, false);
+        var coolText = new ClassicAlphabet(0, 0, menuOptions[i].toUpperCase(), true, false);
         coolText.scale.set(0.65, 0.65);
 
         for (t in 0...coolText.members.length) {
@@ -427,20 +415,23 @@ function setupMenuStuff() {
     }
 
     bottomMenuGroup.add(buttonTextGroup);
-    test_thing=bottomMenuGroup;
+    changeSelection(0);
 }
 
+//var submenuOptions = [['Story Mode', 'Freeplay'], ['Gallery', 'DLC']];
+var buttonesGone:FlxTween;
 function setupSubMenuStuff() {
+    isSubMenu=true;
+    submenuNum=0;
+    buttonSubgroup.clear();
     buttonTextGroup.clear();
-    buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
-    for(i in buttonGroup.members)i.alpha=0;
-    buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); insert(4,buttonTextGroup).camera = menuCamera;
+    for (i in buttonGroup.members) {
+        buttonesGone=FlxTween.tween(i, {y: 800}, 0.4, {ease: FlxEase.quartOut,onComplete: function(tween) {buttonGroup.clear();}});
+    }
+    for (i in 0...submenuOptions[menuSelection].length) {
+        var buttonSpr = new AnimatedFunkinSprite().loadSprite(Paths.image('menus/mainMenu/buttons'));
 
-    for (i in 0...submenuOptions.length) {
-        var buttonSpr = new AnimatedFunkinSprite();
-        buttonSpr.loadSprite(Paths.image('menus/mainMenu/buttons'));
-
-        buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+submenuOptions[i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
+        buttonSpr.animateAtlas.anim.addBySymbol("Button", "Scenes/MainMenu/Buttons/Button_"+submenuOptions[menuSelection][i]+'\\', 24, false); //the \ makes sure it chooses what we want instead of the closest thing it thinks of (i.g. no instead of none)
         buttonSpr.animateAtlas.anim.play("Button", true, true);
 
 		buttonSpr.ID = i;
@@ -451,34 +442,10 @@ function setupSubMenuStuff() {
 
         buttonSpr.width = buttonSpr.height = 161 * buttonSpr.scale.x;
         buttonSpr.x = (i == 0 ? 20 : (buttonSubgroup.members[i - 1].x + buttonSubgroup.members[i - 1].width) + 10);
-        buttonSpr.y = 670+ 20 - buttonSpr.height;
+        buttonSpr.y = bottomBar.y + 20 - buttonSpr.height;
 
-        var coolText:ClassicAlphabet = new ClassicAlphabet(0, 0, submenuOptions[i].toUpperCase(), true, false);
-        coolText.scale.set(0.65, 0.65);
-
-        for (t in 0...coolText.members.length) {
-            coolText.members[t].updateHitbox();
-            if (t > 0) coolText.members[t].x = coolText.members[t-1].x + coolText.members[t-1].width + 2 + (coolText.members[t-1].visible ? 0 : 25);
-        }
-
-        coolText.x -= coolText.width;
-        buttonTextGroup.add(coolText);
-        coolText.alpha = 0;
-    }
-    bottomMenuGroup.add(buttonTextGroup);
-    test_thing=buttonSubgroup;
-    processClickables();
-}
-
-function menuRegen() {
-    for(i in buttonGroup.members)i.alpha=1;
-    if(buttonSubgroup!=null)buttonSubgroup.destroy();
-    if(buttonTextGroup!=null)buttonTextGroup.destroy();
-    buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); insert(4,buttonTextGroup).camera = menuCamera;
-
-    for (i in 0...menuOptions.length) {
-        //TITLE TEXT
-        var coolText:ClassicAlphabet = new ClassicAlphabet(0, 0, menuOptions[i].toUpperCase(), true, false);
+        if(!submenuOptions[0].contains("Adventure Mode"))submenuOptions[0].push("Adventure Mode");
+        var coolText = new ClassicAlphabet(0, 0, submenuOptions[menuSelection][i].toUpperCase(), true, false);
         coolText.scale.set(0.65, 0.65);
 
         for (t in 0...coolText.members.length) {
@@ -492,12 +459,11 @@ function menuRegen() {
     }
 
     bottomMenuGroup.add(buttonTextGroup);
-
-    test_thing=buttonGroup;
+    changeSelection();
 }
 
 function getIntroTextShit() {
-	var firstArray = Assets.getText(Paths.txt('config/introText')).split('\n');
+    var firstArray = Assets.getText(Paths.txt('config/introText')).split('\n');
 	var swagGoodArray = [];
 
 	for (i in firstArray) swagGoodArray.push(i.split('--'));
@@ -508,7 +474,7 @@ function getIntroTextShit() {
 var allTexts = getIntroTextShit();
 
 function addText(text:String, ?offset = 0, ?offLoad = 0){
-	var coolText:ClassicAlphabet = new ClassicAlphabet(0, ((titleTextGroup.length - offLoad) * 60), text, true, false);
+	var coolText = new ClassicAlphabet(0, ((titleTextGroup.length - offLoad) * 60), text, true, false);
 
     coolText.scale.set(0.65, 0.65); //so this adjusts the scale of every object inside but doesn't adjust their positions nor hitbox (when i updateHitbox()), so I have to do it manually for every group member
     coolText.targetY = 0;
@@ -585,11 +551,6 @@ var yLevel = 0;
 var oldYLevel = 0;
 
 function update(elapsed) {
-    if (controls.SWITCHMOD||FlxG.keys.justPressed.SEVEN) {
-		import funkin.menus.ModSwitchMenu; import funkin.editors.EditorPicker;
-		controls.SWITCHMOD ? openSubState(new ModSubState('substates/ModSwitch')) :openSubState(new EditorPicker());
-		persistentUpdate = !persistentDraw;
-	}
     if (FlxG.keys.justPressed.F9) { //DEV, REMOVE ONCE DONE!
         initialized = false;
         FlxG.sound.music.stop();
@@ -599,8 +560,6 @@ function update(elapsed) {
         menuGroupDrags = [-250, 250];
         FlxG.resetState();
     }
-    if (FlxG.keys.justPressed.J) FlxG.switchState(new ModState("test_shit/BNDFreeplayCategories copy"));
-    if (FlxG.keys.justPressed.B) FlxG.switchState(new ModState("test_shit/BNDMenu"));
 
     if (!initialized) {
         earth.scale.x = earth.scale.y += 0.04 * elapsed;
@@ -677,8 +636,7 @@ function update(elapsed) {
                     if (occupiedObject == null) FlxG.sound.play(Paths.sound('menu/titleScreen/zoom'), getVolume(1, 'sfx'));
 
                     logo.scale.x = logo.scale.y = CoolUtil.fpsLerp(logo.scale.y, logoLerping[2] * 1.1, 0.2);
-                    logo.x = CoolUtil.fpsLerp(logo.x, logoLerping[0] + 6 * logoLerping[2], 0.2); //Offset's fucked up which is why
-                    logo.y = CoolUtil.fpsLerp(logo.y, logoLerping[1] + 6 * logoLerping[2], 0.2);
+                    logo.setPosition(CoolUtil.fpsLerp(logo.x, logoLerping[0] + 6 * logoLerping[2], 0.2),CoolUtil.fpsLerp(logo.y, logoLerping[1] + 6 * logoLerping[2], 0.2)); //Offset's fucked up which is why
                 case startBar | teamText:
                     if (!FlxG.mouse.justPressed && !currentlyUsedObjects.contains(selectedObject)) {
                         currentlyUsedObjects.push(selectedObject);
@@ -734,13 +692,10 @@ function update(elapsed) {
             if (occupiedObject == null) occupiedObject = selectedObject;
         }
 
-        if (isInMenu) {
-            logoLerping[1] = topBar.y + topBar.height - 50;
-        }
+        if (isInMenu) logoLerping[1] = topBar.y + topBar.height - 50;
 
         if (occupiedObject != logo) {
-            logo.x = CoolUtil.fpsLerp(logo.x, logoLerping[0], 0.1);
-            logo.y = CoolUtil.fpsLerp(logo.y, logoLerping[1], 0.1);
+            logo.setPosition(CoolUtil.fpsLerp(logo.x, logoLerping[0], 0.1),CoolUtil.fpsLerp(logo.y, logoLerping[1], 0.1));
             logo.scale.x = logo.scale.y = CoolUtil.fpsLerp(logo.scale.y, logoLerping[2], 0.1);
         }
         
@@ -762,78 +717,54 @@ function update(elapsed) {
     if (conditionProcess) {
         (initialized == false) ? skipIntro() : progressForwards(); //the switchstate is a placeholder thing
     }
-    if ((controls.BACK || FlxG.mouse.justPressedRight) && isInMenu&&submenuNum==1) progressBackwards();
+    if ((controls.BACK || FlxG.mouse.justPressedRight) && isInMenu) progressBackwards();
 
-    if (isInMenu&&submenuNum==1) {
+    if (controls.SWITCHMOD||FlxG.keys.justPressed.SEVEN) {
+		import funkin.menus.ModSwitchMenu; import funkin.editors.EditorPicker;
+		controls.SWITCHMOD ? openSubState(new ModSubState('substates/ModSwitch')) :openSubState(new EditorPicker());
+		persistentUpdate = !persistentDraw;
+	}
+
+    if (isInMenu) {
         if (controls.LEFT_P || controls.RIGHT_P) {
             FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
             changeSelection(controls.LEFT_P ? -1 : 1);
         }
     }
-    else if(isInMenu&&submenuNum==2) {
-        if (controls.LEFT_P || controls.RIGHT_P) {
-            FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
-            changeSelectionSUBMENU(controls.LEFT_P ? -1 : 1);
-        }
-        if(controls.ACCEPT){acceptSUBMENU();
-        subMenuBool=true;
-        }
-        if(controls.BACK){
-            for (i in 0...menuOptions.length) {
-                menuOptions = ['Play', 'Gallery', 'Achievements', 'Options', 'Credits'];
-                buttonTextGroup.members[i].text=menuOptions[i].toUpperCase();
-                subMenuBool=false;
-                submenuNum=1;
-           }
-           menuRegen();
-           changeSelection(0);
-           processClickables();
-        }
-    }
 }
 
-function changeSelectionSUBMENU(change = 0) {
-    var oldSubMenuSelection = menuSubmenuSelection;
-    menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions.length - 1);
-     for (i in buttonSubgroup.members) {
+function changeSelection(change = 0) {
+    for(i in 0...buttonTextGroup.length) {buttonTextGroup.members[i].alpha = 0;
+    trace(buttonTextGroup.members[i].text);
+    }
+    if(isSubMenu){
+        menuSubmenuSelection = FlxMath.wrap(menuSubmenuSelection+change, 0, submenuOptions[submenuNum].length - 1);
+        if (buttonTextGroup.members[menuSubmenuSelection].text.toLowerCase()=="story mode"&&FlxG.random.int(1,100) == 1)
+            buttonTextGroup.members[2].alpha = 1;
+        else
+        buttonTextGroup.members[menuSubmenuSelection].alpha = 1;
+        for (i in buttonSubgroup.members) {
         if (menuSubmenuSelection == i.ID) {
 			i.offset.y = 0;
 			FlxTween.globalManager.completeTweensOf(i);
-			FlxTween.tween(i, {"offset.y": 20}, 0.2, {ease: FlxEase.quadOut, onComplete: function() {FlxTween.tween(i, {"offset.y": 0}, 0.2, {ease: FlxEase.quadIn});}});
+			FlxTween.tween(i.offset, {y: 20}, 0.2, {ease: FlxEase.quadOut, onComplete: function() {FlxTween.tween(i.offset, {y: 0}, 0.2, {ease: FlxEase.quadIn});}});
 		}
         i.animateAtlas.anim.play("Button", true, menuSubmenuSelection == i.ID ? false : true, menuSubmenuSelection == i.ID ? i.animateAtlas.anim.curFrame - i.animateAtlas.anim.length : i.animateAtlas.anim.curFrame + i.animateAtlas.anim.length );
     }
-    buttonTextGroup.members[oldSubMenuSelection].alpha = 0;
-    buttonTextGroup.members[menuSubmenuSelection].alpha = 1;
-    if (buttonTextGroup.members[menuSubmenuSelection].text.toLowerCase()=="story mode"&&FlxG.random.int(1,100) == 1)
-        buttonTextGroup.members[menuSubmenuSelection].text = "Adventure Mode";
-}
-
-function acceptSUBMENU(){
-    if(subMenuBool)return
-    progressForwards();
-}
-
-//Todo: MERGE THIS WITH THE SUBMENU ONE.
-function changeSelection(change = 0) {
-    var oldMenuSelection = menuSelection;
+        return;
+    }
     menuSelection = FlxMath.wrap(menuSelection+change, 0, menuOptions.length - 1);
 	trace("selecting");
     for (i in buttonGroup.members) {
-        if (menuSelection == i.ID) 
-		{
-			//i.triggerBounceAnimation(0.4);
+        if (menuSelection == i.ID) {
 			i.offset.y = 0;
 			FlxTween.globalManager.completeTweensOf(i);
-			FlxTween.tween(i, {"offset.y": 20}, 0.2, {ease: FlxEase.quadOut, onComplete: function() {FlxTween.tween(i, {"offset.y": 0}, 0.2, {ease: FlxEase.quadIn});}});
+			FlxTween.tween(i.offset, {y: 20}, 0.2, {ease: FlxEase.quadOut, onComplete: function() {FlxTween.tween(i.offset, {y: 0}, 0.2, {ease: FlxEase.quadIn});}});
 		}
         i.animateAtlas.anim.play("Button", true, menuSelection == i.ID ? false : true, menuSelection == i.ID ? i.animateAtlas.anim.curFrame - i.animateAtlas.anim.length : i.animateAtlas.anim.curFrame + i.animateAtlas.anim.length );
     }
 
-    buttonTextGroup.members[oldMenuSelection].alpha = 0;
     buttonTextGroup.members[menuSelection].alpha = 1;
-    if (buttonTextGroup.members[menuSelection].text=="Story Mode"&&FlxG.random.int(1,100) == 1)
-        buttonTextGroup.members[menuSelection].text = "Adventure Mode";
 }
 
 function processClickables() {
@@ -862,9 +793,13 @@ function progressForwards() {
         barLerping = 0;
         menuGroupDrags = [0, 0];
         logoLerping = [870, null, 0.6];
-    } else if (isInMenu && submenuNum==1 &&menuSelection!=0){
+    } else {
 		if (goigne) return;
         CoolUtil.playMenuSFX(1, getVolume(1, 'sfx'));
+        if(menuSelection<=1&&!isSubMenu){
+            setupSubMenuStuff();
+            return;
+        }
 		goigne = true;
         FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
         FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
@@ -882,56 +817,44 @@ function progressForwards() {
 		
 		new FlxTimer().start(0.5, ()->{menuCamera.fade(0xFF000000, 0.5, false);});
 
+        if(isSubMenu){
+            new FlxTimer().start(1, ()->{
+                switch (menuSelection) {
+                    case 0:switch(menuSubmenuSelection){
+                        case 0:import funkin.menus.StoryMenuState; FlxG.switchState(new StoryMenuState());
+                        case 1:FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
+                    }
+                    case 1:switch(menuSubmenuSelection){
+                        case 0:trace("Never was coded.");FlxG.resetState();
+                        case 1:trace("Never was coded.");FlxG.resetState();
+                    }
+                }
+            });
+            return;
+        }
 		new FlxTimer().start(1, ()->{
-			switch (menuSelection)
-			{
-				case 0: //Note , don't forget to code the sub options.
-                    FlxG.switchState(new ModState("BNDFreeplayCategories"));
-				case 1: trace("Never was coded.");FlxG.resetState();//FlxG.switchState(new ModState("GalleryState"));
+			switch (menuSelection) {
+				case 0:setupSubMenuStuff();
+				case 1:setupSubMenuStuff();
 				case 2:FlxG.switchState(new ModState("YCE/MedalsState"));
 				case 3:FlxG.switchState(new ModState("BND/BNDSettings"));
-				case 4:
-					import funkin.menus.credits.CreditsMain;
-					FlxG.switchState(new CreditsMain());
+				case 4:import funkin.menus.credits.CreditsMain;
+				FlxG.switchState(new CreditsMain());
 			}
 		});
-    }else if (isInMenu && submenuNum==2){
-		if (goigne) return;
-        CoolUtil.playMenuSFX(1, getVolume(1, 'sfx'));
-		goigne = true;
-        FlxTween.tween(characterGroup, {alpha: -1, y: FlxG.height + 1000}, 1, {ease: FlxEase.quartIn});
-        FlxTween.tween(characterGroup.scale, {x: 1.3, y: 1.3}, 1, {ease: FlxEase.quartIn});
-
-        FlxTween.tween(foreground.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
-        FlxTween.tween(foreground, {y: foreground.y + 610}, 1, {ease: FlxEase.quartIn});
-		
-        FlxTween.tween(background.scale, {x: 2, y: 2}, 1, {ease: FlxEase.quartIn});
-        FlxTween.tween(background, {y: background.y + 1000}, 1, {ease: FlxEase.quartIn});
-		
-        FlxTween.tween(clouds.scale, {x: clouds.scale.x*2, y: clouds.scale.y*2}, 1, {ease: FlxEase.quartIn, onComplete: function(tween) {
-            clouds.updateHitbox();
-            clouds.screenCenter(); clouds.y = clouds.y + 210;
-        }});
-		
-		new FlxTimer().start(0.5, ()->{menuCamera.fade(0xFF000000, 0.5, false);});
-
-		new FlxTimer().start(1, ()->{
-		switch (menuSubmenuSelection) {
-		case 0: //Note , don't forget to code the sub options.
-        import funkin.menus.StoryMenuState;
-        FlxG.switchState(new StoryMenuState());
-		case 1: FlxG.switchState(new ModState("BND/BNDFreeplayCategories"));
-   			}
-		});
-    }else if(isInMenu&&menuSelection<=1&&submenuNum==1){
-        menuOptions=submenuOptions;
-        setupSubMenuStuff();
-        submenuNum=2;
-        changeSelectionSUBMENU(0);
     }
 }
 
 function progressBackwards() {
+    buttonesGone.cancel();
+    if(isSubMenu){
+        buttonSubgroup.clear();
+        setupMenuStuff();
+        if(submenuOptions[0][2]!=null)submenuOptions[0].remove("Adventure Mode");
+        processClickables();
+        isSubMenu=false;
+        return;
+    }
     isInMenu = false;
 
     processClickables();
@@ -947,8 +870,6 @@ function progressBackwards() {
 var highestIndex = -1;
 var occupiedObject;
 var stoppedCloudTimer = 0;
-
-var test_thing=buttonGroup;
 
 function postUpdate(elapsed) {
     if (initialized) {
@@ -974,22 +895,18 @@ function postUpdate(elapsed) {
             if (!easterEggs[0]) vinylSound.pitch = 0;
         }
 
-        test_thing.forEach(function (button) {
+        buttonGroup.forEach(function (button) {
 			//button.scale.x = button.scale.y = CoolUtil.fpsLerp(button.scale.y, (menuSelection == button.ID ? 1 : 0.6), 0.33); button.animateAtlas.updateHitbox();
 
             button.width = button.height = 161 * button.scale.x;
 
-            button.x = CoolUtil.fpsLerp(button.x, (button.ID == 0 ? 20 : (test_thing.members[button.ID - 1].x + test_thing.members[button.ID - 1].width) + 10), 0.33);
-            button.y = bottomBar.y + 20 - button.height;
+            button.x = CoolUtil.fpsLerp(button.x, (button.ID == 0 ? 20 : (buttonGroup.members[button.ID - 1].x + buttonGroup.members[button.ID - 1].width) + 10), 0.33);
+            if(!isSubMenu)button.y = bottomBar.y + 20 - button.height;
 
             if (isInMenu && FlxG.mouse.visible && FlxG.mouse.overlaps(button) && occupiedObject == null) {
 				hoveringOverButton = true;
 				trace("hovering");
-                if (menuSubmenuSelection != button.ID && submenuNum==2) {
-                    FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
-                    changeSelectionSUBMENU(button.ID - menuSubmenuSelection);
-                }
-                if (menuSelection != button.ID && submenuNum!=2) {
+                if (menuSelection != button.ID) {
                     FlxG.sound.play(Paths.sound('menu/firstTime/firstButtonScroll'), getVolume(0.8, 'sfx'));
                     changeSelection(button.ID - menuSelection);
                 }
@@ -1024,30 +941,28 @@ function draw(event) {
 function beatHit(curBeat) {
     if (!initialized) {
         switch curBeat {
-            //case 0 :
-            case 1://This fixes it???
-                addText("TEAM REIMAGINATION");
-                recolorText(0,[0,99],0xffE394B0);
-            case 2: addText("and the rest of");
-            case 3: addText("THE BND TEAM");
-                recolorText(2,[4,4],0xff91E11A);
-                recolorText(2,[6,6],0xff4E8DE3);
-            case 4: addText("present");
-            case 6: spawnParachute(0);
-            case 7: removeText();
-            case 8: addText("An interpretation", 30, 4);
-            case 10: addText("of", 30, 4);
-            case 12: addText("VS. DAVE & BAMBI", 30, 4);
-                recolorText(6,[4,7],0xff4E8DE3);
-                recolorText(6,[11,99],0xff91E11A);
-            case 14: spawnParachute(4);
-            case 15: removeText();
+            case 0:addText("TEAM REIMAGINATION");
+            recolorText(0,[0,99],0xffE394B0);
+            case 2:addText("and the rest of");
+            case 3:addText("THE BND TEAM");
+            recolorText(2,[4,4],0xff91E11A);
+            recolorText(2,[6,6],0xff4E8DE3);
+            case 4:addText("present");
+            case 6:spawnParachute(0);
+            case 7:removeText();
+            case 8:addText("An interpretation", 30, 4);
+            case 10:addText("of", 30, 4);
+            case 12:addText("VS. DAVE & BAMBI", 30, 4);
+            recolorText(6,[4,7],0xff4E8DE3);
+            recolorText(6,[11,99],0xff91E11A);
+            case 14:spawnParachute(4);
+            case 15:removeText();
             case 24: logo.alpha = 1;
             logo.playAnim('Appearing', true);
             case 28:
             if (FlxG.save.data.options.shaders == 'all') skippableTweens.push(FlxTween.tween(blurFilter, {blurX: 8, blurY: 8}, 1, {ease: FlxEase.quartInOut}));
-            case 29: titleTextGroup.clear();
-            case 32: skipIntro();
+            case 29:titleTextGroup.clear();
+            case 32:skipIntro();
         }
 
         if (curBeat >= 16 && curBeat < 24) {
@@ -1056,20 +971,14 @@ function beatHit(curBeat) {
                 usedTexts.push(picked);
                 curWacky = allTexts[picked];
                 addText(curWacky[0], 60, 7 + (curBeat == 20 ? 2 : 0));
-            } else if (curBeat % 4 == 1) {
-                addText(curWacky[1], 60, 7 + (curBeat == 21 ? 2 : 0));
-            } else if (curBeat % 4 == 2) {
-                spawnParachute(7 + (curBeat == 22 ? 2 : 0));
-            } else if (curBeat % 4 == 3) {
-                removeText();
-            }
+            } else if (curBeat % 4 == 1) addText(curWacky[1], 60, 7 + (curBeat == 21 ? 2 : 0));
+            else if (curBeat % 4 == 2) spawnParachute(7 + (curBeat == 22 ? 2 : 0));
+            else if (curBeat % 4 == 3) removeText();
         }
     } else {
         logo.playAnim('Idle'+curBeat % 4, true);
 
-        if (!easterEggs[0]) {
-            charDance();
-        }
+        if (!easterEggs[0]) charDance();
     }
 }
 
@@ -1150,13 +1059,11 @@ function skipIntro() {
     } else {
         background.visible = true; 
         if (!initialized) pushToClickables(background);
-        add(holeEasterEgg); holeEasterEgg.visible = false;
+        add(holeEasterEgg).visible = false;
     }
     
     if (initialized) {
-        for (tween in skippableTweens) {
-            tween.percent = 1;
-        }
+        for (tween in skippableTweens) tween.percent = 1;
 
         if (isInMenu) {
             logoLerping[1] = topBar.y + topBar.height - 50;
@@ -1166,7 +1073,7 @@ function skipIntro() {
         processClickables();
     } else initialized = true;
 
-    changeSelection(0);
+    changeSelection();
 
     if (!easterEggs[0]) charDance();
 }
