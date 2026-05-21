@@ -28,6 +28,9 @@ class FreeplayOptions extends FlxSprite {
 		if(text2!=null)text2.destroy();
 	}
 	public function change() {
+		if(checkBox!=null){
+			checkBox.animation.play(Reflect.field(FlxG.save.data.options,option));
+		}
 		if(text2!=null){
 			text2.scale.set(0.7,0.7);
 			text2.text="<"+Reflect.field(FlxG.save.data.options, option)+">";

@@ -356,13 +356,14 @@ function setupTitleStuff() {
 }
 
 //var submenuOptions = [['Story Mode', 'Freeplay'], ['Gallery', 'DLC']];
+var buttonesGone:FlxTween;
 function setupSubMenuStuff() {
     isSubMenu=true;
     submenuNum=0;
     buttonSubgroup.clear();
     buttonTextGroup.clear();
     for (i in buttonGroup.members) {
-        skippableTweens.push(FlxTween.tween(i, {y: 800}, 0.4+i, {ease: FlxEase.quartOut}));
+        buttonesGone=FlxTween.tween(i, {y: 800}, 0.4, {ease: FlxEase.quartOut,onComplete: function(tween) {buttonGroup.clear();}});
     }
     for (i in 0...submenuOptions[menuSelection].length) {
         var buttonSpr = new AnimatedFunkinSprite().loadSprite(Paths.image('menus/mainMenu/buttons'));
@@ -398,6 +399,7 @@ function setupSubMenuStuff() {
 }
 
 function setupMenuStuff() {
+    if(!isSubMenu){
     topMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[0]);
     bottomMenuGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]);
     topMenuGroup.cameras = bottomMenuGroup.cameras = [menuCamera];
@@ -412,11 +414,13 @@ function setupMenuStuff() {
     bottomBar.angle = 17; bottomBar.updateHitbox();
     bottomBar.x -= 130; bottomBar.y = FlxG.height - 50;
     bottomMenuGroup.add(bottomBar);
+    
 
     buttonSubgroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonSubgroup.cameras = [menuCamera]; add(buttonSubgroup);
     buttonGroup = new FlxTypedSpriteGroup(0, menuGroupDrags[1]); buttonGroup.cameras = [menuCamera]; add(buttonGroup);
 
     buttonTextGroup = new FlxTypedSpriteGroup(FlxG.width - 20, 620); buttonTextGroup.cameras = [menuCamera]; add(buttonTextGroup);
+    }
 
     for (i in 0...menuOptions.length) {
         var buttonSpr = new AnimatedFunkinSprite().loadSprite(Paths.image('menus/mainMenu/buttons'));
@@ -822,8 +826,10 @@ function progressForwards() {
 }
 
 function progressBackwards() {
+    buttonesGone.cancel();
     if(isSubMenu){
         buttonSubgroup.clear();
+        setupMenuStuff();
         processClickables();
         isSubMenu=false;
         return;
