@@ -30,6 +30,7 @@ function postCreate(){
         i.x += 1010;
         i.visible=false;
     }
+    iconP2.setIcon('ronnieandboris-old');
 }
 function fadePixels(time:Float, size:Float)
 	FlxTween.num(pixelSize, size, time, {ease: FlxEase.quartInOut}, function(v) {pixelSize = v;});
@@ -38,12 +39,6 @@ function update(elapsed:Float)  pixel.pixel_size = pixelSize;
 
 function onStrumCreation(e) if(!e.player) e.__doAnimation=false;//So_the_y_isnt_fucked_up.
 //for(num => a in [iconP1, iconP2]) a.setIcon(["bf-fortniteduos", "ronnieandboris"][num]);
-function onCameraMove(e)
-    if(curCameraTarget==0||curCameraTarget==3){
-    iconP2.setIcon(curCameraTarget==0?'ronnie-old':'boris-old');
-    //healthBar.createFilledBar(curCameraTarget==0?0xFFF600:0xFFFFFF, boyfriend.iconColor);
-    }
-
 function giveBirthToThe3rd() {
 	for (i in strumLines) FlxTween.cancelTweensOf(i);
 	for (i in 0...cpuStrums.length) {

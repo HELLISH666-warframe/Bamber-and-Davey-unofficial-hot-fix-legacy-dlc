@@ -8,10 +8,12 @@
 - - Save system
 
 - Freeplay
+- - StageBgs as background image???
 - - Custom song support.
 - - Stats button???/ stats SCREEN.
 - - Playall function for playlists.
 - - Freeplay-substate
+- - - Use song titles instead of alphabet(still use alphabet as placeholder).
 - - - Make options text, options & checkboxes a combined classe instead
 - - - Scroll speed
 - - - Composer text

@@ -9,10 +9,9 @@ var click_through:Bool = false;
 var coolCam = new FlxCamera();//Cam_for_the_substate.
 var portrait = new FlxSprite(700);
 
-var play_Text = new Alphabet(1055, 665, 'PLAY', true);
 var hitbox:FlxSprite;//Scaling_the_text_up_fucks_up_the_hitbox_so_this.
 
-var songName = new Alphabet(285.25, 70, 0, true);
+var songName = new Alphabet(285.25, 70, curSong.displayName, true);
 var composer = new Alphabet(0, 130, 0, true);
 
 var difficultySprites:Map<String, FlxSprite> = [];
@@ -31,43 +30,37 @@ static var prevSong:String = "";
 
 var optionSprites = new FlxTypedGroup();
 function create() {
+	camera = coolCam = new FlxCamera();
+	FlxG.cameras.add(coolCam, false).bgColor = 0x00000000;
 	new FlxTimer().start(0.2, ()->{click_through = true;});//Anti_fuckup_thing.
 	prevchar = curPlayingInst;
-    FlxG.cameras.add(coolCam, false).bgColor = 0x00000000;
 
 	add(bg = new FlxSprite(-50,-50).makeSolid(FlxG.width + 100, FlxG.height + 100, FlxColor.BLACK)).alpha = 0.6;
-	bg.camera = coolCam;
 
 	//Portrait_shit.
 	if (Assets.exists(Paths.image('menus/freeplay/Portraits/' +curSong.freeplayShit.portrait))){
-	portrait.camera = coolCam;
 	portrait.loadGraphic(Paths.image('menus/freeplay/Portraits/'+curSong.freeplayShit.portrait));
 	add(portrait).setGraphicSize(570,570);
 	portrait.setPosition(700,60/portrait.height+30);
 	FlxTween.tween(portrait, {x: 500}, 1, {ease: FlxEase.elasticOut});
 	}
 	
-	play_Text.camera = coolCam;
-	add(play_Text).scale.set(1.1,1.1);
+	add(play_Text = new Alphabet(1055, 665, 'PLAY', true)).scale.set(1.1,1.1);
 	add(hitbox = new FlxSprite(1050, 635).makeSolid(230, 85, 0xE0000020)).alpha = 0;
-	hitbox.camera = coolCam;
 
 	//Songname_and_composer_icon_shit.
-	songName.text = curSong.displayName;
-	add(songName).camera = coolCam;
-	songName.screenCenter(FlxAxes.X);
+	add(songName).screenCenter(FlxAxes.X);
 	
 	if(curSong.freeplayShit.composer!=null){
 	composer.text = "By "+ curSong.freeplayShit.composer;
-	composer.camera = coolCam;
 	composer.scale.set(0.5,0.5);
 	composer.screenCenter(FlxAxes.X);
 	add(composer).x +=songName.width-songName.width/1.5;
 	var testtt2=new ComposerIcon(songName.x+songName.width+10,200,curSong.freeplayShit.composer);
-	add(testtt2.lines).camera=coolCam;
+	add(testtt2.lines);
     }
 
-	add(optionSprites).camera=coolCam;
+	add(optionSprites);
 
 	for (i in 0...options[0].length) {
 		add(optionSpawn(i,options[0][i],options[1][i],options[2][i]));
@@ -79,7 +72,6 @@ function create() {
 		var le = e.toLowerCase();
 		diffImage= Assets.exists(Paths.image("menus/freeplay/modes/" + le))? le:'placeholder';
 		diffSprite = CoolUtil.loadAnimatedGraphic(new FlxSprite(90,458),Paths.image('menus/freeplay/modes/'+diffImage));
-		diffSprite.camera = coolCam;
 		diffSprite.antialiasing = true;
 		add(diffSprite).scale.set(0.3,0.3);
 
@@ -90,7 +82,6 @@ function create() {
         add(arrows[a]).antialiasing = Options.antialiasing;
 		arrows[a].scale.set(1.2,1.2);
 		arrows[a].x = (a + 1) * 100 + a * 180+230;
-		arrows[a].cameras = [coolCam];
     }
 
 	//Technical_stuff_that_makes_me_want_to_die.
@@ -111,7 +102,6 @@ function create() {
 
         manY += bulletOption.height * (i % 4 == 0 ? 0.09 : 0.46 * (i % 4 == 2 ? 0.2 : 0.2));
         bulletOption.antialiasing = true;
-		bulletOption.camera=coolCam;
     }
 	add(selectSprites).y +=10;
 
@@ -121,7 +111,6 @@ function create() {
 
 	bulletoptionREAL.frames = Paths.getFrames('menus/freeplay/bulletOption');
 	bulletoptionREAL.animation.addByPrefix('idle', "appear", 10, false);
-	bulletoptionREAL.camera=coolCam;
 	bulletoptionREAL.scale.set(0.3,0.3);
 	add(bulletoptionREAL).animation.play('idle');
 	if(curPlayingInst!=prevSong) FlxG.sound.playMusic(curPlayingInst, 0);
