@@ -11,14 +11,15 @@ var portrait = new FlxSprite(700);
 
 var hitbox:FlxSprite;//Scaling_the_text_up_fucks_up_the_hitbox_so_this.
 
-var songName;
+var songName = new Alphabet(285.25, 70, curSong.displayName, true);
 var composer = new Alphabet(0, 130, 0, true);
 
 var difficultySprites:Map<String, FlxSprite> = [];
 var arrows:Array<FunkinSprite> = [];
 
 var selectSprites = new FlxTypedSpriteGroup();
-var options:Array<String> = ['Cutscenes','Mod charts','Scroll Speed','Mode'];
+var options:Array<String> = [['Cutscenes','Mod charts','Scroll Speed','Mode'],
+	['checkbox','string','string'],['freeplayDialogue','modcharts','scrollSpeed_Speed']];
 var bulletoptionREAL = new FlxSprite(-170,8);
 
 static var curDifficulty:Int = 0;
@@ -27,11 +28,7 @@ var curOption:Int = 0;
 static var curPlayingInst = Paths.inst(curSong.name, curSong.difficulties[curDifficulty]);
 static var prevSong:String = "";
 
-var optionTexts = new FlxTypedGroup();
-var optionParams = new FlxTypedGroup();
-var checkBox = new FlxSprite(450,210);
-
-var paramTest=[curSong.freeplayShit.hasCutscenes,curSong.freeplayShit.hasModchart,FlxG.save.data.options.scrollSpeed];
+var optionSprites = new FlxTypedGroup();
 function create() {
 	camera = coolCam = new FlxCamera();
 	FlxG.cameras.add(coolCam, false).bgColor = 0x00000000;
@@ -52,12 +49,6 @@ function create() {
 	add(hitbox = new FlxSprite(1050, 635).makeSolid(230, 85, 0xE0000020)).alpha = 0;
 
 	//Songname_and_composer_icon_shit.
-	if(curSong.credits!=null&&Assets.exists(Paths.image('credits/Titles/' +curSong.credits.title))){
-		songName=getSongTitle(curSong.credits.title);
-	}
-	else{
-		songName = new Alphabet(285.25, 70, curSong.displayName, true);
-	}
 	add(songName).screenCenter(FlxAxes.X);
 	
 	if(curSong.freeplayShit.composer!=null){
@@ -69,33 +60,12 @@ function create() {
 	add(testtt2.lines);
     }
 
-	add(optionTexts);
-	for (i in 0...options.length) {
-		var item = new Alphabet(120, (i * 80), options[i], 0,true);
-		item.scale.set(0.9,0.9);
-		item.y=250+(i * 135);
-		item.updateHitbox();
-		if(paramTest[i]!=true&& i<=2)item.alpha=0.3;
-		optionTexts.add(item).width = item.width*item.scale.y;
+	add(optionSprites);
+
+	for (i in 0...options[0].length) {
+		add(optionSpawn(i,options[0][i],options[1][i],options[2][i]));
+		optionSprites.members[i].change();
 	}
-
-	checkBox.frames = Paths.getFrames('menus/options/checkbox');
-	checkBox.animation.addByIndices("false", "Checkbox0", [9,8,7,6,5,4,3,2,1,0], '',24, false);
-	checkBox.animation.addByPrefix('true', "Checkbox0", 24,false);
-	checkBox.animation.play(FlxG.save.data.options.dialogue[2]);
-	if(paramTest[0]==null)checkBox.alpha=0.3;
-    add(checkBox);
-
-	add(optionParams);
-	for (i in 0...2) {
-		params = new ClassicAlphabet(0,0,"<"+[FlxG.save.data.options.modcharts,FlxG.save.data.options.scrollSpeed_Speed][i]+">",true);
-		params.scale.set(0.7,0.7);
-		params.y=340+(i * 135);
-		params.x=i==0?508.8:554.7;
-		if(i==0&&curSong.freeplayShit.hasModchart==null)params.alpha=0.3;
-		if(i==1&&!FlxG.save.data.options.scrollSpeed)params.alpha=0.3;
-        optionParams.add(params);
-    }
 
 	//Difficulty sprite setup.
 	for (e in curSong.difficulties) {
@@ -137,7 +107,7 @@ function create() {
 
 	changeDiff(0);
 	changeOption(0);
-	changeThang(0);
+	changeScroll(0);
 
 	bulletoptionREAL.frames = Paths.getFrames('menus/freeplay/bulletOption');
 	bulletoptionREAL.animation.addByPrefix('idle', "appear", 10, false);
@@ -158,13 +128,9 @@ function update(elapsed:Float) {
 	if (FlxG.mouse.overlaps(hitbox) && FlxG.mouse.pressed)playsong();
 	if(controls.RIGHT_P||controls.LEFT_P){
 		switch(curOption){
-			case 1:changeThang(controls.RIGHT_P ? 1 : -1);
-			case 2:changeThang(controls.RIGHT_P ? 0.1 : -0.1);
+			case 2:changeScroll(controls.RIGHT_P ? 0.1 : -0.1);
 			case 3:changeDiff(controls.RIGHT_P ? 1 : -1);
 		}
-		optionParams.forEach(function (param) {
-			param.members[0].color=param.members[param.members.length-1].color=FlxColor.fromRGB(255, 100, 19);
-		});
 	}
 	if (controls.UP_P||controls.DOWN_P) changeOption(controls.UP_P ? -1 : 1);
 	bulletoptionREAL.y=lerp(bulletoptionREAL.y,switch(curOption){
@@ -181,39 +147,6 @@ function postUpdate(elapsed:Float) {
 	}
 	if ((controls.LEFT||controls.RIGHT)&&curOption==3)arrows[controls.LEFT?0:1].color=FlxColor.fromRGB(255, 100, 19);
 }
-
-function getSongTitle(name) {
-	var fuck = new FlxSprite(0,-150);
-	if (!Assets.exists(Paths.file("images/credits/Titles/"+name+".xml"))){
-		fuck.loadGraphic(Paths.image('credits/titles/'+name));
-		if(fuck.width>700)
-		fuck.scale.set(0.45,0.45);
-		fuck.updateHitbox();
-		fuck.y=FlxG.height-fuck.height-500;
-	}
-	else{
-		fuck.frames = Paths.getSparrowAtlas("credits/titles/"+name);
-		for (i in 1...11) fuck.animation.addByPrefix(i, i+'Title', 24, true);
-		fuck.scale.set(1.01,1.01); fuck.updateHitbox();
-
-		var chance = FlxG.random.int(0,100);
-		if (chance > 95) {
-			fuck.frames = Paths.getSparrowAtlas("HUD/battlegrounds/Horse Plinko");
-			fuck.animation.addByPrefix("Horse Plinko", 'Horse Plinko', 24, true);
-			fuck.animation.play("Horse Plinko");
-
-			fuck.scale.set(3,3); fuck.updateHitbox(); fuck.y += 40;
-		} else if (chance > 70) {
-			fuck.animation.play(FlxG.random.int(2,10));
-		} else {
-			fuck.animation.play("1");
-		}
-		fuck.y=FlxG.height-fuck.height-500;
-	}
-
-	return fuck;
-}
-
 var __oldDiffName = null;
 function changeDiff(e) {
 	//arrows[FlxMath.bound(e, 0, 1)].animation.play("hit");
@@ -233,20 +166,18 @@ function changeDiff(e) {
 }
 function changeOption(p) {
 	if(p!=0)CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
-	curOption = FlxMath.wrap(curOption + p, 0, 3);
+	curOption = FlxMath.wrap(curOption + p, 0,  3);
 }
 function toggle() {
 	FlxG.save.data.options.dialogue[2]=!FlxG.save.data.options.dialogue[2];
-	checkBox.animation.play(FlxG.save.data.options.dialogue[2]);
+	optionSprites.members[curOption].checkBox.animation.play(FlxG.save.data.options.dialogue[2]);
+	for(i in 0...optionSprites.members.length)
+		optionSprites.members[i].change();
 }
-function changeThang(s) {
-	switch(curOption){
-		case 1:if(paramTest[1]==null)return;
-		optionParams.members[0].text ="<"+FlxG.save.data.options.modcharts+">";
-		case 2:if(!FlxG.save.data.options.scrollSpeed)return;
+function changeScroll(s) {
+	if (FlxG.save.data.options.scrollSpeed)
 		FlxG.save.data.options.scrollSpeed_Speed=FlxMath.bound(FlxG.save.data.options.scrollSpeed_Speed + s, 1, 10);
-		optionParams.members[1].text ="<"+FlxG.save.data.options.scrollSpeed_Speed+">";
-	}
+	//scroll_speed.text ="<"+FlxG.save.data.options.scrollSpeed_Speed+">";
 }
 function playsong() {
 	PlayState.loadSong(curSong.name, curSong.difficulties[curDifficulty].toLowerCase());
@@ -261,4 +192,32 @@ function playsong() {
 }
 function destroy() {FlxG.cameras.remove(coolCam);
 	FlxG.save.flush();
+}
+
+function optionSpawn(index,name,type,?save=null) {
+	//OptionText(Alphabet).
+	var optionItem = new FreeplayOptions();
+	if(save!=null)optionItem.option=save;
+	optionItem.text = new Alphabet(100,0,name,true);
+	optionItem.text.scale.set(0.9,0.9);
+	if(name=='Cutscenes'&&curSong.freeplayShit.hasCutscenes==null)optionItem.text.alpha=0.3;
+	if(name=='Mod charts'&&curSong.freeplayShit.hasModchart==null)optionItem.text.alpha=0.3;
+	if(name=='Scroll Speed'&&!FlxG.save.data.options.scrollSpeed)optionItem.text.alpha=0.3;
+	//optionItem.text.targetY=optionItem.text.ID=index;
+	optionItem.text.y=250+(index * 135);
+	switch(type){
+		case 'checkbox':
+		optionItem.checkBox = new FlxSprite();
+        optionItem.checkBox.frames = Paths.getFrames('menus/options/checkbox');
+		optionItem.checkBox.animation.addByIndices("false", "Checkbox0", [9,8,7,6,5,4,3,2,1,0], '',24, false);
+		optionItem.checkBox.animation.addByPrefix('true', "Checkbox0", 24,false);
+		optionItem.checkBox.updateHitbox();
+		optionItem.checkBox.animation.play(FlxG.save.data.options.dialogue[2]);
+		case 'string':optionItem.text2 = new ClassicAlphabet(0,0,"123",true);
+		optionItem.text2.scale.set(0.7,0.7);
+		if(!FlxG.save.data.options.scrollSpeed)optionItem.text2.alpha=0.3;
+	}
+	
+	optionSprites.add(optionItem);
+	return optionItem;
 }

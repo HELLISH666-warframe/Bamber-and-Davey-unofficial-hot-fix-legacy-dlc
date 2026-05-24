@@ -12,7 +12,7 @@
 		"Music": ["Glitch.smh"],
 		"Chart": {"normal": ["Glitch.smh"]},
 		"Code": ["Frakits", "Verwex"],
-		"delay":-4
+		"delay":-4,"title":"Screencast"
 	},
 	"freeplayShit": {
 		"album": 2,
