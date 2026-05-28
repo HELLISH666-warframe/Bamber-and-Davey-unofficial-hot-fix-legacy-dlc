@@ -70,7 +70,7 @@ function creditSetup(songBG, songTitle, creditTexts, creditIcons) {
 
 			if (i == catText.length - 1) {
 				var creditHead = new FlxSprite(0, catText[0].y);
-				creditHead.frames = Paths.getSparrowAtlas('HUD/cheater/cheatingHeading');
+				creditHead.frames = Paths.getSparrowAtlas('game/cheater/cheatingHeading');
 				creditHead.animation.addByPrefix('cheating', 'Cheating', 24, true, [false, false]);
 				creditHead.animation.play('cheating');
 				creditHead.cameras = [camHUD];

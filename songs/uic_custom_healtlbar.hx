@@ -41,8 +41,8 @@ var maskHealthBar = new FlxSprite();
 var maskTimeBar = new FlxSprite();
 
 function postPostCreate() {
-	healthBarBG.loadGraphic(Paths.image('HUD/'+barType_directory+'/HealthBar'));
-	timerBG.loadGraphic(Paths.image('HUD/'+barType_directory+'/TimeBar'));
+	healthBarBG.loadGraphic(Paths.image('game/'+barType_directory+'/HealthBar'));
+	timerBG.loadGraphic(Paths.image('game/'+barType_directory+'/TimeBar'));
 	
 	healthBarBG.screenCenter(FlxAxes.X);
     timerBG.screenCenter(FlxAxes.X);
@@ -52,8 +52,8 @@ function postPostCreate() {
 	if (barType_isMask)  { 
         healthBar.visible = timerBar.visible = false;
 
-        maskHealthBar.loadGraphic(Paths.image('HUD/'+barType_directory+'/HealthBar'));
-	    maskTimeBar.loadGraphic(Paths.image('HUD/'+barType_directory+'/TimeBar'));
+        maskHealthBar.loadGraphic(Paths.image('game/'+barType_directory+'/HealthBar'));
+	    maskTimeBar.loadGraphic(Paths.image('game/'+barType_directory+'/TimeBar'));
 
         maskHealthBar.flipY = maskTimeBar.flipY = healthBarBG.flipY;
         maskHealthBar.camera = maskTimeBar.camera = camHUD;

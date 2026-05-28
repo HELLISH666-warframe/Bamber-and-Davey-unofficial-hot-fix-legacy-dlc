@@ -19,6 +19,7 @@
 		"album": 2.5,
 		"capsule":"placeholder",
 		"updated": true,
+		"offset":[0,-60],
 		"portrait":"trade-davey",
 		"composer":"Glitch.smh"
 	},

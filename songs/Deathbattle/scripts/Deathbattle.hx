@@ -11,12 +11,12 @@ var timeCover;
 var opponentBarBG;
 var opponentBarFill;
 
-var winnerDinnerChickenDinner = new FlxSprite().loadGraphic(Paths.image('HUD/battlegrounds/winner'));
+var winnerDinnerChickenDinner = new FlxSprite().loadGraphic(Paths.image('game/battlegrounds/winner'));
 
 var winnerText;
 
-var oppName = new FlxSprite().loadGraphic(Paths.image('HUD/battlegrounds/Descriptor_G'));
-var plaName = new FlxSprite().loadGraphic(Paths.image('HUD/battlegrounds/Descriptor_B'));
+var oppName = new FlxSprite().loadGraphic(Paths.image('game/battlegrounds/Descriptor_G'));
+var plaName = new FlxSprite().loadGraphic(Paths.image('game/battlegrounds/Descriptor_B'));
 
 var opponentHealth = 2;
 
@@ -27,8 +27,8 @@ var bones = [];
 var justDIED = false;
 var concluded = false;
 
-var gate1 = new FlxSprite(0,0).loadGraphic(Paths.image('HUD/battlegrounds/gate'));
-var gate2 = new FlxSprite(0,0).loadGraphic(Paths.image('HUD/battlegrounds/gate'));
+var gate1 = new FlxSprite(0,0).loadGraphic(Paths.image('game/battlegrounds/gate'));
+var gate2 = new FlxSprite(0,0).loadGraphic(Paths.image('game/battlegrounds/gate'));
 gate2.flipX = true;
 
 var fight = new FlxSprite(0,0);
@@ -53,7 +53,7 @@ function postCreate() {
 
 	//New Timer
 	if (FlxG.save.data.options.timeBar) {
-		timeCover = new FlxSprite().loadGraphic(Paths.image('HUD/battlegrounds/Cover'));
+		timeCover = new FlxSprite().loadGraphic(Paths.image('game/battlegrounds/Cover'));
 		timeCover.camera = camHUD;
 		timeCover.screenCenter();
 
@@ -68,7 +68,7 @@ function postCreate() {
 	if (FlxG.save.data.options.timeBar) {
 		for (i in 0...3) {
 			var timeNumber = new FlxSprite();
-			timeNumber.frames = Paths.getSparrowAtlas("HUD/battlegrounds/timeNum");
+			timeNumber.frames = Paths.getSparrowAtlas("game/battlegrounds/timeNum");
 			timeNumber.animation.addByPrefix("num", "TimeNum", 0);
 			timeNumber.animation.play("num");
 			timeNumber.cameras = [camHUD];
@@ -144,7 +144,7 @@ function preloadAssets() { //I always found this method of preloading to be the 
 	preloadedAssets.push(PREblood);
 
 	var PREko = new FlxSprite(dad.x, dad.y);
-	PREko.frames = Paths.getSparrowAtlas("HUD/battlegrounds/knockout");
+	PREko.frames = Paths.getSparrowAtlas("game/battlegrounds/knockout");
 	add(PREko);
 	PREko.alpha = 0.0001;
 	preloadedAssets.push(PREko);
@@ -154,7 +154,7 @@ function preloadAssets() { //I always found this method of preloading to be the 
 	comboSpr.alpha = 0.0001;
 	preloadedAssets.push(comboSpr);
 
-	fight.frames = Paths.getSparrowAtlas("HUD/battlegrounds/fight");
+	fight.frames = Paths.getSparrowAtlas("game/battlegrounds/fight");
 	fight.animation.addByPrefix("fight", "fight", 24, false);
 	fight.animation.play("fight");
 	fight.cameras = [camHUD];
@@ -169,13 +169,13 @@ function overrideBars(healthMask, timeMask, type) {
 	timerBG.destroy();
 
 	//Make the original health bar as needed
-	healthMask.loadGraphic(Paths.image('HUD/battlegrounds/HealthFill'));
+	healthMask.loadGraphic(Paths.image('game/battlegrounds/HealthFill'));
 
 	healthBarBG.x = healthMask.x += FlxG.width / 4;
 
 	//Opponent Health Bar
-	opponentBarFill = new FlxSprite(healthBarBG.x, healthBarBG.y).loadGraphic(Paths.image('HUD/battlegrounds/HealthBar'));
-	opponentBarBG = new FlxSprite(healthBarBG.x, healthBarBG.y).loadGraphic(Paths.image('HUD/battlegrounds/HealthFill'));
+	opponentBarFill = new FlxSprite(healthBarBG.x, healthBarBG.y).loadGraphic(Paths.image('game/battlegrounds/HealthBar'));
+	opponentBarBG = new FlxSprite(healthBarBG.x, healthBarBG.y).loadGraphic(Paths.image('game/battlegrounds/HealthFill'));
 
 	opponentBarBG.x = opponentBarFill.x -= FlxG.width / 2;
 
@@ -719,7 +719,7 @@ function conclusion(winningTeam, losingTeam) {
 
 	FlxG.sound.play(Paths.sound('battlefx/ko'), 1);
 	var ko = new FlxSprite();
-	ko.frames = Paths.getSparrowAtlas("HUD/battlegrounds/knockout", mod);
+	ko.frames = Paths.getSparrowAtlas("game/battlegrounds/knockout", mod);
 	ko.animation.addByPrefix("idle", 'knockout', 24, false);
 	ko.animation.play("idle");
 	ko.cameras = [camHUD];
@@ -852,7 +852,7 @@ function creditSetup(songBG, songTitle, creditTexts, creditIcons) {
 
 	var chance = FlxG.random.int(0,100);
 	if (chance > 95) {
-		songTitle.frames = Paths.getSparrowAtlas("HUD/battlegrounds/Horse Plinko");
+		songTitle.frames = Paths.getSparrowAtlas("game/battlegrounds/Horse Plinko");
 		songTitle.animation.addByPrefix("Horse Plinko", 'Horse Plinko', 24, true);
 		songTitle.animation.play("Horse Plinko");
 

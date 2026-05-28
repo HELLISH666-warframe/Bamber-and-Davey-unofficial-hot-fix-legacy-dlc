@@ -20,7 +20,7 @@ function creditSetup(songBG, songTitle, creditTexts, creditIcons) {
 			}
 
 			if (i == catText.length - 1) {
-				var creditHead = new FlxSprite(0, catText[0].y).loadGraphic(Paths.image('HUD/corn-maze/bambiHeading'));
+				var creditHead = new FlxSprite(0, catText[0].y).loadGraphic(Paths.image('game/corn-maze/bambiHeading'));
 				creditHead.cameras = [camHUD];
 				creditHead.scale.x = 1 / creditHead.width * catText[0].width;
 				creditHead.scale.y = 0.5;

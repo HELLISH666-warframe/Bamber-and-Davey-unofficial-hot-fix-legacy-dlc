@@ -21,6 +21,7 @@
 		"capsule":"BambersFarm",
 		"vip": true,
 		"portrait": "bamber",
+		"offset":[0,-3],
 		"composer": "Glitch.smh",
 		"hasCutscenes": true,
 		"hasModchart":true,

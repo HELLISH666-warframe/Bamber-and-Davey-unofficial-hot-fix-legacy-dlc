@@ -221,6 +221,7 @@ function capsuleSpawn(index,songData) {
 	var songItem = new Capsule();
 	songItem.text = new Alphabet(0,0,songData.displayName,true);
 	songItem.text.scale.set(0.9,0.9);
+	songItem.text.updateHitbox();
 	songItem.text.targetY=songItem.text.ID=index;
 
 	//Silhouette(Image_behind_song_text);

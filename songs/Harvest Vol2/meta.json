@@ -16,6 +16,7 @@
 	"freeplayShit": {
 		"album": 2,
 		"capsule":"BambersFarm",
+		"offset":[0,-13],
 		"portrait":"bamber",
 		"composer":"Glitch.smh",
 		"hasCutscenes": true,

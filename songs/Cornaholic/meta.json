@@ -20,6 +20,7 @@
 		"album": 2,
 		"capsule":"BambersFarm",
 		"vip": true,
+		"offset":[0,-3],
 		"portrait": "bamber",
 		"composer": "Glitch.smh",
 		"hasCutscenes": true,

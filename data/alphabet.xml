@@ -1,6 +1,6 @@
 <!DOCTYPE codename-engine-alphabet>
 <letters fps="24">
-	<bold spritesheet="menus/alphabet">
+	<bold spritesheet="menus/alphabet-bold">
 		<!-- Symbols !-->
 		<letter char="$"        anim="$" />
 		<letter char="#"        anim="#" />
@@ -103,7 +103,7 @@
 		<letter char="y"        anim="Y Lowercase" />
 		<letter char="z"        anim="Z Lowercase" />
 	</bold>
-	<normal spritesheet="menus/alphabet">
+	<normal spritesheet="menus/alphabet-bold">
 		<!-- Symbols !-->
 		<letter char="$"        anim="$" />
 		<letter char="#"        anim="#" />

@@ -830,7 +830,7 @@ function progressForwards() {
 }
 
 function progressBackwards() {
-    buttonesGone.cancel();
+    if(buttonesGone!=null)buttonesGone.cancel();
     if(isSubMenu){
         buttonSubgroup.clear();
         setupMenuStuff();

@@ -17,6 +17,7 @@
 		"album": 2,
 		"font":"adelon-serial-bold.ttf",
 		"capsule":"placeholder",
+		"offset":[0,0],
 		"portrait":"bfdi-bamber",
 		"composer":"Glitch.smh,Walto"
 	},

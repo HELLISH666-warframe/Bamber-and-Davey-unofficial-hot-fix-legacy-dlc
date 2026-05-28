@@ -48,7 +48,7 @@ public var optionsFile:Array<Dynamic> = [ // god help me
         ["Note Colors", "What color notes appear as", ["Placeholder","placeholder but not captialised."], 'noteColors','Wip']//Have_a_substate_for_it?
     ],
     [ // Controls
-        ["Controls", "Placeholder", ['Open'], 'placeholder','Wip']
+        ["Controls", "Placeholder.", ['Open'], 'placeholder','Wip']
         /*
         ["Left", "Placeholder", [], 'placeholder'],
         ["Down", "Placeholder", [], 'placeholder'],

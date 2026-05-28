@@ -1,8 +1,8 @@
 import flixel.addons.util.FlxSimplex;
 var matrixShader = new CustomShader('colorMatrix');
 
-var bar = new FlxSprite().loadGraphic(Paths.image('HUD/exchangetown/wastedBar'));
-var vignette = new FlxSprite().loadGraphic(Paths.image('HUD/exchangetown/pixelVignette'));
+var bar = new FlxSprite().loadGraphic(Paths.image('game/exchangetown/wastedBar'));
+var vignette = new FlxSprite().loadGraphic(Paths.image('game/exchangetown/pixelVignette'));
 function postCreate() {
 	ogBFY = boyfriend.y;
 }

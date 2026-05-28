@@ -1,4 +1,4 @@
-var leftWarning = new FlxSprite(-170, !PlayState.downscroll ? 1220 : 0).loadGraphic(Paths.image('HUD/callstage/playing as bamber'+(PlayState.downscroll ? ' - downscroll' : '')));
+var leftWarning = new FlxSprite(-170, !PlayState.downscroll ? 1220 : 0).loadGraphic(Paths.image('stages/callbamber/playing as bamber'+(PlayState.downscroll ? ' - downscroll' : '')));
 
 function postCreate(){
     leftWarning.camera = camHUD;

@@ -18,6 +18,7 @@
 		"album": 2,
 		"font":"goodbyeDespair.ttf",
 		"capsule":"placeholder",
+		"offset":[0,60],
 		"portrait":"nikku",
 		"composer":"Glitch.smh"
 	},
