@@ -20,11 +20,8 @@
 - - - Placeholder sprite for diffuculties or just use text?
 
 - Achievements
-- - Port YCE for a placeholder?
-- - List of Achievements
-- - Achievement Popup
 
-- Credits(Port the YCE one?)
+- Credits
 
 - First Time Warning State
 - - Better sounds

@@ -95,7 +95,7 @@ function update(elapsed) {
 	if (controls.BACK) FlxG.switchState(new ModState("BND/BNDMenu"));
 	if (controls.ACCEPT) enterSong();
 
-	if (FlxG.keys.justPressed.F) {
+	if (FlxG.keys.justPressed.F) {//DOOKIE.
 		FlxG.save.data.freeplayShit.favourites.contains(songser[subCurSelected].name)?
 		FlxG.save.data.freeplayShit.favourites.remove(songser[subCurSelected].name):
 		FlxG.save.data.freeplayShit.favourites.push(songser[subCurSelected].name);
@@ -141,6 +141,7 @@ function update(elapsed) {
 }
 function changements(a,?sound) {
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, data[curSelected][2].length - 1);
+	catName.font=Paths.font(songser[subCurSelected].freeplayShit.font==null?"vcr.ttf":songser[subCurSelected].freeplayShit.font);
 	var ver = songser[subCurSelected].freeplayShit.album==null?1:songser[subCurSelected].freeplayShit.album;
 	
 	album.loadGraphic(Paths.image("menus/freeplay/albums/vol"+ver));
@@ -154,7 +155,6 @@ function change(a) {
 	if(FlxG.save.data.freeplayShit.favourites.length==0)mult=curSelected==10?1:2;
     curSelected = FlxMath.wrap(curSelected + a, 0, vinylGroup.length - mult);
 	
-	catName.font=Paths.font(data[curSelected][4]==null?"vcr.ttf":data[curSelected][4]);
 	moveTimer.cancel();
 	
 	if (!appear) {

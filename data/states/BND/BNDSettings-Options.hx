@@ -3,44 +3,44 @@ public var optionsFile:Array<Dynamic> = [ // god help me
     [ // VIDEO
         // [name, desc, ["params", "leave blank if checkbox"], save name],
         ["Framerate", "The framerate that the game will run at.", [30,60,90,120,150,180,210,240], 'framerate','Choice'],
-        ["Anti-aliasing", "Toggles smoothing jagged edges on curves and diagonal lines", [], 'antialiasing','Bool'],
-        ["Pixel Perfect", "", [], 'pixelperfect','Bool'],
-        ["Resolution", "How many pixels the game renders at", ['854x480',"1280x720",'1920x1080','2560x1440','3840x2160'], 'resolution','Choice'],
+        ["Anti-aliasing", "Toggles smoothing jagged edges on curves and diagonal lines.", [], 'antialiasing','Bool'],
+        ["Pixel Perfect", "Toggles a pixel perfect effect aligning every pixel on the screen.", [], 'pixelperfect','Bool'],
+        ["Resolution", "How many pixels the game renders at.", ['854x480',"1280x720",'1920x1080','2560x1440','3840x2160'], 'resolution','Choice'],
         #if !mac
         //MacOs can fullscreen whenever so why have it available?
-        ["Fullscreen", "Toggles the game filling your screen", [], 'fullscreen','Bool'],
+        ["Fullscreen", "Toggles the game filling your screen.", [], 'fullscreen','Bool'],
         #end
-        ["Borderless", "Toggles the game window border", [], 'borderless','Bool'],
-        ["Brightness", "How bright the game is", [-200,200], 'brightness','Int'],
-        ["Gamma", "The gamma of the game", [0.1,5], 'gamma','Float']
+        ["Borderless", "Toggles the game window border.", [], 'borderless','Bool'],
+        ["Brightness", "How bright the game is.", [-200,200], 'brightness','Int'],
+        ["Gamma", "The gamma of the game.", [0.1,5], 'gamma','Float']
     ],
     [ // SOUND
-        ["Music Volume", "How loud the music is", [0,100], 'musicVolume','Int'],
-        ["SFX Volume", "How loud sound effects are", [0,100], 'sfxVolume','Int'],
-        ["Voice Volume","How loud the character voices are while playing a song", [0,100], 'voiceVolume','Int'], 
+        ["Music Volume", "How loud the music is.", [0,100], 'musicVolume','Int'],
+        ["SFX Volume", "How loud sound effects are.", [0,100], 'sfxVolume','Int'],
+        ["Voice Volume","How loud the character voices are while playing a song.", [0,100], 'voiceVolume','Int'], 
         ["Streamed Music", "Toggles streamed music.", [], 'streamedMusic','Bool'],
         ["Streamed Voices", "Toggles streamed voices.", [], 'streamedVocals','Bool'],
-        ["Miss Sounds", "Toggles playing a sound effect on miss", [], 'missSounds','Bool'],
-        ["Copyrighted Bypass", "Toggles replacing copyrighted audio with MIDI covers", [], 'copyrightBypass','Bool'],
-        ["Subtitles", "Toggles words appearing on screen when spoken lyrics are heard", [], 'subtitles','Bool'], // can someone refine this description please
+        ["Miss Sounds", "Toggles playing a sound effect on miss.", [], 'missSounds','Bool'],
+        ["Copyrighted Bypass", "Toggles replacing copyrighted audio with MIDI covers.", [], 'copyrightBypass','Bool'],
+        ["Subtitles", "Toggles words appearing on screen when spoken lyrics are heard.", [], 'subtitles','Bool'], // can someone refine this description please
     ],
     [ // VISUAL
         ["Low Memory Mode", "Won't load things that could take up a lot of memory.", [], 'lowMemory','Bool'],
         ["VRAM Only Sprites", "VRAM-Only Sprites.", [], 'vramSprites','Bool'],
-        ["Flashing Lights", "Toggles flashes on the screen", [], 'flashingLights','Bool'],
-        ["Shaders", "What shaders should be shown", ["all", "some", "none"], 'shaders','Choice'],
+        ["Flashing Lights", "Toggles flashes on the screen.", [], 'flashingLights','Bool'],
+        ["Shaders", "What shaders should be shown.", ["all", "some", "none"], 'shaders','Choice'],
         ["Botplay UI", "Rather or not the botplay text will be visible.", [], 'botplayUI','Bool'],
         ["Background Blur", "Applys Osu! like blur to stage objects.", [], 'bgBlur','Bool'],
         ["Background Dim", "Applys Osu! like dim to stage objects.", [], 'bgDim','Bool'],
         ["Rapid Camera", "", [], 'rapidCam','Bool'],
         ["Timebar", "Toggles the bar that shows how long of the song is left until the end", [], 'timeBar','Bool'],
         ["Combo Pos Percent", "",[], 'comboPosPercent','Bool'],
-        ["Cinematic Bars", "Toggles the bars seen at the top and bottom of the screen during a song", [], 'cinematicBars','Bool'],
-        ["Health Icons", "Toggles health bar icons", [], 'healthIcons','Bool'],
-        ["Song Credits", "Toggles the credits popup at the beginning of a song", [], 'songCredits','Bool'],
+        ["Cinematic Bars", "Toggles the bars at the top/bottom of the screen during a song.", [], 'cinematicBars','Bool'],
+        ["Health Icons", "Toggles health bar icons.", [], 'healthIcons','Bool'],
+        ["Song Credits", "Toggles the credits popup at the beginning of a song.", [], 'songCredits','Bool'],
         ["Stamp Keybinds", "Shows keybinds under the your strum.(???)", [], 'stampKeybinds','Bool'],
         ["Auto pause", "If checked, switching windows will pause the game.", [], 'autoPause','Bool'],
-        ["Splash-Screen", "...", [], 'splashScreen','Bool']
+        ["Splash-Screen", "If unchecked the splash-screen will be skipped.", [], 'splashScreen','Bool']
     ],
     [ // NOTE OPTIONS
         ["Noteskin", "What the notes appear as", ['Default','bobber','ron','Arrows','3dcheater','awesome','bfdi','davey_obj','deathbattle','facsimile','funkin','joke_model_obj','night','test footage','trade','undertale'], 'noteskin','Choice'],

@@ -1,12 +1,7 @@
 //Aperraentrelyyd the engine will load this last since it starts with Z.
 function onPlayerMiss(e) {
 	//Sound
-	if(FlxG.save.data.options.missSounds!=true){
-	e.playMissSound=false;
-	}else
-	for (strumLine in strumLines.members) {
-		strumLine.vocals.group.volume = getVolume(0.3/4);
-	}
+	e.playMissSound=FlxG.save.data.options.missSounds;
 }
 function postCreate() {
 	//Sound

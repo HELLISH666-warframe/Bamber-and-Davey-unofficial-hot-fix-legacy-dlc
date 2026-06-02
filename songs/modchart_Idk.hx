@@ -19,6 +19,7 @@ function beatHit(curBeat:Int) {
     }
 }
 
+//Memory_leak!
 function update(elapsed:Float) {
     //strumLines.members[0].notes.forEach((note) -> {trace(note);});
     //return;

@@ -660,7 +660,7 @@ function update(elapsed) {
                     }
                 case buttonTextGroup:
                     if (occupiedObject == null) {
-                        var selected = buttonTextGroup.members[menuSelection];
+                        var selected = buttonTextGroup.members[isSubMenu?menuSubmenuSelection+5:menuSelection];
 
                         new FlxTimer().start(0.065, function(timer) {
                             var scroll = FlxG.sound.play(Paths.sound('menu/titleScreen/xylophone'), getVolume(0.5, 'sfx'));
