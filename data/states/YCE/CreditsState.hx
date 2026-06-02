@@ -34,8 +34,8 @@ function postCreate() {
     modTitle.x = (FlxG.width / 2) - (modTitle.width / 2);
     add(modTitle);
     y++;
-    for (modMaker in json.credits) {
-        var modMakerAlphabet = new Alphabet(0, 125 * y, modMaker.name);
+    for (modMaker in json) {
+        var modMakerAlphabet = new ClassicAlphabet(0, 125 * y, modMaker.name,true);
         modMakerAlphabet.x = -60;
         y++;
         add(modMakerAlphabet);
