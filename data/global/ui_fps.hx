@@ -1,6 +1,7 @@
 import funkin.backend.system.framerate.Framerate;
 import openfl.text.TextFormat;
 import openfl.text.TextField;
+import openfl.system.System;
 
 public static var customText:TextField; // VECHETT WORKED OUT ALL THE CUSTOM FPS SHIT I JUST ADJUSTED/RECODED IT
 public static var customSubText:TextField;
@@ -10,55 +11,62 @@ function new() {
     // custom fps shit
 	Main.instance.addChild(customText = new TextField()).defaultTextFormat = customFormat;
 	Main.instance.addChild(customSubText = new TextField()).defaultTextFormat = customFormat;
-	customSubText.text = "\n\nVs B&D Volume. 2.5";
+	customSubText.text = "\n\n"+Flags.VERSION_MESSAGE;
 	customSubText.width = customSubText.textWidth + 10;
 	customSubText.alpha = 0.3;
 	customText.x = customText.y = customSubText.x = customSubText.y = 5;
 	Options.fpsCounter = true;
+    updateCurStyle('Default');
 }
 function update() {
+    //if(customText!=null&&Framerate.debugMode==0)
+    if (FlxG.keys.pressed.SHIFT && FlxG.keys.pressed.T) updateCurStyle('YCE');
+    if(curStyle=='CNE')return;
     switch (curStyle) {
         default:customText.text = "FPS: " + Framerate.fpsCounter.fpsNum.text + "\nMEM: " + Framerate.memoryCounter.memoryText.text + Framerate.memoryCounter.memoryPeakText.text;
         customText.width = customText.textWidth;
+        case 'Psych':customText.text = "FPS: " + Framerate.fpsCounter.fpsNum.text + "\nMemory: "+StringTools.replace(CoolUtil.getSizeString(Framerate.memoryCounter.memory),'MB') + " / Peak: " +StringTools.replace(CoolUtil.getSizeString(Framerate.memoryCounter.memoryPeak),'MB', ' MB');
+        customText.width = customText.textWidth;
+        case 'YCE':customText.text = "FPS: " + Framerate.fpsCounter.fpsNum.text+ 
+        "\nMemory: "+StringTools.replace(CoolUtil.getSizeString(Framerate.memoryCounter.memory),'MB')+" MB\nMem Peak: "+StringTools.replace(CoolUtil.getSizeString(Framerate.memoryCounter.memoryPeak),'MB', ' MB');
+        customText.width = customText.textWidth;
     }
-    if (FlxG.keys.pressed.SHIFT && FlxG.keys.pressed.T) updateCurStyle('psych');
 }
 function preStateSwitch() {
-    customText.defaultTextFormat = customSubText.defaultTextFormat = customFormat;
-    Framerate.codenameBuildField.visible = Framerate.memoryCounter.memoryText.visible = Framerate.memoryCounter.memoryPeakText.visible = Framerate.fpsCounter.fpsNum.visible = Framerate.fpsCounter.fpsLabel.visible = false;
+    updateCurStyle('Default');
 }
-var fpsDiffTexts=[["FPS: ","\nMEM: "],//Default
-    ["FPS: "+Framerate.fpsCounter.fpsNum.text,"\nMemory: "+Framerate.memoryCounter.memoryText.text," / Peak: "],//Psych
-    ["FPS: ",""],//YCE
-    []];
-public static var curStyle = "default";
+public static var curStyle = "Default";
+public static var curStyle_2;
 public static function updateCurStyle(e){
+    if(e==curStyle_2)return;
+    trace("Is_doings_fps_shits.");
+    for(i in [Framerate.codenameBuildField,Framerate.memoryCounter.memoryText,Framerate.memoryCounter.memoryPeakText,Framerate.fpsCounter.fpsNum])
+        if(i!=null) i.visible = Framerate.fpsCounter.fpsLabel.visible = false;
+    customSubText.visible=false;
 	curStyle = e;
 	switch (curStyle) {
 		case 'CNE':
         Framerate.codenameBuildField.visible = Framerate.memoryCounter.memoryText.visible = Framerate.memoryCounter.memoryPeakText.visible = Framerate.fpsCounter.fpsNum.visible = Framerate.fpsCounter.fpsLabel.visible = true;
         Framerate.codenameBuildField.text = 'Codename Engine ';
-        Framerate.codenameBuildField.y = 42;
-        FlxG.updateFramerate = FlxG.drawFramerate = Options.framerate;
-        for (i in [Framerate.fpsCounter.fpsNum, Framerate.fpsCounter.fpsLabel, Framerate.codenameBuildField,Framerate.memoryCounter.memoryText,Framerate.memoryCounter.memoryPeakText]) {
-            i.textColor = -1;
-            i.visible = true;
-            i.defaultTextFormat = new TextFormat(Framerate.fontName, i == Framerate.fpsCounter.fpsNum ? 18 : 12, -1);
-            i.x = 0;
-        }
         customText.visible=customSubText.visible=false;
-        case 'psych':/*changeFpsFont('_sans.ttf');
+        case 'Psych':/*changeFpsFont('_sans.ttf');
         Framerate.codenameBuildField.visible = Framerate.memoryCounter.memoryText.visible = Framerate.memoryCounter.memoryPeakText.visible = Framerate.fpsCounter.fpsNum.visible = Framerate.fpsCounter.fpsLabel.visible = true;*/
         customText.defaultTextFormat=customSubText.defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font('_sans.ttf')));
+        default:customSubText.visible=true;
+        customText.defaultTextFormat = customSubText.defaultTextFormat = customFormat;
     }
+    curStyle_2=e;
 }
 
-public static function changeFpsFont(theFuckingFont:String) {
-    Framerate.fpsCounter.fpsNum.defaultTextFormat = Framerate.fpsCounter.fpsLabel.defaultTextFormat = Framerate.memoryCounter.memoryText.defaultTextFormat = Framerate.memoryCounter.memoryPeakText.defaultTextFormat = Framerate.codenameBuildField.defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(theFuckingFont)));
+public static function changeFpsFont(theFuckingFont:String,?size:Float=15) {
+    for(i in [/*Framerate.fpsCounter.fpsNum,Framerate.fpsCounter.fpsLabel,Framerate.memoryCounter.memoryText,
+    Framerate.memoryCounter.memoryPeakText,Framerate.codenameBuildField,*/customText,customSubText])
+    if(i!=null)
+    i.defaultTextFormat = new TextFormat(Paths.getFontName(Paths.font(theFuckingFont)),size);
 }
 
 function destroy(){
-    Framerate.codenameBuildField.visible = Framerate.memoryCounter.memoryText.visible = Framerate.memoryCounter.memoryPeakText.visible = Framerate.fpsCounter.fpsNum.visible = Framerate.fpsCounter.fpsLabel.visible = true;
+    updateCurStyle('CNE');
     Main.instance.removeChild(customText);
     Main.instance.removeChild(customSubText);
     changeFpsFont(Framerate.fontName);

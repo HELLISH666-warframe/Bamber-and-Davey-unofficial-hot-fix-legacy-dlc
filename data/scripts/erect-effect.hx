@@ -33,7 +33,11 @@ function onStageNodeParsed(event)
     }
 }
 
-function create() if (strumLines != null) for (i => atts in erectShaderCharsAtts) if(atts != null) for (char in strumLines.members[i]?.characters)
+function create() 
+    if (strumLines != null) 
+        for (i => atts in erectShaderCharsAtts) 
+            if(atts != null&&strumLines.members[i]!=null) 
+                for (char in strumLines.members[i]?.characters)
     char?.shader = initErectShader(atts[0], atts[1], atts[2], atts[3]);
 
 public function getCharPosIndex(charPos:String):Int

@@ -17,6 +17,12 @@ var barTypes = [
     'oldfarm_night' => [false, 'funkin', true, 'none', [5,-15], [20,15], [0,0]],
     'hot farm' => [false, 'funkin', true, 'none', [5,-15], [20,15], [0,0]],
     'exchangetown' => [false, 'exchangetown', true, 'none', [5,0], [-60,0], [0,0]],
+
+    'philly-erect' => [false, 'funkin', true, 'none', [5,-15], [20,15], [0,0]],
+    'philly-streets-erect' => [false, 'funkin', true, 'none', [5,-15], [20,15], [0,0]],
+    'philly-streets' => [false, 'funkin', true, 'none', [5,-15], [20,15], [0,0]],
+    'spooky-erect' => [false, 'funkin', true, 'none', [5,-15], [20,15], [0,0]],
+
     //SONG SPECIFIC
     'facsimile' => [true, 'paintvoid/facsimile', true, 'shader', [0,0], [-10,-10], [20,-20]],
     'placeholder' => [false, 'paintvoid/placeholder', true, 'none', [0,0], [0,0], [0,0]],

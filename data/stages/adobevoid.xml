@@ -1,5 +1,1 @@
-<!DOCTYPE codename-engine-stage>
-<stage zoom="1.3" name="adobevoid" folder="" noteSkin="funkin">
-	<dad x="160" y="350" />
-	<boyfriend x="805" y="381"/>
-</stage>
+<!DOCTYPE codename-engine-stage><stage zoom="1.3" name="adobevoid" noteSkin="funkin"><dad x="160" y="350" /><boyfriend x="805" y="381"/></stage>

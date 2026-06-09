@@ -104,6 +104,15 @@
         ]
     },
     {
+        "name":"Earframe",
+        "role":"[DEV] Coder / Porter\n'HELP_MY_SPACEBAR_BROKE.",
+        "icon":"credits/",
+        "urls":[
+            {"name":"Youtube","url":"https://www.youtube.com/channel/UChiHoPl1aC5OAI9PFZzLHEg"},
+            {"name":"GitHub","url":"https://github.com/HELLISH666-warframe"}
+        ]
+    },
+    {
         "name":"Luminous",
         "role":"[DEV] Charter\n'break.ogg at 200 BPM through the slicex channel'",
         "icon":"credits/devs/luminous",

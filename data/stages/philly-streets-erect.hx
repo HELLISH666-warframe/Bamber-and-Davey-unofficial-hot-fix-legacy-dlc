@@ -19,6 +19,10 @@ var mistData:Array<Dynamic> = [
 function create()
 	initMist();
 
+function postCreate()
+	if(boyfriend.curCharacter != 'pico')
+		boyfriend.cameraOffset.x = -120;
+
 var mists:Array<FlxBackdrop> = [];
 function initMist()
 {
@@ -63,9 +67,6 @@ function update(elapsed)
 	mists[3].y = 230 + (Math.sin(_timer * 0.3) * 70);
 	mists[4].y = 170 + (Math.sin(_timer * 0.35) * 50);
 	mists[5].y = -80 + (Math.sin(_timer * 0.08) * 100);
-	// mists[3].y = -20 + (Math.sin(_timer * 0.5) * 200);
-	// mists[4].y = -180 + (Math.sin(_timer * 0.4) * 300);
-	// mists[5].y = -450 + (Math.sin(_timer * 0.2) * 1xxx50);
 
 	scrollingSky?.scrollX -= FlxG.elapsed * 22;
 }

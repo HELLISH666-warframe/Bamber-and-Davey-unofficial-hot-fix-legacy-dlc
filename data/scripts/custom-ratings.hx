@@ -54,8 +54,5 @@ function postComboShit() {
 	}
 	ratingManager.ratingData.sort((a, b) -> Reflect.compare(a.window, b.window));
 	//for (rating in [for (i in ratingManager.ratingData) i.name]) hits.set(rating, 0); // Ensure all keys exist as to prevent null errors.
-	for (i in ratingManager.ratingData) {hits[i.name]=0;
-		trace(i.name,hits);
-	}
-	trace(hits);
+	for (i in ratingManager.ratingData) hits[i.name]=0;
 }

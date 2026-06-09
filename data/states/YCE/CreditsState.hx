@@ -7,6 +7,7 @@ var curSocial:Int = 0;
 var camFollow:FlxSprite;
 var socialThingy:FlxText;
 function postCreate() {
+    updateCurStyle('YCE');
     var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menus/menuBGYoshiCrafter'));
 	bg.scrollFactor.set(0,0);
 	bg.setGraphicSize(Std.int(bg.width * 1.1 / 0.75));

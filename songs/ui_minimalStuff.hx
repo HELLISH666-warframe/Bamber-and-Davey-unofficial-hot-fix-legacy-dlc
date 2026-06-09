@@ -23,13 +23,10 @@ var songArray = [ //sorry guys i fucked up the song order oops...
 var customFonts = [
     'bfdifield' => "adelon-serial-bold.ttf",
     'battlegrounds' => "impact.ttf",
-    'judgement hall' => "Mars_Needs_Cunnilingus.ttf",
-    'undertalestage' => "Mars_Needs_Cunnilingus.ttf",
-    'bot farm' => "goodbyeDespair.ttf",
+    'judgement hall' => "Mars_Needs_Cunnilingus.ttf",'undertalestage' => "Mars_Needs_Cunnilingus.ttf",
+    'hot farm' => "goodbyeDespair.ttf",
     'paintvoid' => "vcr_osd.ttf",
-    'default_stage' => "vcr_osd.ttf",
-    'oldfarm' => "vcr_osd.ttf",
-    'oldfarm_night' => "vcr_osd.ttf"
+    'default_stage' => "vcr_osd.ttf",'oldfarm' => "vcr_osd.ttf",'oldfarm_night' => "vcr_osd.ttf"
 ];
 
 function postCreate() {

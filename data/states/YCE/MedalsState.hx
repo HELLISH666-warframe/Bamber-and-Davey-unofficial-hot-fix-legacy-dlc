@@ -18,6 +18,7 @@ var curSlectedA=0;
 
 var arrows:Array<FunkinSprite> = [];
 function create() {
+	updateCurStyle('YCE');
 	add(new FlxSprite().loadGraphic(Paths.image("menus/menuBGYoshiCrafter")));
 	add(new FlxSprite().makeGraphic(FlxG.width, 80, 0x88000000, true));
 	add(gradient = FlxGradient.createGradientFlxSprite(Std.int(FlxG.width), Std.int(FlxG.height), [0x00000000, 0xFFAAAAAA]));

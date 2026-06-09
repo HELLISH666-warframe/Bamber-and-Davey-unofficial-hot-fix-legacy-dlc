@@ -68,12 +68,15 @@ function postCreate() {
 }*/
 
 function onStartCountdown() {
+	trace(FlxG.save.data.options.timeBar);
+	if(!FlxG.save.data.options.timeBar)return;
+	trace("FUCKER.");
     if (timerBar != null){
 		timerBar.setParent(Conductor, "songPosition");
 		timerBar.setRange(0, Math.max(inst.length, 1000));
 	}
 	for (elem in [timerText, timerBG, timerBar, timerNow, timerFinal])
-		if (elem != null) {
+		if (elem != null&&FlxG.save.data.options.timeBar) {
 			var oldAlpha = elem.alpha;
 			elem.alpha = 0;
 			FlxTween.tween(elem, {alpha: oldAlpha}, 0.75, {ease: FlxEase.quartInOut});
@@ -82,7 +85,7 @@ function onStartCountdown() {
 }
 
 function update(elapsed:Float) {
-	if (timerText != null && timerText.visible) {
+	if (timerText != null && timerText.visible&&FlxG.save.data.options.timeBar) {
 		scripts.call("onPreTimerUpdate", [elapsed]);
 		var pos = Math.max(Conductor.songPosition, 0);
 		var timeNow = Math.floor(pos / 60000)+':'+CoolUtil.addZeros(Std.string(Math.floor(pos / 1000) % 60), 2);
@@ -103,4 +106,19 @@ function update(elapsed:Float) {
 		scripts.call("onTimerUpdate", [elapsed]);
 	}
 }
+var songHuds = [['spookeez','south','pico','2hot'] => 'v-slice',
+	['h2o','screencast','yield v1','cornaholic v1','harvest v1','yield seezee remix',
+	'cornaholic erect remix v1','harvest chill remix'] => 'psych',
+	['best-farmers-forever','coop old','fortnite duos v1','godzilla',
+	'judgement farm old','matemathon v1','call bamber old'] => 'yce'];
+function postCreate() {
+	for (song in songHuds.keys()) {
+        if (song.contains(PlayState.SONG.meta.name.toLowerCase())) { //checks which cursor to apply
+			importScript("data/scripts/huds/"+songHuds[song]);
+            break; //break out of the loop
+        }
+    }
+}
 if(StringTools.contains(curSong.toLowerCase(),'judgement'))importScript("data/scripts/huds/undertale");
+if(StringTools.contains(PlayState.SONG.meta.name.toLowerCase(),'vol2'))importScript("data/scripts/huds/yce");
+if(StringTools.contains(PlayState.SONG.meta.name.toLowerCase(),'demo'))importScript("data/scripts/huds/yce");
