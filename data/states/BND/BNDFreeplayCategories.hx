@@ -23,7 +23,7 @@ var data = [ // Image, Title, [Song1, Song2, etc], color, font
 ];
 
 var vinylGroup:FlxTypedGroup = new FlxTypedGroup();
-static var curSelected:Int = 0;
+static var curSelFP:Int = 0;
 var songser = [];
 var album;
 var timer = 0;
@@ -34,6 +34,9 @@ subCurSelected = 0;
 
 var capsules = new FlxTypedGroup();
 
+//Test_score_shit.
+var ratingsAndShit = new FlxText(500, 400,100,'FUCK',24);
+var scoreBg = new FlxSprite(40,45).makeSolid(385, 350, FlxColor.BLACK);
 function create() {
 	if(!FlxG.save.data.gameStats.achievements.contains('pibby')) data[4][2].remove('Pibenis');
 	if(!FlxG.save.data.gameStats.achievements.contains('sc')) data[4][2].remove('Squeaky Clean');
@@ -42,6 +45,9 @@ function create() {
 	add(backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'))).screenCenter();
 	
 	add(album = new FlxSprite(40,45).loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"))).angle=-3;
+	//Test_score_shit.
+	add(scoreBg).alpha=0.01;
+	add(ratingsAndShit);
 
 	//Make this a whole FlxGroup that gets tweened on screen showing the songs statstitcs later.
 	scorText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "right", FlxTextBorderStyle.SHADOW, 0xFF000000);
@@ -108,7 +114,7 @@ function update(elapsed) {
 		openSubState(new EditorPicker());
 	}
 	
-    for (i in vinylGroup.members) i.x = lerp(i.x, -460 * (curSelected - i.ID), 0.2);
+    for (i in vinylGroup.members) i.x = lerp(i.x, -460 * (curSelFP - i.ID), 0.2);
 	
 	arrows[0].angle = Math.sin(timer * 3) * 5;
 	for (i in capsules){
@@ -138,9 +144,33 @@ function update(elapsed) {
 		persistentUpdate = !persistentDraw;
 		openSubState(new ModSubState("substates/stats-test"));
 	}
+	if (FlxG.keys.justPressed.J) {
+		showScore();
+	}
+}
+var showingSc=false;
+function showScore() {
+	FlxTween.cancelTweensOf(album, ['color','angle']);
+	FlxTween.cancelTweensOf(scoreBg, ['scale']);
+	if(!showingSc){
+		FlxTween.color(album, 0.2, album.color, 0xFF000000, {ease: FlxEase.circOut});
+		FlxTween.tween(album, {angle: 0}, 0.2, {ease: FlxEase.circOut});
+		FlxTween.tween(scoreBg.scale, {y: 600}, 0.4, {ease: FlxEase.circOut,
+			onUpdate: function(twn:FlxTween){scoreBg.updateHitbox();}});
+	} else {
+		FlxTween.color(album, 0.2, album.color, 0xFFFFFFFF, {ease: FlxEase.circOut});
+		FlxTween.tween(album, {angle: -3}, 0.2, {ease: FlxEase.circOut});
+		FlxTween.tween(scoreBg.scale, {y: 350}, 0.4, {ease: FlxEase.circOut,
+			onUpdate: function(twn:FlxTween){scoreBg.updateHitbox();}});
+	}
+	showingSc=!showingSc;
+}
+function postUpdate(elapsed) {
+	if(scoreBg==null)return;
+	scoreBg.alpha=CoolUtil.fpsLerp(scoreBg.alpha, showingSc?0.8:0.01, 0.16);
 }
 function changements(a,?sound) {
-	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, data[curSelected][2].length - 1);
+	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, data[curSelFP][2].length - 1);
 	catName.font=Paths.font(songser[subCurSelected].freeplayShit.font==null?"vcr.ttf":songser[subCurSelected].freeplayShit.font);
 	var ver = songser[subCurSelected].freeplayShit.album==null?1:songser[subCurSelected].freeplayShit.album;
 	
@@ -152,8 +182,8 @@ function changements(a,?sound) {
 
 function change(a) {
 	mult=1;
-	if(FlxG.save.data.freeplayShit.favourites.length==0)mult=curSelected==10?1:2;
-    curSelected = FlxMath.wrap(curSelected + a, 0, vinylGroup.length - mult);
+	if(FlxG.save.data.freeplayShit.favourites.length==0)mult=curSelFP==10?1:2;
+    curSelFP = FlxMath.wrap(curSelFP + a, 0, vinylGroup.length - mult);
 	
 	moveTimer.cancel();
 	
@@ -163,11 +193,11 @@ function change(a) {
 	}
 
 	songser = [];
-	for(s in data[curSelected][2]) songser.push(Chart.loadChartMeta(s, "normal", true));
+	for(s in data[curSelFP][2]) songser.push(Chart.loadChartMeta(s, "normal", true));
 	
 	for (i in vinylGroup.members) {
-		var relSel = Math.abs(curSelected - i.ID);
-		var targetNumber = curSelected == i.ID ? 190 : 300;
+		var relSel = Math.abs(curSelFP - i.ID);
+		var targetNumber = curSelFP == i.ID ? 190 : 300;
 		FlxTween.globalManager.cancelTweensOf(i);
 		FlxTween.tween(i, {y: targetNumber + relSel * 50}, 0.4, {ease: FlxEase.quartOut});
 	}
@@ -177,7 +207,7 @@ function change(a) {
 		for (i in vinylGroup.members) {
 			FlxTween.globalManager.completeTweensOf(i);
 			new FlxTimer().start(0.06, ()->{i.y += 128;});
-			i.x = -460 * (curSelected - i.ID);
+			i.x = -460 * (curSelFP - i.ID);
 		}
 	}
 	else
@@ -197,15 +227,15 @@ function change(a) {
 	}
 	
 	capsules.clear();
-	for (i in 0...data[curSelected][2].length) {
+	for (i in 0...data[curSelFP][2].length) {
 		add(capsuleSpawn(i,songser[i]));
 		capsules.members[i].text.x=0;
 		capsules.members[i].text.x=1240+(capsules.members[i].text.x-capsules.members[i].text.width);
 	}
 	
 	subCurSelected = 0;
-	catName.text = data[curSelected][1];
-	backGround.color=data[curSelected][3];
+	catName.text = data[curSelFP][1];
+	backGround.color=data[curSelFP][3];
 	changements(0);
 }
 function enterSong() {
