@@ -21,7 +21,8 @@
 		"composer":"Glitch.smh",
 		"hasModchart":true
 	},
-	"customValues": {"comboPath": "default/",
+	"customValues": {"hud":"yce",
+	"comboPath": "default/",
 	"countdownPath": "default/",
 	"countdownsound": "swindler"}
 }

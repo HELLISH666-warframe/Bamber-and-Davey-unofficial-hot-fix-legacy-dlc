@@ -17,7 +17,8 @@
 		"composer": "Glitch.smh",
 		"sound":"davey"
 	},
-	"customValues": {"comboPath": "default/",
+	"customValues": {"hud":"yce",
+	"comboPath": "default/",
 	"countdownPath": "default/",
 	"countdownsound": "davey"}
 }

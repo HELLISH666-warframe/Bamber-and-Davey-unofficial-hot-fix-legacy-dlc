@@ -20,7 +20,8 @@
 		"composer":"Glitch.smh",
 		"sound":"romania outskirts"
 	},
-	"customValues": {"comboPath": "default/",
+	"customValues": {"hud":"yce",
+	"comboPath": "default/",
 	"countdownPath": "romania outskirts/",
 	"countdownsound": "amung"}
 }

@@ -18,14 +18,19 @@ function new() {
 	Options.fpsCounter = true;
     updateCurStyle('Default');
 }
+var dAlpha:Float = 0;
 function update() {
-    //if(customText!=null&&Framerate.debugMode==0)
-    if (FlxG.keys.pressed.SHIFT && FlxG.keys.pressed.T) updateCurStyle('YCE');
+    if (FlxG.keys.pressed.SHIFT && FlxG.keys.pressed.H)updateCurStyle('Psych');
     if(curStyle=='CNE')return;
+    customText.x=10+Framerate.offset.x;
+    dAlpha=CoolUtil.fpsLerp(dAlpha, Framerate.debugMode > 0 ? 1 : 0, 0.5);
+    customText.x=customSubText.x = FlxMath.lerp(-customText.width - 30, 0, dAlpha);
     switch (curStyle) {
         default:customText.text = "FPS: " + Framerate.fpsCounter.fpsNum.text + "\nMEM: " + Framerate.memoryCounter.memoryText.text + Framerate.memoryCounter.memoryPeakText.text;
         customText.width = customText.textWidth;
-        case 'Psych':customText.text = "FPS: " + Framerate.fpsCounter.fpsNum.text + "\nMemory: "+StringTools.replace(CoolUtil.getSizeString(Framerate.memoryCounter.memory),'MB') + " / Peak: " +StringTools.replace(CoolUtil.getSizeString(Framerate.memoryCounter.memoryPeak),'MB', ' MB');
+        case 'Psych':customText.text = "FPS: " + Framerate.fpsCounter.fpsNum.text + "\nMemory: "+StringTools.replace(CoolUtil.getSizeString(Framerate.memoryCounter.memory),'MB', ' MB');
+        customText.textColor = 0xFFFFFFFF;
+        if (/*memoryMegas > 3000 || */Framerate.fpsCounter.lastFPS <= FlxG.drawFramerate / 2) customText.textColor = 0xFFFF0000;
         customText.width = customText.textWidth;
         case 'YCE':customText.text = "FPS: " + Framerate.fpsCounter.fpsNum.text+ 
         "\nMemory: "+StringTools.replace(CoolUtil.getSizeString(Framerate.memoryCounter.memory),'MB')+" MB\nMem Peak: "+StringTools.replace(CoolUtil.getSizeString(Framerate.memoryCounter.memoryPeak),'MB', ' MB');
@@ -42,6 +47,7 @@ public static function updateCurStyle(e){
     trace("Is_doings_fps_shits.");
     for(i in [Framerate.codenameBuildField,Framerate.memoryCounter.memoryText,Framerate.memoryCounter.memoryPeakText,Framerate.fpsCounter.fpsNum])
         if(i!=null) i.visible = Framerate.fpsCounter.fpsLabel.visible = false;
+    customText.textColor = 0xFFFFFFFF;
     customSubText.visible=false;
 	curStyle = e;
 	switch (curStyle) {

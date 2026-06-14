@@ -13,7 +13,8 @@
 		"hasCutscenes": true,
 		"sound":"bamber"
 	},
-	"customValues": {"comboPath": "",
+	"customValues": {"hud":"psych",
+	"comboPath": "",
 	"countdownPath": "funkin/",
 	"countdownsound": "funkin/"}
 }

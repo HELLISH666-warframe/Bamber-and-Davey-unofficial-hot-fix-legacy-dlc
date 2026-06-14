@@ -1,3 +1,4 @@
+if(PlayState.SONG.meta.customValues.hud=='v-slice'||PlayState.SONG.meta.customValues.hud=='psych')return;
 import StringTools;
 
 var countdownSprite = new FlxSprite();

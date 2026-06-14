@@ -11,9 +11,9 @@
 		"capsule":"BambersFarm",
 		"sound":"bamber"
 	},
-	"customValues": {
-		"countdownsound": "funkin/",
-		"countdownPath": "funkin/",
-		"comboPath": ""
+	"customValues": {"hud":"psych",
+	"comboPath": "",
+	"countdownPath": "funkin/",
+	"countdownsound": "funkin/"
 	}
 }

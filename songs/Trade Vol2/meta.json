@@ -17,7 +17,8 @@
 		"portrait":"trade-davey",
 		"composer":"Glitch.smh"
 	},
-	"customValues": {"comboPath": "exchangetown/",
+	"customValues": {"hud":"yce",
+	"comboPath": "exchangetown/",
 	"countdownPath": "exchangetown/",
 	"countdownsound": "bamber"}
 }

@@ -22,7 +22,8 @@
 		"portrait":"nikku",
 		"composer":"Glitch.smh"
 	},
-	"customValues": {"comboPath": "default/",
+	"customValues": {"hud":"psych",
+	"comboPath": "default/",
 	"countdownPath": "default/",
 	"countdownsound": "default"}
 }

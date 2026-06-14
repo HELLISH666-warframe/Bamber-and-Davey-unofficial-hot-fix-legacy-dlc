@@ -23,6 +23,9 @@ var foont="vcr_osd.ttf";
 function postCreate() {
 	if (scripts.get('customFonts')[PlayState.SONG.stage.toLowerCase()] != null)
 	foont=scripts.get('customFonts')[PlayState.SONG.stage.toLowerCase()];
+	timerBG.setGraphicSize(400,19);
+	timerBG.updateHitbox();
+	timerBG.screenCenter(FlxAxes.X);
 	fakeScoreText = new FlxText(healthBar.x + (healthBar.width * 0.28), 0, FlxG.width, "A", 20);
 	fakeScoreText.setFormat(Paths.font(foont), Std.int(20), 0xFFFFFFFF, 'center', FlxTextBorderStyle.OUTLINE, 0xFF000000);
 	fakeScoreText.borderSize = 1.5;
@@ -47,15 +50,19 @@ function postCreate() {
 		timerNow.borderSize = 2;
 		timerNow.visible = false;
 
-
-		newTimerBar = new FlxBar(timerBG.x + 4, timerBG.y + 4, 'LEFT_TO_RIGHT', Std.int(timerBG.width - 8), Std.int(timerBG.height - 8));
-		newTimerBar.y += timerBG.height - 4;
+		newTimerBar = new FlxBar(timerBG.x + 4, timerBG.y + 4, 'LEFT_TO_RIGHT', Std.int(timerBG.width - 12), Std.int(timerBG.height - 8));
+		newTimerBar.y += timerBG.height - 19;
 		newTimerBar.camera = camHUD;
 		newTimerBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
 		newTimerBar.alpha = 0;
 		newTimerBar.visible = false;
 		insert(members.indexOf(timerBG), newTimerBar);
 	}
+	remove(comboGroup, true); 
+	comboGroup.scale.set(0.7,0.7);
+	comboGroup.updateHitbox();
+	comboGroup.x -= 420;
+	comboGroup.y += 320;
 	updateCurStyle('Psych');
 }
 
@@ -81,6 +88,8 @@ function postUpdate(elapsed:Float) {
 		timerText.alpha = 0;
 		timerNow.screenCenter(FlxAxes.X);
 	}
+	comboGroup.cameras = [camHUD];
+    add(comboGroup);
 }
 
 var accuracyText = '?';
@@ -90,11 +99,9 @@ function onPlayerMiss(e) {
 }
 
 var scoreTxtTween;
-function onPlayerHit(note) {
+function onPlayerHit(e) {
 	calculateRating();
-	if(scoreTxtTween != null) {
-		scoreTxtTween.cancel();
-	}
+	if(scoreTxtTween != null) scoreTxtTween.cancel();
 	fakeScoreText.scale.x = 1.075;
 	fakeScoreText.scale.y = 1.075;
 	scoreTxtTween = FlxTween.tween(fakeScoreText.scale, {x: 1, y: 1}, 0.2, {

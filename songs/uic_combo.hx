@@ -1,3 +1,5 @@
+importScript("data/scripts/custom-ratings");
+if(PlayState.SONG.meta.customValues.hud=='v-slice'||PlayState.SONG.meta.customValues.hud=='psych')return;
 //Custom Combo graphics
 var comboPath = 'game/score/'+PlayState.SONG.meta.customValues.comboPath;
 
@@ -45,7 +47,6 @@ var comboOffsets = [
 ];
 var comboXOffset = comboOffsets[SONG.stage.toLowerCase()] != null ? comboOffsets[SONG.stage.toLowerCase()] : -7;
 
-importScript("data/scripts/custom-ratings");
 function postCreate() scripts.call('postComboShit');
 function onPlayerHit(e) {
     if(SONG.stage=='oldFarm_night'||SONG.stage=='oldFarm') return;

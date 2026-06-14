@@ -20,7 +20,8 @@
 		"composer": "???",
 		"sound":"bamber"
 	},
-	"customValues": {"comboPath": "default/",
+	"customValues": {"hud":"yce",
+	"comboPath": "default/",
 	"countdownPath": "default/",
 	"countdownsound": "bamber"}
 }

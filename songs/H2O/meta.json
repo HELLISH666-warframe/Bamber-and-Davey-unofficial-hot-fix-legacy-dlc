@@ -20,5 +20,9 @@
 		"vip": true,
 		"portrait":"water",
 		"composer":"Glitch.smh,River09"
-	}
+	},
+	"customValues": {"hud":"psych",
+	"comboPath": "",
+	"countdownPath": "funkin/",
+	"countdownsound": "funkin/"}
 }

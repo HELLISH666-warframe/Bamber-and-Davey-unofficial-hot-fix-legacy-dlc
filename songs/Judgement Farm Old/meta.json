@@ -20,7 +20,8 @@
 		"portrait": "bamber-sans-old",
 		"composer": "???"
 	},
-	"customValues": {"comboPath": "default/",
+	"customValues": {"hud":"yce",
+	"comboPath": "default/",
 	"countdownPath": "default/",
 	"countdownsound": "bamber"}
 }

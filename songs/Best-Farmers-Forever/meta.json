@@ -13,5 +13,6 @@
 		"capsule":"BambersFarm",
 		"composer":"Glitch.Smh",
 		"sound":"bamber"
-	}
+	},
+	"customValues": {"hud":"yce"}
 }

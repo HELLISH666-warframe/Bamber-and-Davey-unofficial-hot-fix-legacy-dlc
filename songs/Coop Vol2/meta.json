@@ -24,7 +24,8 @@
 		"hasCutscenes": true,
 		"sound":["bamber","davey"]
 	},
-	"customValues": {"comboPath": "default/",
+	"customValues": {"hud":"yce",
+	"comboPath": "default/",
 	"countdownPath": "default/",
 	"countdownsound": "davey"}
 }

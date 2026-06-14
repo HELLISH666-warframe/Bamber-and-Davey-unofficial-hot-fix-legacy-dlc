@@ -16,7 +16,8 @@
 		"new": true,
 		"composer":"Glitch.smh"
 	},
-	"customValues": {"comboPath": "",
+	"customValues": {"hud":"v-slice",
+	"comboPath": "",
 	"countdownPath": "funkin/",
 	"countdownsound": "funkin/"}
 }

@@ -20,7 +20,8 @@
 		"portrait":"bamber-sans-undertale",
 		"composer":"Glitch.smh"
 	},
-	"customValues": {"comboPath": "undertale/",
+	"customValues": {"hud":"yce",
+	"comboPath": "undertale/",
 	"countdownPath": "undertale/",
 	"countdownsound": "undertale"}
 }

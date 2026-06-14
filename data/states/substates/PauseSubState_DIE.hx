@@ -1,4 +1,3 @@
-import funkin.backend.FunkinText;
 import funkin.backend.utils.FunkinParentDisabler;
 import funkin.editors.charter.Charter;
 import funkin.menus.StoryMenuState;
@@ -14,19 +13,19 @@ var multiplayerText:FunkinText;
 
 var menuItems:Array<String>;
 
-var curSelected_Pause:Int = 0;
+var curSelePa:Int = 0;
 
 var pauseMusic = FlxG.sound.load(Assets.getMusic(Paths.music('breakfast')), 0, true);
 
 public var game:PlayState = PlayState.instance; // shortcut
 
-var menuItems:Array<String> = ['Resume', 'Restart Song', 'Change Controls', 'Change Options', 'Exit to menu', "Exit to charter"];
+var menuItems:Array<String> = ['Resume','Restart Song','Change Controls','Change Options','Exit to menu','Exit to charter'];
 
 var parentDisabler:FunkinParentDisabler;
 
 //Bamber_shit.
 var countTimer;
-var diffColors = ["normal" => 0xfcfc04, "easy" => 0x04fc04, "hard" => 0xfc0404, "absolutely fucking fucked" => 0xfc0404];
+var diffColors = ['normal'=>0xfcfc04,'easy'=>0x04fc04,'hard'=>0xfc0404,'absolutely fucking fucked'=>0xfc0404];
 var countdownTempo = 1 / Math.pow(2, Math.floor(Math.log(Conductor.bpm/120) / Math.log(2)));
 
 var countdownSprite = new FlxSprite();
@@ -41,7 +40,7 @@ function create(){
 	pauseMusic.group = FlxG.sound.defaultMusicGroup;
 	pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
 
-	var bg:FlxSprite = new FlxSprite().makeSolid(FlxG.width + 100, FlxG.height + 100, FlxColor.BLACK);
+	var bg = new FlxSprite().makeSolid(FlxG.width + 100, FlxG.height + 100, FlxColor.BLACK);
 	bg.updateHitbox();
 	bg.alpha = 0;
 	bg.screenCenter();
@@ -63,6 +62,7 @@ function create(){
 		if(label == null) continue;
 		label.scrollFactor.set();
 		label.alpha = 0;
+		label.font = PlayState.instance.scoreTxt.font;
 		label.x = FlxG.width - (label.width + 20);
 		label.y = 15 + (32 * k);
 		FlxTween.tween(label, {alpha: 1, y: label.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3 * (k+1)});
@@ -70,7 +70,6 @@ function create(){
 	}
 
 	if(diffColors[levelDifficulty.text.toLowerCase()] != null){levelDifficulty.color = diffColors[levelDifficulty.text.toLowerCase()];} else {levelDifficulty.color = 0xFFFFFF;}
-	for (i in [levelInfo, levelDifficulty, deathCounter]) i.font = PlayState.instance.scoreTxt.font;
 
 	FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
 
@@ -112,18 +111,14 @@ function create(){
 function update(elapsed:Float) {
 	if (pauseMusic.volume < 0.5) pauseMusic.volume += 0.01 * elapsed;
 
-	var upP = controls.UP_P;
-	var downP = controls.DOWN_P;
-	var scroll = FlxG.mouse.wheel;
-
-	if (upP || downP || scroll != 0)  // like this we wont break mods that expect a 0 change event when calling sometimes  - Nex
-		changeSelection((upP ? -1 : 0) + (downP ? 1 : 0) - scroll);
+	if (controls.UP_P || controls.DOWN_P || FlxG.mouse.wheel != 0)  // like this we wont break mods that expect a 0 change event when calling sometimes  - Nex
+		changeSelection((controls.UP_P ? -1 : 0) + (controls.DOWN_P ? 1 : 0) - FlxG.mouse.wheel);
 
 	if (controls.ACCEPT) selectOption();
 }
 
 function selectOption() {
-	switch (menuItems[curSelected_Pause]) {
+	switch (menuItems[curSelePa]) {
 		case "Resume":
 			if(FlxG.save.data.options.pauseCountdown){
 			var swagCounter = 2;
@@ -217,17 +212,15 @@ override function destroy() {
 			FlxG.cameras.remove(camera, true);
 	}
 
-	if(pauseMusic != null) {
-		FlxG.sound.destroySound(pauseMusic);
-	}
+	if(pauseMusic != null) FlxG.sound.destroySound(pauseMusic);
 }
 
 function changeSelection(a:Int) {
-	curSelected_Pause = FlxMath.wrap(curSelected_Pause + a, 0, menuItems.length-1);
+	curSelePa = FlxMath.wrap(curSelePa + a, 0, menuItems.length-1);
 	if(a!=0)CoolUtil.playMenuSFX('scroll', getVolume(1, 'sfx'));
 
 	for (i=>item in grpMenuShit.members) {
-		item.targetY = i - curSelected_Pause;
+		item.targetY = i - curSelePa;
 
 		item.alpha = (item.targetY == 0) ? 1 : 0.6;
 	}
