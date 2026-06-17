@@ -255,7 +255,7 @@ function playsong() {
 	acceptSound=curSong.freeplayShit.sound!=null?curSong.freeplayShit.sound:'default';
 	if(acceptSound.length<=3)
 		acceptSound=curSong.freeplayShit.sound[FlxG.random.int(0, curSong.freeplayShit.sound.length-1)];
-	FlxG.sound.play(Paths.sound('menu/accept/'+acceptSound), getVolume(1, 'sfx')).persist=true;
+	FlxG.sound.play(Paths.sound('menu/accept/'+acceptSound), getVolume(1, 'sfx'));
 	FlxG.switchState(new PlayState());
 	curPlayingInst="fuck";
 	click_through=false;

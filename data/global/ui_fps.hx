@@ -39,6 +39,7 @@ function update() {
 }
 function preStateSwitch() {
     updateCurStyle('Default');
+    changeFpsFont('vcr.ttf');
 }
 public static var curStyle = "Default";
 public static var curStyle_2;

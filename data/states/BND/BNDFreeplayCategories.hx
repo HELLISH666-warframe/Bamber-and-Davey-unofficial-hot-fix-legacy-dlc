@@ -1,6 +1,8 @@
-import funkin.backend.chart.Chart;
+importScript("data/scripts/saveFunctions");
+import flixel.text.FlxTextBorderStyle as BS;
 import funkin.backend.utils.WindowUtils;
-import flixel.text.FlxTextBorderStyle;
+import funkin.backend.chart.Chart;
+import funkin.savedata.FunkinSave;
 import menus.freeplay.Capsule;
 
 var arrows:Array<FunkinSprite> = [];
@@ -28,15 +30,21 @@ var songser = [];
 var album;
 var timer = 0;
 var playall;
-var scorText = new FlxText(24, 0);
+var scorText = new FlxText(24, 0,null,'Stats');
 
 subCurSelected = 0;
 
 var capsules = new FlxTypedGroup();
 
 //Test_score_shit.
-var ratingsAndShit = new FlxText(500, 400,100,'FUCK',24);
-var scoreBg = new FlxSprite(40,45).makeSolid(385, 350, FlxColor.BLACK);
+var scoreShit = new FlxTypedGroup();
+var personalBest = new FunkinText(280,45,110,'Personal Best',16);
+var rankText = new FunkinText(230,80,160,0,16);
+var notesText = new FunkinText(230,100,160,0,16);
+var sScoreText = new FunkinText(190,115,200,0,16);
+var missesText = new FunkinText(190,130,200,0,16);
+var hHCombo = new FunkinText(190,145,200,'Highest Combo: 9999',16);
+var ratingsAndShit = new FunkinText(90,180,300,'Perfect: 99999\nYou Should Kill Yourself, Now!: 99999\nOk: 99999\nBad: 99999\nSad: 99999',16);
 function create() {
 	if(!FlxG.save.data.gameStats.achievements.contains('pibby')) data[4][2].remove('Pibenis');
 	if(!FlxG.save.data.gameStats.achievements.contains('sc')) data[4][2].remove('Squeaky Clean');
@@ -45,17 +53,22 @@ function create() {
 	add(backGround = new FunkinSprite().loadGraphic(Paths.image('menus/menuDesat'))).screenCenter();
 	
 	add(album = new FlxSprite(40,45).loadGraphic(Paths.image("menus/freeplay/albums/vol2.5"))).angle=-3;
-	//Test_score_shit.
-	add(scoreBg).alpha=0.01;
-	add(ratingsAndShit);
 
 	//Make this a whole FlxGroup that gets tweened on screen showing the songs statstitcs later.
-	scorText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "right", FlxTextBorderStyle.SHADOW, 0xFF000000);
-	scorText.text = "Stats(Wip)";
+	scorText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "right", BS.SHADOW, 0xFF000000);
 	scorText.shadowOffset.set(2, 2);
 	add(scorText).angle=-3;
 	
 	add(capsules);
+	
+	//Test_score_shit.
+	add(scoreShit);
+	for(i in [personalBest,rankText,notesText,sScoreText,missesText,hHCombo,ratingsAndShit]){
+	i.alignment='right';
+	i.alpha=0.01;
+	scoreShit.add(i);
+	}
+
 	playall = new FlxSprite().loadGraphic(Paths.image("menus/freeplay/silhouettes/playall"));
 	playall.scale.set(0.33, 0.33);
 	playall.x += 96;
@@ -63,7 +76,7 @@ function create() {
 	add(playall);
 	
 	catName = new FlxText(FlxG.camera.width - 456, FlxG.camera.height - 672);
-	catName.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "left", FlxTextBorderStyle.SHADOW, 0xFF000000);
+	catName.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, "left", BS.SHADOW, 0xFF000000);
 	add(catName);
 	
     for (id=>i in data) {
@@ -145,29 +158,30 @@ function update(elapsed) {
 		openSubState(new ModSubState("substates/stats-test"));
 	}
 	if (FlxG.keys.justPressed.J) {
+		trace(getTheThingie(songser[subCurSelected].name,'normal','test'));
 		showScore();
 	}
 }
 var showingSc=false;
 function showScore() {
+	rankText.text='Rank: '+getTheThingie(songser[subCurSelected].name,'normal','rank');
+	notesText.text="Total Notes: "+getTheThingie(songser[subCurSelected].name,'normal','notes');
+	sScoreText.text='Score: '+getTheThingie(songser[subCurSelected].name,'normal','score');
+	missesText.text='Misses: '+getTheThingie(songser[subCurSelected].name,'normal','misses');
+	ratingsAndShit.text=FunkinSave.getSongHighscore(songser[subCurSelected].name, songser[subCurSelected].difficulties[1]).hits;
+	ratingsAndShit.text=StringTools.replace(ratingsAndShit.text,' =>',':');
+	ratingsAndShit.text=StringTools.replace(ratingsAndShit.text,',','\n');
+	for(i in ['[',']']) ratingsAndShit.text=StringTools.replace(ratingsAndShit.text,i,'');
+	for(i in 0...scoreShit.length) FlxTween.cancelTweensOf(scoreShit.members[i], ['alpha']);
 	FlxTween.cancelTweensOf(album, ['color','angle']);
-	FlxTween.cancelTweensOf(scoreBg, ['scale']);
 	if(!showingSc){
 		FlxTween.color(album, 0.2, album.color, 0xFF000000, {ease: FlxEase.circOut});
-		FlxTween.tween(album, {angle: 0}, 0.2, {ease: FlxEase.circOut});
-		FlxTween.tween(scoreBg.scale, {y: 600}, 0.4, {ease: FlxEase.circOut,
-			onUpdate: function(twn:FlxTween){scoreBg.updateHitbox();}});
 	} else {
 		FlxTween.color(album, 0.2, album.color, 0xFFFFFFFF, {ease: FlxEase.circOut});
-		FlxTween.tween(album, {angle: -3}, 0.2, {ease: FlxEase.circOut});
-		FlxTween.tween(scoreBg.scale, {y: 350}, 0.4, {ease: FlxEase.circOut,
-			onUpdate: function(twn:FlxTween){scoreBg.updateHitbox();}});
 	}
+	for(i in 0...scoreShit.length)FlxTween.tween(scoreShit.members[i], {alpha:showingSc?0.01:1}, 0.2);
+	FlxTween.tween(album, {angle: showingSc?-3:0}, 0.2, {ease: FlxEase.circOut});
 	showingSc=!showingSc;
-}
-function postUpdate(elapsed) {
-	if(scoreBg==null)return;
-	scoreBg.alpha=CoolUtil.fpsLerp(scoreBg.alpha, showingSc?0.8:0.01, 0.16);
 }
 function changements(a,?sound) {
 	subCurSelected = FlxMath.wrap(subCurSelected + a, 0, data[curSelFP][2].length - 1);
